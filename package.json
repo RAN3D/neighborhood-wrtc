@@ -1,0 +1,26 @@
+{
+  "name": "neighborhood-wrtc",
+  "version": "0.0.1",
+  "description": "neighborhood (or partial view) containing peers to communicate with",
+  "main": "lib/neighborhood.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
+  },
+  "keywords": [
+    "WebRTC",
+    "browser-to-browser",
+    "communication",
+    "overlay",
+    "network"
+  ],
+  "author": "Chat-Wane",
+  "license": "MIT",
+  "dependencies": {
+    "simple-peer": "^6.0.2",
+    "sorted-cmp-array": "^2.0.1"
+  }
+}
