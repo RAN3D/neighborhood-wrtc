@@ -60,5 +60,7 @@ n2.on('receive', function(origin, message){
   origin.send('pong');
 };
 
-n1.get(idSocket).send('ping');
+
+// #2 it returns {id, socket, state}
+n1.get(idSocket).socket.send('ping');
 ```
