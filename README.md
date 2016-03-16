@@ -2,8 +2,12 @@
 
 <i>Keywords: WebRTC, browser-to-browser communication, overlay network</i>
 
-Project that aims to ease the WebRTC connection establishment process. It is
-built on top of the (who said amazing?)
+Project that aims to ease the WebRTC connection establishment process. Among
+others, it alleviates the need to know which socket produced which offer. It
+aims to be part of network protocols that build overlay networks.  The API may
+change to face the need of overlay network protocols.
+
+Neighborhood-wrtc is built on top of the (who said amazing?)
 [simple-peer](https://github.com/feross/simple-peer) project.
 
 ## Installation
@@ -17,6 +21,7 @@ Through bower: ```$ bower install neighborhood-wrtc```
 ```js
 var Neighborhood = require('neighborhood-wrtc');
 
+// #0 initialize neighborhood tables with(-out here) WebRTC-specific options  
 var n1 = new Neighborhood({});
 var n2 = new Neighborhood({});
 
@@ -40,17 +45,19 @@ var idSocket = n1.connection(options);
 var idSocket = n2.connection(options, requestMessage);
 
 // #D the accept part sends the response message to n1
-var idSocket = n1.connection(options, responseMessage);
+var idSocket = n1.connection(responseMessage);
 ```
+
+<br />
 
 ```
 // #1 receive a message from a neighbor in the table
-n1.on('receive', function(socket, message){
-  socket.send('ping');
+n1.on('receive', function(origin, message){
+  origin.send('ping');
 };
 
-n2.on('receive', function(socket, message){
-  socket.send('pong');
+n2.on('receive', function(origin, message){
+  origin.send('pong');
 };
 
 n1.get(idSocket).send('ping');
