@@ -24,3 +24,8 @@ n1.connection(callbacks(n1, n2));
 // #2 establishing a connection from n1 to n3
 n1.connection(callbacks(n1, n3));
 // > console: should see 4 "connection established" messages
+
+// #3 two arcs with one socket
+setTimeout(function(){
+    n1.connection(callbacks(n1, n3))
+}, 20000);
