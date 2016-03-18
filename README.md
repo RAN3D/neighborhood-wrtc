@@ -12,18 +12,18 @@ Neighborhood-wrtc is built on top of the (who said amazing?)
 
 ## Installation
 
-Through npm: ```$ npm install neighborhood-wrtc```
+Using npm: ```$ npm install neighborhood-wrtc```
 
-Through bower: ```$ bower install neighborhood-wrtc```
+Using bower: ```$ bower install neighborhood-wrtc```
 
 ## Usage
 
 ```js
 var Neighborhood = require('neighborhood-wrtc');
 
-// #0 initialize neighborhood tables with(-out here) WebRTC-specific options  
-var n1 = new Neighborhood({});
-var n2 = new Neighborhood({});
+// #0 initialize neighborhood tables with(-out here) WebRTC-specific options
+var n1 = new Neighborhood(someOptions);
+var n2 = new Neighborhood(anotherOptions);
 
 // #A default behavior of connections possibly with parameters
 var options = {
@@ -33,8 +33,9 @@ var options = {
   onAccept: function(responseMessage){
     // probably find a way to send it back
   },
-  onReady: function(){
+  onReady: function(id){
     // do something when the connection is established
+    // maybe use the id of the new socket to perform an operation
   }
 };
 
@@ -60,7 +61,10 @@ n2.on('receive', function(origin, message){
   origin.send('pong');
 };
 
+// #2 get returns {id, socket, state}
+var entry = n1.get(idSocket);
 
-// #2 it returns {id, socket, state}
-n1.get(idSocket).socket.send('ping');
+// #3 send something using the socket
+entry && entry.socket.send('ping');
 ```
+
