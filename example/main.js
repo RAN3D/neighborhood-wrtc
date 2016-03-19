@@ -1,9 +1,12 @@
-var Neighborhood = require('neighborhood-wrtc');
+var Neighborhood = require('../lib/neighborhood.js');
+var WRTC = require('electron-webrtc')();
+
+var opts = {webrtc: {wrtc: WRTC}};
 
 // create 3 neighborhood tables without options
-var n1 = new Neighborhood();
-var n2 = new Neighborhood();
-var n3 = new Neighborhood();
+var n1 = new Neighborhood(opts);
+var n2 = new Neighborhood(opts);
+var n3 = new Neighborhood(opts);
 
 var callbacks = function(src, dest){
     return {
@@ -22,7 +25,7 @@ var callbacks = function(src, dest){
 // #1 establishing a connection from n1 to n2
 n1.connection(callbacks(n1, n2));
 // #2 establishing a connection from n1 to n3
-n1.connection(callbacks(n1, n3));
+//n1.connection(callbacks(n1, n3));
 // > console: should see 4 "connection established" messages
 
 // #3 two arcs with one socket
