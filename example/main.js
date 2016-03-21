@@ -12,11 +12,9 @@ var n3 = new Neighborhood(opts);
 var callbacks = function(src, dest){
     return {
         onInitiate: function(offer){
-            console.log("INIT " + JSON.stringify(offer));
             dest.connection(callbacks(dest, src), offer);
         },
         onAccept: function(offer){
-            console.log("ANSW " + JSON.stringify(offer));
             dest.connection(offer);
         },
         onReady: function(){
@@ -25,13 +23,13 @@ var callbacks = function(src, dest){
     };
 };
 
-// #1 establishing a connection from n1 to n2
+// #1 establishing a connection from n1 to n2, twice but one socket is kept
+n1.connection(callbacks(n1, n2));
 n1.connection(callbacks(n1, n2));
 // #2 establishing a connection from n1 to n3
-// n1.connection(callbacks(n1, n3));
-// > console: should see 4 "connection established" messages
+n1.connection(callbacks(n1, n3));
+// > console: should see 6 "connection established" messages
 
-// #3 two arcs with one socket
-// setTimeout(function(){
-//     n1.connection(callbacks(n1, n3))
-// }, 20000);
+setTimeout(function(){
+    n1.connection(callbacks(n1,n3));
+}, 10000);

@@ -3,9 +3,10 @@
 <i>Keywords: WebRTC, browser-to-browser communication, overlay network</i>
 
 Project that aims to ease the WebRTC connection establishment process. Among
-others, it alleviates the need to know which socket produced which offer. It
-aims to be part of network protocols that build overlay networks.  The API may
-change to face the need of overlay network protocols.
+others, it alleviates the need to know which socket produced which offer.  It
+also reuses existing connections instead of establishing new ones, when it is
+possible. It aims to be part of network protocols that build overlay networks.
+The API may change to face the need of overlay network protocols.
 
 Neighborhood-wrtc is built on top of the (who said amazing?)
 [simple-peer](https://github.com/feross/simple-peer) project.
@@ -23,7 +24,7 @@ var Neighborhood = require('neighborhood-wrtc');
 
 // #0 initialize neighborhood tables with(-out here) WebRTC-specific options
 var n1 = new Neighborhood(someOptions);
-var n2 = new Neighborhood(anotherOptions);
+var n2 = new Neighborhood(otherOptions);
 
 // #A default behavior of connections possibly with parameters
 var options = {
