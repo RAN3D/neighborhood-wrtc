@@ -29,7 +29,8 @@ n1.connection(callbacks(n1, n2));
 // #2 establishing a connection from n1 to n3
 n1.connection(callbacks(n1, n3));
 // > console: should see 6 "connection established" messages
-
+// > console: and two others after a bit
 setTimeout(function(){
     n1.connection(callbacks(n1,n3));
 }, 10000);
+// #3 in fine, two connections remain active
