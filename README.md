@@ -22,12 +22,12 @@ Using bower: ```$ bower install neighborhood-wrtc```
 ```js
 var Neighborhood = require('neighborhood-wrtc');
 
-// #0 initialize neighborhood tables with(-out here) WebRTC-specific options
+// #A initialize neighborhood tables with(-out here) WebRTC-specific options
 var n1 = new Neighborhood(someOptions);
 var n2 = new Neighborhood(otherOptions);
 
-// #A default behavior of connections possibly with parameters
-var options = {
+// #B default behavior of connections possibly with parameters
+var callbacks = {
   onInitiate: function(requestMessage){
     // probably find a way to send it to someone
   },
@@ -40,20 +40,21 @@ var options = {
   }
 };
 
-// #B initiate a connection 
-var idSocket = n1.connection(options);
+// #C establish a browser-to-browser communication channel
+// #1 initiate a connection at n1
+var idSocket1 = n1.connection(callbacks);
 
-// #C the initiate part of n1 sends the request message to n2
-var idSocket = n2.connection(options, requestMessage);
+// #2 accept the connection at n2 using the message from n1
+var idSocket2 = n2.connection(callbacks, requestMessage);
 
-// #D the accept part sends the response message to n1
-var idSocket = n1.connection(responseMessage);
+// #3 finalize the connection at n1 using the answer from n2
+var idSocket1 = n1.connection(responseMessage);
 ```
 
 <br />
 
-```
-// #1 receive a message from a neighbor in the table
+```js
+// #A receive a message from a neighbor in the table
 n1.on('receive', function(origin, message){
   origin.send('ping');
 };
@@ -62,10 +63,38 @@ n2.on('receive', function(origin, message){
   origin.send('pong');
 };
 
-// #2 get returns {id, socket, state}
+// #B get the entry corresponding to the id in argument,
+// null if it does not exist
 var entry = n1.get(idSocket);
 
-// #3 send something using the socket
+// #C send something using the socket
+// (TODO) improve this
 entry && entry.socket.send('ping');
 ```
 
+<br />
+
+```js
+// #A an arc is added successfully, i.e., either a channel has been
+// properly established, or the channel already existed and an arc
+// depends on it. It is worth noting that the same view can be used
+// by multiple protocol at once, hence, the events are devided:
+// #1 general event without specific protocol associated;
+n1.on('ready', function(id){
+  // the arc id has been established
+});
+
+// #2 protocol-specific event.
+n1.on('ready-' + <protocol-name>, function(id){
+  // protocol-name is listening with more attention to such events
+});
+
+// #B remove an arc from the view. If this arc happens to be the last
+// of its kind. The channel will be destroy after a short delay (except
+// if an arc of the corresponding type is added again before the
+// countdown).
+n2.disconnect(id);
+
+// #C remove all arcs at once.
+n2.disconnect();
+```
