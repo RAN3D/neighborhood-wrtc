@@ -55,21 +55,20 @@ var idSocket1 = n1.connection(responseMessage);
 
 ```js
 // #A receive a message from a neighbor in the table
-n1.on('receive', function(origin, message){
-  origin.send('ping');
+n1.on('receive', function(id, message){
+  n1.send(id, 'ping');
 };
 
-n2.on('receive', function(origin, message){
-  origin.send('pong');
+n2.on('receive', function(id, message){
+  n2.send(id, 'pong'); 
 };
 
 // #B get the entry corresponding to the id in argument,
 // null if it does not exist
 var entry = n1.get(idSocket);
 
-// #C send something using the socket
-// (TODO) improve this
-entry && entry.socket.send('ping');
+// #C n1 sends a message to n2 using the identifier of the socket
+var success = n1.send(idSocket1, 'ping');
 ```
 
 <br />
@@ -77,8 +76,9 @@ entry && entry.socket.send('ping');
 ```js
 // #A an arc is added successfully, i.e., either a channel has been
 // properly established, or the channel already existed and an arc
-// depends on it. It is worth noting that the same view can be used
-// by multiple protocol at once, hence, the events are devided:
+// depends on it. It is worth noting that a same instance of the module
+// can be used by multiple protocol at once, hence, the events are
+// divided:
 // #1 general event without specific protocol associated;
 n1.on('ready', function(id){
   // the arc id has been established
