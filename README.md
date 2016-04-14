@@ -5,8 +5,11 @@
 Project that aims to ease the WebRTC connection establishment process. Among
 others, it alleviates the need to know which socket produced which offer.  It
 also reuses existing connections instead of establishing new ones, when it is
-possible. It aims to be part of network protocols that build overlay networks.
-The API may change to face the need of overlay network protocols.
+possible. It aims to be part of network protocols that build overlay networks
+and to provide them logical arcs - using identifiers - instead of channels.
+Ultimately, it aims to provide multiple protocols to run on top of one
+instance of this module for they may share identical arcs.  Note: The API may
+change to face the need of overlay network protocols.
 
 Neighborhood-wrtc is built on top of the (who said amazing?)
 [simple-peer](https://github.com/feross/simple-peer) project.
@@ -42,13 +45,13 @@ var callbacks = {
 
 // #C establish a browser-to-browser communication channel
 // #1 initiate a connection at n1
-var idSocket1 = n1.connection(callbacks);
+var id1 = n1.connection(callbacks);
 
 // #2 accept the connection at n2 using the message from n1
-var idSocket2 = n2.connection(callbacks, requestMessage);
+var id2 = n2.connection(callbacks, requestMessage);
 
 // #3 finalize the connection at n1 using the answer from n2
-var idSocket1 = n1.connection(responseMessage);
+var id1 = n1.connection(responseMessage);
 ```
 
 <br />
@@ -64,11 +67,11 @@ n2.on('receive', function(id, message){
 };
 
 // #B get the entry corresponding to the id in argument,
-// null if it does not exist
-var entry = n1.get(idSocket);
+// null if it does not exist (maybe will be removed in a future version)
+var entry = n1.get(id);
 
 // #C n1 sends a message to n2 using the identifier of the socket
-var success = n1.send(idSocket1, 'ping');
+var success = n1.send(id1, 'ping');
 ```
 
 <br />
@@ -92,9 +95,17 @@ n1.on('ready-' + <protocol-name>, function(id){
 // #B remove an arc from the view. If this arc happens to be the last
 // of its kind. The channel will be destroy after a short delay (except
 // if an arc of the corresponding type is added again before the
-// countdown).
-n2.disconnect(id);
+// countdown). Returns true if the identifier exists. False otherwise.
+var success = n2.disconnect(id); 
 
 // #C remove all arcs at once.
-n2.disconnect();
+var sucess = n2.disconnect();
+
+// #D an arc has been removed
+n2.on('disconnect', function(id){
+  // maybe update the local view according to the id.
+});
+
+// #E an arc failed to establish
+n2.on('fail');
 ```
