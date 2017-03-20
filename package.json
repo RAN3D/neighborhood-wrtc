@@ -16,6 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "babelify": "^7.3.0",
+    "jsdoc": "^3.4.3",
+    "lodash": "^4.17.4",
     "simple-peer": "^7.0.0",
     "sorted-cmp-array": "^2.0.1",
     "uuid": "^3.0.1"
@@ -28,7 +30,8 @@
     "browserify": "6.2.x"
   },
   "scripts": {
-    "test": "npm run build && npm run debug",
+    "doc": "jsdoc -c .jsdoc.json README.md lib/",
+    "test": "npm run build && npm run debug && npm run doc",
     "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 --debug > build/neighborhood-wrtc.bundle.debug.js",
     "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 > build/neighborhood-wrtc.bundle.js"
   }
