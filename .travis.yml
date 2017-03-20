@@ -7,3 +7,5 @@ deploy:
   on:
     tags: true
     repo: ran3d/neighborhood-wrtc
+notifications:
+  email: false
