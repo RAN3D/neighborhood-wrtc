@@ -2,10 +2,10 @@ language: node_js
 node_js: node
 deploy:
 	provider: npm
-	email: grumpy.chat.wane@gmail.com
-	api_key: $NPM
-	on:
-		tags: true
-		repo: RAN3D/neighborhood-wrtc
+  email: grumpy.chat.wane@gmail.com
+  api_key: $NPM
+  on:
+    tags: true
+    repo: RAN3D/neighborhood-wrtc
 notifications:
-	email: false
+  email: false
