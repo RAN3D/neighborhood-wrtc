@@ -17,12 +17,12 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "simple-peer": "^7.0.0",
-    "sorted-cmp-array": "^2.0.1",
+    "extended-sorted-array": "^0.0.1",
     "uuid": "^3.0.1"
   },
   "bundledDependencies": [
     "simple-peer",
-    "sorted-cmp-array",
+    "extended-sorted-array",
     "uuid",
     "lodash"
   ],
