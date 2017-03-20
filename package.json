@@ -1,32 +1,34 @@
 {
-    "name": "neighborhood-wrtc",
-    "version": "0.0.1",
-    "description": "neighborhood (or partial view) containing peers to communicate with",
-    "main": "lib/neighborhood.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
-    },
-    "keywords": [
-        "WebRTC",
-        "browser-to-browser communication",
-        "overlay network"
-    ],
-    "author": "Chat-Wane",
-    "license": "MIT",
-    "dependencies": {
-        "simple-peer": "^6.0.2",
-        "sorted-cmp-array": "^2.0.1"
-    },
-    "bundledDependencies": [
-        "simple-peer",
-        "sorted-cmp-array"
-    ],
-    "devDependencies": {
-        "browserify": "6.2.x"
-    },
-    "scripts":{
-        "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc --debug > build/neighborhood-wrtc.bundle.debug.js",
-        "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc | uglifyjs > build/neighborhood-wrtc.bundle.js"
-    }
+  "name": "neighborhood-wrtc",
+  "version": "1.0.0",
+  "description": "neighborhood (or partial view) containing peers to communicate with",
+  "main": "lib/neighborhood.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
+  },
+  "keywords": [
+    "WebRTC",
+    "browser-to-browser communication",
+    "overlay network"
+  ],
+  "author": "Chat-Wane",
+  "license": "MIT",
+  "dependencies": {
+    "babelify": "^7.3.0",
+    "simple-peer": "^7.0.0",
+    "sorted-cmp-array": "^2.0.1",
+    "uuid": "^3.0.1"
+  },
+  "bundledDependencies": [
+    "simple-peer",
+    "sorted-cmp-array"
+  ],
+  "devDependencies": {
+    "browserify": "6.2.x"
+  },
+  "scripts": {
+    "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 --debug > build/neighborhood-wrtc.bundle.debug.js",
+    "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 > build/neighborhood-wrtc.bundle.js"
+  }
 }
