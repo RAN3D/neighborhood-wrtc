@@ -15,8 +15,6 @@
   "author": "Chat-Wane",
   "license": "MIT",
   "dependencies": {
-    "babelify": "^7.3.0",
-    "jsdoc": "^3.4.3",
     "lodash": "^4.17.4",
     "simple-peer": "^7.0.0",
     "sorted-cmp-array": "^2.0.1",
@@ -24,10 +22,14 @@
   },
   "bundledDependencies": [
     "simple-peer",
-    "sorted-cmp-array"
+    "sorted-cmp-array",
+    "uuid",
+    "lodash"
   ],
   "devDependencies": {
-    "browserify": "6.2.x"
+    "browserify": "6.2.x",
+    "babelify": "^7.3.0",
+    "jsdoc": "^3.4.3"
   },
   "scripts": {
     "doc": "jsdoc -c .jsdoc.json README.md lib/",
