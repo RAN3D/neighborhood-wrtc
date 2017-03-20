@@ -6,4 +6,4 @@ deploy:
   api_key: $NPM
   on:
     tags: true
-    repo: ran3d/neighborhood-wrtc
+    repo: RAN3D/neighborhood-wrtc
