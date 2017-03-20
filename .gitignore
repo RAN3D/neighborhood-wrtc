@@ -1,5 +1,7 @@
 #Perso
 doc/
+*~
+.DS_Store
 
 # Logs
 logs
