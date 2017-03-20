@@ -1,4 +1,4 @@
-# neighborhood-wrtc
+# Neighborhood-wrtc [![Build Status](https://travis-ci.org/RAN3D/neighborhood-wrtc.svg?branch=master)](https://travis-ci.org/RAN3D/neighborhood-wrtc)
 
 <i>Keywords: WebRTC, browser-to-browser communication, overlay network</i>
 
