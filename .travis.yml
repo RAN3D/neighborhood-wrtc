@@ -1,7 +1,7 @@
 language: node_js
 node_js: node
 deploy:
-	provider: npm
+  provider: npm
   email: grumpy.chat.wane@gmail.com
   api_key: $NPM
   on:
