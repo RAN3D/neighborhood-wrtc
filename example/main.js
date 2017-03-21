@@ -1,4 +1,4 @@
-var Neighborhood = require('neighborhood-wrtc').default;
+var Neighborhood = require('neighborhood-wrtc');
 var WRTC;
 var opts = {
   webrtc: {
