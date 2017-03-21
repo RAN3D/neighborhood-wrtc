@@ -1,5 +1,5 @@
 {
-  "title": "N2N-Overlay-Wrtc",
+  "title": "Neighborhood-wrtc",
   "source":"./lib",
   "destination":"./docs",
   "coverage": false,
