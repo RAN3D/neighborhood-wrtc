@@ -1,0 +1,2134 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "name": "lib/extended-sorted-array.js",
+    "content": "var SortedArray = require('sorted-cmp-array');\n\nSortedArray.prototype.get = function(entry){\n    var index = this.indexOf(entry);\n    return ((index >= 0)&&this.arr[index]) || null;\n};\n\n\nSortedArray.prototype.contains = function(entry){\n    return (this.indexOf(entry) >= 0);\n};\n\nexport default SortedArray;\n",
+    "static": true,
+    "longname": "lib/extended-sorted-array.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 1,
+    "kind": "function",
+    "name": "get",
+    "memberof": "lib/extended-sorted-array.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/extended-sorted-array.js~get",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/extended-sorted-array.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 2,
+    "kind": "function",
+    "name": "contains",
+    "memberof": "lib/extended-sorted-array.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/extended-sorted-array.js~contains",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/extended-sorted-array.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 3,
+    "kind": "variable",
+    "name": "SortedArray",
+    "memberof": "lib/extended-sorted-array.js",
+    "static": true,
+    "longname": "lib/extended-sorted-array.js~SortedArray",
+    "access": null,
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/extended-sorted-array.js",
+    "importStyle": "SortedArray",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 4,
+    "kind": "file",
+    "name": "lib/multiset.js",
+    "content": "var SortedArray = require('./extended-sorted-array').default;\n\nfunction MultiSet(Comparator){\n    this.ms = new SortedArray(Comparator||defaultComparator);\n};\n\nMultiSet.prototype.insert = function(entryOrId){\n    var object = this.ms.get(entryOrId);\n    if (object){\n        // #1 if the object already exists, increment its occurrence\n        object.occ += 1;\n    } else {\n        // #2 initalize the occurrence to 1 and insert it otherwise\n        entryOrId.occ = 1;\n        this.ms.insert(entryOrId);\n    };\n    return object;\n};\n\nMultiSet.prototype.remove = function(entryOrId){\n    var object = this.ms.get(entryOrId);\n    if (object){\n        object.occ -= 1;\n        (object.occ <= 0) && this.ms.remove(entryOrId);\n    };\n    return object;\n};\n\nMultiSet.prototype.removeAll = function(entryOrId){\n    var object = this.ms.get(entryOrId);\n    if (object){\n//        object.occ = 0;\n        this.ms.remove(entryOrId);\n    };\n    return object;\n};\n\nMultiSet.prototype.contains = function(entryOrId){\n    return this.ms.contains(entryOrId);\n};\n\nMultiSet.prototype.get = function(entryOrId){\n    return this.ms.get(entryOrId);\n};\n\nfunction defaultComparator(a, b){\n    var first = a.id || a;\n    var second = b.id || b;\n    if (first < second){return -1};\n    if (first > second){return  1};\n    return 0;\n};\n\n\nexport default MultiSet;\n",
+    "static": true,
+    "longname": "lib/multiset.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 5,
+    "kind": "variable",
+    "name": "SortedArray",
+    "memberof": "lib/multiset.js",
+    "static": true,
+    "longname": "lib/multiset.js~SortedArray",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 6,
+    "kind": "function",
+    "name": "insert",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~insert",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entryOrId",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 7,
+    "kind": "function",
+    "name": "remove",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~remove",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entryOrId",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 8,
+    "kind": "function",
+    "name": "removeAll",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~removeAll",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entryOrId",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 9,
+    "kind": "function",
+    "name": "contains",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~contains",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entryOrId",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 10,
+    "kind": "function",
+    "name": "get",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~get",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "entryOrId",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 11,
+    "kind": "function",
+    "name": "defaultComparator",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~defaultComparator",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "a",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "b",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "function",
+    "name": "MultiSet",
+    "memberof": "lib/multiset.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "lib/multiset.js~MultiSet",
+    "access": null,
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/multiset.js",
+    "importStyle": "MultiSet",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "Comparator",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 13,
+    "kind": "file",
+    "name": "lib/neighborhood.js",
+    "content": "'use strict';\n\nconst EventEmitter = require('events');\nconst _ = require('lodash');\nconst uuid = require('uuid/v4');\nconst SortedArray = require('./extended-sorted-array.js').default;\nconst MultiSet = require('./multiset.js').default;\nconst SimplePeer = require('simple-peer');\n\n/**\n * Easy-to-use interface on SimplePeer (npm: simple-peer)\n * @param {object} options the options available to the connections, e.g. timeout before\n * @param {string} options.protocol Protocol to use\n * @param {object} options.webrtc Webrtc options\n * @param {number} options.timeout Time to wait for socket destruction or failed message (time in milliseconds)\n * @param {function} options.encoding Method to customize message sent, default: return JSON.stringify(data);\n * @param {function} options.decoding Method to decode a received message, default: return JSON.parse(data);\n * @param {boolean} options.verbose Print log message: default false\n */\nclass Neighborhood extends EventEmitter {\n\tconstructor (options) {\n\t\tsuper();\n    // #1 save options\n    this.options = {\n      protocol: 'default',\n      webrtc: {\n        iceServers: [],\n        trickle: false,\n        initiator: false\n      },\n      config: {},\n      trickle: false,\n      timeout: 2 * 60 * 1000,\n      encoding: (d) => {\n        return JSON.stringify(d);\n      },\n      decoding: (d) => {\n        return JSON.parse(d);\n      },\n      verbose: false\n    };\n    this.options = _.merge(this.options, options);\n    // Override config to match webrtc options\n    this.options.config = this.options.webrtc;\n\n    this.protocol = this.options.protocol + '-neighborhood-wrtc';\n\n\t\tthis.encoding = this.options.encoding;\n\t\tthis.decoding = this.options.decoding;\n\t\tthis.ID = uuid();\n\n\t\tif(options && options.verbose) {\n\t\t\tthis.verbose = options.verbose;\n\t\t}\n\n    /*!\n     * \\brief compare the id of entries in tables\n     */\n    this.Comparator = (a, b) => {\n        var first = a.id || a;\n        var second = b.id || b;\n        if (first < second){ return -1; };\n        if (first > second){ return  1; };\n        return 0;\n    };\n    // #2 initialize tables\n    this.pending = new SortedArray(this.Comparator); // not finalized yet\n    this.living = new MultiSet(this.Comparator); // live and usable\n    this.dying = new SortedArray(this.Comparator); // being remove\n\t}\n\n  /**\n   * @private\n   */\n\tMResponse (tid, pid, offer, protocol) {\n\t\treturn {\n\t\t\ttid: tid,\n\t\t\tpid: pid,\n\t\t\tprotocol: protocol,\n\t\t\ttype: 'MResponse',\n\t\t\toffer: offer\n\t\t};\n\t}\n  /**\n   * @private\n   */\n\tMRequest (tid, pid, offer, protocol) {\n\t\treturn {\n\t\t\ttid: tid,\n\t\t\tpid: pid,\n\t\t\tprotocol: protocol,\n\t\t\ttype: 'MRequest',\n\t\t\toffer: offer\n\t\t};\n\t}\n\n  /**\n   * @private\n   */\n\tlog (...args) {\n\t\tif(this.verbose) {\n\t\t\tconsole.log('[NEIGHBORHOOD] ', args);\n\t\t}\n\t}\n\n  /**\n   * Disconnect one of the arc with the identifier in argument. If\n   * it was the last arc with such id, the socket is relocated to the dying\n   * table. The socket will be destroy after a bit. If there is no argument,\n   * disconnect the whole.\n   * @param {string|undefined} id Id provided to just disconnect the arc or if undefined disconnect all arcs\n   */\n  disconnect (id) {\n    let result = true;\n    if (!id) {\n      // #1 disconnect everything\n      this.pending.arr.forEach((e) => {\n          e.socket && e.socket.destroy();\n      });\n      while (this.living.ms.arr.length > 0) {\n          const e = this.living.ms.arr[0];\n          e.socket && e.socket.destroy();\n      }\n      while (this.dying.arr.length > 0) {\n          const e = this.dying.arr[0];\n          e.socket && e.socket.destroy();\n      }\n    } else {\n      // #2 remove one arc\n      let entry = this.living.remove(id);\n      entry && this.emit('disconnect', entry.id);\n      if (entry && entry.occ <= 0) {\n          entry.timeout = setTimeout(function () {\n              entry.socket.destroy();\n          }, this.options.timeout);\n          this.dying.insert(entry);\n      }\n      result = entry && true || false;\n    }\n    return result;\n  }\n\n\t/**\n\t * New method to encode the message as we want\n\t * @param  {object} message The message to encode\n\t * @return {string|binary} Encoded message\n\t */\n\tencode (message) {\n\t\treturn this.encoding(message);\n\t}\n\n\t/**\n\t * New method to encode the message as we want\n\t * @param  {object} message The message to encode\n\t * @return {string|binary} Encoded message\n\t */\n\tdecode (message) {\n\t\treturn this.decoding(message);\n\t}\n\n\t/**\n\t * Send a message to the socket in argument\n\t * @param {string} id the identifier of the socket\n\t * @param {object} message the message to send\n\t * @return {boolean} true if the message is sent, false otherwise\n\t */\n\tsend (id, message) {\n\t\t// #1 convert message to string (TODO) check if there is a better way\n\t\tlet msg = ((message instanceof String) && message) || this.encode(message);\n\t\t// #2 get the socket to use\n\t\tlet entry = this.get(id);\n\t\tlet socket = entry && entry.socket;\n\t\t// #3 send\n\t\tlet result = msg && socket && socket.connected && socket._channel && (socket._channel.readyState === 'open');\n\t\t// result && socket.send(msg);\n\t\ttry {\n\t\t\tresult && socket.send(msg);\n\t\t\t// DONT SET RESULT TO TRUE !\n\t\t} catch (e) {\n\t\t\tthis.log('[NEIGHBORHOOD:SEND:ERROR] ', new Error(e));\n\t\t\tresult = false;\n\t\t}\n\t\treturn result;\n\t}\n\n\t/**\n\t* creates a new incomming or outgoing connection depending on arguments\n\t* @param {callback} callbacks the callback function when the stun/ice server returns the\n\t* offer\n\t* @param {object} message empty if it must initiate a connection, or the message received\n\t* if it must answer or finalize one\n\t* @param {string} protocol the connection is established for a specific protocol\n\t* @return {string} the id of the socket\n\t*/\n\tconnection (callbacks, message, protocol) {\n\n\t\tlet msg = (callbacks && callbacks.type && callbacks) || message;\n\t\tlet result;\n\n\t\tif (!msg) {\n\t\t\tresult = this.initiate(callbacks, protocol);\n\t\t} else if (msg.type==='MRequest') {\n\n\t\t\tif(message && message.pid && this.ID !== message.pid) {\n\t\t\t\tresult = this.accept(msg, callbacks);\n\t\t\t\tresult = this.alreadyExists(msg, callbacks) || result;\n\t\t\t}\n\n\t\t} else if (msg.type==='MResponse') {\n\t\t\tresult = this.finalize(msg);\n\t\t\tresult = this.alreadyExists(msg) || result;\n\t\t}\n\n\t\treturn result && result.id;\n\t}\n\n  /**\n   * Get the entry corresponding to the id in argument. The entry contains\n   * the socket.\n   * @param {string} id the identifier of the socket to retrieve\n   * @return {object} an entry from tables. It priorizes entries in living, then dying,\n   * then pending.\n   */\n  get(id){\n      return this.living.get(id) || this.dying.get(id) || this.pending.get(id);\n  }\n\n\t/**\n\t * @private\n\t * Common behavior to initiating and accepting sockets\n\t * @param {object} entry the entry in the neighborhood table\n\t * @return {void}\n\t */\n\tcommon (entry) {\n\t\tconst self = this, socket = entry.socket;\n\n\t\tsocket.on('data', (message) => {\n\t\t\tmessage = self.decode(message);\n\t\t\tself.emit('receive', entry.pid, message);\n\t\t});\n\t\tsocket.on('stream', (stream) => {\n\t\t\tself.emit('stream', entry.pid, stream);\n\t\t});\n\n\t\tsocket.on('error', err => {\n\t\t\tself.emit('error', new Error(err));\n\t\t});\n\t}\n\n\t/**\n\t * @private\n\t * initiates a connection with another peer -- the id of which is unknown\n\t * @param {callback} callbacks the function to call when signaling info are received and\n\t * when the connection is ready to be used\n\t * @param {string} protocol The protocol\n\t * @return {object} entry\n\t */\n\tinitiate (callbacks, protocol) {\n\t\tconst self = this;\n\t\tlet opts = self.options.config;\n\t\topts.initiator = true;\n\t\tlet socket = new SimplePeer(opts);\n\t\tlet entry = {\n\t\t\tid: uuid(),\n\t\t\tsocket: socket,\n\t\t\tprotocol: protocol,\n\t\t\tsuccessful: false, // not yet\n\t\t\tonOffer: callbacks && callbacks.onInitiate,\n\t\t\tonReady: callbacks && callbacks.onReady\n\t\t};\n\n\t\tthis.pending.insert(entry);\n\t\tsocket.on('signal', (offer) => {\n\t\t\tentry.onOffer && entry.onOffer(self.MRequest(entry.id, self.ID, offer, protocol));\n\t\t});\n\n\t\tentry.timeout = setTimeout(() => {\n\t\t\tlet e = self.pending.get(entry.id);\n\t\t\tif (e && !e.successful) {\n\t\t\t\tself.emit('fail', '[FAIL:INITIATE] an error occured during removing the entry');\n\t\t\t}\n\t\t\tself.pending.remove(entry) && socket.destroy();\n\t\t}, this.options.timeout);\n\t\treturn entry;\n\t}\n\n\n\t/**\n\t * @private\n\t * accept the offer of another peer\n\t * @param {object} message the received message containing id and offer\n\t * @param {callback} callbacks the function call after receiving the offer and\n\t * when the connection is ready\n\t * @return {object} Entry\n\t */\n\taccept (message, callbacks) {\n\t\t// #1 if already exists, use it\n\n\n\t\tlet prior = this.pending.get(message.tid);\n\t\tif (prior) {\n\t\t\treturn prior;\n\t\t}\n\t\t// #2 otherwise, create the socket\n\t\tconst self = this;\n\t\t// let opts=JSON.parse(JSON.stringify(this.options));// quick but ugly copy\n\t\tlet opts = this.options.config;\n\t\topts.initiator = false;\n\t\tlet socket = new SimplePeer(opts);\n\t\tlet entry = {\n\t\t\tid: message.tid,\n\t\t\tpid: message.pid,\n\t\t\tprotocol: message.protocol,\n\t\t\tsocket: socket,\n\t\t\tsuccessful: false,\n\t\t\tonOffer: callbacks && callbacks.onAccept,\n\t\t\tonReady: callbacks && callbacks.onReady\n\t\t};\n\n\t\tthis.pending.insert(entry);\n\t\tsocket.on('signal', function (offer) {\n\t\t\tentry.onOffer && entry.onOffer(self.MResponse(entry.id, self.ID, offer, entry.protocol));\n\t\t});\n\t\tsocket.on('connect', function () {\n\t\t\tself.get(entry.pid) && socket.destroy();\n\t\t\tself.pending.remove(entry);\n\t\t\tself.living.insert({\n\t\t\t\tid: entry.pid,\n\t\t\t\tsocket: entry.socket,\n\t\t\t\tonReady: entry.onReady,\n\t\t\t\tonOffer: entry.onOffer\n\t\t\t});\n\n\n\t\t\tentry.onReady && entry.onReady(entry.pid);\n\t\t\tself.emit('ready', entry.pid);\n\t\t\tentry.protocol && self.emit('ready-'+entry.protocol, entry.pid);\n\n\t\t\tclearTimeout(entry.timeout);\n\t\t\tentry.timeout = null;\n\t\t});\n\t\tsocket.on('close', function () {\n\t\t\tif (self.pending.contains(entry.id)) {\n\t\t\t\t// #A pending: entry is kept until automatic destruction\n\t\t\t\tentry.socket = null;\n\t\t\t} else {\n\t\t\t\t// #B living or dying: clear the tables\n\t\t\t\tentry.timeout && clearTimeout(entry.timeout);\n\t\t\t\tentry.timeout = null;\n\t\t\t\tlet live = self.living.removeAll(entry.pid);\n\t\t\t\tif (live) {\n\t\t\t\t\tfor (let i = 0; i < live.occ; ++i) {\n\t\t\t\t\t\tself.emit('disconnect', entry.pid);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tself.dying.remove(entry.pid);\n\t\t\t}\n\t\t});\n\n\t\tthis.common(entry);\n\n\t\tentry.timeout = setTimeout(function () {\n\t\t\tlet e = self.pending.get(entry.id);\n\t\t\tif (e && !e.successful) {\n\t\t\t\tself.emit('fail', '[FAIL:ACCEPT] an error occured during removing the entry');\n\t\t\t}\n\t\t\tself.pending.remove(entry.id) && socket.destroy();\n\t\t}, this.options.timeout);\n\t\treturn entry;\n\t}\n\n\n\t/**\n\t * @private\n\t* finalize the behavior of an initiating socket\n\t* @param {object} message the received message possibly containing an answer to the\n\t* proposed offer\n\t* @return {object} Return prior entry\n\t*/\n\tfinalize (message) {\n\t\t// #1 if it does not exists, stop; or if it exists but already setup\n\t\t// return it\n\t\tlet prior = this.pending.get(message.tid);\n\t\tif (!prior || prior.pid) {\n\t\t\treturn prior;\n\t\t}\n\t\t// #2 otherwise set the events correctly\n\t\tprior.pid = message.pid;\n\n\t\tlet entry = {\n\t\t\tid: message.pid,\n\t\t\tsocket: prior.socket,\n\t\t\tprotocol: prior.protocol,\n\t\t\tonReady: prior.onReady,\n\t\t\tonOffer: prior.onOffer\n\t\t};\n\n\t\tconst self = this;\n\t\tlet socket = entry.socket;\n\t\tsocket.on('connect', function () {\n\n\t\t\tself.get(entry.id) && socket.destroy();\n\t\t\tself.pending.remove(prior);\n\t\t\tself.living.insert(entry);\n\t\t\tentry.onReady && entry.onReady(prior.pid);\n\t\t\tself.emit('ready', prior.pid);\n\t\t\tentry.protocol && self.emit('ready-'+entry.protocol, prior.pid);\n\t\t\tclearTimeout(prior.timeout);\n\n\t\t});\n\t\tsocket.on('close', function () {\n\t\t\tif (self.pending.contains(message.tid)) {\n\t\t\t\tself.pending.get(message.tid).socket = null;\n\t\t\t} else {\n\t\t\t\tprior.timeout && clearTimeout(prior.timeout);\n\t\t\t\tprior.timeout = null;\n\t\t\t\tlet live = self.living.removeAll(prior.pid);\n\t\t\t\tif (live) {\n\t\t\t\t\tfor (let i = 0; i < live.occ; ++i) {\n\t\t\t\t\t\tself.emit('disconnect', prior.pid);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tself.dying.remove(prior.pid);\n\t\t\t}\n\t\t});\n\n\t\tthis.common(prior);\n\n\t\treturn prior;\n\t}\n\n\t/**\n\t * @private\n\t*  the peer id already exists in the tables\n\t*  @param {object} message The message\n\t*  @param {callback} callbacks the callbacks\n\t*  @return {object} alreaydExist\n\t*/\n\talreadyExists (message, callbacks) {\n\t\tconst self = this;\n\t\tlet alreadyExists = this.get(message.pid);\n\t\tif  (!alreadyExists) {\n\t\t\t// #A does not already exists but pending\n\t\t\tlet entry = this.pending.get(message.tid);\n\t\t\tentry && entry.socket && message.offer && entry.socket.signal(message.offer);\n\t\t} else {\n\t\t\t// #B already exists and pending\n\t\t\tlet toRemove = this.pending.get(message.tid);\n\t\t\tif (toRemove && toRemove.socket) { // exists but socket still w8in\n\t\t\t\tif (!alreadyExists.timeout) {\n\t\t\t\t\t// #1 already in living socket, add an occurrence\n\t\t\t\t\tthis.living.insert(message.pid);\n\t\t\t\t\ttoRemove.successful = true;\n\t\t\t\t} else {\n\t\t\t\t\t// #2 was dying, resurect the socket\n\t\t\t\t\tthis.dying.remove(alreadyExists);\n\t\t\t\t\tclearTimeout(alreadyExists.timeout);\n\t\t\t\t\talreadyExists.timeout = null;\n\t\t\t\t\tthis.living.insert(alreadyExists);\n\t\t\t\t\ttoRemove.successful = true;\n\t\t\t\t}\n\t\t\t\ttoRemove.socket.destroy();\n\t\t\t\t// #C standard on accept function if it exists in arg\n\t\t\t\tmessage.offer && callbacks && callbacks.onAccept && callbacks.onAccept(self.MResponse(message.tid, this.ID,\tnull,\tmessage.protocol));\n\n\t\t\t\t(callbacks &&\tcallbacks.onReady && callbacks.onReady(alreadyExists.id)) ||\t(toRemove && \ttoRemove.onReady &&\ttoRemove.onReady(alreadyExists.id));\n\t\t\t\tthis.emit('ready', alreadyExists.id);\n\t\t\t\tmessage.protocol && this.emit('ready-'+message.protocol, alreadyExists.id);\n\t\t\t}\n\t\t}\n\t\treturn alreadyExists;\n\t}\n\n}\n\n\nexport default Neighborhood;\n",
+    "static": true,
+    "longname": "lib/neighborhood.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 14,
+    "kind": "variable",
+    "name": "EventEmitter",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~EventEmitter",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 15,
+    "kind": "variable",
+    "name": "_",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~_",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "variable",
+    "name": "uuid",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~uuid",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 17,
+    "kind": "variable",
+    "name": "SortedArray",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~SortedArray",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 18,
+    "kind": "variable",
+    "name": "MultiSet",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~MultiSet",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 19,
+    "kind": "variable",
+    "name": "SimplePeer",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~SimplePeer",
+    "access": null,
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "class",
+    "name": "Neighborhood",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~Neighborhood",
+    "access": null,
+    "export": true,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": "Neighborhood",
+    "description": "Easy-to-use interface on SimplePeer (npm: simple-peer)",
+    "lineNumber": 20,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "the options available to the connections, e.g. timeout before"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.protocol",
+        "description": "Protocol to use"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.webrtc",
+        "description": "Webrtc options"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.timeout",
+        "description": "Time to wait for socket destruction or failed message (time in milliseconds)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.encoding",
+        "description": "Method to customize message sent, default: return JSON.stringify(data);"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.decoding",
+        "description": "Method to decode a received message, default: return JSON.parse(data);"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options.verbose",
+        "description": "Print log message: default false"
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "EventEmitter"
+    ]
+  },
+  {
+    "__docId__": 21,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 22,
+    "kind": "member",
+    "name": "options",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#options",
+    "access": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"protocol\": string, \"webrtc\": *, \"config\": *, \"trickle\": *, \"timeout\": *, \"encoding\": *, \"decoding\": *, \"verbose\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 23,
+    "kind": "member",
+    "name": "options",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#options",
+    "access": null,
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "member",
+    "name": "protocol",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#protocol",
+    "access": null,
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 25,
+    "kind": "member",
+    "name": "encoding",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#encoding",
+    "access": null,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 26,
+    "kind": "member",
+    "name": "decoding",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#decoding",
+    "access": null,
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 27,
+    "kind": "member",
+    "name": "ID",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#ID",
+    "access": null,
+    "description": null,
+    "lineNumber": 50,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 28,
+    "kind": "member",
+    "name": "verbose",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#verbose",
+    "access": null,
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 29,
+    "kind": "member",
+    "name": "Comparator",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#Comparator",
+    "access": null,
+    "description": null,
+    "lineNumber": 59,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 30,
+    "kind": "member",
+    "name": "pending",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#pending",
+    "access": null,
+    "description": null,
+    "lineNumber": 67,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 31,
+    "kind": "member",
+    "name": "living",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#living",
+    "access": null,
+    "description": null,
+    "lineNumber": 68,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 32,
+    "kind": "member",
+    "name": "dying",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#dying",
+    "access": null,
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 33,
+    "kind": "method",
+    "name": "MResponse",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#MResponse",
+    "access": "private",
+    "description": "",
+    "lineNumber": 75,
+    "params": [
+      {
+        "name": "tid",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "pid",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "offer",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "protocol",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"tid\": *, \"pid\": *, \"protocol\": *, \"type\": string, \"offer\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 34,
+    "kind": "method",
+    "name": "MRequest",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#MRequest",
+    "access": "private",
+    "description": "",
+    "lineNumber": 87,
+    "params": [
+      {
+        "name": "tid",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "pid",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "offer",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "protocol",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"tid\": *, \"pid\": *, \"protocol\": *, \"type\": string, \"offer\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 35,
+    "kind": "method",
+    "name": "log",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#log",
+    "access": "private",
+    "description": "",
+    "lineNumber": 100,
+    "params": [
+      {
+        "name": "args",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ]
+  },
+  {
+    "__docId__": 36,
+    "kind": "method",
+    "name": "disconnect",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#disconnect",
+    "access": null,
+    "description": "Disconnect one of the arc with the identifier in argument. If\nit was the last arc with such id, the socket is relocated to the dying\ntable. The socket will be destroy after a bit. If there is no argument,\ndisconnect the whole.",
+    "lineNumber": 113,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": "Id provided to just disconnect the arc or if undefined disconnect all arcs"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 37,
+    "kind": "method",
+    "name": "encode",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#encode",
+    "access": null,
+    "description": "New method to encode the message as we want",
+    "lineNumber": 148,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The message to encode"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string",
+        "binary"
+      ],
+      "spread": false,
+      "description": "Encoded message"
+    }
+  },
+  {
+    "__docId__": 38,
+    "kind": "method",
+    "name": "decode",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#decode",
+    "access": null,
+    "description": "New method to encode the message as we want",
+    "lineNumber": 157,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The message to encode"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string",
+        "binary"
+      ],
+      "spread": false,
+      "description": "Encoded message"
+    }
+  },
+  {
+    "__docId__": 39,
+    "kind": "method",
+    "name": "send",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#send",
+    "access": null,
+    "description": "Send a message to the socket in argument",
+    "lineNumber": 167,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": "the identifier of the socket"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "the message to send"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "true if the message is sent, false otherwise"
+    }
+  },
+  {
+    "__docId__": 40,
+    "kind": "method",
+    "name": "connection",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#connection",
+    "access": null,
+    "description": "creates a new incomming or outgoing connection depending on arguments",
+    "lineNumber": 195,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "callback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callbacks",
+        "description": "the callback function when the stun/ice server returns the\noffer"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "empty if it must initiate a connection, or the message received\nif it must answer or finalize one"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocol",
+        "description": "the connection is established for a specific protocol"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "the id of the socket"
+    }
+  },
+  {
+    "__docId__": 41,
+    "kind": "method",
+    "name": "get",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#get",
+    "access": null,
+    "description": "Get the entry corresponding to the id in argument. The entry contains\nthe socket.",
+    "lineNumber": 224,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": "the identifier of the socket to retrieve"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "an entry from tables. It priorizes entries in living, then dying,\nthen pending."
+    }
+  },
+  {
+    "__docId__": 42,
+    "kind": "method",
+    "name": "common",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#common",
+    "access": "private",
+    "description": "",
+    "lineNumber": 234,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "entry",
+        "description": "the entry in the neighborhood table"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "void"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 43,
+    "kind": "method",
+    "name": "initiate",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#initiate",
+    "access": "private",
+    "description": "",
+    "lineNumber": 258,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "callback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callbacks",
+        "description": "the function to call when signaling info are received and\nwhen the connection is ready to be used"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocol",
+        "description": "The protocol"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "entry"
+    }
+  },
+  {
+    "__docId__": 44,
+    "kind": "method",
+    "name": "accept",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#accept",
+    "access": "private",
+    "description": "",
+    "lineNumber": 296,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "the received message containing id and offer"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "callback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callbacks",
+        "description": "the function call after receiving the offer and\nwhen the connection is ready"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Entry"
+    }
+  },
+  {
+    "__docId__": 45,
+    "kind": "method",
+    "name": "finalize",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#finalize",
+    "access": "private",
+    "description": "",
+    "lineNumber": 380,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "the received message possibly containing an answer to the\nproposed offer"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Return prior entry"
+    }
+  },
+  {
+    "__docId__": 46,
+    "kind": "method",
+    "name": "alreadyExists",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#alreadyExists",
+    "access": "private",
+    "description": "",
+    "lineNumber": 439,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The message"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "callback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callbacks",
+        "description": "the callbacks"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "alreaydExist"
+    }
+  },
+  {
+    "__docId__": 48,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 49,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "lineNumber": 193,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "external",
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 97,
+    "kind": "external",
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "external",
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "external",
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "external",
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "external",
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "external",
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 103,
+    "kind": "external",
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "lineNumber": 34,
+    "builtinExternal": true
+  }
+]

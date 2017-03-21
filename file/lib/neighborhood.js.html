@@ -1,11 +1,54 @@
-'use strict';
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/neighborhood.js | Neighborhood-wrtc API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
 
-const EventEmitter = require('events');
-const _ = require('lodash');
-const uuid = require('uuid/v4');
-const SortedArray = require('./extended-sorted-array.js').default;
-const MultiSet = require('./multiset.js').default;
-const SimplePeer = require('simple-peer');
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/chat-wane/neighborhood-wrtc.git/" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-MultiSet">MultiSet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SortedArray">SortedArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EventEmitter">EventEmitter</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/neighborhood.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+const EventEmitter = require(&apos;events&apos;);
+const _ = require(&apos;lodash&apos;);
+const uuid = require(&apos;uuid/v4&apos;);
+const SortedArray = require(&apos;./extended-sorted-array.js&apos;).default;
+const MultiSet = require(&apos;./multiset.js&apos;).default;
+const SimplePeer = require(&apos;simple-peer&apos;);
 
 /**
  * Easy-to-use interface on SimplePeer (npm: simple-peer)
@@ -22,7 +65,7 @@ class Neighborhood extends EventEmitter {
 		super();
     // #1 save options
     this.options = {
-      protocol: 'default',
+      protocol: &apos;default&apos;,
       webrtc: {
         iceServers: [],
         trickle: false,
@@ -31,10 +74,10 @@ class Neighborhood extends EventEmitter {
       config: {},
       trickle: false,
       timeout: 2 * 60 * 1000,
-      encoding: (d) => {
+      encoding: (d) =&gt; {
         return JSON.stringify(d);
       },
-      decoding: (d) => {
+      decoding: (d) =&gt; {
         return JSON.parse(d);
       },
       verbose: false
@@ -43,24 +86,24 @@ class Neighborhood extends EventEmitter {
     // Override config to match webrtc options
     this.options.config = this.options.webrtc;
 
-    this.protocol = this.options.protocol + '-neighborhood-wrtc';
+    this.protocol = this.options.protocol + &apos;-neighborhood-wrtc&apos;;
 
 		this.encoding = this.options.encoding;
 		this.decoding = this.options.decoding;
 		this.ID = uuid();
 
-		if(options && options.verbose) {
+		if(options &amp;&amp; options.verbose) {
 			this.verbose = options.verbose;
 		}
 
     /*!
      * \brief compare the id of entries in tables
      */
-    this.Comparator = (a, b) => {
+    this.Comparator = (a, b) =&gt; {
         var first = a.id || a;
         var second = b.id || b;
-        if (first < second){ return -1; };
-        if (first > second){ return  1; };
+        if (first &lt; second){ return -1; };
+        if (first &gt; second){ return  1; };
         return 0;
     };
     // #2 initialize tables
@@ -77,7 +120,7 @@ class Neighborhood extends EventEmitter {
 			tid: tid,
 			pid: pid,
 			protocol: protocol,
-			type: 'MResponse',
+			type: &apos;MResponse&apos;,
 			offer: offer
 		};
 	}
@@ -89,7 +132,7 @@ class Neighborhood extends EventEmitter {
 			tid: tid,
 			pid: pid,
 			protocol: protocol,
-			type: 'MRequest',
+			type: &apos;MRequest&apos;,
 			offer: offer
 		};
 	}
@@ -99,7 +142,7 @@ class Neighborhood extends EventEmitter {
    */
 	log (...args) {
 		if(this.verbose) {
-			console.log('[NEIGHBORHOOD] ', args);
+			console.log(&apos;[NEIGHBORHOOD] &apos;, args);
 		}
 	}
 
@@ -114,28 +157,28 @@ class Neighborhood extends EventEmitter {
     let result = true;
     if (!id) {
       // #1 disconnect everything
-      this.pending.arr.forEach((e) => {
-          e.socket && e.socket.destroy();
+      this.pending.arr.forEach((e) =&gt; {
+          e.socket &amp;&amp; e.socket.destroy();
       });
-      while (this.living.ms.arr.length > 0) {
+      while (this.living.ms.arr.length &gt; 0) {
           const e = this.living.ms.arr[0];
-          e.socket && e.socket.destroy();
+          e.socket &amp;&amp; e.socket.destroy();
       }
-      while (this.dying.arr.length > 0) {
+      while (this.dying.arr.length &gt; 0) {
           const e = this.dying.arr[0];
-          e.socket && e.socket.destroy();
+          e.socket &amp;&amp; e.socket.destroy();
       }
     } else {
       // #2 remove one arc
       let entry = this.living.remove(id);
-      entry && this.emit('disconnect', entry.id);
-      if (entry && entry.occ <= 0) {
+      entry &amp;&amp; this.emit(&apos;disconnect&apos;, entry.id);
+      if (entry &amp;&amp; entry.occ &lt;= 0) {
           entry.timeout = setTimeout(function () {
               entry.socket.destroy();
           }, this.options.timeout);
           this.dying.insert(entry);
       }
-      result = entry && true || false;
+      result = entry &amp;&amp; true || false;
     }
     return result;
   }
@@ -166,18 +209,18 @@ class Neighborhood extends EventEmitter {
 	 */
 	send (id, message) {
 		// #1 convert message to string (TODO) check if there is a better way
-		let msg = ((message instanceof String) && message) || this.encode(message);
+		let msg = ((message instanceof String) &amp;&amp; message) || this.encode(message);
 		// #2 get the socket to use
 		let entry = this.get(id);
-		let socket = entry && entry.socket;
+		let socket = entry &amp;&amp; entry.socket;
 		// #3 send
-		let result = msg && socket && socket.connected && socket._channel && (socket._channel.readyState === 'open');
-		// result && socket.send(msg);
+		let result = msg &amp;&amp; socket &amp;&amp; socket.connected &amp;&amp; socket._channel &amp;&amp; (socket._channel.readyState === &apos;open&apos;);
+		// result &amp;&amp; socket.send(msg);
 		try {
-			result && socket.send(msg);
+			result &amp;&amp; socket.send(msg);
 			// DONT SET RESULT TO TRUE !
 		} catch (e) {
-			this.log('[NEIGHBORHOOD:SEND:ERROR] ', new Error(e));
+			this.log(&apos;[NEIGHBORHOOD:SEND:ERROR] &apos;, new Error(e));
 			result = false;
 		}
 		return result;
@@ -194,24 +237,24 @@ class Neighborhood extends EventEmitter {
 	*/
 	connection (callbacks, message, protocol) {
 
-		let msg = (callbacks && callbacks.type && callbacks) || message;
+		let msg = (callbacks &amp;&amp; callbacks.type &amp;&amp; callbacks) || message;
 		let result;
 
 		if (!msg) {
 			result = this.initiate(callbacks, protocol);
-		} else if (msg.type==='MRequest') {
+		} else if (msg.type===&apos;MRequest&apos;) {
 
-			if(message && message.pid && this.ID !== message.pid) {
+			if(message &amp;&amp; message.pid &amp;&amp; this.ID !== message.pid) {
 				result = this.accept(msg, callbacks);
 				result = this.alreadyExists(msg, callbacks) || result;
 			}
 
-		} else if (msg.type==='MResponse') {
+		} else if (msg.type===&apos;MResponse&apos;) {
 			result = this.finalize(msg);
 			result = this.alreadyExists(msg) || result;
 		}
 
-		return result && result.id;
+		return result &amp;&amp; result.id;
 	}
 
   /**
@@ -234,16 +277,16 @@ class Neighborhood extends EventEmitter {
 	common (entry) {
 		const self = this, socket = entry.socket;
 
-		socket.on('data', (message) => {
+		socket.on(&apos;data&apos;, (message) =&gt; {
 			message = self.decode(message);
-			self.emit('receive', entry.pid, message);
+			self.emit(&apos;receive&apos;, entry.pid, message);
 		});
-		socket.on('stream', (stream) => {
-			self.emit('stream', entry.pid, stream);
+		socket.on(&apos;stream&apos;, (stream) =&gt; {
+			self.emit(&apos;stream&apos;, entry.pid, stream);
 		});
 
-		socket.on('error', err => {
-			self.emit('error', new Error(err));
+		socket.on(&apos;error&apos;, err =&gt; {
+			self.emit(&apos;error&apos;, new Error(err));
 		});
 	}
 
@@ -265,21 +308,21 @@ class Neighborhood extends EventEmitter {
 			socket: socket,
 			protocol: protocol,
 			successful: false, // not yet
-			onOffer: callbacks && callbacks.onInitiate,
-			onReady: callbacks && callbacks.onReady
+			onOffer: callbacks &amp;&amp; callbacks.onInitiate,
+			onReady: callbacks &amp;&amp; callbacks.onReady
 		};
 
 		this.pending.insert(entry);
-		socket.on('signal', (offer) => {
-			entry.onOffer && entry.onOffer(self.MRequest(entry.id, self.ID, offer, protocol));
+		socket.on(&apos;signal&apos;, (offer) =&gt; {
+			entry.onOffer &amp;&amp; entry.onOffer(self.MRequest(entry.id, self.ID, offer, protocol));
 		});
 
-		entry.timeout = setTimeout(() => {
+		entry.timeout = setTimeout(() =&gt; {
 			let e = self.pending.get(entry.id);
-			if (e && !e.successful) {
-				self.emit('fail', '[FAIL:INITIATE] an error occured during removing the entry');
+			if (e &amp;&amp; !e.successful) {
+				self.emit(&apos;fail&apos;, &apos;[FAIL:INITIATE] an error occured during removing the entry&apos;);
 			}
-			self.pending.remove(entry) && socket.destroy();
+			self.pending.remove(entry) &amp;&amp; socket.destroy();
 		}, this.options.timeout);
 		return entry;
 	}
@@ -313,16 +356,16 @@ class Neighborhood extends EventEmitter {
 			protocol: message.protocol,
 			socket: socket,
 			successful: false,
-			onOffer: callbacks && callbacks.onAccept,
-			onReady: callbacks && callbacks.onReady
+			onOffer: callbacks &amp;&amp; callbacks.onAccept,
+			onReady: callbacks &amp;&amp; callbacks.onReady
 		};
 
 		this.pending.insert(entry);
-		socket.on('signal', function (offer) {
-			entry.onOffer && entry.onOffer(self.MResponse(entry.id, self.ID, offer, entry.protocol));
+		socket.on(&apos;signal&apos;, function (offer) {
+			entry.onOffer &amp;&amp; entry.onOffer(self.MResponse(entry.id, self.ID, offer, entry.protocol));
 		});
-		socket.on('connect', function () {
-			self.get(entry.pid) && socket.destroy();
+		socket.on(&apos;connect&apos;, function () {
+			self.get(entry.pid) &amp;&amp; socket.destroy();
 			self.pending.remove(entry);
 			self.living.insert({
 				id: entry.pid,
@@ -332,25 +375,25 @@ class Neighborhood extends EventEmitter {
 			});
 
 
-			entry.onReady && entry.onReady(entry.pid);
-			self.emit('ready', entry.pid);
-			entry.protocol && self.emit('ready-'+entry.protocol, entry.pid);
+			entry.onReady &amp;&amp; entry.onReady(entry.pid);
+			self.emit(&apos;ready&apos;, entry.pid);
+			entry.protocol &amp;&amp; self.emit(&apos;ready-&apos;+entry.protocol, entry.pid);
 
 			clearTimeout(entry.timeout);
 			entry.timeout = null;
 		});
-		socket.on('close', function () {
+		socket.on(&apos;close&apos;, function () {
 			if (self.pending.contains(entry.id)) {
 				// #A pending: entry is kept until automatic destruction
 				entry.socket = null;
 			} else {
 				// #B living or dying: clear the tables
-				entry.timeout && clearTimeout(entry.timeout);
+				entry.timeout &amp;&amp; clearTimeout(entry.timeout);
 				entry.timeout = null;
 				let live = self.living.removeAll(entry.pid);
 				if (live) {
-					for (let i = 0; i < live.occ; ++i) {
-						self.emit('disconnect', entry.pid);
+					for (let i = 0; i &lt; live.occ; ++i) {
+						self.emit(&apos;disconnect&apos;, entry.pid);
 					}
 				}
 				self.dying.remove(entry.pid);
@@ -361,10 +404,10 @@ class Neighborhood extends EventEmitter {
 
 		entry.timeout = setTimeout(function () {
 			let e = self.pending.get(entry.id);
-			if (e && !e.successful) {
-				self.emit('fail', '[FAIL:ACCEPT] an error occured during removing the entry');
+			if (e &amp;&amp; !e.successful) {
+				self.emit(&apos;fail&apos;, &apos;[FAIL:ACCEPT] an error occured during removing the entry&apos;);
 			}
-			self.pending.remove(entry.id) && socket.destroy();
+			self.pending.remove(entry.id) &amp;&amp; socket.destroy();
 		}, this.options.timeout);
 		return entry;
 	}
@@ -397,27 +440,27 @@ class Neighborhood extends EventEmitter {
 
 		const self = this;
 		let socket = entry.socket;
-		socket.on('connect', function () {
+		socket.on(&apos;connect&apos;, function () {
 
-			self.get(entry.id) && socket.destroy();
+			self.get(entry.id) &amp;&amp; socket.destroy();
 			self.pending.remove(prior);
 			self.living.insert(entry);
-			entry.onReady && entry.onReady(prior.pid);
-			self.emit('ready', prior.pid);
-			entry.protocol && self.emit('ready-'+entry.protocol, prior.pid);
+			entry.onReady &amp;&amp; entry.onReady(prior.pid);
+			self.emit(&apos;ready&apos;, prior.pid);
+			entry.protocol &amp;&amp; self.emit(&apos;ready-&apos;+entry.protocol, prior.pid);
 			clearTimeout(prior.timeout);
 
 		});
-		socket.on('close', function () {
+		socket.on(&apos;close&apos;, function () {
 			if (self.pending.contains(message.tid)) {
 				self.pending.get(message.tid).socket = null;
 			} else {
-				prior.timeout && clearTimeout(prior.timeout);
+				prior.timeout &amp;&amp; clearTimeout(prior.timeout);
 				prior.timeout = null;
 				let live = self.living.removeAll(prior.pid);
 				if (live) {
-					for (let i = 0; i < live.occ; ++i) {
-						self.emit('disconnect', prior.pid);
+					for (let i = 0; i &lt; live.occ; ++i) {
+						self.emit(&apos;disconnect&apos;, prior.pid);
 					}
 				}
 				self.dying.remove(prior.pid);
@@ -442,11 +485,11 @@ class Neighborhood extends EventEmitter {
 		if  (!alreadyExists) {
 			// #A does not already exists but pending
 			let entry = this.pending.get(message.tid);
-			entry && entry.socket && message.offer && entry.socket.signal(message.offer);
+			entry &amp;&amp; entry.socket &amp;&amp; message.offer &amp;&amp; entry.socket.signal(message.offer);
 		} else {
 			// #B already exists and pending
 			let toRemove = this.pending.get(message.tid);
-			if (toRemove && toRemove.socket) { // exists but socket still w8in
+			if (toRemove &amp;&amp; toRemove.socket) { // exists but socket still w8in
 				if (!alreadyExists.timeout) {
 					// #1 already in living socket, add an occurrence
 					this.living.insert(message.pid);
@@ -461,11 +504,11 @@ class Neighborhood extends EventEmitter {
 				}
 				toRemove.socket.destroy();
 				// #C standard on accept function if it exists in arg
-				message.offer && callbacks && callbacks.onAccept && callbacks.onAccept(self.MResponse(message.tid, this.ID,	null,	message.protocol));
+				message.offer &amp;&amp; callbacks &amp;&amp; callbacks.onAccept &amp;&amp; callbacks.onAccept(self.MResponse(message.tid, this.ID,	null,	message.protocol));
 
-				(callbacks &&	callbacks.onReady && callbacks.onReady(alreadyExists.id)) ||	(toRemove && 	toRemove.onReady &&	toRemove.onReady(alreadyExists.id));
-				this.emit('ready', alreadyExists.id);
-				message.protocol && this.emit('ready-'+message.protocol, alreadyExists.id);
+				(callbacks &amp;&amp;	callbacks.onReady &amp;&amp; callbacks.onReady(alreadyExists.id)) ||	(toRemove &amp;&amp; 	toRemove.onReady &amp;&amp;	toRemove.onReady(alreadyExists.id));
+				this.emit(&apos;ready&apos;, alreadyExists.id);
+				message.protocol &amp;&amp; this.emit(&apos;ready-&apos;+message.protocol, alreadyExists.id);
 			}
 		}
 		return alreadyExists;
@@ -475,3 +518,20 @@ class Neighborhood extends EventEmitter {
 
 
 export default Neighborhood;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
