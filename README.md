@@ -29,7 +29,7 @@ The documentation is avalaible [here](https://ran3d.github.io/neighborhood-wrtc/
 ## Usage
 
 ```js
-var Neighborhood = require('neighborhood-wrtc').default;
+var Neighborhood = require('neighborhood-wrtc');
 
 // #A initialize neighborhood tables with(-out here) WebRTC-specific options
 var n1 = new Neighborhood(someOptions);
