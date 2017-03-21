@@ -46,8 +46,8 @@
 const EventEmitter = require(&apos;events&apos;);
 const _ = require(&apos;lodash&apos;);
 const uuid = require(&apos;uuid/v4&apos;);
-const SortedArray = require(&apos;./extended-sorted-array.js&apos;).default;
-const MultiSet = require(&apos;./multiset.js&apos;).default;
+const SortedArray = require(&apos;./extended-sorted-array.js&apos;);
+const MultiSet = require(&apos;./multiset.js&apos;);
 const SimplePeer = require(&apos;simple-peer&apos;);
 
 /**
@@ -517,7 +517,7 @@ class Neighborhood extends EventEmitter {
 }
 
 
-export default Neighborhood;
+module.exports = Neighborhood;
 </code></pre>
 
 </div>
