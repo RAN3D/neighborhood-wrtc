@@ -20,10 +20,16 @@ Using npm: ```$ npm install neighborhood-wrtc```
 
 Using bower: ```$ bower install neighborhood-wrtc```
 
+## Documentation
+
+The documentation is avalaible [here](https://ran3d.github.io/neighborhood-wrtc/)
+
+## [Live Example](https://ran3d.github.io/neighborhood-wrtc/example/browser.html)
+
 ## Usage
 
 ```js
-var Neighborhood = require('neighborhood-wrtc');
+var Neighborhood = require('neighborhood-wrtc').default;
 
 // #A initialize neighborhood tables with(-out here) WebRTC-specific options
 var n1 = new Neighborhood(someOptions);
@@ -63,7 +69,7 @@ n1.on('receive', function(id, message){
 };
 
 n2.on('receive', function(id, message){
-  n2.send(id, 'pong'); 
+  n2.send(id, 'pong');
 };
 
 // #B get the entry corresponding to the id in argument,
@@ -96,7 +102,7 @@ n1.on('ready-' + <protocol-name>, function(id){
 // of its kind. The channel will be destroy after a short delay (except
 // if an arc of the corresponding type is added again before the
 // countdown). Returns true if the identifier exists. False otherwise.
-var success = n2.disconnect(id); 
+var success = n2.disconnect(id);
 
 // #C remove all arcs at once.
 var sucess = n2.disconnect();

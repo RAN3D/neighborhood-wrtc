@@ -1,8 +1,11 @@
-// var Neighborhood = require('../lib/neighborhood.js');
-var Neighborhood = require('neighborhood-wrtc');
-//var WRTC = require('electron-webrtc')();
+var Neighborhood = require('neighborhood-wrtc').default;
 var WRTC;
-var opts = {webrtc: {wrtc: WRTC || null, trickle: true}};
+var opts = {
+  webrtc: {
+    iceServers: [],
+    trickle: true
+  }
+};
 
 // create 3 neighborhood tables without options
 var n1 = new Neighborhood(opts);
