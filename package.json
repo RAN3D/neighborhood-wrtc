@@ -1,40 +1,40 @@
 {
-  "name": "neighborhood-wrtc",
-  "version": "1.0.1",
-  "description": "neighborhood (or partial view) containing peers to communicate with",
-  "main": "lib/neighborhood.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
-  },
-  "keywords": [
-    "WebRTC",
-    "browser-to-browser communication",
-    "overlay network"
-  ],
-  "author": "Chat-Wane",
-  "license": "MIT",
-  "dependencies": {
-    "lodash": "^4.17.4",
-    "simple-peer": "^7.0.0",
-    "extended-sorted-array": "^0.0.1",
-    "uuid": "^3.0.1"
-  },
-  "bundledDependencies": [
-    "simple-peer",
-    "extended-sorted-array",
-    "uuid",
-    "lodash"
-  ],
-  "devDependencies": {
-    "browserify": "6.2.x",
-    "babelify": "^7.3.0",
-    "jsdoc": "^3.4.3"
-  },
-  "scripts": {
-    "doc": "jsdoc -c .jsdoc.json README.md lib/",
-    "test": "npm run build && npm run debug && npm run doc",
-    "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 --debug > build/neighborhood-wrtc.bundle.debug.js",
-    "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 > build/neighborhood-wrtc.bundle.js"
-  }
+    "name": "neighborhood-wrtc",
+    "version": "1.0.1",
+    "description": "neighborhood (or partial view) containing peers to communicate with",
+    "main": "lib/neighborhood.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
+    },
+    "keywords": [
+        "WebRTC",
+        "browser-to-browser communication",
+        "overlay network"
+    ],
+    "author": "Chat-Wane",
+    "license": "MIT",
+    "dependencies": {
+        "lodash": "^4.17.4",
+        "simple-peer": "^7.0.0",
+        "uuid": "^3.0.1",
+        "debug": "^2.6.1"
+    },
+    "bundledDependencies": [
+        "simple-peer",
+        "uuid",
+        "lodash",
+        "debug"
+    ],
+    "devDependencies": {
+        "browserify": "6.2.x",
+        "babelify": "^7.3.0",
+        "jsdoc": "^3.4.3"
+    },
+    "scripts": {
+        "doc": "jsdoc -c .jsdoc.json README.md lib/",
+        "test": "npm run build && npm run debug && npm run doc",
+        "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 --debug > build/neighborhood-wrtc.bundle.debug.js",
+        "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t babelify --presets es2015 > build/neighborhood-wrtc.bundle.js"
+    }
 }
