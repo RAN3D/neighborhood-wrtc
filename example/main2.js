@@ -52,7 +52,8 @@ var callback = (from, to) => {
 
 // #4 establishing a connection from p1 to p2, twice but one socket is kept
 p1.connect(callback(p1, p2));
-//p1.connect(callback(p1, p2));
+p1.connect(callback(p1, p2));
+
 // #5 p1 -> p3
 // p1.connect(callback(p1, p3));
 // // > console: should see 6 'connection established' messages
