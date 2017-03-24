@@ -28,12 +28,13 @@ class P {
 };
 
 // #2 create the neighborhood tables and, for each, register a protocol
-let opts = { config: { trickle: true } };
-var n1 = new Neighborhood(opts);
+let opts1 = { peer: '1', config: { trickle: true } };
+var n1 = new Neighborhood(opts1);
 var p1 = n1.register(new P(1));
 
-var n2 = new Neighborhood(opts);
-var p2 = n2.register(new P(2));
+let opts2 = { peer: '2', config: { trickle: true } };
+var n2 = new Neighborhood(opts2);
+var p2 = n2.register(new P(1));
 
 // var n3 = new Neighborhood();
 // var p3 = n3.register(new P(3));
