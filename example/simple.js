@@ -4,9 +4,9 @@ const Neighborhood = require('neighborhood-wrtc');
 
 // #1 create a protocol that will run on top of this module. It must implement
 // the 4 properties : pid, opened, closed, failed.
-class P {
+class P { // check IProtocol to see the interface
     constructor(pid){
-        this.id = pid;        
+        this.id = pid;     
     };
     
     pid () { return this.id;  };
