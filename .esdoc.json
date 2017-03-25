@@ -6,8 +6,5 @@
     "access": ["public", "protected", "private"],
     "index": "./README.md",
     "package": "./package.json",
-    "plugins": [{"name": "esdoc-node"}],
-    "manual": {
-        "globalIndex": true
-    }
+    "plugins": [{"name": "esdoc-node"}]
 }
