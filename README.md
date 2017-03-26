@@ -1,4 +1,4 @@
-# Neighborhood-wrtc [![Build Status](https://travis-ci.org/RAN3D/neighborhood-wrtc.svg?branch=master)](https://travis-ci.org/RAN3D/neighborhood-wrtc)
+# neighborhood-wrtc [![Build Status](https://travis-ci.org/RAN3D/neighborhood-wrtc.svg?branch=master)](https://travis-ci.org/RAN3D/neighborhood-wrtc)
 
 <i>Keywords: WebRTC, browser-to-browser communication, overlay network</i>
 
@@ -13,7 +13,8 @@ web page, some of them are connected to a same peer. Instead of working
 completely on their own, these applications will share the same channel. The
 neighborhood-wrtc module will redirect the messages to the right applications.
 
-Note: The API may change to face the need of overlay network protocols.
+Note: The [API](https://ran3d.github.io/neighborhood-wrtc/) may change to face
+the need of overlay network protocols.
 
 Neighborhood-wrtc is built on top of the (who said amazing?)
 [simple-peer](https://github.com/feross/simple-peer) project.
@@ -31,6 +32,6 @@ You can find the API [here](https://ran3d.github.io/neighborhood-wrtc/).
 Usage examples of this module can be found
 [here](https://ran3d.github.io/neighborhood-wrtc/examples/simple.html) and
 [here](https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html).  To
-run the example, make sure your Web browser is
+run the example, make sure your web browser is
 [WebRTC-compatible](https://webrtc.org) and switch to console mode.
 
