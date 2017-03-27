@@ -95,7 +95,9 @@ setTimeout( () => {
 
 // send a message
 setTimeout( () => {
-    p1.send(n2.PEER, 'Hello! :3');
+    p1.send(n2.PEER, 'Hello! :3').then( () => {
+        console.log('First message sent');
+    });
     p1.send(n3.PEER, 'Hello! :3');
 },25000);
 
