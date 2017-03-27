@@ -5,47 +5,48 @@ const Neighborhood = require('neighborhood-wrtc');
 // #1 create a protocol that will run on top of this module. It must implement
 // the 4 properties : pid, opened, closed, failed.
 class P { // check IProtocol to see the interface
-    constructor(pid){
-        this.id = pid;     
+    constructor(pid, peer){
+        this.id = pid;
+        this.peer = peer;
     };
     
     pid () { return this.id;  };
     
     connected (peerId) {
-        console.log('P-%s: an arc has been created.', this.id);
+        console.log('@%s-P%s: an arc has been created.', this.peer, this.id);
     };
     
     disconnected (peerId) {
-        console.log('P-%s: an arc has been removed.', this.id);
+        console.log('@%s-P%s: an arc has been removed.', this.peer, this.id);
     };
 
     received (peerId, message) {
-        console.log('P-%s: message received from @%s: %s',
-                    this.id, peerId, message);
+        console.log('@%s-P%s: message received from @%s: %s',
+                    this.peer, this.id, peerId, message);
     };
 
     failed (peerId) {
-        console.log('P-%s: failed to establish a connection with %s.',
-                    this.id, peerId);
+        console.log('%s-P%s: failed to establish a connection with %s.',
+                    this.peer, this.id, peerId);
     };
 };
 
 // #2 create the neighborhood tables and, for each, register a protocol
 const opts1 = { peer: '1', config: { trickle: true } };
 const n1 = new Neighborhood(opts1);
-const p1 = n1.register(new P(1));
+const p1 = n1.register(new P(1, '1'));
 
 const opts2 = { peer: '2', config: { trickle: true } };
 const n2 = new Neighborhood(opts2);
-const p2 = n2.register(new P(1));
+const p2 = n2.register(new P(1, '2'));
 
 const opts3 = { peer: '3', config: { trickle: true} };
 const n3 = new Neighborhood(opts3);
-const p3 = n3.register(new P(1));
+const p3 = n3.register(new P(1, '3'));
 
 const opts4 = { peer: '4', config: { trickle: true} };
 const n4 = new Neighborhood(opts4);
-const p4 = n4.register(new P(1));
+const p4 = n4.register(new P(1, '4'));
 
 // #3 callback functions ensuring the peers exchanges messages
 // from -> to -> from
@@ -103,6 +104,3 @@ setTimeout( () => {
 setTimeout( () => {
     p1.disconnect(n2.PEER);
 }, 30000);
-
-
-
