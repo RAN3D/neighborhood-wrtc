@@ -36,7 +36,8 @@
     "scripts": {
         "esdoc": "esdoc && npm run esdoc:example",
         "esdoc:example": "cp -R ./build ./example",
-        "test": "npm run build && npm run debug && npm run doc",
+        "test": "npm run all",
+        "all": "npm run debug && npm run build && npm run esdoc",
         "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ es2015 ] ] --debug > build/neighborhood-wrtc.bundle.debug.js",
         "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ es2015 ] ] > build/neighborhood-wrtc.bundle.js"
     }
