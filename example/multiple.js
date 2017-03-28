@@ -10,17 +10,17 @@ class P {
         this.interface = n.register(this);
     };
     
-    pid () { return this.id;  };
+    _pid () { return this.id;  };
     
-    connected (peerId) {
+    _connected (peerId) {
         console.log('P-%s: an arc has been created.', this.id);
     };
     
-    disconnected (peerId) {
+    _disconnected (peerId) {
         console.log('P-%s: an arc has been removed.', this.id);
     };
 
-    received (peerId, message) {
+    _received (peerId, message) {
         // #1 someone tries to establish a WebRTC connection
         if (message.type === 'MRequest'){
             this.interface.connect( (response) => {
@@ -35,7 +35,7 @@ class P {
         };
     };
 
-    failed (peerId) {
+    _failed (peerId) {
         console.log('P-%s: failed to establish a connection with %s.',
                     this.id, peerId);
     };

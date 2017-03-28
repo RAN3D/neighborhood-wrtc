@@ -10,22 +10,22 @@ class P { // check IProtocol to see the interface
         this.peer = peer;
     };
     
-    pid () { return this.id;  };
+    _pid () { return this.id;  };
     
-    connected (peerId) {
+    _connected (peerId) {
         console.log('@%s-P%s: an arc has been created.', this.peer, this.id);
     };
     
-    disconnected (peerId) {
+    _disconnected (peerId) {
         console.log('@%s-P%s: an arc has been removed.', this.peer, this.id);
     };
 
-    received (peerId, message) {
+    _received (peerId, message) {
         console.log('@%s-P%s: message received from @%s: %s',
                     this.peer, this.id, peerId, message);
     };
 
-    failed (peerId) {
+    _failed (peerId) {
         console.log('%s-P%s: failed to establish a connection with %s.',
                     this.peer, this.id, peerId);
     };
