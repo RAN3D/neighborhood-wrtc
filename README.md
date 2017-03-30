@@ -35,3 +35,6 @@ Usage examples of this module can be found
 run the example, make sure your web browser is
 [WebRTC-compatible](https://webrtc.org) and switch to console mode.
 
+Module [n2n-overlay-wrtc](https://github.com/ran3d/n2n-overlay-wrtc) uses this
+module to establish WebRTC connections from neighbor-to-neigbor, i.e., at most
+1 hop distance.

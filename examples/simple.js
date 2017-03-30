@@ -50,7 +50,7 @@ const p4 = n4.register(new P(1, '4'));
 
 // #3 callback functions ensuring the peers exchanges messages
 // from -> to -> from
-var callback = (from, to) => {
+const callback = (from, to) => {
     return (offer) => {
         to.connect( (answer) => { from.connect(answer); }, offer);
     };
