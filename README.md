@@ -19,9 +19,31 @@ the need of overlay network protocols.
 Neighborhood-wrtc is built on top of the (who said amazing?)
 [simple-peer](https://github.com/feross/simple-peer) project.
 
+
+## Principle
+
+<p align='center'>
+<img src='./img/notsharing.png'> </img>
+</p>
+
+Three peer-to-peer applications ```8O```, ```:|``` and ```>_<``` run in a same
+tab of a WebRTC-compatible browser. When they want to connect to their
+respective remote counterpart, the browser must establish 3 WebRTC connections,
+for they do not share any information between each other.
+
+<p align='center'>
+<img src='./img/sharing.png'> </img>
+</p>
+
+Using this module to create WebRTC connections, they can share it and messages
+will be automatically redirected to corresponding applications. In this example,
+instead of establishing and maintaining 3 distinct connections -- which may be
+costly in terms of time and bandwidth -- neighborhood-wrtc only establish 1. The
+connection is destroyed only if the 3 applications remove it.
+
 ## Installation
 
-Using npm: ```$ npm install neighborhood-wrtc```
+```$ npm install neighborhood-wrtc```
 
 ## API
 
@@ -36,5 +58,5 @@ run the example, make sure your web browser is
 [WebRTC-compatible](https://webrtc.org) and switch to console mode.
 
 Module [n2n-overlay-wrtc](https://github.com/ran3d/n2n-overlay-wrtc) uses this
-module to establish WebRTC connections from neighbor-to-neigbor, i.e., at most
+module to establish WebRTC connections from neighbor-to-neighbor, i.e., at most
 1 hop distance.
