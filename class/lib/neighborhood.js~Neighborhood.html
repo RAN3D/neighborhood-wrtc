@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">Neighborhood | Neighborhood-wrtc API Document</title>
+  <title data-ice="title">Neighborhood | neighborhood-wrtc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -32,22 +32,33 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-MultiSet">MultiSet</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SortedArray">SortedArray</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EventEmitter">EventEmitter</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">entries</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/epending.js~EPending.html">EPending</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">exceptions</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exincompletemessage.js~ExIncompleteMessage.html">ExIncompleteMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exlatemessage.js~ExLateMessage.html">ExLateMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">interfaces</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">messages</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/msend.js~MSend.html">MSend</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Neighborhood from &apos;<span><a href="file/lib/neighborhood.js.html#lineNumber20">neighborhood-wrtc</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Neighborhood from &apos;<span><a href="file/lib/neighborhood.js.html#lineNumber27">neighborhood-wrtc</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/neighborhood.js.html#lineNumber20">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/neighborhood.js.html#lineNumber27">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -57,7 +68,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="variable/index.html#static-variable-EventEmitter">EventEmitter</a></span> &#x2192; Neighborhood</div></div>
+  
   
   
   
@@ -67,7 +78,8 @@
 
   
   
-  <div class="description" data-ice="description"><p>Easy-to-use interface on SimplePeer (npm: simple-peer)</p>
+  <div class="description" data-ice="description"><p>Easy-to-use interface to establish multiple WebRTC connections using
+SimplePeer (npm: simple-peer)</p>
 </div>
   
 
@@ -99,7 +111,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(options: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
@@ -133,7 +145,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-Comparator">Comparator</a></span></span><span data-ice="signature">: <span>*</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-PEER">PEER</a></span></span><span data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -160,34 +172,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-ID">ID</a></span></span><span data-ice="signature">: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-decoding">decoding</a></span></span><span data-ice="signature">: <span>*</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-decode">decode</a></span></span><span data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -241,7 +226,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-encoding">encoding</a></span></span><span data-ice="signature">: <span>*</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-encode">encode</a></span></span><span data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -295,7 +280,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-options">options</a></span></span><span data-ice="signature">: {&quot;protocol&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, &quot;webrtc&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;trickle&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>, &quot;verbose&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-options">options</a></span></span><span data-ice="signature">: {&quot;peer&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -349,34 +334,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-protocol">protocol</a></span></span><span data-ice="signature">: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-verbose">verbose</a></span></span><span data-ice="signature">: <span>*</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-protocols">protocols</a></span></span><span data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -410,13 +368,13 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-connection">connection</a></span></span><span data-ice="signature">(callbacks: <span>callback</span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, protocol: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-register">register</a></span></span><span data-ice="signature">(protocol: <span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span>): <span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>creates a new incomming or outgoing connection depending on arguments</p>
+        <div data-ice="description"><p>The protocolId asks this module to get an interface.</p>
 </div>
       </div>
     </td>
@@ -425,9 +383,15 @@
       
     </td>
   </tr>
-<tr data-ice="target">
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -438,14 +402,13 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-decode">decode</a></span></span><span data-ice="signature">(message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>binary</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_accept">_accept</a></span></span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, sender: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>, msg: <span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>New method to encode the message as we want</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -455,7 +418,7 @@
   </tr>
 <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -466,14 +429,13 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-disconnect">disconnect</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_connect">_connect</a></span></span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, arg1: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, arg2: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Disconnect one of the arc with the identifier in argument.</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -483,7 +445,7 @@
   </tr>
 <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -494,14 +456,13 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-encode">encode</a></span></span><span data-ice="signature">(message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>binary</span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_disconnect">_disconnect</a></span></span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>New method to encode the message as we want</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -511,7 +472,7 @@
   </tr>
 <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -522,14 +483,13 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-get">get</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_finalize">_finalize</a></span></span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, msg: <span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Get the entry corresponding to the id in argument.</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -539,7 +499,7 @@
   </tr>
 <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -550,14 +510,40 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-send">send</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_initiate">_initiate</a></span></span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, sender: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Send a message to the socket in argument</p>
-</div>
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_send">_send</a></span></span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>promise</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
       </div>
     </td>
     <td>
@@ -583,11 +569,11 @@
     
     
     
-    <span data-ice="name">constructor</span><span data-ice="signature">(options: <span>*</span>)</span>
+    <span data-ice="name">constructor</span><span data-ice="signature">(options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber21">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber40">source</a></span></span>
     </span>
   </h3>
 
@@ -608,9 +594,44 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">options</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>the options available to the connections, e.g. 
+timeout before</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.config</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>simple-peer options</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.timeout</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default:  60000</li></ul></td>
+      <td data-ice="description"><p>Time to wait (in milliseconds)
+before neighborhood-wrtc assumes that a connection establishment failed,
+or before an unused connection is removed.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.encoding</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Method to customize message sent, 
+default: return JSON.stringify(data);</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.decoding</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Method to decode a received message,
+default: return JSON.parse(data);</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -638,18 +659,18 @@
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-Comparator">
+  <h3 data-ice="anchor" id="instance-member-PEER">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">Comparator</span><span data-ice="signature">: <span>*</span></span>
+    <span data-ice="name">PEER</span><span data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber59">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber54">source</a></span></span>
     </span>
   </h3>
 
@@ -681,61 +702,18 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-ID">
+  <h3 data-ice="anchor" id="instance-member-decode">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">ID</span><span data-ice="signature">: <span>*</span></span>
+    <span data-ice="name">decode</span><span data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber50">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-decoding">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">decoding</span><span data-ice="signature">: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
@@ -778,7 +756,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber69">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -810,18 +788,18 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-encoding">
+  <h3 data-ice="anchor" id="instance-member-encode">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">encoding</span><span data-ice="signature">: <span>*</span></span>
+    <span data-ice="name">encode</span><span data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber50">source</a></span></span>
     </span>
   </h3>
 
@@ -864,7 +842,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber68">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber59">source</a></span></span>
     </span>
   </h3>
 
@@ -903,11 +881,11 @@
     
     
     
-    <span data-ice="name">options</span><span data-ice="signature">: {&quot;protocol&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, &quot;webrtc&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;trickle&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>, &quot;verbose&quot;: <span>*</span>}</span>
+    <span data-ice="name">options</span><span data-ice="signature">: {&quot;peer&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber24">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber42">source</a></span></span>
     </span>
   </h3>
 
@@ -950,7 +928,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber67">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber58">source</a></span></span>
     </span>
   </h3>
 
@@ -982,61 +960,18 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-protocol">
+  <h3 data-ice="anchor" id="instance-member-protocols">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">protocol</span><span data-ice="signature">: <span>*</span></span>
+    <span data-ice="name">protocols</span><span data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber46">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-verbose">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">verbose</span><span data-ice="signature">: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber53">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber63">source</a></span></span>
     </span>
   </h3>
 
@@ -1071,25 +1006,28 @@
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-connection">
+  <h3 data-ice="anchor" id="instance-method-register">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">connection</span><span data-ice="signature">(callbacks: <span>callback</span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, protocol: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span data-ice="name">register</span><span data-ice="signature">(protocol: <span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span>): <span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber195">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber75">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>creates a new incomming or outgoing connection depending on arguments</p>
+  <div data-ice="description"><p>The protocolId asks this module to get an interface. The interface
+comprises functions such as connect, disconnect, or send. ProtocolId
+should provide some functions as well such as failed, opened, received,
+pid.</p>
 </div>
 
   
@@ -1103,26 +1041,101 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">callbacks</td>
-      <td data-ice="type"><span>callback</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the callback function when the stun/ice server returns the
-offer</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">message</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>empty if it must initiate a connection, or the message received
-if it must answer or finalize one</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">protocol</td>
+      <td data-ice="type"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The protocol that requires the interface.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>The interface to use this module easily.</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<h2 data-ice="title">Private Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_accept">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">_accept</span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, sender: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>, msg: <span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber252">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">protocolId</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the connection is established for a specific protocol</p>
+      <td data-ice="description"><p>The identifier of the protocol that wishes to
+create a connection.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">sender</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The function that send the offer to the remote
+initiating peer.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">msg</td>
+      <td data-ice="type"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The request message containing offers, peerId, etc.</p>
 </td>
     </tr>
 </tbody>
@@ -1130,20 +1143,7 @@ if it must answer or finalize one</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>the id of the socket</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -1161,26 +1161,25 @@ if it must answer or finalize one</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-decode">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-method-_connect">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span data-ice="name">decode</span><span data-ice="signature">(message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>binary</span></span>
+    <span data-ice="name">_connect</span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, arg1: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, arg2: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber157">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber105">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>New method to encode the message as we want</p>
-</div>
+  
 
   
 
@@ -1193,10 +1192,29 @@ if it must answer or finalize one</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">message</td>
+      <td data-ice="name" data-depth="0">protocolId</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The identifier of the protocol that wishes to
+establish an new connection.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">arg1</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Either a callback function to send the
+message to the remote peer (for instance, it can use a signaling server
+or the already created WebRTC connexions), or a message received from the
+remote peer.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">arg2</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The message to encode</p>
+      <td data-ice="description"><p>The message received from a peer that initialized a
+WebRTC connection.</p>
 </td>
     </tr>
 </tbody>
@@ -1204,20 +1222,7 @@ if it must answer or finalize one</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>binary</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Encoded message</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -1235,29 +1240,25 @@ if it must answer or finalize one</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-disconnect">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-method-_disconnect">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span data-ice="name">disconnect</span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span>): <span>*</span></span>
+    <span data-ice="name">_disconnect</span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber113">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber381">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Disconnect one of the arc with the identifier in argument. If
-it was the last arc with such id, the socket is relocated to the dying
-table. The socket will be destroy after a bit. If there is no argument,
-disconnect the whole.</p>
-</div>
+  
 
   
 
@@ -1270,10 +1271,19 @@ disconnect the whole.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">id</td>
+      <td data-ice="name" data-depth="0">protocolId</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The identifier of the protocol that removes an
+arc</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">peerId</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Id provided to just disconnect the arc or if undefined disconnect all arcs</p>
+      <td data-ice="description"><p>The identifier of the peer. If no arg,
+remove all arcs of protocolId.</p>
 </td>
     </tr>
 </tbody>
@@ -1281,19 +1291,7 @@ disconnect the whole.</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -1311,26 +1309,25 @@ disconnect the whole.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-encode">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-method-_finalize">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span data-ice="name">encode</span><span data-ice="signature">(message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>binary</span></span>
+    <span data-ice="name">_finalize</span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, msg: <span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber148">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber207">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>New method to encode the message as we want</p>
-</div>
+  
 
   
 
@@ -1343,85 +1340,18 @@ disconnect the whole.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">message</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The message to encode</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>binary</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Encoded message</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-get">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">get</span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber224">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the entry corresponding to the id in argument. The entry contains
-the socket.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">id</td>
+      <td data-ice="name" data-depth="0">protocolId</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the identifier of the socket to retrieve</p>
+      <td data-ice="description"><p>The identifier of the protocol that wishes to
+open a connection.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">msg</td>
+      <td data-ice="type"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The message containing an offer, a peerId etc.</p>
 </td>
     </tr>
 </tbody>
@@ -1429,21 +1359,7 @@ the socket.</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>an entry from tables. It priorizes entries in living, then dying,
-then pending.</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -1461,26 +1377,25 @@ then pending.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-send">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-method-_initiate">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span data-ice="name">send</span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span data-ice="name">_initiate</span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, sender: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber167">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber123">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Send a message to the socket in argument</p>
-</div>
+  
 
   
 
@@ -1493,17 +1408,102 @@ then pending.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">id</td>
+      <td data-ice="name" data-depth="0">protocolId</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the identifier of the socket</p>
+      <td data-ice="description"><p>The identifier of the protocol that creates a 
+connection.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">sender</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>A function called at each offer</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_send">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">_send</span><span data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>promise</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber437">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">protocolId</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The identifier of the protocol sending the
+message</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">peerId</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The remote peer to send the message to.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">message</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the message to send</p>
+      <td data-ice="description"><p>The message to send.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">retry</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: 0</li></ul></td>
+      <td data-ice="description"><p>Retry few times to send the message before
+giving up.</p>
 </td>
     </tr>
 </tbody>
@@ -1516,8 +1516,9 @@ then pending.</p>
     <table>
       <tbody>
         <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>true if the message is sent, false otherwise</p>
+          <td class="return-type" data-ice="returnType"><span>promise</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Resolved when the message is sent, reject
+otherwise. Note that loss of messages is not handled by default.</p>
 </td>
         </tr>
       </tbody>

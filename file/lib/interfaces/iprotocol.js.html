@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/interfaces/iprotocol.js | neighborhood-wrtc API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/chat-wane/neighborhood-wrtc.git/" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">entries</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/epending.js~EPending.html">EPending</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">exceptions</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exincompletemessage.js~ExIncompleteMessage.html">ExIncompleteMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exlatemessage.js~ExLateMessage.html">ExLateMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">interfaces</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">messages</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/msend.js~MSend.html">MSend</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/interfaces/iprotocol.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+const ExUndefinedFunction = require(&apos;../exceptions/exundefinedfunction.js&apos;);
+
+/**
+ * An interface for protocols that checks if all functions have been provided.
+ * Not fully necessary since it will only be checked at runtime anyway.
+ */
+class IProtocol {
+    constructor () {};
+
+    /**
+     * Get the identifier of the protocol
+     * @Returns {string} The identifier of the protocol
+     */
+    _pid(){ throw new ExUndefinedFunction(&apos;pid&apos;); };
+
+    /**
+     * Behavior when an arc leading to peer has been established.
+     * @param {string} [peerId] The identifier of the peer reachable through the 
+     * arc.
+     * @param {boolean} [isOutgoing] State whether or not the added arc is an 
+     * outgoing arc.
+     */
+    _connected(peerId, isOutgoing){ throw new ExUndefinedFunction(&apos;connected&apos;);};
+
+    /**
+     * Behavior when an arc leading to peer has been disconnected.
+     * @param {string} [peerId] The identifier of the peer reachable through the
+     * arc.
+     */
+    _disconnected(peerId){ throw new ExUndefinedFunction(&apos;disconnected&apos;); };
+
+    /**
+     * Behavior when an arc failed to establish properly.
+     * @param {string} [peerId] The identifier of the peer that we tried to
+     * establish a connection with.
+     * @param {boolean} [isOutgoing] State whether or not the failed arc was 
+     * supposed to be an outgoing arc.
+     */
+    _failed(peerId, isOutgoing){ throw new ExUndefinedFunction(&apos;failed&apos;); };
+
+    /**
+     * Behavior when a message from peerId has been received.
+     * @param {string} [peerId] The identifier of the peer that sent the message.
+     * @param {object} [message] The received message. 
+     */
+    _received(peerId, message) { throw new ExUndefinedFunction(&apos;received&apos;); };
+    
+    /**
+     * Behavior when a stream from peerId is being received.
+     * @param {string} [peerId] The identifier of the peer that sent the message.
+     * @param {object} [stream] The received stream. 
+     */
+    _streamed(peerId, stream) { throw new ExUndefinedFunction(&apos;streamed&apos;); };
+
+};
+
+
+module.exports = IProtocol;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

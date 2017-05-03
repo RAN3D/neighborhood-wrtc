@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl">
-  <title data-ice="title">Neighborhood-wrtc API Document</title>
+  <title data-ice="title">neighborhood-wrtc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -32,113 +32,74 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-MultiSet">MultiSet</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SortedArray">SortedArray</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EventEmitter">EventEmitter</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">entries</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/epending.js~EPending.html">EPending</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">exceptions</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exincompletemessage.js~ExIncompleteMessage.html">ExIncompleteMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exlatemessage.js~ExLateMessage.html">ExLateMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">interfaces</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">messages</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/msend.js~MSend.html">MSend</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="neighborhood-wrtc-build-status-https-travis-ci-org-ran3d-neighborhood-wrtc-svg-branch-master-https-travis-ci-org-ran3d-neighborhood-wrtc-">Neighborhood-wrtc <a href="https://travis-ci.org/RAN3D/neighborhood-wrtc"><img src="https://travis-ci.org/RAN3D/neighborhood-wrtc.svg?branch=master" alt="Build Status"></a></h1>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="neighborhood-wrtc-build-status-https-travis-ci-org-ran3d-neighborhood-wrtc-svg-branch-master-https-travis-ci-org-ran3d-neighborhood-wrtc-">neighborhood-wrtc <a href="https://travis-ci.org/RAN3D/neighborhood-wrtc"><img src="https://travis-ci.org/RAN3D/neighborhood-wrtc.svg?branch=master" alt="Build Status"></a></h1>
 <p>&lt;i&gt;Keywords: WebRTC, browser-to-browser communication, overlay network&lt;/i&gt;</p>
 <p>Project that aims to ease the WebRTC connection establishment process. Among
 others, it alleviates the need to know which socket produced which offer.  It
-also reuses existing connections instead of establishing new ones, when it is
+also reuses existing connections instead of establishing new ones, when this is
 possible. It aims to be part of network protocols that build overlay networks
 and to provide them logical arcs - using identifiers - instead of channels.
-Ultimately, it aims to provide multiple protocols to run on top of one
-instance of this module for they may share identical arcs.  Note: The API may
-change to face the need of overlay network protocols.</p>
+Finally, it is designed to handle multiple protocols, for they may share
+identical arcs. For instance, consider several applications embedded in a single
+web page, some of them are connected to a same peer. Instead of working
+completely on their own, these applications will share the same channel. The
+neighborhood-wrtc module will redirect the messages to the right applications.</p>
+<p>Note: The <a href="https://ran3d.github.io/neighborhood-wrtc/">API</a> may change to face
+the need of overlay network protocols.</p>
 <p>Neighborhood-wrtc is built on top of the (who said amazing?)
 <a href="https://github.com/feross/simple-peer">simple-peer</a> project.</p>
+<h2 id="principle">Principle</h2>
+<p></p><p>
+<img src="./img/notsharing.png"> 
+</p>
+
+<p></p>
+<p>Three peer-to-peer applications <code>8O</code>, <code>:|</code> and <code>&gt;_&lt;</code> run in a same
+tab of a WebRTC-compatible browser. When they want to connect to their
+respective remote counterpart, the browser must establish 3 WebRTC connections,
+for they do not share any information between each other.</p>
+<p></p><p>
+<img src="./img/sharing.png"> 
+</p>
+
+<p></p>
+<p>Using this module to create WebRTC connections, they can share it and messages
+will be automatically redirected to corresponding applications. In this example,
+instead of establishing and maintaining 3 distinct connections -- which may be
+costly in terms of time and bandwidth -- neighborhood-wrtc only establish 1. The
+connection is destroyed only if the 3 applications remove it.</p>
 <h2 id="installation">Installation</h2>
-<p>Using npm: <code>$ npm install neighborhood-wrtc</code></p>
-<p>Using bower: <code>$ bower install neighborhood-wrtc</code></p>
-<h2 id="documentation">Documentation</h2>
-<p>The documentation is avalaible <a href="https://ran3d.github.io/neighborhood-wrtc/">here</a></p>
-<h2 id="-live-example-https-ran3d-github-io-neighborhood-wrtc-example-browser-html-"><a href="https://ran3d.github.io/neighborhood-wrtc/example/browser.html">Live Example</a></h2>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-js"><code class="source-code prettyprint">var Neighborhood = require(&apos;neighborhood-wrtc&apos;);
-
-// #A initialize neighborhood tables with(-out here) WebRTC-specific options
-var n1 = new Neighborhood(someOptions);
-var n2 = new Neighborhood(otherOptions);
-
-// #B default behavior of connections possibly with parameters
-var callbacks = {
-  onInitiate: function(requestMessage){
-    // probably find a way to send it to someone
-  },
-  onAccept: function(responseMessage){
-    // probably find a way to send it back
-  },
-  onReady: function(id){
-    // do something when the connection is established
-    // maybe use the id of the new socket to perform an operation
-  }
-};
-
-// #C establish a browser-to-browser communication channel
-// #1 initiate a connection at n1
-var id1 = n1.connection(callbacks);
-
-// #2 accept the connection at n2 using the message from n1
-var id2 = n2.connection(callbacks, requestMessage);
-
-// #3 finalize the connection at n1 using the answer from n2
-var id1 = n1.connection(responseMessage);</code>
-</code></pre>
-<p><br></p>
-<pre><code class="lang-js"><code class="source-code prettyprint">// #A receive a message from a neighbor in the table
-n1.on(&apos;receive&apos;, function(id, message){
-  n1.send(id, &apos;ping&apos;);
-};
-
-n2.on(&apos;receive&apos;, function(id, message){
-  n2.send(id, &apos;pong&apos;);
-};
-
-// #B get the entry corresponding to the id in argument,
-// null if it does not exist (maybe will be removed in a future version)
-var entry = n1.get(id);
-
-// #C n1 sends a message to n2 using the identifier of the socket
-var success = n1.send(id1, &apos;ping&apos;);</code>
-</code></pre>
-<p><br></p>
-<pre><code class="lang-js"><code class="source-code prettyprint">// #A an arc is added successfully, i.e., either a channel has been
-// properly established, or the channel already existed and an arc
-// depends on it. It is worth noting that a same instance of the module
-// can be used by multiple protocol at once, hence, the events are
-// divided:
-// #1 general event without specific protocol associated;
-n1.on(&apos;ready&apos;, function(id){
-  // the arc id has been established
-});
-
-// #2 protocol-specific event.
-n1.on(&apos;ready-&apos; + &lt;protocol-name&gt;, function(id){
-  // protocol-name is listening with more attention to such events
-});
-
-// #B remove an arc from the view. If this arc happens to be the last
-// of its kind. The channel will be destroy after a short delay (except
-// if an arc of the corresponding type is added again before the
-// countdown). Returns true if the identifier exists. False otherwise.
-var success = n2.disconnect(id);
-
-// #C remove all arcs at once.
-var sucess = n2.disconnect();
-
-// #D an arc has been removed
-n2.on(&apos;disconnect&apos;, function(id){
-  // maybe update the local view according to the id.
-});
-
-// #E an arc failed to establish
-n2.on(&apos;fail&apos;);</code>
-</code></pre>
+<p><code>$ npm install neighborhood-wrtc</code></p>
+<h2 id="api">API</h2>
+<p>You can find the API <a href="https://ran3d.github.io/neighborhood-wrtc/">here</a>.</p>
+<h2 id="examples">Examples</h2>
+<p>Usage examples of this module can be found
+<a href="https://ran3d.github.io/neighborhood-wrtc/examples/simple.html">here</a> and
+<a href="https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html">here</a>.  To
+run the example, make sure your web browser is
+<a href="https://webrtc.org">WebRTC-compatible</a> and switch to console mode.</p>
+<p>Module <a href="https://github.com/ran3d/n2n-overlay-wrtc">n2n-overlay-wrtc</a> uses this
+module to establish WebRTC connections from neighbor-to-neighbor, i.e., at most
+1 hop distance.</p>
 </div>
 </div>
 
