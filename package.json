@@ -5,7 +5,7 @@
     "main": "lib/neighborhood.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
+        "url": "https://github.com/ran3d/neighborhood-wrtc.git/"
     },
     "keywords": [
         "WebRTC",
