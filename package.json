@@ -1,11 +1,11 @@
 {
     "name": "neighborhood-wrtc",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "neighborhood (or partial view) containing peers to communicate with",
     "main": "lib/neighborhood.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/chat-wane/neighborhood-wrtc.git/"
+        "url": "https://github.com/ran3d/neighborhood-wrtc"
     },
     "keywords": [
         "WebRTC",
@@ -15,10 +15,10 @@
     "author": "Chat-Wane",
     "license": "MIT",
     "dependencies": {
+        "debug": "^2.6.1",
         "lodash": "^4.17.4",
-        "simple-peer": "^7.0.0",
-        "uuid": "^3.0.1",
-        "debug": "^2.6.1"
+        "simple-peer": "^8.1.1",
+        "uuid": "^3.0.1"
     },
     "bundledDependencies": [
         "simple-peer",
@@ -27,11 +27,11 @@
         "debug"
     ],
     "devDependencies": {
-        "babel-preset-es2015": "^6.24.0",
+        "babel-preset-es2015": "^6.24.1",
         "babelify": "^7.3.0",
-        "browserify": "6.2.x",
+        "browserify": "^14.4.0",
         "esdoc": "^0.5.2",
-        "esdoc-node": "^1.0.1"
+        "esdoc-node": "^1.0.2"
     },
     "scripts": {
         "esdoc": "esdoc && npm run esdoc:example",
