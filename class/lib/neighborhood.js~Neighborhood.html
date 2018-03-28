@@ -280,7 +280,7 @@ SimplePeer (npm: simple-peer)</p>
         <p>
           
           
-          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-options">options</a></span></span><span data-ice="signature">: {&quot;peer&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-member-options">options</a></span></span><span data-ice="signature">: {&quot;socketClass&quot;: <span>*</span>, &quot;peer&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -573,7 +573,7 @@ SimplePeer (npm: simple-peer)</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber40">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber41">source</a></span></span>
     </span>
   </h3>
 
@@ -596,8 +596,15 @@ SimplePeer (npm: simple-peer)</p>
       <td data-ice="name" data-depth="0">options</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"><p>the options available to the connections, e.g. 
+      <td data-ice="description"><p>the options available to the connections, e.g.
 timeout before</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">options.socketClass</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>simple-peer default socket class (usefull if you need to change the type of socket)</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
@@ -621,7 +628,7 @@ or before an unused connection is removed.</p>
       <td data-ice="name" data-depth="1">options.encoding</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"><p>Method to customize message sent, 
+      <td data-ice="description"><p>Method to customize message sent,
 default: return JSON.stringify(data);</p>
 </td>
     </tr>
@@ -670,7 +677,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 
@@ -713,7 +720,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber51">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber53">source</a></span></span>
     </span>
   </h3>
 
@@ -756,7 +763,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber62">source</a></span></span>
     </span>
   </h3>
 
@@ -799,7 +806,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber50">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
@@ -842,7 +849,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber59">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber61">source</a></span></span>
     </span>
   </h3>
 
@@ -881,11 +888,11 @@ default: return JSON.parse(data);</p>
     
     
     
-    <span data-ice="name">options</span><span data-ice="signature">: {&quot;peer&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>}</span>
+    <span data-ice="name">options</span><span data-ice="signature">: {&quot;socketClass&quot;: <span>*</span>, &quot;peer&quot;: <span>*</span>, &quot;config&quot;: <span>*</span>, &quot;timeout&quot;: <span>*</span>, &quot;encoding&quot;: <span>*</span>, &quot;decoding&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber43">source</a></span></span>
     </span>
   </h3>
 
@@ -928,7 +935,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber58">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -971,7 +978,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber65">source</a></span></span>
     </span>
   </h3>
 
@@ -1017,7 +1024,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber75">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber77">source</a></span></span>
     </span>
   </h3>
 
@@ -1096,7 +1103,7 @@ pid.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber252">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber254">source</a></span></span>
     </span>
   </h3>
 
@@ -1172,7 +1179,7 @@ initiating peer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber105">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber107">source</a></span></span>
     </span>
   </h3>
 
@@ -1251,7 +1258,7 @@ WebRTC connection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber381">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber383">source</a></span></span>
     </span>
   </h3>
 
@@ -1320,7 +1327,7 @@ remove all arcs of protocolId.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber207">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber209">source</a></span></span>
     </span>
   </h3>
 
@@ -1388,7 +1395,7 @@ open a connection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber123">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber125">source</a></span></span>
     </span>
   </h3>
 
@@ -1411,7 +1418,7 @@ open a connection.</p>
       <td data-ice="name" data-depth="0">protocolId</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol that creates a 
+      <td data-ice="description"><p>The identifier of the protocol that creates a
 connection.</p>
 </td>
     </tr>
@@ -1456,7 +1463,7 @@ connection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber437">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber439">source</a></span></span>
     </span>
   </h3>
 

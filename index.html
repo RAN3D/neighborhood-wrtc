@@ -88,8 +88,8 @@ instead of establishing and maintaining 3 distinct connections -- which may be
 costly in terms of time and bandwidth -- neighborhood-wrtc only establish 1. The
 connection is destroyed only if the 3 applications remove it.</p>
 <h2 id="installation">Installation</h2>
-<p><code>$ npm install neighborhood-wrtc</code></p>
-<h2 id="api">API</h2>
+<pre><code><code class="source-code prettyprint">$ npm install neighborhood-wrtc</code>
+</code></pre><h2 id="api">API</h2>
 <p>You can find the API <a href="https://ran3d.github.io/neighborhood-wrtc/">here</a>.</p>
 <h2 id="examples">Examples</h2>
 <p>Usage examples of this module can be found
@@ -100,6 +100,40 @@ run the example, make sure your web browser is
 <p>Module <a href="https://github.com/ran3d/n2n-overlay-wrtc">n2n-overlay-wrtc</a> uses this
 module to establish WebRTC connections from neighbor-to-neighbor, i.e., at most
 1 hop distance.</p>
+<h2 id="socket">Socket</h2>
+<p>By default we used <a href="https://github.com/feross/simple-peer">simple-peer</a> as Socket but if you want to change the type of Socket you want to use you&apos;ll need to follow this API:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">// ### events
+
+// emit when the connection is established
+socket.on(&apos;connect&apos;, () =&gt; {})
+
+// emit when the socket is closed
+socket.on(&apos;close&apos;, () =&gt; {})
+
+// emit when data is received
+socket.on(&apos;data&apos;, (data) =&gt; {})
+
+// emit when a stream is received
+socket.on(&apos;stream&apos;, (stream) =&gt; {})
+
+// emit when an error occured
+socket.on(&apos;error&apos;, (error) =&gt; {})
+
+// emit when an offer is created
+socket.on(&apos;signal&apos;, (offer) =&gt; {})
+
+//### functions
+
+// destroy the socket and emite the event close
+// `Destroy and cleanup this peer connection.`
+socket.destroy()
+
+// pass an offer to the peer
+socket.signal(offer)
+
+// send data to the socket
+socket.send(data)</code>
+</code></pre>
 </div>
 </div>
 
