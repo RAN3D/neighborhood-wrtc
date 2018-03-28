@@ -9688,7 +9688,7 @@ var Neighborhood = function () {
     /**
      * @param {object} [options] the options available to the connections, e.g.
      * timeout before
-     * @param {object} [options.socketClass] simple-peer default socket class (usefull if you need to change the type of socket) 
+     * @param {object} [options.socketClass] simple-peer default socket class (usefull if you need to change the type of socket)
      * @param {object} [options.config] simple-peer options
      * @param {number} [options.timeout = 60000] Time to wait (in milliseconds)
      * before neighborhood-wrtc assumes that a connection establishment failed,
