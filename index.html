@@ -102,7 +102,10 @@ module to establish WebRTC connections from neighbor-to-neighbor, i.e., at most
 1 hop distance.</p>
 <h2 id="socket">Socket</h2>
 <p>By default we used <a href="https://github.com/feross/simple-peer">simple-peer</a> as Socket but if you want to change the type of Socket you want to use you&apos;ll need to follow this API:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">// ### events
+<pre><code><code class="source-code prettyprint">new Neighborhood({
+    socketClass: YourFavouriteSocketClass
+})</code>
+</code></pre><pre><code class="lang-js"><code class="source-code prettyprint">// ### events
 
 // emit when the connection is established
 socket.on(&apos;connect&apos;, () =&gt; {})
