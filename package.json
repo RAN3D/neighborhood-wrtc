@@ -1,6 +1,6 @@
 {
     "name": "neighborhood-wrtc",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "neighborhood (or partial view) containing peers to communicate with",
     "main": "lib/neighborhood.js",
     "repository": {

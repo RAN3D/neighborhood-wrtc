@@ -67,6 +67,12 @@ module to establish WebRTC connections from neighbor-to-neighbor, i.e., at most
 
 By default we used [simple-peer](https://github.com/feross/simple-peer) as Socket but if you want to change the type of Socket you want to use you'll need to follow this API:
 
+```
+new Neighborhood({
+    socketClass: YourFavouriteSocketClass
+})
+```
+
 ```js
 // ### events
 
