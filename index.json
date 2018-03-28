@@ -1,0 +1,3501 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "lib/arcstore.js",
+    "content": "'use strict';\n\nconst ELiving = require('./entries/eliving.js');\n\nconst ExSocketNotFound = require('./exceptions/exsocketnotfound.js');\n\n/**\n * Table that contains all living sockets that might be in use. Peers can\n * comprise multiples protocols that may use multiple times an arc.\n */\nclass ArcStore {\n    constructor () {\n        this.store = new Map();\n    };\n\n    /**\n     * ProtocolId adds another arc leading to peerId in the store\n     * @param {string} peerId The identifier of the peer reachable through the\n     * socket.\n     * @param {string} protocolId The identifier of the protocol that adds the\n     * arc.\n     * @param {object} socket The WebRTC socket. Can be null if the socket to\n     * peerId is known to be in the store.\n     */\n    insert (peerId, protocolId, socket) {\n        // #1 make sure the peerId exists if the socket is not set.\n        if (socket === null && !this.store.has(peerId)){\n            throw new ExSocketNotFound(\n                'arcStore',\n                peerId,\n                protocolId,\n                'Try to add an arc to a peer that does not exists');\n        };\n\n        // #2 the peerId is not known yet, create the entry\n        if (!this.store.has(peerId)){\n            let entry = new ELiving(peerId, protocolId, socket);\n            this.store.set(peerId, entry);\n        } else {\n            // #3 increment the number of arcs of protocolId\n            this.store.get(peerId).increment(protocolId);\n        }\n    };\n\n    /**\n     * ProtocolId removes an arc to the peerId.\n     * @param {string} peerId The identifier of the peer accessible through the\n     * arc to delete.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * remove the arc.\n     * @returns {ELiving} The entry if no protocol is using the socket, null\n     * otherwise.\n     */\n    remove (peerId, protocolId) {\n        let unusedSocket = null;\n        // #1 check if a socket to the arc exists\n        if (!this.store.has(peerId)){\n            throw new ExSocketNotFound(\n                'arcStore',\n                peerId,\n                protocolId,\n                'Try to remove an arc to a peer that does not exists');\n        };\n        // #2 check if the protocol has such arc\n        if (!this.store.get(peerId).decrement(protocolId)){\n            throw new ExSocketNotFound(\n                'arcStore',\n                peerId,\n                protocolId,\n                'Try to remove an arc from a protocol that does not have this arc');\n        };\n        // #3 remove the entry if no protocol use it\n        if (this.store.get(peerId).sum() <= 0){\n            unusedSocket = this.store.get(peerId);\n            this.store.delete(peerId);            \n        };\n        return unusedSocket;\n    };\n\n    /**\n     * ProtocolId removes all its arcs.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * remove all its arcs.\n     * @returns {object[]} Objects comprising {peer, socket, occ}; peer being\n     * the identifier of the peer reachable through the socket, socket being a \n     * WebRTC connection that is not used by any protocols, null if protocols\n     * still use it, occ being the number of arcs removed by protocolId.\n     */\n    removeAll (protocolId) {\n        let result = [];\n        this.store.forEach( (v, k) => {\n            if (v.protocols.has(protocolId)){\n                let occ = v.protocols.get(protocolId);\n                let entry = {peer: v.peer, socket: null, occ: occ };\n                for (let i=0; i<occ; ++i){\n                    let unusedSocket = this.remove(k, protocolId);\n                    if (unusedSocket !== null){\n                        entry.socket = unusedSocket.socket;\n                        result.push(entry);\n                    };\n                };\n            };\n        });\n        return result;\n    };\n\n    /**\n     * Remove all arcs leading to peerId.\n     * @param {string} peerId The identifier of the peer reachable by a WebRTC\n     * connection to remove.\n     * @returns {Map} Map where key is the identifier of the protocol that sees\n     * its arcs being removed, and value is the number of arcs removed;\n     */\n    removePeer (peerId){\n        let result;\n        if (this.store.has(peerId)){\n            result = this.store.get(peerId).protocols;\n            this.store.delete(peerId);\n        } else {\n            result = new Map();\n        }\n        return result;\n    };\n\n    /**\n     * Check if the store has at least one occurrence of the peer.\n     * @param {string} peerId The identifier of the peer to check.\n     * @returns {boolean} true if it exists, false otherwise.\n     */\n    contains (peerId) {\n        return this.store.has(peerId);\n    };\n\n    /**\n     * Get the entry of the arc leading to PeerId\n     * @param {string} peerId The identifier of the remote peer\n     * @returns {ELiving} The entry containing peerId, null if it does not\n     * exists.\n     */\n    get (peerId) {\n        let entry = null;\n        if (this.contains(peerId)){\n            entry = this.store.get(peerId);\n        };\n        return entry;\n    };\n    \n};\n\nmodule.exports = ArcStore;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/arcstore.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "ArcStore",
+    "memberof": "lib/arcstore.js",
+    "static": true,
+    "longname": "lib/arcstore.js~ArcStore",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/arcstore.js",
+    "importStyle": "ArcStore",
+    "description": "Table that contains all living sockets that might be in use. Peers can\ncomprise multiples protocols that may use multiple times an arc.",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "store",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#store",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "insert",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#insert",
+    "access": "public",
+    "description": "ProtocolId adds another arc leading to peerId in the store",
+    "lineNumber": 25,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable through the\nsocket."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that adds the\narc."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "socket",
+        "description": "The WebRTC socket. Can be null if the socket to\npeerId is known to be in the store."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
+    "name": "remove",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#remove",
+    "access": "public",
+    "description": "ProtocolId removes an arc to the peerId.",
+    "lineNumber": 54,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{ELiving} The entry if no protocol is using the socket, null\notherwise."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer accessible through the\narc to delete."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that wishes to\nremove the arc."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "ELiving"
+      ],
+      "spread": false,
+      "description": "The entry if no protocol is using the socket, null\notherwise."
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "name": "removeAll",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#removeAll",
+    "access": "public",
+    "description": "ProtocolId removes all its arcs.",
+    "lineNumber": 89,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object[]} Objects comprising {peer, socket, occ}; peer being\nthe identifier of the peer reachable through the socket, socket being a \nWebRTC connection that is not used by any protocols, null if protocols\nstill use it, occ being the number of arcs removed by protocolId."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that wishes to\nremove all its arcs."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object[]"
+      ],
+      "spread": false,
+      "description": "Objects comprising {peer, socket, occ}; peer being\nthe identifier of the peer reachable through the socket, socket being a \nWebRTC connection that is not used by any protocols, null if protocols\nstill use it, occ being the number of arcs removed by protocolId."
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "removePeer",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#removePeer",
+    "access": "public",
+    "description": "Remove all arcs leading to peerId.",
+    "lineNumber": 114,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Map} Map where key is the identifier of the protocol that sees\nits arcs being removed, and value is the number of arcs removed;"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable by a WebRTC\nconnection to remove."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Map"
+      ],
+      "spread": false,
+      "description": "Map where key is the identifier of the protocol that sees\nits arcs being removed, and value is the number of arcs removed;"
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "name": "contains",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#contains",
+    "access": "public",
+    "description": "Check if the store has at least one occurrence of the peer.",
+    "lineNumber": 130,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} true if it exists, false otherwise."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer to check."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "true if it exists, false otherwise."
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "name": "get",
+    "memberof": "lib/arcstore.js~ArcStore",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/arcstore.js~ArcStore#get",
+    "access": "public",
+    "description": "Get the entry of the arc leading to PeerId",
+    "lineNumber": 140,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{ELiving} The entry containing peerId, null if it does not\nexists."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the remote peer"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "ELiving"
+      ],
+      "spread": false,
+      "description": "The entry containing peerId, null if it does not\nexists."
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "file",
+    "name": "lib/entries/edying.js",
+    "content": "'use strict';\n\n/**\n * Entry of the dying table containing sockets being removed.\n */\nclass EDying {\n    /**\n     * @param {string} peerId The identifier of the peer reachable through the\n     * socket.\n     * @param {object} socket The WebRTC socket.\n     * @param {number} timeout Time before the connexion is completely removed \n     * and destroyed.\n     */\n    constructor (peerId, socket, timeout){\n        this.peer = peerId; // key\n        this.socket = socket;\n        this.timeout = timeout;\n    };\n};\n\nmodule.exports = EDying;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/entries/edying.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 59,
+    "kind": "class",
+    "name": "EDying",
+    "memberof": "lib/entries/edying.js",
+    "static": true,
+    "longname": "lib/entries/edying.js~EDying",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/entries/edying.js",
+    "importStyle": "EDying",
+    "description": "Entry of the dying table containing sockets being removed.",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 60,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/entries/edying.js~EDying",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/entries/edying.js~EDying#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable through the\nsocket."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "socket",
+        "description": "The WebRTC socket."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "timeout",
+        "description": "Time before the connexion is completely removed \nand destroyed."
+      }
+    ]
+  },
+  {
+    "__docId__": 61,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/entries/edying.js~EDying",
+    "static": false,
+    "longname": "lib/entries/edying.js~EDying#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "member",
+    "name": "socket",
+    "memberof": "lib/entries/edying.js~EDying",
+    "static": false,
+    "longname": "lib/entries/edying.js~EDying#socket",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "member",
+    "name": "timeout",
+    "memberof": "lib/entries/edying.js~EDying",
+    "static": false,
+    "longname": "lib/entries/edying.js~EDying#timeout",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "file",
+    "name": "lib/entries/eliving.js",
+    "content": "'use strict';\n\n/**\n * Entry of the living table containing sockets still in use.\n */\nclass ELiving {\n    /**\n     * @param {string} peerId The identifier of the peer reachable through the \n     * socket.\n     * @param {string} protocolId The identifier of the protocol that creates an\n     * arc to this peer using this socket. Protocols can have multiple arcs\n     * leading to a same peer. Multiple protocols can share a same socket.\n     * @param {object} socket The WebRTC socket.\n     */\n    constructor (peerId, protocolId, socket) {\n        this.peer = peerId; // key\n        this.socket = socket;\n\n        this.protocols = new Map();\n        this.increment(protocolId);\n    };\n\n    /**\n     * Add an occurrence of the arc to the protocol\n     * @param {string} protocolId The identifier of the protocol.\n     */\n    increment (protocolId) {\n        if (!this.protocols.has(protocolId)){\n            this.protocols.set(protocolId, 0);\n        };\n        this.protocols.set(protocolId, this.protocols.get(protocolId) + 1);\n    };\n\n    /**\n     * Remove an occurrence of the arc to the protocol\n     * @param {string} protocolId The identifier of the protocol.\n     * @returns {boolean} True if an arc has been remove, false if the protocol\n     * do not have such arc.\n     */\n    decrement (protocolId) {\n        let found = false;\n        if (this.protocols.has(protocolId)){\n            this.protocols.set(protocolId, this.protocols.get(protocolId) - 1);\n            if (this.protocols.get(protocolId) <= 0){\n                this.protocols.delete(protocolId);\n            };\n            found = true;\n        };\n        return found;        \n    };\n\n    /**\n     * Count the number of arcs leading to this peer\n     * @returns {integer} The sum of occurrences of protocols using this\n     * socket.\n     */\n    sum () {\n        let result = 0;\n        this.protocols.forEach( (v, k) => {\n            result += v;\n        });\n        return result;\n    };\n};\n\nmodule.exports = ELiving;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/entries/eliving.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 65,
+    "kind": "class",
+    "name": "ELiving",
+    "memberof": "lib/entries/eliving.js",
+    "static": true,
+    "longname": "lib/entries/eliving.js~ELiving",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/entries/eliving.js",
+    "importStyle": "ELiving",
+    "description": "Entry of the living table containing sockets still in use.",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 66,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 15,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable through the \nsocket."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that creates an\narc to this peer using this socket. Protocols can have multiple arcs\nleading to a same peer. Multiple protocols can share a same socket."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "socket",
+        "description": "The WebRTC socket."
+      }
+    ]
+  },
+  {
+    "__docId__": 67,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "member",
+    "name": "socket",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#socket",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "member",
+    "name": "protocols",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#protocols",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "increment",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#increment",
+    "access": "public",
+    "description": "Add an occurrence of the arc to the protocol",
+    "lineNumber": 27,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "decrement",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#decrement",
+    "access": "public",
+    "description": "Remove an occurrence of the arc to the protocol",
+    "lineNumber": 40,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} True if an arc has been remove, false if the protocol\ndo not have such arc."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "True if an arc has been remove, false if the protocol\ndo not have such arc."
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "sum",
+    "memberof": "lib/entries/eliving.js~ELiving",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/entries/eliving.js~ELiving#sum",
+    "access": "public",
+    "description": "Count the number of arcs leading to this peer",
+    "lineNumber": 57,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{integer} The sum of occurrences of protocols using this\nsocket."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "integer"
+      ],
+      "spread": false,
+      "description": "The sum of occurrences of protocols using this\nsocket."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 73,
+    "kind": "file",
+    "name": "lib/entries/epending.js",
+    "content": "'use strict';\n\n/**\n * Entry of the pending table containing sockets being created.\n */\nclass EPending {\n    /**\n     * @param {string} temporaryId A temporary id used to retrieve the entry.\n     * @param {string} peerId The identifier of the peer reachable through the\n     * socket. Null if the peerId is yet to be known.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * establish the connexion.\n     * @param {object} socket The WebRTC socket. \n     * @param {number} timeout Maximum time for a connexion to establish.\n     */\n    constructor (temporaryId, peerId, protocolId, socket, timeout) {    \n        this.tid = temporaryId; // key\n        this.peer = peerId;\n        this.pid = protocolId;\n        this.socket = socket;\n        this.successful = false;\n        this.alreadyExists = false;\n        this.timeout = timeout;\n    };\n};\n\nmodule.exports = EPending;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/entries/epending.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 74,
+    "kind": "class",
+    "name": "EPending",
+    "memberof": "lib/entries/epending.js",
+    "static": true,
+    "longname": "lib/entries/epending.js~EPending",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/entries/epending.js",
+    "importStyle": "EPending",
+    "description": "Entry of the pending table containing sockets being created.",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 75,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/entries/epending.js~EPending",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "temporaryId",
+        "description": "A temporary id used to retrieve the entry."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable through the\nsocket. Null if the peerId is yet to be known."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that wishes to\nestablish the connexion."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "socket",
+        "description": "The WebRTC socket."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "timeout",
+        "description": "Maximum time for a connexion to establish."
+      }
+    ]
+  },
+  {
+    "__docId__": 76,
+    "kind": "member",
+    "name": "tid",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#tid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "member",
+    "name": "pid",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#pid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "member",
+    "name": "socket",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#socket",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "successful",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#successful",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "member",
+    "name": "alreadyExists",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#alreadyExists",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "member",
+    "name": "timeout",
+    "memberof": "lib/entries/epending.js~EPending",
+    "static": false,
+    "longname": "lib/entries/epending.js~EPending#timeout",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "file",
+    "name": "lib/exceptions/exincompletemessage.js",
+    "content": "'use strict';\n\n/**\n * Exception thrown when the message does not have the required data.\n */\nclass ExIncompleteMessage {\n    /**\n     * @param {string} source The name of the function that threw the exception.\n     * @param {EPending|ELiving|EDying} entry The entry that requested more\n     * information.\n     * @param {MResponse} message The message lacking data.\n     */\n    constructor(source, entry, message) {\n        this.source = source;\n        this.entry = entry;\n        this.message = message;\n    }\n};\n\n\nmodule.exports = ExIncompleteMessage;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/exceptions/exincompletemessage.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 84,
+    "kind": "class",
+    "name": "ExIncompleteMessage",
+    "memberof": "lib/exceptions/exincompletemessage.js",
+    "static": true,
+    "longname": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/exceptions/exincompletemessage.js",
+    "importStyle": "ExIncompleteMessage",
+    "description": "Exception thrown when the message does not have the required data.",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 85,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 13,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "source",
+        "description": "The name of the function that threw the exception."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "EPending",
+          "ELiving",
+          "EDying"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "entry",
+        "description": "The entry that requested more\ninformation."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MResponse"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The message lacking data."
+      }
+    ]
+  },
+  {
+    "__docId__": 86,
+    "kind": "member",
+    "name": "source",
+    "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
+    "static": false,
+    "longname": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage#source",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "member",
+    "name": "entry",
+    "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
+    "static": false,
+    "longname": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage#entry",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 88,
+    "kind": "member",
+    "name": "message",
+    "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
+    "static": false,
+    "longname": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage#message",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "lib/exceptions/exlatemessage.js",
+    "content": "'use strict';\n\n/**\n * Exception that fires when a message arrives too late and the entry in the\n * table has already been purged.\n */\nclass ExLateMessage {\n    /**\n     * @param {string} source The function name that throw the exception.\n     * @param {object} message The late message\n     */\n    constructor (source, msg) {\n        this.source = source;\n        this.msg = msg;\n        this.message = 'The message arrives too late';\n    };\n};\n\nmodule.exports = ExLateMessage;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/exceptions/exlatemessage.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "class",
+    "name": "ExLateMessage",
+    "memberof": "lib/exceptions/exlatemessage.js",
+    "static": true,
+    "longname": "lib/exceptions/exlatemessage.js~ExLateMessage",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/exceptions/exlatemessage.js",
+    "importStyle": "ExLateMessage",
+    "description": "Exception that fires when a message arrives too late and the entry in the\ntable has already been purged.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 91,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/exceptions/exlatemessage.js~ExLateMessage#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "source",
+        "description": "The function name that throw the exception."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The late message"
+      }
+    ]
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "source",
+    "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
+    "static": false,
+    "longname": "lib/exceptions/exlatemessage.js~ExLateMessage#source",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "msg",
+    "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
+    "static": false,
+    "longname": "lib/exceptions/exlatemessage.js~ExLateMessage#msg",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "name": "message",
+    "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
+    "static": false,
+    "longname": "lib/exceptions/exlatemessage.js~ExLateMessage#message",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "file",
+    "name": "lib/exceptions/exprotocolexists.js",
+    "content": "'use strict';\n\n/**\n * Exception that rise when a protocol registers and its identifier already\n * exists in registered protocols of neighborhood-wrtc.\n */\nclass ExProtocolExists {\n    /**\n     * @param {string} protocolId The identifier of the protocol that already\n     * exists\n     */\n    constructor (protocolId) {\n        this.pid = protocolId;\n        this.message = 'The idenfifier of the registering protocol already exists.';\n    };\n};\n\nmodule.exports = ExProtocolExists;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/exceptions/exprotocolexists.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 96,
+    "kind": "class",
+    "name": "ExProtocolExists",
+    "memberof": "lib/exceptions/exprotocolexists.js",
+    "static": true,
+    "longname": "lib/exceptions/exprotocolexists.js~ExProtocolExists",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/exceptions/exprotocolexists.js",
+    "importStyle": "ExProtocolExists",
+    "description": "Exception that rise when a protocol registers and its identifier already\nexists in registered protocols of neighborhood-wrtc.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 97,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/exceptions/exprotocolexists.js~ExProtocolExists",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/exceptions/exprotocolexists.js~ExProtocolExists#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that already\nexists"
+      }
+    ]
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "name": "pid",
+    "memberof": "lib/exceptions/exprotocolexists.js~ExProtocolExists",
+    "static": false,
+    "longname": "lib/exceptions/exprotocolexists.js~ExProtocolExists#pid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "name": "message",
+    "memberof": "lib/exceptions/exprotocolexists.js~ExProtocolExists",
+    "static": false,
+    "longname": "lib/exceptions/exprotocolexists.js~ExProtocolExists#message",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "file",
+    "name": "lib/exceptions/exsocketnotfound.js",
+    "content": "'use strict';\n\n/**\n * Exception that fires when trying to access or use a socket that does not\n * exist.\n */\nclass ExSocketNotFound {\n    /**\n     * @param {string} source The source of the exception.\n     * @param {string} peerId The identifier of the peer that has been tried.\n     * @param {string} protocolId The identifier of the protocol that failed.\n     * @param {string} message A error message.\n     */\n    constructor (source, peerId, protocolId, message) {\n        this.source = source;\n        this.peer = peerId;\n        this.protocolId = protocolId;\n        this.message = message;\n    };\n};\n\nmodule.exports = ExSocketNotFound;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/exceptions/exsocketnotfound.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 101,
+    "kind": "class",
+    "name": "ExSocketNotFound",
+    "memberof": "lib/exceptions/exsocketnotfound.js",
+    "static": true,
+    "longname": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/exceptions/exsocketnotfound.js",
+    "importStyle": "ExSocketNotFound",
+    "description": "Exception that fires when trying to access or use a socket that does not\nexist.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 102,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "source",
+        "description": "The source of the exception."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer that has been tried."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that failed."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "A error message."
+      }
+    ]
+  },
+  {
+    "__docId__": 103,
+    "kind": "member",
+    "name": "source",
+    "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
+    "static": false,
+    "longname": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#source",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
+    "static": false,
+    "longname": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "member",
+    "name": "protocolId",
+    "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
+    "static": false,
+    "longname": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#protocolId",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 106,
+    "kind": "member",
+    "name": "message",
+    "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
+    "static": false,
+    "longname": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#message",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "file",
+    "name": "lib/exceptions/exundefinedfunction.js",
+    "content": "'use strict';\n\n/**\n * Exception that fires when the interface of the protocol using neighborhood is\n * not complete.\n */\nclass ExUndefinedFunction {\n    /**\n     * @param {string} source The function name that is not provided.\n     */\n    constructor (source) {\n        this.source = source;\n        this.message = 'The function was not provided.';\n    };\n}\n\nmodule.exports = ExUndefinedFunction;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/exceptions/exundefinedfunction.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 108,
+    "kind": "class",
+    "name": "ExUndefinedFunction",
+    "memberof": "lib/exceptions/exundefinedfunction.js",
+    "static": true,
+    "longname": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/exceptions/exundefinedfunction.js",
+    "importStyle": "ExUndefinedFunction",
+    "description": "Exception that fires when the interface of the protocol using neighborhood is\nnot complete.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 109,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "source",
+        "description": "The function name that is not provided."
+      }
+    ]
+  },
+  {
+    "__docId__": 110,
+    "kind": "member",
+    "name": "source",
+    "memberof": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
+    "static": false,
+    "longname": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction#source",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 111,
+    "kind": "member",
+    "name": "message",
+    "memberof": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
+    "static": false,
+    "longname": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction#message",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "file",
+    "name": "lib/interfaces/ineighborhood.js",
+    "content": "'use strict';\n\n/**\n * Interface of functions that are available to a protocol that registered\n * to this module.\n */\nclass INeighborhood {\n    /**\n     * @param {string} peerId The identifier of the peer that created this\n     * interface.\n     * @param {function} connect The connection function provided by this\n     * module.\n     * @param {function} disconnect The disconnection function provided by this\n     * module.\n     * @param {function} send The send function provided by this module.\n     */\n    constructor (peerId, connect, disconnect, send) {\n        this.peer = peerId;\n        this.connect = connect;\n        this.disconnect = disconnect;\n        this.send = send;        \n    };\n\n    /**\n     * Create a WebRTC connexion.\n     * @param {function|object} arg1 Either a callback function to send the\n     * message to the remote peer (for instance, it can use a signaling server\n     * or the already created WebRTC connexions), or a message received from the\n     * remote peer.\n     * @param {object} arg2 The message received from a peer that initialized a \n     * WebRTC connexion.\n     */\n    connect (arg1, arg2) {\n        this.connect(arg1, arg2);\n    };\n        \n    /**\n     * Remove an arc that led to peerId.\n     * @param {string} peerId The identifier of the remote peer.\n     * @returns {promise} Resolved when the arc is removed.\n     */\n    disconnect (peerId) {\n        return this.disconnect(peerId);\n    };\n\n    /**\n     * Send message to peerId.\n     * @param {string} peerId The identifier of the remote peer.\n     * @param {string} message The message to send.\n     * @param {number} [retry=10] Retry few times to send the message before\n     * giving up.\n     * @returns {promise} Resolved when the message is sent, reject\n     * otherwise. Note that loss of messages is not handled by default.\n     */\n    send (peerId, message, retry){\n        return this.send(peerId, message);\n    };\n};\n\nmodule.exports = INeighborhood;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/interfaces/ineighborhood.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 113,
+    "kind": "class",
+    "name": "INeighborhood",
+    "memberof": "lib/interfaces/ineighborhood.js",
+    "static": true,
+    "longname": "lib/interfaces/ineighborhood.js~INeighborhood",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/interfaces/ineighborhood.js",
+    "importStyle": "INeighborhood",
+    "description": "Interface of functions that are available to a protocol that registered\nto this module.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 114,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/interfaces/ineighborhood.js~INeighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/ineighborhood.js~INeighborhood#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer that created this\ninterface."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "connect",
+        "description": "The connection function provided by this\nmodule."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "disconnect",
+        "description": "The disconnection function provided by this\nmodule."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "send",
+        "description": "The send function provided by this module."
+      }
+    ]
+  },
+  {
+    "__docId__": 115,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/interfaces/ineighborhood.js~INeighborhood",
+    "static": false,
+    "longname": "lib/interfaces/ineighborhood.js~INeighborhood#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "name": "connect",
+    "memberof": "lib/interfaces/ineighborhood.js~INeighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/ineighborhood.js~INeighborhood#connect",
+    "access": "public",
+    "description": "Create a WebRTC connexion.",
+    "lineNumber": 33,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "function",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "arg1",
+        "description": "Either a callback function to send the\nmessage to the remote peer (for instance, it can use a signaling server\nor the already created WebRTC connexions), or a message received from the\nremote peer."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "arg2",
+        "description": "The message received from a peer that initialized a \nWebRTC connexion."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 120,
+    "kind": "method",
+    "name": "disconnect",
+    "memberof": "lib/interfaces/ineighborhood.js~INeighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/ineighborhood.js~INeighborhood#disconnect",
+    "access": "public",
+    "description": "Remove an arc that led to peerId.",
+    "lineNumber": 42,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{promise} Resolved when the arc is removed."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the remote peer."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "promise"
+      ],
+      "spread": false,
+      "description": "Resolved when the arc is removed."
+    }
+  },
+  {
+    "__docId__": 121,
+    "kind": "method",
+    "name": "send",
+    "memberof": "lib/interfaces/ineighborhood.js~INeighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/ineighborhood.js~INeighborhood#send",
+    "access": "public",
+    "description": "Send message to peerId.",
+    "lineNumber": 55,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{promise} Resolved when the message is sent, reject\notherwise. Note that loss of messages is not handled by default."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the remote peer."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The message to send."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "10",
+        "defaultRaw": 10,
+        "name": "retry",
+        "description": "Retry few times to send the message before\ngiving up."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "promise"
+      ],
+      "spread": false,
+      "description": "Resolved when the message is sent, reject\notherwise. Note that loss of messages is not handled by default."
+    }
+  },
+  {
+    "__docId__": 122,
+    "kind": "file",
+    "name": "lib/interfaces/iprotocol.js",
+    "content": "'use strict';\n\nconst ExUndefinedFunction = require('../exceptions/exundefinedfunction.js');\n\n/**\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n */\nclass IProtocol {\n    constructor () {};\n\n    /**\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     */\n    _pid(){ throw new ExUndefinedFunction('pid'); };\n\n    /**\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the \n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an \n     * outgoing arc.\n     */\n    _connected(peerId, isOutgoing){ throw new ExUndefinedFunction('connected');};\n\n    /**\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     */\n    _disconnected(peerId){ throw new ExUndefinedFunction('disconnected'); };\n\n    /**\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was \n     * supposed to be an outgoing arc.\n     */\n    _failed(peerId, isOutgoing){ throw new ExUndefinedFunction('failed'); };\n\n    /**\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message. \n     */\n    _received(peerId, message) { throw new ExUndefinedFunction('received'); };\n    \n    /**\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream. \n     */\n    _streamed(peerId, stream) { throw new ExUndefinedFunction('streamed'); };\n\n};\n\n\nmodule.exports = IProtocol;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/interfaces/iprotocol.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 123,
+    "kind": "class",
+    "name": "IProtocol",
+    "memberof": "lib/interfaces/iprotocol.js",
+    "static": true,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/interfaces/iprotocol.js",
+    "importStyle": "IProtocol",
+    "description": "An interface for protocols that checks if all functions have been provided.\nNot fully necessary since it will only be checked at runtime anyway.",
+    "lineNumber": 9,
+    "interface": false
+  },
+  {
+    "__docId__": 124,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true
+  },
+  {
+    "__docId__": 125,
+    "kind": "method",
+    "name": "_pid",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#_pid",
+    "access": "private",
+    "description": "Get the identifier of the protocol",
+    "lineNumber": 16,
+    "unknown": [
+      {
+        "tagName": "@Returns",
+        "tagValue": "{string} The identifier of the protocol"
+      }
+    ],
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 126,
+    "kind": "method",
+    "name": "_connected",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#_connected",
+    "access": "private",
+    "description": "Behavior when an arc leading to peer has been established.",
+    "lineNumber": 25,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable through the \narc."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "isOutgoing",
+        "description": "State whether or not the added arc is an \noutgoing arc."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 127,
+    "kind": "method",
+    "name": "_disconnected",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#_disconnected",
+    "access": "private",
+    "description": "Behavior when an arc leading to peer has been disconnected.",
+    "lineNumber": 32,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "peerId",
+        "description": "The identifier of the peer reachable through the\narc."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 128,
+    "kind": "method",
+    "name": "_failed",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#_failed",
+    "access": "private",
+    "description": "Behavior when an arc failed to establish properly.",
+    "lineNumber": 41,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "peerId",
+        "description": "The identifier of the peer that we tried to\nestablish a connection with."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "isOutgoing",
+        "description": "State whether or not the failed arc was \nsupposed to be an outgoing arc."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 129,
+    "kind": "method",
+    "name": "_received",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#_received",
+    "access": "private",
+    "description": "Behavior when a message from peerId has been received.",
+    "lineNumber": 48,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "peerId",
+        "description": "The identifier of the peer that sent the message."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "message",
+        "description": "The received message."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 130,
+    "kind": "method",
+    "name": "_streamed",
+    "memberof": "lib/interfaces/iprotocol.js~IProtocol",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/interfaces/iprotocol.js~IProtocol#_streamed",
+    "access": "private",
+    "description": "Behavior when a stream from peerId is being received.",
+    "lineNumber": 55,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "peerId",
+        "description": "The identifier of the peer that sent the message."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "stream",
+        "description": "The received stream."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 131,
+    "kind": "file",
+    "name": "lib/messages/mrequest.js",
+    "content": "'use strict';\n\n/**\n * The message containing the request to create a WebRTC connexion\n */\nclass MRequest {\n    /**\n     * @param {string} temporaryId A temporary identifier during the socket\n     * creation. The key will be changed to peerId when the connexion is\n     * established successfully.\n     * @param {string} peerId The identifier of the peer that will be reachable\n     * through the socket being created. Null if it is yet to be known.\n     * @param {string} protocolId The identifier of the protocol to route \n     * messages.\n     * @param {object} offer The WebRTC offer containing ways to establish a\n     * direct peer-to-peer connexions. See WebRTC for more information.\n     */\n    constructor (temporaryId, peerId, protocolId, offer) {\n        this.tid = temporaryId;\n        this.peer = peerId;\n        this.pid = protocolId;\n        this.offer = offer;\n        this.type = 'MRequest';\n    };\n};\n\nmodule.exports = MRequest;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/messages/mrequest.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 132,
+    "kind": "class",
+    "name": "MRequest",
+    "memberof": "lib/messages/mrequest.js",
+    "static": true,
+    "longname": "lib/messages/mrequest.js~MRequest",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/messages/mrequest.js",
+    "importStyle": "MRequest",
+    "description": "The message containing the request to create a WebRTC connexion",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 133,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/messages/mrequest.js~MRequest",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/messages/mrequest.js~MRequest#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 18,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "temporaryId",
+        "description": "A temporary identifier during the socket\ncreation. The key will be changed to peerId when the connexion is\nestablished successfully."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer that will be reachable\nthrough the socket being created. Null if it is yet to be known."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol to route \nmessages."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offer",
+        "description": "The WebRTC offer containing ways to establish a\ndirect peer-to-peer connexions. See WebRTC for more information."
+      }
+    ]
+  },
+  {
+    "__docId__": 134,
+    "kind": "member",
+    "name": "tid",
+    "memberof": "lib/messages/mrequest.js~MRequest",
+    "static": false,
+    "longname": "lib/messages/mrequest.js~MRequest#tid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 135,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/messages/mrequest.js~MRequest",
+    "static": false,
+    "longname": "lib/messages/mrequest.js~MRequest#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 136,
+    "kind": "member",
+    "name": "pid",
+    "memberof": "lib/messages/mrequest.js~MRequest",
+    "static": false,
+    "longname": "lib/messages/mrequest.js~MRequest#pid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
+    "kind": "member",
+    "name": "offer",
+    "memberof": "lib/messages/mrequest.js~MRequest",
+    "static": false,
+    "longname": "lib/messages/mrequest.js~MRequest#offer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 138,
+    "kind": "member",
+    "name": "type",
+    "memberof": "lib/messages/mrequest.js~MRequest",
+    "static": false,
+    "longname": "lib/messages/mrequest.js~MRequest#type",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 139,
+    "kind": "file",
+    "name": "lib/messages/mresponse.js",
+    "content": "'use strict';\n\n/**\n * The message containing the response to create a WebRTC connexion\n */\nclass MResponse {\n    /**\n     * @param {string} temporaryId A temporary identifier during the socket\n     * creation. The key will be changed to peerId when the connexion is established\n     * successfully.\n     * @param {string} peerId The identifier of the peer that will be reachable\n     * through the socket being created. Null if it is yet to be known.\n     * @param {string} protocolId The identifier of the protocol to route messages.\n     * @param {object} offer The WebRTC offer containing ways to establish a direct \n     * peer-to-peer connexions. See WebRTC for more information.\n     */\n    constructor (temporaryId, peerId, protocolId, offer) {\n        this.tid = temporaryId;\n        this.peer = peerId;\n        this.pid = protocolId;\n        this.offer = offer;\n        this.type = 'MResponse';\n    };\n};\n\nmodule.exports = MResponse;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/messages/mresponse.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 140,
+    "kind": "class",
+    "name": "MResponse",
+    "memberof": "lib/messages/mresponse.js",
+    "static": true,
+    "longname": "lib/messages/mresponse.js~MResponse",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/messages/mresponse.js",
+    "importStyle": "MResponse",
+    "description": "The message containing the response to create a WebRTC connexion",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 141,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/messages/mresponse.js~MResponse",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/messages/mresponse.js~MResponse#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "temporaryId",
+        "description": "A temporary identifier during the socket\ncreation. The key will be changed to peerId when the connexion is established\nsuccessfully."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer that will be reachable\nthrough the socket being created. Null if it is yet to be known."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol to route messages."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offer",
+        "description": "The WebRTC offer containing ways to establish a direct \npeer-to-peer connexions. See WebRTC for more information."
+      }
+    ]
+  },
+  {
+    "__docId__": 142,
+    "kind": "member",
+    "name": "tid",
+    "memberof": "lib/messages/mresponse.js~MResponse",
+    "static": false,
+    "longname": "lib/messages/mresponse.js~MResponse#tid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 143,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/messages/mresponse.js~MResponse",
+    "static": false,
+    "longname": "lib/messages/mresponse.js~MResponse#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 144,
+    "kind": "member",
+    "name": "pid",
+    "memberof": "lib/messages/mresponse.js~MResponse",
+    "static": false,
+    "longname": "lib/messages/mresponse.js~MResponse#pid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 145,
+    "kind": "member",
+    "name": "offer",
+    "memberof": "lib/messages/mresponse.js~MResponse",
+    "static": false,
+    "longname": "lib/messages/mresponse.js~MResponse#offer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 146,
+    "kind": "member",
+    "name": "type",
+    "memberof": "lib/messages/mresponse.js~MResponse",
+    "static": false,
+    "longname": "lib/messages/mresponse.js~MResponse#type",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 147,
+    "kind": "file",
+    "name": "lib/messages/msend.js",
+    "content": "'use strict';\n\n/**\n * Message sent when protocolId wishes to send payload. It is a basic\n * encapsualtion of protocolId.\n */\nclass MSend {\n    /**\n     * @param {string} peerId The identifier of the peer that sent the message\n     * @param {string} protocolId The identifier of the protocol that sent the\n     * message\n     * @param {object} payload The payload of the message.\n     */\n    constructor (peerId, protocolId, payload){\n        this.peer = peerId;\n        this.pid = protocolId;\n        this.payload = payload;\n        this.type = 'MSend';\n    };\n};\n\nmodule.exports = MSend;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/messages/msend.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 148,
+    "kind": "class",
+    "name": "MSend",
+    "memberof": "lib/messages/msend.js",
+    "static": true,
+    "longname": "lib/messages/msend.js~MSend",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc/lib/messages/msend.js",
+    "importStyle": "MSend",
+    "description": "Message sent when protocolId wishes to send payload. It is a basic\nencapsualtion of protocolId.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 149,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/messages/msend.js~MSend",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/messages/msend.js~MSend#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer that sent the message"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that sent the\nmessage"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "payload",
+        "description": "The payload of the message."
+      }
+    ]
+  },
+  {
+    "__docId__": 150,
+    "kind": "member",
+    "name": "peer",
+    "memberof": "lib/messages/msend.js~MSend",
+    "static": false,
+    "longname": "lib/messages/msend.js~MSend#peer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 151,
+    "kind": "member",
+    "name": "pid",
+    "memberof": "lib/messages/msend.js~MSend",
+    "static": false,
+    "longname": "lib/messages/msend.js~MSend#pid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 152,
+    "kind": "member",
+    "name": "payload",
+    "memberof": "lib/messages/msend.js~MSend",
+    "static": false,
+    "longname": "lib/messages/msend.js~MSend#payload",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 153,
+    "kind": "member",
+    "name": "type",
+    "memberof": "lib/messages/msend.js~MSend",
+    "static": false,
+    "longname": "lib/messages/msend.js~MSend#type",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 154,
+    "kind": "file",
+    "name": "lib/neighborhood.js",
+    "content": "'use strict';\n\nconst debug = (require('debug'))('neighborhood-wrtc');\n\nconst merge = require('lodash.merge');\nconst uuid = require('uuid/v4');\nconst Socket = require('simple-peer');\n\nconst ArcStore = require('./arcstore.js');\nconst EPending = require('./entries/epending.js');\nconst EDying = require('./entries/edying.js');\n\nconst INeighborhood = require('./interfaces/ineighborhood.js');\n\nconst MResponse = require('./messages/mresponse.js');\nconst MRequest = require('./messages/mrequest.js');\nconst MSend = require('./messages/msend.js');\n\nconst ExLateMessage = require('./exceptions/exlatemessage.js');\nconst ExProtocolExists = require('./exceptions/exprotocolexists.js');\nconst ExIncompleteMessage = require('./exceptions/exincompletemessage.js');\n\n/**\n * Easy-to-use interface to establish multiple WebRTC connections using\n * SimplePeer (npm: simple-peer)\n */\nclass Neighborhood {\n    /**\n     * @param {object} [options] the options available to the connections, e.g.\n     * timeout before\n     * @param {object} [options.socketClass] simple-peer default socket class (usefull if you need to change the type of socket)\n     * @param {object} [options.config] simple-peer options\n     * @param {number} [options.timeout = 60000] Time to wait (in milliseconds)\n     * before neighborhood-wrtc assumes that a connection establishment failed,\n     * or before an unused connection is removed.\n     * @param {function} [options.encoding] Method to customize message sent,\n     * default: return JSON.stringify(data);\n     * @param {function} [options.decoding] Method to decode a received message,\n     * default: return JSON.parse(data);\n     */\n    constructor (options) {\n        // #1 save options\n        this.options = {\n            socketClass: Socket,\n            peer: uuid(),\n            config: { iceServers: [], trickle: true, initiator: false },\n            timeout: 1 * 60 * 1000,\n            encoding: (d) => { return JSON.stringify(d); },\n            decoding: (d) => { return JSON.parse(d); }\n        };\n        this.options = merge(this.options, options);\n        this.encode = this.options.encoding; // not sure it should stay that\n        this.decode = this.options.decoding; // way\n\n        // #2 unmutable values\n        this.PEER = this.options.peer;\n        debug('[%s] initialized.', this.PEER);\n\n        // #3 initialize tables\n        this.pending = new Map(); // not finalized yet\n        this.living = new ArcStore(); // live and usable\n        this.dying = new Map(); // being removed\n\n        // #4 table of all registered protocols\n        this.protocols = new Map();\n    }\n\n\n    /**\n     * The protocolId asks this module to get an interface. The interface\n     * comprises functions such as connect, disconnect, or send. ProtocolId\n     * should provide some functions as well such as failed, opened, received,\n     * pid.\n     * @param {IProtocol} protocol The protocol that requires the interface.\n     * @returns {INeighborhood} The interface to use this module easily.\n     */\n    register (protocol) {\n        if (!this.protocols.has(protocol._pid())){\n            debug('[%s] protocol %s just registered.',\n                  this.PEER, protocol._pid());\n            this.protocols.set(protocol._pid(), protocol);\n            return new INeighborhood(\n                this.PEER,\n                this._connect.bind(this, protocol._pid()),\n                this._disconnect.bind(this, protocol._pid()),\n                this._send.bind(this, protocol._pid())\n            );\n        } else {\n            throw new ExProtocolExists(protocol._pid());\n        };\n    };\n\n    // (TODO) unregister ?\n\n    /**\n     * @private\n     * Create a WebRTC connection.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * establish an new connection.\n     * @param {function|object} arg1 Either a callback function to send the\n     * message to the remote peer (for instance, it can use a signaling server\n     * or the already created WebRTC connexions), or a message received from the\n     * remote peer.\n     * @param {object} arg2 The message received from a peer that initialized a\n     * WebRTC connection.\n     */\n    _connect (protocolId, arg1, arg2){\n        if (typeof arg1 === 'function' && typeof arg2 === 'undefined') {\n            this._initiate(protocolId, arg1); // arg1: callback for offers\n        } else if (typeof arg1 === 'function' && typeof arg2 !== 'undefined'){\n            this._accept(protocolId, arg1, arg2); // arg1:callback, arg2:request\n        } else {\n            this._finalize(protocolId, arg1); // arg1: response\n        };\n    };\n\n    /**\n     * @private\n     * Initiate the creation of a WebRTC connection. At this point, the identity\n     * of the remote peer is unknown.\n     * @param {string} protocolId The identifier of the protocol that creates a\n     * connection.\n     * @param {function} sender A function called at each offer\n     */\n    _initiate (protocolId, sender) {\n        // #1 create an initiator\n        this.options.config.initiator = true;\n        let socket = new (this.options.socketClass)(this.options.config);\n        // #2 insert the new entry in the pending table\n        let entry = new EPending(uuid(), null, protocolId, socket);\n        this.pending.set(entry.tid, entry);\n\n        // #3 define events\n        socket.once('connect', () => {\n            entry.successful = true;\n            if (this.living.contains(entry.peer)){\n                entry.alreadyExists = true;\n                entry.successful = true;\n                this.living.insert(entry.peer, protocolId);\n                debug('[%s] --- arc --> %s', this.PEER, entry.peer);\n                this.protocols.get(protocolId)._connected(entry.peer, true);\n                entry.peer = null; // becomes the unknown soldier\n            } else {\n                this.living.insert(entry.peer, protocolId, socket);\n                debug('[%s] --- WebRTC --> %s', this.PEER, entry.peer);\n                this.protocols.get(protocolId)._connected(entry.peer, true);\n            };\n        });\n        socket.once('close', () => {\n            if (entry.peer !== null){ // if not the unknown soldier\n                if (this.living.contains(entry.peer)){\n                    // #A remove the socket from the table of living connections\n                    let toNotify = this.living.removePeer(entry.peer);\n                    // #B notify all protocols that were using this socket\n                    toNotify.forEach( (occ, pid) => {\n                        for (let i = 0; i<occ; ++i){\n                            this.protocols.get(pid)._disconnected(entry.peer);\n                        };\n                    });\n                } else if (this.dying.has(entry.peer)){\n                    let d = this.dying.get(entry.peer);\n                    clearTimeout(d.timeout);\n                    this.dying.delete(entry.peer);\n                };\n                debug('[%s] -‡- WebRTC -‡> %s', this.PEER, entry.peer);\n            } else {\n                debug('[%s] -‡- WebRTC -‡> %s', this.PEER, 'unknown');\n            };\n        });\n\n        socket.on('data', (d) => {\n            let msg = this.decode(d);\n            this.protocols.get(msg.pid)._received(msg.peer, msg.payload);\n        });\n        socket.on('stream', (s) => {\n            this.protocols.get(entry.pid)._streamed(entry.peer, s);\n        });\n        socket.on('error', (e) => {\n            // Nothing here, for the failure are detected and handled after\n            // this.options.timeout milliseconds.\n            // console.log(e);\n        });\n        // #4 send offer message using sender\n        socket.on('signal', (offer) => {\n            sender(new MRequest(entry.tid, this.PEER, protocolId, offer));\n        });\n\n        // #5 check if the socket has been established correctly\n        setTimeout( () => {\n            // (TODO) on destroy notify protocols that still use the socket\n            // (TODO) send MDisconnect messages to notify remote peer of the\n            // removal of an arc\n            (!entry.successful || entry.alreadyExists) &&\n                entry.socket.destroy();\n            !entry.successful &&\n                this.protocols.get(protocolId)._failed(entry.peer, true);\n            this.pending.delete(entry.tid);\n        }, this.options.timeout);\n\n    };\n\n    /**\n     * @private\n     * Try to finalize the WebRTC connection using the remote offers.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * open a connection.\n     * @param {MResponse} msg The message containing an offer, a peerId etc.\n     */\n    _finalize(protocolId, msg) {\n        if (!this.pending.has(msg.tid)){\n            throw new ExLateMessage('_finalize', msg);\n        };\n\n        let entry = this.pending.get(msg.tid);\n        if (entry.alreadyExists || entry.successful) { return ;};\n\n        // #A check if the connection already exists\n        if (this.living.contains(msg.peer)){\n            entry.alreadyExists = true;\n            entry.successful = true;\n            this.living.insert(msg.peer, protocolId);\n            debug('[%s] --- arc --> %s', this.PEER, msg.peer);\n            this.protocols.get(protocolId)._connected(msg.peer, true);\n        } else if (this.dying.has(msg.peer)){\n            // #B rise from the dead\n            entry.alreadyExists = true;\n            entry.successful = true;\n            let rise = this.dying.get(msg.peer);\n            clearTimeout(rise.timeout);\n            this.dying.delete(msg.peer);\n            this.living.insert(msg.peer, protocolId, rise.socket);\n            debug('[%s] -¡- arc -¡> %s', this.PEER, msg.peer);\n            this.protocols.get(protocolId)._connected(msg.peer, true);\n        } else {\n            // #C just signal the offer\n            entry.peer = msg.peer;\n            if (!msg.offer) {\n                throw new ExIncompleteMessage('_finalize', entry, msg);\n            } else {\n                entry.socket.signal(msg.offer);\n            };\n        };\n    };\n\n    /**\n     * @private\n     * Establish a connection in response to the request of remote peer.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * create a connection.\n     * @param {function} sender The function that send the offer to the remote\n     * initiating peer.\n     * @param {MRequest} msg The request message containing offers, peerId, etc.\n     **/\n    _accept (protocolId, sender, msg) {\n        // #1 initialize the entry if it does not exist\n        let firstCall = false;\n        if (!this.pending.has(msg.tid)) {\n            firstCall = true;\n            let entry = new EPending(msg.tid, msg.peer, protocolId);\n            this.pending.set(entry.tid, entry);\n\n            setTimeout( () => {\n                (!entry.successful || entry.alreadyExists) &&\n                    entry.socket && entry.socket.destroy();\n                !entry.successful &&\n                    this.protocols.get(protocolId)._failed(entry.peer, false);\n                this.pending.delete(entry.tid);\n            }, this.options.timeout);\n        };\n\n        // #2 check if a WebRTC connection to peerId already exists\n        let entry = this.pending.get(msg.tid);\n        if (entry.alreadyExists || entry.successful) { return ;};\n\n        // #A check if the connection already exists\n        if (this.living.contains(msg.peer)){\n            entry.alreadyExists = true;\n            entry.successful = true;\n            this.living.insert(msg.peer, protocolId);\n            debug('[%s] <-- arc --- %s', this.PEER, entry.peer);\n            this.protocols.get(protocolId)._connected(msg.peer, false);\n            firstCall && sender(new MResponse(entry.tid,\n                                              this.PEER,\n                                              protocolId,\n                                              null));\n        } else if (this.dying.has(msg.peer)){\n            // #B rise from the dead\n            entry.alreadyExists = true;\n            entry.successful = true;\n            let rise = this.dying.get(msg.peer);\n            clearTimeout(rise.timeout);\n            this.dying.delete(msg.peer);\n            this.living.insert(msg.peer, protocolId, rise.socket);\n            debug('[%s] <¡- arc -¡- %s', this.PEER, msg.peer);\n            this.protocols.get(protocolId)._connected(msg.peer, false);\n            firstCall && sender(new MResponse(entry.tid,\n                                              this.PEER,\n                                              protocolId,\n                                              null));\n        } else {\n            // #3 create the events and signal the offer\n            if (firstCall && !entry.socket){\n                // #A create a socket\n                this.options.config.initiator = false;\n                let socket = new (this.options.socketClass)(this.options.config);\n                // #B update the entry\n                entry.socket = socket;\n                // #C define events\n                socket.once('connect', () => {\n                    entry.successful = true;\n                    if (this.living.contains(entry.peer)) {\n                        entry.alreadyExists = true;\n                        entry.successful = true;\n                        this.living.insert(entry.peer, protocolId);\n                        debug('[%s] <-- arc --- %s', this.PEER, entry.peer);\n                        this.protocols.get(protocolId)._connected(entry.peer,\n                                                                  false);\n                        entry.peer = null; // becomes the unknown soldier\n                    } else {\n                        this.living.insert(entry.peer, protocolId, socket);\n                        debug('[%s] <-- WebRTC --- %s', this.PEER, entry.peer);\n                        this.protocols.get(protocolId)._connected(entry.peer,\n                                                                  false);\n                    };\n                });\n                socket.once('close', () => {\n                    if (entry.peer !== null){ // if not the unknown soldier\n                        if (this.living.contains(entry.peer)){\n                            // #A remove the socket from the table of\n                            // living connections\n                            let toNotify = this.living.removePeer(entry.peer);\n                            // #B notify all protocols that were using\n                            // this socket\n                            toNotify.forEach( (occ, pid) => {\n                                for (let i = 0; i<occ; ++i){\n                                    this.protocols.get(pid)\n                                        ._disconnected(entry.peer);\n                                };\n                            });\n                        } else if (this.dying.has(entry.peer)){\n                            let d = this.dying.get(entry.peer);\n                            clearTimeout(d.timeout);\n                            this.dying.delete(entry.peer);\n                        };\n                        debug('[%s] <‡- WebRTC -‡- %s', this.PEER, entry.peer);\n                    } else {\n                        debug('[%s] <‡- WebRTC -‡- %s', this.PEER, 'unknown');\n                    };\n                });\n\n                socket.on('data', (d) => {\n                    let msg = this.decode(d);\n                    this.protocols.get(msg.pid)._received(msg.peer,msg.payload);\n                });\n                socket.on('stream', (s) => {\n                    this.protocols.get(entry.pid)._streamed(entry.peer, s);\n                });\n                socket.on('error', (e) => {\n                    // Nothing here, for the failure are detected and handled\n                    // after this.options.timeout milliseconds.\n                    // console.log(e);\n                });\n                // #4 send offer message using sender\n                socket.on('signal', (offer) => {\n                    sender(new MResponse(entry.tid,this.PEER,protocolId,offer));\n                });\n            };\n            entry.socket.signal(msg.offer);\n        };\n    };\n\n\n    /**\n     * @private\n     * Remove an arc from protocolId leading to peerId. If it was the last arc,\n     * the WebRTC connexion is downgraded to the dying table. In this table, the\n     * connexion will be closed if none create it.\n     * @param {string} protocolId The identifier of the protocol that removes an\n     * arc\n     * @param {string|undefined} peerId The identifier of the peer. If no arg,\n     * remove all arcs of protocolId.\n     */\n    _disconnect (protocolId, peerId) {\n        if (typeof peerId === 'undefined'){\n            // #1 remove all arcs\n            var entries = this.living.removeAll(protocolId);\n            entries.forEach( (entry) => {\n                if (entry.socket !== null){\n                    var dying = new EDying(entry.peer,\n                                           entry.socket,\n                                           setTimeout( () => {\n                                               entry.socket.destroy();\n                                           }, this.options.timeout));\n                    this.dying.set(dying.peer, dying);\n                };\n\n                for (let i=0; i<entry.occ; ++i){\n                    if (entry.socket === null ||\n                        (entry.socket !== null && i<entry.occ-1) ) {\n                        debug('[%s] ††† arc ††† %s', this.PEER, peerId);\n                    } else {\n                        debug('[%s] ††† WebRTC ††† %s', this.PEER, peerId);\n                    };\n                    this.protocols.get(protocolId)._disconnected(entry.peer);\n                };\n            });\n        } else {\n            // #2 remove one arc\n            var entry = this.living.remove(peerId, protocolId);\n            if (entry) {\n                var dying = new EDying(entry.peer,\n                                       entry.socket,\n                                       setTimeout( () => {\n                                           entry.socket.destroy();\n                                       }, this.options.timeout));\n                this.dying.set(dying.peer, dying);\n                debug('[%s] ††† WebRTC ††† %s', this.PEER, peerId);\n            } else {\n                debug('[%s] ††† arc ††† %s', this.PEER, peerId);\n            };\n            this.protocols.get(protocolId)._disconnected(peerId);\n        };\n    };\n\n    /**\n     * @private\n     * Send a message to a remote peer. It encapsulates the message\n     * from protocolId to help the remote peer to route the message to the\n     * proper protocol.\n     * @param {string} protocolId The identifier of the protocol sending the\n     * message\n     * @param {string} peerId The remote peer to send the message to.\n     * @param {object} message The message to send.\n     * @param {number} [retry=0] Retry few times to send the message before\n     * giving up.\n     * @returns {promise} Resolved when the message is sent, reject\n     * otherwise. Note that loss of messages is not handled by default.\n     */\n    _send (protocolId, peerId, message, retry = 0) {\n        return new Promise( (resolve, reject) => {\n            // #1 get the proper entry in the tables\n            let entry = null;\n            if (this.living.contains(peerId)){\n                entry = this.living.get(peerId);\n            } else if (this.dying.has(peerId)){\n                entry = this.dying.get(peerId); // (TODO) warn: not safe\n            };\n\n            // #2 define the recursive sending function\n            let __send = (r) => {\n                try {\n                    entry.socket.send(this.encode(new MSend(this.PEER,\n                                                            protocolId,\n                                                            message)));\n                    debug('[%s] --- msg --> %s:%s',\n                          this.PEER, peerId, protocolId);\n                    resolve();\n                } catch (e) {\n                    debug('[%s] -X- msg -X> %s:%s',\n                          this.PEER, peerId, protocolId);\n                    if (r < retry){\n                        setTimeout ( () => { __send(r+1); }, 1000);\n                    } else {\n                        reject(e);\n                    };\n                };\n            };\n            // #3 start to send\n            __send(0);\n        });\n    };\n};\n\nmodule.exports = Neighborhood;\n",
+    "static": true,
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/neighborhood.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 155,
+    "kind": "variable",
+    "name": "debug",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~debug",
+    "access": "public",
+    "export": false,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 156,
+    "kind": "class",
+    "name": "Neighborhood",
+    "memberof": "lib/neighborhood.js",
+    "static": true,
+    "longname": "lib/neighborhood.js~Neighborhood",
+    "access": "public",
+    "export": true,
+    "importPath": "neighborhood-wrtc",
+    "importStyle": "Neighborhood",
+    "description": "Easy-to-use interface to establish multiple WebRTC connections using\nSimplePeer (npm: simple-peer)",
+    "lineNumber": 27,
+    "interface": false
+  },
+  {
+    "__docId__": 157,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 41,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options",
+        "description": "the options available to the connections, e.g.\ntimeout before"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options.socketClass",
+        "description": "simple-peer default socket class (usefull if you need to change the type of socket)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options.config",
+        "description": "simple-peer options"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 60000",
+        "defaultRaw": 60000,
+        "name": "options.timeout",
+        "description": "Time to wait (in milliseconds)\nbefore neighborhood-wrtc assumes that a connection establishment failed,\nor before an unused connection is removed."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options.encoding",
+        "description": "Method to customize message sent,\ndefault: return JSON.stringify(data);"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "options.decoding",
+        "description": "Method to decode a received message,\ndefault: return JSON.parse(data);"
+      }
+    ]
+  },
+  {
+    "__docId__": 158,
+    "kind": "member",
+    "name": "options",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#options",
+    "access": "public",
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"socketClass\": *, \"peer\": *, \"config\": *, \"timeout\": *, \"encoding\": *, \"decoding\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 160,
+    "kind": "member",
+    "name": "encode",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#encode",
+    "access": "public",
+    "description": null,
+    "lineNumber": 52,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 161,
+    "kind": "member",
+    "name": "decode",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#decode",
+    "access": "public",
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 162,
+    "kind": "member",
+    "name": "PEER",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#PEER",
+    "access": "public",
+    "description": null,
+    "lineNumber": 56,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 163,
+    "kind": "member",
+    "name": "pending",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#pending",
+    "access": "public",
+    "description": null,
+    "lineNumber": 60,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 164,
+    "kind": "member",
+    "name": "living",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#living",
+    "access": "public",
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 165,
+    "kind": "member",
+    "name": "dying",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#dying",
+    "access": "public",
+    "description": null,
+    "lineNumber": 62,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 166,
+    "kind": "member",
+    "name": "protocols",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#protocols",
+    "access": "public",
+    "description": null,
+    "lineNumber": 65,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 167,
+    "kind": "method",
+    "name": "register",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#register",
+    "access": "public",
+    "description": "The protocolId asks this module to get an interface. The interface\ncomprises functions such as connect, disconnect, or send. ProtocolId\nshould provide some functions as well such as failed, opened, received,\npid.",
+    "lineNumber": 77,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{INeighborhood} The interface to use this module easily."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "IProtocol"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocol",
+        "description": "The protocol that requires the interface."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "INeighborhood"
+      ],
+      "spread": false,
+      "description": "The interface to use this module easily."
+    }
+  },
+  {
+    "__docId__": 168,
+    "kind": "method",
+    "name": "_connect",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#_connect",
+    "access": "private",
+    "description": "",
+    "lineNumber": 107,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that wishes to\nestablish an new connection."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function",
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "arg1",
+        "description": "Either a callback function to send the\nmessage to the remote peer (for instance, it can use a signaling server\nor the already created WebRTC connexions), or a message received from the\nremote peer."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "arg2",
+        "description": "The message received from a peer that initialized a\nWebRTC connection."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 169,
+    "kind": "method",
+    "name": "_initiate",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#_initiate",
+    "access": "private",
+    "description": "",
+    "lineNumber": 125,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that creates a\nconnection."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sender",
+        "description": "A function called at each offer"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 170,
+    "kind": "method",
+    "name": "_finalize",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#_finalize",
+    "access": "private",
+    "description": "",
+    "lineNumber": 209,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that wishes to\nopen a connection."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MResponse"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "msg",
+        "description": "The message containing an offer, a peerId etc."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 171,
+    "kind": "method",
+    "name": "_accept",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#_accept",
+    "access": "private",
+    "description": "",
+    "lineNumber": 254,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that wishes to\ncreate a connection."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sender",
+        "description": "The function that send the offer to the remote\ninitiating peer."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "MRequest"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "msg",
+        "description": "The request message containing offers, peerId, etc."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 172,
+    "kind": "method",
+    "name": "_disconnect",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#_disconnect",
+    "access": "private",
+    "description": "",
+    "lineNumber": 383,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol that removes an\narc"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string",
+          "undefined"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The identifier of the peer. If no arg,\nremove all arcs of protocolId."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 173,
+    "kind": "method",
+    "name": "_send",
+    "memberof": "lib/neighborhood.js~Neighborhood",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/neighborhood.js~Neighborhood#_send",
+    "access": "private",
+    "description": "",
+    "lineNumber": 439,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{promise} Resolved when the message is sent, reject\notherwise. Note that loss of messages is not handled by default."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "protocolId",
+        "description": "The identifier of the protocol sending the\nmessage"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "peerId",
+        "description": "The remote peer to send the message to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "The message to send."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "0",
+        "defaultRaw": 0,
+        "name": "retry",
+        "description": "Retry few times to send the message before\ngiving up."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "promise"
+      ],
+      "spread": false,
+      "description": "Resolved when the message is sent, reject\notherwise. Note that loss of messages is not handled by default."
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# neighborhood-wrtc [![Build Status](https://travis-ci.org/RAN3D/neighborhood-wrtc.svg?branch=master)](https://travis-ci.org/RAN3D/neighborhood-wrtc)\n\n<i>Keywords: WebRTC, browser-to-browser communication, overlay network</i>\n\nProject that aims to ease the WebRTC connection establishment process. Among\nothers, it alleviates the need to know which socket produced which offer.  It\nalso reuses existing connections instead of establishing new ones, when this is\npossible. It aims to be part of network protocols that build overlay networks\nand to provide them logical arcs - using identifiers - instead of channels.\nFinally, it is designed to handle multiple protocols, for they may share\nidentical arcs. For instance, consider several applications embedded in a single\nweb page, some of them are connected to a same peer. Instead of working\ncompletely on their own, these applications will share the same channel. The\nneighborhood-wrtc module will redirect the messages to the right applications.\n\nNote: The [API](https://ran3d.github.io/neighborhood-wrtc/) may change to face\nthe need of overlay network protocols.\n\nNeighborhood-wrtc is built on top of the (who said amazing?)\n[simple-peer](https://github.com/feross/simple-peer) project.\n\n\n## Principle\n\n<p align='center'>\n<img src='./img/notsharing.png'> </img>\n</p>\n\nThree peer-to-peer applications ```8O```, ```:|``` and ```>_<``` run in a same\ntab of a WebRTC-compatible browser. When they want to connect to their\nrespective remote counterpart, the browser must establish 3 WebRTC connections,\nfor they do not share any information between each other.\n\n<p align='center'>\n<img src='./img/sharing.png'> </img>\n</p>\n\nUsing this module to create WebRTC connections, they can share it and messages\nwill be automatically redirected to corresponding applications. In this example,\ninstead of establishing and maintaining 3 distinct connections -- which may be\ncostly in terms of time and bandwidth -- neighborhood-wrtc only establish 1. The\nconnection is destroyed only if the 3 applications remove it.\n\n## Installation\n\n```\n$ npm install neighborhood-wrtc\n```\n\n## API\n\nYou can find the API [here](https://ran3d.github.io/neighborhood-wrtc/).\n\n## Examples\n\nUsage examples of this module can be found\n[here](https://ran3d.github.io/neighborhood-wrtc/examples/simple.html) and\n[here](https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html).  To\nrun the example, make sure your web browser is\n[WebRTC-compatible](https://webrtc.org) and switch to console mode.\n\nModule [n2n-overlay-wrtc](https://github.com/ran3d/n2n-overlay-wrtc) uses this\nmodule to establish WebRTC connections from neighbor-to-neighbor, i.e., at most\n1 hop distance.\n\n## Socket\n\nBy default we used [simple-peer](https://github.com/feross/simple-peer) as Socket but if you want to change the type of Socket you want to use you'll need to follow this API:\n\n```\nnew Neighborhood({\n    socketClass: YourFavouriteSocketClass\n})\n```\n\n```js\n// ### events\n\n// emit when the connection is established\nsocket.on('connect', () => {})\n\n// emit when the socket is closed\nsocket.on('close', () => {})\n\n// emit when data is received\nsocket.on('data', (data) => {})\n\n// emit when a stream is received\nsocket.on('stream', (stream) => {})\n\n// emit when an error occured\nsocket.on('error', (error) => {})\n\n// emit when an offer is created\nsocket.on('signal', (offer) => {})\n\n//### functions\n\n// destroy the socket and emite the event close\n// `Destroy and cleanup this peer connection.`\nsocket.destroy()\n\n// pass an offer to the peer\nsocket.signal(offer)\n\n// send data to the socket\nsocket.send(data)\n```\n",
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n    \"name\": \"neighborhood-wrtc\",\n    \"version\": \"2.0.3\",\n    \"description\": \"neighborhood (or partial view) containing peers to communicate with\",\n    \"main\": \"lib/neighborhood.js\",\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"https://github.com/ran3d/neighborhood-wrtc\"\n    },\n    \"keywords\": [\n        \"WebRTC\",\n        \"browser-to-browser communication\",\n        \"overlay network\"\n    ],\n    \"author\": \"Chat-Wane\",\n    \"license\": \"MIT\",\n    \"dependencies\": {\n        \"debug\": \"^3.1.0\",\n        \"lodash\": \"^4.17.5\",\n        \"simple-peer\": \"^9.0.0\",\n        \"uuid\": \"^3.2.1\"\n    },\n    \"bundledDependencies\": [\n        \"simple-peer\",\n        \"uuid\",\n        \"lodash\",\n        \"debug\"\n    ],\n    \"devDependencies\": {\n        \"babel-core\": \"^6.26.0\",\n        \"babel-preset-es2015\": \"^6.24.1\",\n        \"babelify\": \"^8.0.0\",\n        \"browserify\": \"^16.1.1\",\n        \"esdoc\": \"^1.0.4\",\n        \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n        \"esdoc-node\": \"^1.0.3\",\n        \"esdoc-standard-plugin\": \"^1.0.0\"\n    },\n    \"scripts\": {\n        \"esdoc\": \"esdoc && npm run esdoc:example\",\n        \"esdoc:example\": \"cp -R ./build ./examples ./img ./docs\",\n        \"test\": \"npm run all\",\n        \"all\": \"npm run debug && npm run build && npm run esdoc\",\n        \"debug\": \"browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ es2015 ] ] --debug > build/neighborhood-wrtc.bundle.debug.js\",\n        \"build\": \"browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ es2015 ] ] > build/neighborhood-wrtc.bundle.js\"\n    }\n}\n",
+    "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

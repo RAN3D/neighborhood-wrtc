@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2079,
+  "end": 2074,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2079,
+    "end": 2074,
     "loc": {
       "start": {
         "line": 1,
@@ -29,9 +29,9 @@
     "sourceType": "module",
     "body": [
       {
-        "type": "VariableDeclaration",
+        "type": "ImportDeclaration",
         "start": 15,
-        "end": 91,
+        "end": 86,
         "loc": {
           "start": {
             "line": 3,
@@ -39,104 +39,69 @@
           },
           "end": {
             "line": 3,
-            "column": 76
+            "column": 71
           }
         },
-        "declarations": [
+        "specifiers": [
           {
-            "type": "VariableDeclarator",
-            "start": 21,
-            "end": 90,
+            "type": "ImportDefaultSpecifier",
+            "start": 22,
+            "end": 41,
             "loc": {
               "start": {
                 "line": 3,
-                "column": 6
+                "column": 7
               },
               "end": {
                 "line": 3,
-                "column": 75
+                "column": 26
               }
             },
-            "id": {
+            "local": {
               "type": "Identifier",
-              "start": 21,
-              "end": 40,
+              "start": 22,
+              "end": 41,
               "loc": {
                 "start": {
                   "line": 3,
-                  "column": 6
+                  "column": 7
                 },
                 "end": {
                   "line": 3,
-                  "column": 25
+                  "column": 26
                 },
                 "identifierName": "ExUndefinedFunction"
               },
               "name": "ExUndefinedFunction"
-            },
-            "init": {
-              "type": "CallExpression",
-              "start": 43,
-              "end": 90,
-              "loc": {
-                "start": {
-                  "line": 3,
-                  "column": 28
-                },
-                "end": {
-                  "line": 3,
-                  "column": 75
-                }
-              },
-              "callee": {
-                "type": "Identifier",
-                "start": 43,
-                "end": 50,
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 28
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 35
-                  },
-                  "identifierName": "require"
-                },
-                "name": "require"
-              },
-              "arguments": [
-                {
-                  "type": "StringLiteral",
-                  "start": 51,
-                  "end": 89,
-                  "loc": {
-                    "start": {
-                      "line": 3,
-                      "column": 36
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 74
-                    }
-                  },
-                  "extra": {
-                    "rawValue": "../exceptions/exundefinedfunction.js",
-                    "raw": "'../exceptions/exundefinedfunction.js'"
-                  },
-                  "value": "../exceptions/exundefinedfunction.js"
-                }
-              ]
             }
           }
         ],
-        "kind": "const",
+        "source": {
+          "type": "StringLiteral",
+          "start": 47,
+          "end": 85,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 32
+            },
+            "end": {
+              "line": 3,
+              "column": 70
+            }
+          },
+          "extra": {
+            "rawValue": "../exceptions/exundefinedfunction.js",
+            "raw": "'../exceptions/exundefinedfunction.js'"
+          },
+          "value": "../exceptions/exundefinedfunction.js"
+        },
         "trailingComments": [
           {
             "type": "CommentBlock",
             "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-            "start": 93,
-            "end": 251,
+            "start": 88,
+            "end": 246,
             "loc": {
               "start": {
                 "line": 5,
@@ -152,8 +117,8 @@
       },
       {
         "type": "Identifier",
-        "start": 252,
-        "end": 2049,
+        "start": 247,
+        "end": 2044,
         "loc": {
           "start": {
             "line": 9,
@@ -166,8 +131,8 @@
         },
         "id": {
           "type": "Identifier",
-          "start": 258,
-          "end": 267,
+          "start": 253,
+          "end": 262,
           "loc": {
             "start": {
               "line": 9,
@@ -185,8 +150,8 @@
         "superClass": null,
         "body": {
           "type": "ClassBody",
-          "start": 268,
-          "end": 2049,
+          "start": 263,
+          "end": 2044,
           "loc": {
             "start": {
               "line": 9,
@@ -200,8 +165,8 @@
           "body": [
             {
               "type": "ClassMethod",
-              "start": 274,
-              "end": 291,
+              "start": 269,
+              "end": 286,
               "loc": {
                 "start": {
                   "line": 10,
@@ -212,11 +177,12 @@
                   "column": 21
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 274,
-                "end": 285,
+                "start": 269,
+                "end": 280,
                 "loc": {
                   "start": {
                     "line": 10,
@@ -230,7 +196,6 @@
                 },
                 "name": "constructor"
               },
-              "static": false,
               "kind": "constructor",
               "id": null,
               "generator": false,
@@ -239,8 +204,8 @@
               "params": [],
               "body": {
                 "type": "BlockStatement",
-                "start": 289,
-                "end": 291,
+                "start": 284,
+                "end": 286,
                 "loc": {
                   "start": {
                     "line": 10,
@@ -257,8 +222,8 @@
             },
             {
               "type": "ClassMethod",
-              "start": 412,
-              "end": 459,
+              "start": 407,
+              "end": 454,
               "loc": {
                 "start": {
                   "line": 16,
@@ -269,11 +234,12 @@
                   "column": 51
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 412,
-                "end": 416,
+                "start": 407,
+                "end": 411,
                 "loc": {
                   "start": {
                     "line": 16,
@@ -288,7 +254,6 @@
                 "name": "_pid",
                 "leadingComments": null
               },
-              "static": false,
               "kind": "method",
               "id": null,
               "generator": false,
@@ -297,8 +262,8 @@
               "params": [],
               "body": {
                 "type": "BlockStatement",
-                "start": 418,
-                "end": 459,
+                "start": 413,
+                "end": 454,
                 "loc": {
                   "start": {
                     "line": 16,
@@ -312,8 +277,8 @@
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 420,
-                    "end": 457,
+                    "start": 415,
+                    "end": 452,
                     "loc": {
                       "start": {
                         "line": 16,
@@ -326,8 +291,8 @@
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 426,
-                      "end": 456,
+                      "start": 421,
+                      "end": 451,
                       "loc": {
                         "start": {
                           "line": 16,
@@ -340,8 +305,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 430,
-                        "end": 449,
+                        "start": 425,
+                        "end": 444,
                         "loc": {
                           "start": {
                             "line": 16,
@@ -358,8 +323,8 @@
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 450,
-                          "end": 455,
+                          "start": 445,
+                          "end": 450,
                           "loc": {
                             "start": {
                               "line": 16,
@@ -386,8 +351,8 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-                  "start": 298,
-                  "end": 407,
+                  "start": 293,
+                  "end": 402,
                   "loc": {
                     "start": {
                       "line": 12,
@@ -403,8 +368,8 @@
             },
             {
               "type": "ClassMethod",
-              "start": 742,
-              "end": 818,
+              "start": 737,
+              "end": 813,
               "loc": {
                 "start": {
                   "line": 25,
@@ -415,11 +380,12 @@
                   "column": 80
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 742,
-                "end": 752,
+                "start": 737,
+                "end": 747,
                 "loc": {
                   "start": {
                     "line": 25,
@@ -434,7 +400,6 @@
                 "name": "_connected",
                 "leadingComments": null
               },
-              "static": false,
               "kind": "method",
               "id": null,
               "generator": false,
@@ -443,8 +408,8 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 753,
-                  "end": 759,
+                  "start": 748,
+                  "end": 754,
                   "loc": {
                     "start": {
                       "line": 25,
@@ -460,8 +425,8 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 761,
-                  "end": 771,
+                  "start": 756,
+                  "end": 766,
                   "loc": {
                     "start": {
                       "line": 25,
@@ -478,8 +443,8 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 772,
-                "end": 818,
+                "start": 767,
+                "end": 813,
                 "loc": {
                   "start": {
                     "line": 25,
@@ -493,8 +458,8 @@
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 774,
-                    "end": 817,
+                    "start": 769,
+                    "end": 812,
                     "loc": {
                       "start": {
                         "line": 25,
@@ -507,8 +472,8 @@
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 780,
-                      "end": 816,
+                      "start": 775,
+                      "end": 811,
                       "loc": {
                         "start": {
                           "line": 25,
@@ -521,8 +486,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 784,
-                        "end": 803,
+                        "start": 779,
+                        "end": 798,
                         "loc": {
                           "start": {
                             "line": 25,
@@ -539,8 +504,8 @@
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 804,
-                          "end": 815,
+                          "start": 799,
+                          "end": 810,
                           "loc": {
                             "start": {
                               "line": 25,
@@ -567,8 +532,8 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the \n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an \n     * outgoing arc.\n     ",
-                  "start": 466,
-                  "end": 737,
+                  "start": 461,
+                  "end": 732,
                   "loc": {
                     "start": {
                       "line": 18,
@@ -584,8 +549,8 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1001,
-              "end": 1072,
+              "start": 996,
+              "end": 1067,
               "loc": {
                 "start": {
                   "line": 32,
@@ -596,11 +561,12 @@
                   "column": 75
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1001,
-                "end": 1014,
+                "start": 996,
+                "end": 1009,
                 "loc": {
                   "start": {
                     "line": 32,
@@ -615,7 +581,6 @@
                 "name": "_disconnected",
                 "leadingComments": null
               },
-              "static": false,
               "kind": "method",
               "id": null,
               "generator": false,
@@ -624,8 +589,8 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1015,
-                  "end": 1021,
+                  "start": 1010,
+                  "end": 1016,
                   "loc": {
                     "start": {
                       "line": 32,
@@ -642,8 +607,8 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1022,
-                "end": 1072,
+                "start": 1017,
+                "end": 1067,
                 "loc": {
                   "start": {
                     "line": 32,
@@ -657,8 +622,8 @@
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 1024,
-                    "end": 1070,
+                    "start": 1019,
+                    "end": 1065,
                     "loc": {
                       "start": {
                         "line": 32,
@@ -671,8 +636,8 @@
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 1030,
-                      "end": 1069,
+                      "start": 1025,
+                      "end": 1064,
                       "loc": {
                         "start": {
                           "line": 32,
@@ -685,8 +650,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 1034,
-                        "end": 1053,
+                        "start": 1029,
+                        "end": 1048,
                         "loc": {
                           "start": {
                             "line": 32,
@@ -703,8 +668,8 @@
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1054,
-                          "end": 1068,
+                          "start": 1049,
+                          "end": 1063,
                           "loc": {
                             "start": {
                               "line": 32,
@@ -731,8 +696,8 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-                  "start": 825,
-                  "end": 996,
+                  "start": 820,
+                  "end": 991,
                   "loc": {
                     "start": {
                       "line": 27,
@@ -748,8 +713,8 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1382,
-              "end": 1453,
+              "start": 1377,
+              "end": 1448,
               "loc": {
                 "start": {
                   "line": 41,
@@ -760,11 +725,12 @@
                   "column": 75
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1382,
-                "end": 1389,
+                "start": 1377,
+                "end": 1384,
                 "loc": {
                   "start": {
                     "line": 41,
@@ -779,7 +745,6 @@
                 "name": "_failed",
                 "leadingComments": null
               },
-              "static": false,
               "kind": "method",
               "id": null,
               "generator": false,
@@ -788,8 +753,8 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1390,
-                  "end": 1396,
+                  "start": 1385,
+                  "end": 1391,
                   "loc": {
                     "start": {
                       "line": 41,
@@ -805,8 +770,8 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 1398,
-                  "end": 1408,
+                  "start": 1393,
+                  "end": 1403,
                   "loc": {
                     "start": {
                       "line": 41,
@@ -823,8 +788,8 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1409,
-                "end": 1453,
+                "start": 1404,
+                "end": 1448,
                 "loc": {
                   "start": {
                     "line": 41,
@@ -838,8 +803,8 @@
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 1411,
-                    "end": 1451,
+                    "start": 1406,
+                    "end": 1446,
                     "loc": {
                       "start": {
                         "line": 41,
@@ -852,8 +817,8 @@
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 1417,
-                      "end": 1450,
+                      "start": 1412,
+                      "end": 1445,
                       "loc": {
                         "start": {
                           "line": 41,
@@ -866,8 +831,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 1421,
-                        "end": 1440,
+                        "start": 1416,
+                        "end": 1435,
                         "loc": {
                           "start": {
                             "line": 41,
@@ -884,8 +849,8 @@
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1441,
-                          "end": 1449,
+                          "start": 1436,
+                          "end": 1444,
                           "loc": {
                             "start": {
                               "line": 41,
@@ -912,8 +877,8 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was \n     * supposed to be an outgoing arc.\n     ",
-                  "start": 1079,
-                  "end": 1377,
+                  "start": 1074,
+                  "end": 1372,
                   "loc": {
                     "start": {
                       "line": 34,
@@ -929,8 +894,8 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1676,
-              "end": 1749,
+              "start": 1671,
+              "end": 1744,
               "loc": {
                 "start": {
                   "line": 48,
@@ -941,11 +906,12 @@
                   "column": 77
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1676,
-                "end": 1685,
+                "start": 1671,
+                "end": 1680,
                 "loc": {
                   "start": {
                     "line": 48,
@@ -960,7 +926,6 @@
                 "name": "_received",
                 "leadingComments": null
               },
-              "static": false,
               "kind": "method",
               "id": null,
               "generator": false,
@@ -969,8 +934,8 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1686,
-                  "end": 1692,
+                  "start": 1681,
+                  "end": 1687,
                   "loc": {
                     "start": {
                       "line": 48,
@@ -986,8 +951,8 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 1694,
-                  "end": 1701,
+                  "start": 1689,
+                  "end": 1696,
                   "loc": {
                     "start": {
                       "line": 48,
@@ -1004,8 +969,8 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1703,
-                "end": 1749,
+                "start": 1698,
+                "end": 1744,
                 "loc": {
                   "start": {
                     "line": 48,
@@ -1019,8 +984,8 @@
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 1705,
-                    "end": 1747,
+                    "start": 1700,
+                    "end": 1742,
                     "loc": {
                       "start": {
                         "line": 48,
@@ -1033,8 +998,8 @@
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 1711,
-                      "end": 1746,
+                      "start": 1706,
+                      "end": 1741,
                       "loc": {
                         "start": {
                           "line": 48,
@@ -1047,8 +1012,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 1715,
-                        "end": 1734,
+                        "start": 1710,
+                        "end": 1729,
                         "loc": {
                           "start": {
                             "line": 48,
@@ -1065,8 +1030,8 @@
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1735,
-                          "end": 1745,
+                          "start": 1730,
+                          "end": 1740,
                           "loc": {
                             "start": {
                               "line": 48,
@@ -1093,8 +1058,8 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message. \n     ",
-                  "start": 1460,
-                  "end": 1671,
+                  "start": 1455,
+                  "end": 1666,
                   "loc": {
                     "start": {
                       "line": 43,
@@ -1110,8 +1075,8 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1973,
-              "end": 2045,
+              "start": 1968,
+              "end": 2040,
               "loc": {
                 "start": {
                   "line": 55,
@@ -1122,11 +1087,12 @@
                   "column": 76
                 }
               },
+              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1973,
-                "end": 1982,
+                "start": 1968,
+                "end": 1977,
                 "loc": {
                   "start": {
                     "line": 55,
@@ -1141,7 +1107,6 @@
                 "name": "_streamed",
                 "leadingComments": null
               },
-              "static": false,
               "kind": "method",
               "id": null,
               "generator": false,
@@ -1150,8 +1115,8 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1983,
-                  "end": 1989,
+                  "start": 1978,
+                  "end": 1984,
                   "loc": {
                     "start": {
                       "line": 55,
@@ -1167,8 +1132,8 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 1991,
-                  "end": 1997,
+                  "start": 1986,
+                  "end": 1992,
                   "loc": {
                     "start": {
                       "line": 55,
@@ -1185,8 +1150,8 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1999,
-                "end": 2045,
+                "start": 1994,
+                "end": 2040,
                 "loc": {
                   "start": {
                     "line": 55,
@@ -1200,8 +1165,8 @@
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 2001,
-                    "end": 2043,
+                    "start": 1996,
+                    "end": 2038,
                     "loc": {
                       "start": {
                         "line": 55,
@@ -1214,8 +1179,8 @@
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 2007,
-                      "end": 2042,
+                      "start": 2002,
+                      "end": 2037,
                       "loc": {
                         "start": {
                           "line": 55,
@@ -1228,8 +1193,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 2011,
-                        "end": 2030,
+                        "start": 2006,
+                        "end": 2025,
                         "loc": {
                           "start": {
                             "line": 55,
@@ -1246,8 +1211,8 @@
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 2031,
-                          "end": 2041,
+                          "start": 2026,
+                          "end": 2036,
                           "loc": {
                             "start": {
                               "line": 55,
@@ -1274,8 +1239,8 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream. \n     ",
-                  "start": 1760,
-                  "end": 1968,
+                  "start": 1755,
+                  "end": 1963,
                   "loc": {
                     "start": {
                       "line": 50,
@@ -1297,8 +1262,8 @@
       },
       {
         "type": "EmptyStatement",
-        "start": 2049,
-        "end": 2050,
+        "start": 2044,
+        "end": 2045,
         "loc": {
           "start": {
             "line": 57,
@@ -1312,8 +1277,8 @@
       },
       {
         "type": "Identifier",
-        "start": 2053,
-        "end": 2078,
+        "start": 2048,
+        "end": 2073,
         "loc": {
           "start": {
             "line": 60,
@@ -1326,8 +1291,8 @@
         },
         "declaration": {
           "type": "Identifier",
-          "start": 2068,
-          "end": 2077,
+          "start": 2063,
+          "end": 2072,
           "loc": {
             "start": {
               "line": 60,
@@ -1347,8 +1312,8 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 2053,
-        "end": 2078,
+        "start": 2048,
+        "end": 2073,
         "loc": {
           "start": {
             "line": 60,
@@ -1361,8 +1326,8 @@
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 252,
-          "end": 2049,
+          "start": 247,
+          "end": 2044,
           "loc": {
             "start": {
               "line": 9,
@@ -1375,8 +1340,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 258,
-            "end": 267,
+            "start": 253,
+            "end": 262,
             "loc": {
               "start": {
                 "line": 9,
@@ -1394,8 +1359,8 @@
           "superClass": null,
           "body": {
             "type": "ClassBody",
-            "start": 268,
-            "end": 2049,
+            "start": 263,
+            "end": 2044,
             "loc": {
               "start": {
                 "line": 9,
@@ -1409,8 +1374,8 @@
             "body": [
               {
                 "type": "ClassMethod",
-                "start": 274,
-                "end": 291,
+                "start": 269,
+                "end": 286,
                 "loc": {
                   "start": {
                     "line": 10,
@@ -1421,11 +1386,12 @@
                     "column": 21
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 274,
-                  "end": 285,
+                  "start": 269,
+                  "end": 280,
                   "loc": {
                     "start": {
                       "line": 10,
@@ -1439,7 +1405,6 @@
                   },
                   "name": "constructor"
                 },
-                "static": false,
                 "kind": "constructor",
                 "id": null,
                 "generator": false,
@@ -1448,8 +1413,8 @@
                 "params": [],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 289,
-                  "end": 291,
+                  "start": 284,
+                  "end": 286,
                   "loc": {
                     "start": {
                       "line": 10,
@@ -1466,8 +1431,8 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 412,
-                "end": 459,
+                "start": 407,
+                "end": 454,
                 "loc": {
                   "start": {
                     "line": 16,
@@ -1478,11 +1443,12 @@
                     "column": 51
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 412,
-                  "end": 416,
+                  "start": 407,
+                  "end": 411,
                   "loc": {
                     "start": {
                       "line": 16,
@@ -1497,7 +1463,6 @@
                   "name": "_pid",
                   "leadingComments": null
                 },
-                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
@@ -1506,8 +1471,8 @@
                 "params": [],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 418,
-                  "end": 459,
+                  "start": 413,
+                  "end": 454,
                   "loc": {
                     "start": {
                       "line": 16,
@@ -1521,8 +1486,8 @@
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 420,
-                      "end": 457,
+                      "start": 415,
+                      "end": 452,
                       "loc": {
                         "start": {
                           "line": 16,
@@ -1535,8 +1500,8 @@
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 426,
-                        "end": 456,
+                        "start": 421,
+                        "end": 451,
                         "loc": {
                           "start": {
                             "line": 16,
@@ -1549,8 +1514,8 @@
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 430,
-                          "end": 449,
+                          "start": 425,
+                          "end": 444,
                           "loc": {
                             "start": {
                               "line": 16,
@@ -1567,8 +1532,8 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 450,
-                            "end": 455,
+                            "start": 445,
+                            "end": 450,
                             "loc": {
                               "start": {
                                 "line": 16,
@@ -1595,8 +1560,8 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-                    "start": 298,
-                    "end": 407,
+                    "start": 293,
+                    "end": 402,
                     "loc": {
                       "start": {
                         "line": 12,
@@ -1612,8 +1577,8 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 742,
-                "end": 818,
+                "start": 737,
+                "end": 813,
                 "loc": {
                   "start": {
                     "line": 25,
@@ -1624,11 +1589,12 @@
                     "column": 80
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 742,
-                  "end": 752,
+                  "start": 737,
+                  "end": 747,
                   "loc": {
                     "start": {
                       "line": 25,
@@ -1643,7 +1609,6 @@
                   "name": "_connected",
                   "leadingComments": null
                 },
-                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
@@ -1652,8 +1617,8 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 753,
-                    "end": 759,
+                    "start": 748,
+                    "end": 754,
                     "loc": {
                       "start": {
                         "line": 25,
@@ -1669,8 +1634,8 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 761,
-                    "end": 771,
+                    "start": 756,
+                    "end": 766,
                     "loc": {
                       "start": {
                         "line": 25,
@@ -1687,8 +1652,8 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 772,
-                  "end": 818,
+                  "start": 767,
+                  "end": 813,
                   "loc": {
                     "start": {
                       "line": 25,
@@ -1702,8 +1667,8 @@
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 774,
-                      "end": 817,
+                      "start": 769,
+                      "end": 812,
                       "loc": {
                         "start": {
                           "line": 25,
@@ -1716,8 +1681,8 @@
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 780,
-                        "end": 816,
+                        "start": 775,
+                        "end": 811,
                         "loc": {
                           "start": {
                             "line": 25,
@@ -1730,8 +1695,8 @@
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 784,
-                          "end": 803,
+                          "start": 779,
+                          "end": 798,
                           "loc": {
                             "start": {
                               "line": 25,
@@ -1748,8 +1713,8 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 804,
-                            "end": 815,
+                            "start": 799,
+                            "end": 810,
                             "loc": {
                               "start": {
                                 "line": 25,
@@ -1776,8 +1741,8 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the \n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an \n     * outgoing arc.\n     ",
-                    "start": 466,
-                    "end": 737,
+                    "start": 461,
+                    "end": 732,
                     "loc": {
                       "start": {
                         "line": 18,
@@ -1793,8 +1758,8 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1001,
-                "end": 1072,
+                "start": 996,
+                "end": 1067,
                 "loc": {
                   "start": {
                     "line": 32,
@@ -1805,11 +1770,12 @@
                     "column": 75
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1001,
-                  "end": 1014,
+                  "start": 996,
+                  "end": 1009,
                   "loc": {
                     "start": {
                       "line": 32,
@@ -1824,7 +1790,6 @@
                   "name": "_disconnected",
                   "leadingComments": null
                 },
-                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
@@ -1833,8 +1798,8 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1015,
-                    "end": 1021,
+                    "start": 1010,
+                    "end": 1016,
                     "loc": {
                       "start": {
                         "line": 32,
@@ -1851,8 +1816,8 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1022,
-                  "end": 1072,
+                  "start": 1017,
+                  "end": 1067,
                   "loc": {
                     "start": {
                       "line": 32,
@@ -1866,8 +1831,8 @@
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 1024,
-                      "end": 1070,
+                      "start": 1019,
+                      "end": 1065,
                       "loc": {
                         "start": {
                           "line": 32,
@@ -1880,8 +1845,8 @@
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 1030,
-                        "end": 1069,
+                        "start": 1025,
+                        "end": 1064,
                         "loc": {
                           "start": {
                             "line": 32,
@@ -1894,8 +1859,8 @@
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 1034,
-                          "end": 1053,
+                          "start": 1029,
+                          "end": 1048,
                           "loc": {
                             "start": {
                               "line": 32,
@@ -1912,8 +1877,8 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1054,
-                            "end": 1068,
+                            "start": 1049,
+                            "end": 1063,
                             "loc": {
                               "start": {
                                 "line": 32,
@@ -1940,8 +1905,8 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-                    "start": 825,
-                    "end": 996,
+                    "start": 820,
+                    "end": 991,
                     "loc": {
                       "start": {
                         "line": 27,
@@ -1957,8 +1922,8 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1382,
-                "end": 1453,
+                "start": 1377,
+                "end": 1448,
                 "loc": {
                   "start": {
                     "line": 41,
@@ -1969,11 +1934,12 @@
                     "column": 75
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1382,
-                  "end": 1389,
+                  "start": 1377,
+                  "end": 1384,
                   "loc": {
                     "start": {
                       "line": 41,
@@ -1988,7 +1954,6 @@
                   "name": "_failed",
                   "leadingComments": null
                 },
-                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
@@ -1997,8 +1962,8 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1390,
-                    "end": 1396,
+                    "start": 1385,
+                    "end": 1391,
                     "loc": {
                       "start": {
                         "line": 41,
@@ -2014,8 +1979,8 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1398,
-                    "end": 1408,
+                    "start": 1393,
+                    "end": 1403,
                     "loc": {
                       "start": {
                         "line": 41,
@@ -2032,8 +1997,8 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1409,
-                  "end": 1453,
+                  "start": 1404,
+                  "end": 1448,
                   "loc": {
                     "start": {
                       "line": 41,
@@ -2047,8 +2012,8 @@
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 1411,
-                      "end": 1451,
+                      "start": 1406,
+                      "end": 1446,
                       "loc": {
                         "start": {
                           "line": 41,
@@ -2061,8 +2026,8 @@
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 1417,
-                        "end": 1450,
+                        "start": 1412,
+                        "end": 1445,
                         "loc": {
                           "start": {
                             "line": 41,
@@ -2075,8 +2040,8 @@
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 1421,
-                          "end": 1440,
+                          "start": 1416,
+                          "end": 1435,
                           "loc": {
                             "start": {
                               "line": 41,
@@ -2093,8 +2058,8 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1441,
-                            "end": 1449,
+                            "start": 1436,
+                            "end": 1444,
                             "loc": {
                               "start": {
                                 "line": 41,
@@ -2121,8 +2086,8 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was \n     * supposed to be an outgoing arc.\n     ",
-                    "start": 1079,
-                    "end": 1377,
+                    "start": 1074,
+                    "end": 1372,
                     "loc": {
                       "start": {
                         "line": 34,
@@ -2138,8 +2103,8 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1676,
-                "end": 1749,
+                "start": 1671,
+                "end": 1744,
                 "loc": {
                   "start": {
                     "line": 48,
@@ -2150,11 +2115,12 @@
                     "column": 77
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1676,
-                  "end": 1685,
+                  "start": 1671,
+                  "end": 1680,
                   "loc": {
                     "start": {
                       "line": 48,
@@ -2169,7 +2135,6 @@
                   "name": "_received",
                   "leadingComments": null
                 },
-                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
@@ -2178,8 +2143,8 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1686,
-                    "end": 1692,
+                    "start": 1681,
+                    "end": 1687,
                     "loc": {
                       "start": {
                         "line": 48,
@@ -2195,8 +2160,8 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1694,
-                    "end": 1701,
+                    "start": 1689,
+                    "end": 1696,
                     "loc": {
                       "start": {
                         "line": 48,
@@ -2213,8 +2178,8 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1703,
-                  "end": 1749,
+                  "start": 1698,
+                  "end": 1744,
                   "loc": {
                     "start": {
                       "line": 48,
@@ -2228,8 +2193,8 @@
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 1705,
-                      "end": 1747,
+                      "start": 1700,
+                      "end": 1742,
                       "loc": {
                         "start": {
                           "line": 48,
@@ -2242,8 +2207,8 @@
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 1711,
-                        "end": 1746,
+                        "start": 1706,
+                        "end": 1741,
                         "loc": {
                           "start": {
                             "line": 48,
@@ -2256,8 +2221,8 @@
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 1715,
-                          "end": 1734,
+                          "start": 1710,
+                          "end": 1729,
                           "loc": {
                             "start": {
                               "line": 48,
@@ -2274,8 +2239,8 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1735,
-                            "end": 1745,
+                            "start": 1730,
+                            "end": 1740,
                             "loc": {
                               "start": {
                                 "line": 48,
@@ -2302,8 +2267,8 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message. \n     ",
-                    "start": 1460,
-                    "end": 1671,
+                    "start": 1455,
+                    "end": 1666,
                     "loc": {
                       "start": {
                         "line": 43,
@@ -2319,8 +2284,8 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1973,
-                "end": 2045,
+                "start": 1968,
+                "end": 2040,
                 "loc": {
                   "start": {
                     "line": 55,
@@ -2331,11 +2296,12 @@
                     "column": 76
                   }
                 },
+                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1973,
-                  "end": 1982,
+                  "start": 1968,
+                  "end": 1977,
                   "loc": {
                     "start": {
                       "line": 55,
@@ -2350,7 +2316,6 @@
                   "name": "_streamed",
                   "leadingComments": null
                 },
-                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
@@ -2359,8 +2324,8 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1983,
-                    "end": 1989,
+                    "start": 1978,
+                    "end": 1984,
                     "loc": {
                       "start": {
                         "line": 55,
@@ -2376,8 +2341,8 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1991,
-                    "end": 1997,
+                    "start": 1986,
+                    "end": 1992,
                     "loc": {
                       "start": {
                         "line": 55,
@@ -2394,8 +2359,8 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1999,
-                  "end": 2045,
+                  "start": 1994,
+                  "end": 2040,
                   "loc": {
                     "start": {
                       "line": 55,
@@ -2409,8 +2374,8 @@
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 2001,
-                      "end": 2043,
+                      "start": 1996,
+                      "end": 2038,
                       "loc": {
                         "start": {
                           "line": 55,
@@ -2423,8 +2388,8 @@
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 2007,
-                        "end": 2042,
+                        "start": 2002,
+                        "end": 2037,
                         "loc": {
                           "start": {
                             "line": 55,
@@ -2437,8 +2402,8 @@
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 2011,
-                          "end": 2030,
+                          "start": 2006,
+                          "end": 2025,
                           "loc": {
                             "start": {
                               "line": 55,
@@ -2455,8 +2420,8 @@
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 2031,
-                            "end": 2041,
+                            "start": 2026,
+                            "end": 2036,
                             "loc": {
                               "start": {
                                 "line": 55,
@@ -2483,8 +2448,8 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream. \n     ",
-                    "start": 1760,
-                    "end": 1968,
+                    "start": 1755,
+                    "end": 1963,
                     "loc": {
                       "start": {
                         "line": 50,
@@ -2504,8 +2469,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-              "start": 93,
-              "end": 251,
+              "start": 88,
+              "end": 246,
               "loc": {
                 "start": {
                   "line": 5,
@@ -2566,8 +2531,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-      "start": 93,
-      "end": 251,
+      "start": 88,
+      "end": 246,
       "loc": {
         "start": {
           "line": 5,
@@ -2582,8 +2547,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-      "start": 298,
-      "end": 407,
+      "start": 293,
+      "end": 402,
       "loc": {
         "start": {
           "line": 12,
@@ -2598,8 +2563,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the \n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an \n     * outgoing arc.\n     ",
-      "start": 466,
-      "end": 737,
+      "start": 461,
+      "end": 732,
       "loc": {
         "start": {
           "line": 18,
@@ -2614,8 +2579,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-      "start": 825,
-      "end": 996,
+      "start": 820,
+      "end": 991,
       "loc": {
         "start": {
           "line": 27,
@@ -2630,8 +2595,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was \n     * supposed to be an outgoing arc.\n     ",
-      "start": 1079,
-      "end": 1377,
+      "start": 1074,
+      "end": 1372,
       "loc": {
         "start": {
           "line": 34,
@@ -2646,8 +2611,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message. \n     ",
-      "start": 1460,
-      "end": 1671,
+      "start": 1455,
+      "end": 1666,
       "loc": {
         "start": {
           "line": 43,
@@ -2662,8 +2627,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream. \n     ",
-      "start": 1760,
-      "end": 1968,
+      "start": 1755,
+      "end": 1963,
       "loc": {
         "start": {
           "line": 50,
@@ -2732,10 +2697,10 @@
     },
     {
       "type": {
-        "label": "const",
-        "keyword": "const",
+        "label": "import",
+        "keyword": "import",
         "beforeExpr": false,
-        "startsExpr": false,
+        "startsExpr": true,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -2744,9 +2709,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "const",
+      "value": "import",
       "start": 15,
-      "end": 20,
+      "end": 21,
       "loc": {
         "start": {
           "line": 3,
@@ -2754,7 +2719,7 @@
         },
         "end": {
           "line": 3,
-          "column": 5
+          "column": 6
         }
       }
     },
@@ -2771,43 +2736,16 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 21,
-      "end": 40,
+      "start": 22,
+      "end": 41,
       "loc": {
         "start": {
           "line": 3,
-          "column": 6
+          "column": 7
         },
         "end": {
-          "line": 3,
-          "column": 25
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 41,
-      "end": 42,
-      "loc": {
-        "start": {
           "line": 3,
           "column": 26
-        },
-        "end": {
-          "line": 3,
-          "column": 27
         }
       }
     },
@@ -2823,42 +2761,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "require",
-      "start": 43,
-      "end": 50,
+      "value": "from",
+      "start": 42,
+      "end": 46,
       "loc": {
         "start": {
           "line": 3,
-          "column": 28
+          "column": 27
         },
         "end": {
           "line": 3,
-          "column": 35
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 50,
-      "end": 51,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 35
-        },
-        "end": {
-          "line": 3,
-          "column": 36
+          "column": 31
         }
       }
     },
@@ -2876,41 +2789,16 @@
         "updateContext": null
       },
       "value": "../exceptions/exundefinedfunction.js",
-      "start": 51,
-      "end": 89,
+      "start": 47,
+      "end": 85,
       "loc": {
         "start": {
           "line": 3,
-          "column": 36
+          "column": 32
         },
         "end": {
           "line": 3,
-          "column": 74
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 89,
-      "end": 90,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 74
-        },
-        "end": {
-          "line": 3,
-          "column": 75
+          "column": 70
         }
       }
     },
@@ -2927,24 +2815,24 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 90,
-      "end": 91,
+      "start": 85,
+      "end": 86,
       "loc": {
         "start": {
           "line": 3,
-          "column": 75
+          "column": 70
         },
         "end": {
           "line": 3,
-          "column": 76
+          "column": 71
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-      "start": 93,
-      "end": 251,
+      "start": 88,
+      "end": 246,
       "loc": {
         "start": {
           "line": 5,
@@ -2971,8 +2859,8 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 252,
-      "end": 257,
+      "start": 247,
+      "end": 252,
       "loc": {
         "start": {
           "line": 9,
@@ -2997,8 +2885,8 @@
         "binop": null
       },
       "value": "IProtocol",
-      "start": 258,
-      "end": 267,
+      "start": 253,
+      "end": 262,
       "loc": {
         "start": {
           "line": 9,
@@ -3022,8 +2910,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 268,
-      "end": 269,
+      "start": 263,
+      "end": 264,
       "loc": {
         "start": {
           "line": 9,
@@ -3048,8 +2936,8 @@
         "binop": null
       },
       "value": "constructor",
-      "start": 274,
-      "end": 285,
+      "start": 269,
+      "end": 280,
       "loc": {
         "start": {
           "line": 10,
@@ -3073,8 +2961,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 286,
-      "end": 287,
+      "start": 281,
+      "end": 282,
       "loc": {
         "start": {
           "line": 10,
@@ -3098,8 +2986,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 287,
-      "end": 288,
+      "start": 282,
+      "end": 283,
       "loc": {
         "start": {
           "line": 10,
@@ -3123,8 +3011,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 289,
-      "end": 290,
+      "start": 284,
+      "end": 285,
       "loc": {
         "start": {
           "line": 10,
@@ -3148,8 +3036,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 290,
-      "end": 291,
+      "start": 285,
+      "end": 286,
       "loc": {
         "start": {
           "line": 10,
@@ -3174,8 +3062,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 291,
-      "end": 292,
+      "start": 286,
+      "end": 287,
       "loc": {
         "start": {
           "line": 10,
@@ -3190,8 +3078,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-      "start": 298,
-      "end": 407,
+      "start": 293,
+      "end": 402,
       "loc": {
         "start": {
           "line": 12,
@@ -3216,8 +3104,8 @@
         "binop": null
       },
       "value": "_pid",
-      "start": 412,
-      "end": 416,
+      "start": 407,
+      "end": 411,
       "loc": {
         "start": {
           "line": 16,
@@ -3241,8 +3129,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 416,
-      "end": 417,
+      "start": 411,
+      "end": 412,
       "loc": {
         "start": {
           "line": 16,
@@ -3266,8 +3154,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 417,
-      "end": 418,
+      "start": 412,
+      "end": 413,
       "loc": {
         "start": {
           "line": 16,
@@ -3291,8 +3179,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 418,
-      "end": 419,
+      "start": 413,
+      "end": 414,
       "loc": {
         "start": {
           "line": 16,
@@ -3319,8 +3207,8 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 420,
-      "end": 425,
+      "start": 415,
+      "end": 420,
       "loc": {
         "start": {
           "line": 16,
@@ -3347,8 +3235,8 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 426,
-      "end": 429,
+      "start": 421,
+      "end": 424,
       "loc": {
         "start": {
           "line": 16,
@@ -3373,8 +3261,8 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 430,
-      "end": 449,
+      "start": 425,
+      "end": 444,
       "loc": {
         "start": {
           "line": 16,
@@ -3398,8 +3286,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 449,
-      "end": 450,
+      "start": 444,
+      "end": 445,
       "loc": {
         "start": {
           "line": 16,
@@ -3425,8 +3313,8 @@
         "updateContext": null
       },
       "value": "pid",
-      "start": 450,
-      "end": 455,
+      "start": 445,
+      "end": 450,
       "loc": {
         "start": {
           "line": 16,
@@ -3450,8 +3338,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 455,
-      "end": 456,
+      "start": 450,
+      "end": 451,
       "loc": {
         "start": {
           "line": 16,
@@ -3476,8 +3364,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 456,
-      "end": 457,
+      "start": 451,
+      "end": 452,
       "loc": {
         "start": {
           "line": 16,
@@ -3501,8 +3389,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 458,
-      "end": 459,
+      "start": 453,
+      "end": 454,
       "loc": {
         "start": {
           "line": 16,
@@ -3527,8 +3415,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 459,
-      "end": 460,
+      "start": 454,
+      "end": 455,
       "loc": {
         "start": {
           "line": 16,
@@ -3543,8 +3431,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the \n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an \n     * outgoing arc.\n     ",
-      "start": 466,
-      "end": 737,
+      "start": 461,
+      "end": 732,
       "loc": {
         "start": {
           "line": 18,
@@ -3569,8 +3457,8 @@
         "binop": null
       },
       "value": "_connected",
-      "start": 742,
-      "end": 752,
+      "start": 737,
+      "end": 747,
       "loc": {
         "start": {
           "line": 25,
@@ -3594,8 +3482,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 752,
-      "end": 753,
+      "start": 747,
+      "end": 748,
       "loc": {
         "start": {
           "line": 25,
@@ -3620,8 +3508,8 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 753,
-      "end": 759,
+      "start": 748,
+      "end": 754,
       "loc": {
         "start": {
           "line": 25,
@@ -3646,8 +3534,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 759,
-      "end": 760,
+      "start": 754,
+      "end": 755,
       "loc": {
         "start": {
           "line": 25,
@@ -3672,8 +3560,8 @@
         "binop": null
       },
       "value": "isOutgoing",
-      "start": 761,
-      "end": 771,
+      "start": 756,
+      "end": 766,
       "loc": {
         "start": {
           "line": 25,
@@ -3697,8 +3585,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 771,
-      "end": 772,
+      "start": 766,
+      "end": 767,
       "loc": {
         "start": {
           "line": 25,
@@ -3722,8 +3610,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 772,
-      "end": 773,
+      "start": 767,
+      "end": 768,
       "loc": {
         "start": {
           "line": 25,
@@ -3750,8 +3638,8 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 774,
-      "end": 779,
+      "start": 769,
+      "end": 774,
       "loc": {
         "start": {
           "line": 25,
@@ -3778,8 +3666,8 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 780,
-      "end": 783,
+      "start": 775,
+      "end": 778,
       "loc": {
         "start": {
           "line": 25,
@@ -3804,8 +3692,8 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 784,
-      "end": 803,
+      "start": 779,
+      "end": 798,
       "loc": {
         "start": {
           "line": 25,
@@ -3829,8 +3717,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 803,
-      "end": 804,
+      "start": 798,
+      "end": 799,
       "loc": {
         "start": {
           "line": 25,
@@ -3856,8 +3744,8 @@
         "updateContext": null
       },
       "value": "connected",
-      "start": 804,
-      "end": 815,
+      "start": 799,
+      "end": 810,
       "loc": {
         "start": {
           "line": 25,
@@ -3881,8 +3769,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 815,
-      "end": 816,
+      "start": 810,
+      "end": 811,
       "loc": {
         "start": {
           "line": 25,
@@ -3907,8 +3795,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 816,
-      "end": 817,
+      "start": 811,
+      "end": 812,
       "loc": {
         "start": {
           "line": 25,
@@ -3932,8 +3820,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 817,
-      "end": 818,
+      "start": 812,
+      "end": 813,
       "loc": {
         "start": {
           "line": 25,
@@ -3958,8 +3846,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 818,
-      "end": 819,
+      "start": 813,
+      "end": 814,
       "loc": {
         "start": {
           "line": 25,
@@ -3974,8 +3862,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-      "start": 825,
-      "end": 996,
+      "start": 820,
+      "end": 991,
       "loc": {
         "start": {
           "line": 27,
@@ -4000,8 +3888,8 @@
         "binop": null
       },
       "value": "_disconnected",
-      "start": 1001,
-      "end": 1014,
+      "start": 996,
+      "end": 1009,
       "loc": {
         "start": {
           "line": 32,
@@ -4025,8 +3913,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1014,
-      "end": 1015,
+      "start": 1009,
+      "end": 1010,
       "loc": {
         "start": {
           "line": 32,
@@ -4051,8 +3939,8 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1015,
-      "end": 1021,
+      "start": 1010,
+      "end": 1016,
       "loc": {
         "start": {
           "line": 32,
@@ -4076,8 +3964,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1021,
-      "end": 1022,
+      "start": 1016,
+      "end": 1017,
       "loc": {
         "start": {
           "line": 32,
@@ -4101,8 +3989,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1022,
-      "end": 1023,
+      "start": 1017,
+      "end": 1018,
       "loc": {
         "start": {
           "line": 32,
@@ -4129,8 +4017,8 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 1024,
-      "end": 1029,
+      "start": 1019,
+      "end": 1024,
       "loc": {
         "start": {
           "line": 32,
@@ -4157,8 +4045,8 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 1030,
-      "end": 1033,
+      "start": 1025,
+      "end": 1028,
       "loc": {
         "start": {
           "line": 32,
@@ -4183,8 +4071,8 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 1034,
-      "end": 1053,
+      "start": 1029,
+      "end": 1048,
       "loc": {
         "start": {
           "line": 32,
@@ -4208,8 +4096,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1053,
-      "end": 1054,
+      "start": 1048,
+      "end": 1049,
       "loc": {
         "start": {
           "line": 32,
@@ -4235,8 +4123,8 @@
         "updateContext": null
       },
       "value": "disconnected",
-      "start": 1054,
-      "end": 1068,
+      "start": 1049,
+      "end": 1063,
       "loc": {
         "start": {
           "line": 32,
@@ -4260,8 +4148,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1068,
-      "end": 1069,
+      "start": 1063,
+      "end": 1064,
       "loc": {
         "start": {
           "line": 32,
@@ -4286,8 +4174,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1069,
-      "end": 1070,
+      "start": 1064,
+      "end": 1065,
       "loc": {
         "start": {
           "line": 32,
@@ -4311,8 +4199,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1071,
-      "end": 1072,
+      "start": 1066,
+      "end": 1067,
       "loc": {
         "start": {
           "line": 32,
@@ -4337,8 +4225,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1072,
-      "end": 1073,
+      "start": 1067,
+      "end": 1068,
       "loc": {
         "start": {
           "line": 32,
@@ -4353,8 +4241,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was \n     * supposed to be an outgoing arc.\n     ",
-      "start": 1079,
-      "end": 1377,
+      "start": 1074,
+      "end": 1372,
       "loc": {
         "start": {
           "line": 34,
@@ -4379,8 +4267,8 @@
         "binop": null
       },
       "value": "_failed",
-      "start": 1382,
-      "end": 1389,
+      "start": 1377,
+      "end": 1384,
       "loc": {
         "start": {
           "line": 41,
@@ -4404,8 +4292,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1389,
-      "end": 1390,
+      "start": 1384,
+      "end": 1385,
       "loc": {
         "start": {
           "line": 41,
@@ -4430,8 +4318,8 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1390,
-      "end": 1396,
+      "start": 1385,
+      "end": 1391,
       "loc": {
         "start": {
           "line": 41,
@@ -4456,8 +4344,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1396,
-      "end": 1397,
+      "start": 1391,
+      "end": 1392,
       "loc": {
         "start": {
           "line": 41,
@@ -4482,8 +4370,8 @@
         "binop": null
       },
       "value": "isOutgoing",
-      "start": 1398,
-      "end": 1408,
+      "start": 1393,
+      "end": 1403,
       "loc": {
         "start": {
           "line": 41,
@@ -4507,8 +4395,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1408,
-      "end": 1409,
+      "start": 1403,
+      "end": 1404,
       "loc": {
         "start": {
           "line": 41,
@@ -4532,8 +4420,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1409,
-      "end": 1410,
+      "start": 1404,
+      "end": 1405,
       "loc": {
         "start": {
           "line": 41,
@@ -4560,8 +4448,8 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 1411,
-      "end": 1416,
+      "start": 1406,
+      "end": 1411,
       "loc": {
         "start": {
           "line": 41,
@@ -4588,8 +4476,8 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 1417,
-      "end": 1420,
+      "start": 1412,
+      "end": 1415,
       "loc": {
         "start": {
           "line": 41,
@@ -4614,8 +4502,8 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 1421,
-      "end": 1440,
+      "start": 1416,
+      "end": 1435,
       "loc": {
         "start": {
           "line": 41,
@@ -4639,8 +4527,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1440,
-      "end": 1441,
+      "start": 1435,
+      "end": 1436,
       "loc": {
         "start": {
           "line": 41,
@@ -4666,8 +4554,8 @@
         "updateContext": null
       },
       "value": "failed",
-      "start": 1441,
-      "end": 1449,
+      "start": 1436,
+      "end": 1444,
       "loc": {
         "start": {
           "line": 41,
@@ -4691,8 +4579,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1449,
-      "end": 1450,
+      "start": 1444,
+      "end": 1445,
       "loc": {
         "start": {
           "line": 41,
@@ -4717,8 +4605,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1450,
-      "end": 1451,
+      "start": 1445,
+      "end": 1446,
       "loc": {
         "start": {
           "line": 41,
@@ -4742,8 +4630,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1452,
-      "end": 1453,
+      "start": 1447,
+      "end": 1448,
       "loc": {
         "start": {
           "line": 41,
@@ -4768,8 +4656,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1453,
-      "end": 1454,
+      "start": 1448,
+      "end": 1449,
       "loc": {
         "start": {
           "line": 41,
@@ -4784,8 +4672,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message. \n     ",
-      "start": 1460,
-      "end": 1671,
+      "start": 1455,
+      "end": 1666,
       "loc": {
         "start": {
           "line": 43,
@@ -4810,8 +4698,8 @@
         "binop": null
       },
       "value": "_received",
-      "start": 1676,
-      "end": 1685,
+      "start": 1671,
+      "end": 1680,
       "loc": {
         "start": {
           "line": 48,
@@ -4835,8 +4723,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1685,
-      "end": 1686,
+      "start": 1680,
+      "end": 1681,
       "loc": {
         "start": {
           "line": 48,
@@ -4861,8 +4749,8 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1686,
-      "end": 1692,
+      "start": 1681,
+      "end": 1687,
       "loc": {
         "start": {
           "line": 48,
@@ -4887,8 +4775,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1692,
-      "end": 1693,
+      "start": 1687,
+      "end": 1688,
       "loc": {
         "start": {
           "line": 48,
@@ -4913,8 +4801,8 @@
         "binop": null
       },
       "value": "message",
-      "start": 1694,
-      "end": 1701,
+      "start": 1689,
+      "end": 1696,
       "loc": {
         "start": {
           "line": 48,
@@ -4938,8 +4826,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1701,
-      "end": 1702,
+      "start": 1696,
+      "end": 1697,
       "loc": {
         "start": {
           "line": 48,
@@ -4963,8 +4851,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1703,
-      "end": 1704,
+      "start": 1698,
+      "end": 1699,
       "loc": {
         "start": {
           "line": 48,
@@ -4991,8 +4879,8 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 1705,
-      "end": 1710,
+      "start": 1700,
+      "end": 1705,
       "loc": {
         "start": {
           "line": 48,
@@ -5019,8 +4907,8 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 1711,
-      "end": 1714,
+      "start": 1706,
+      "end": 1709,
       "loc": {
         "start": {
           "line": 48,
@@ -5045,8 +4933,8 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 1715,
-      "end": 1734,
+      "start": 1710,
+      "end": 1729,
       "loc": {
         "start": {
           "line": 48,
@@ -5070,8 +4958,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1734,
-      "end": 1735,
+      "start": 1729,
+      "end": 1730,
       "loc": {
         "start": {
           "line": 48,
@@ -5097,8 +4985,8 @@
         "updateContext": null
       },
       "value": "received",
-      "start": 1735,
-      "end": 1745,
+      "start": 1730,
+      "end": 1740,
       "loc": {
         "start": {
           "line": 48,
@@ -5122,8 +5010,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1745,
-      "end": 1746,
+      "start": 1740,
+      "end": 1741,
       "loc": {
         "start": {
           "line": 48,
@@ -5148,8 +5036,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1746,
-      "end": 1747,
+      "start": 1741,
+      "end": 1742,
       "loc": {
         "start": {
           "line": 48,
@@ -5173,8 +5061,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1748,
-      "end": 1749,
+      "start": 1743,
+      "end": 1744,
       "loc": {
         "start": {
           "line": 48,
@@ -5199,8 +5087,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1749,
-      "end": 1750,
+      "start": 1744,
+      "end": 1745,
       "loc": {
         "start": {
           "line": 48,
@@ -5215,8 +5103,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream. \n     ",
-      "start": 1760,
-      "end": 1968,
+      "start": 1755,
+      "end": 1963,
       "loc": {
         "start": {
           "line": 50,
@@ -5241,8 +5129,8 @@
         "binop": null
       },
       "value": "_streamed",
-      "start": 1973,
-      "end": 1982,
+      "start": 1968,
+      "end": 1977,
       "loc": {
         "start": {
           "line": 55,
@@ -5266,8 +5154,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1982,
-      "end": 1983,
+      "start": 1977,
+      "end": 1978,
       "loc": {
         "start": {
           "line": 55,
@@ -5292,8 +5180,8 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1983,
-      "end": 1989,
+      "start": 1978,
+      "end": 1984,
       "loc": {
         "start": {
           "line": 55,
@@ -5318,8 +5206,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1989,
-      "end": 1990,
+      "start": 1984,
+      "end": 1985,
       "loc": {
         "start": {
           "line": 55,
@@ -5344,8 +5232,8 @@
         "binop": null
       },
       "value": "stream",
-      "start": 1991,
-      "end": 1997,
+      "start": 1986,
+      "end": 1992,
       "loc": {
         "start": {
           "line": 55,
@@ -5369,8 +5257,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1997,
-      "end": 1998,
+      "start": 1992,
+      "end": 1993,
       "loc": {
         "start": {
           "line": 55,
@@ -5394,8 +5282,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1999,
-      "end": 2000,
+      "start": 1994,
+      "end": 1995,
       "loc": {
         "start": {
           "line": 55,
@@ -5422,8 +5310,8 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 2001,
-      "end": 2006,
+      "start": 1996,
+      "end": 2001,
       "loc": {
         "start": {
           "line": 55,
@@ -5450,8 +5338,8 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 2007,
-      "end": 2010,
+      "start": 2002,
+      "end": 2005,
       "loc": {
         "start": {
           "line": 55,
@@ -5476,8 +5364,8 @@
         "binop": null
       },
       "value": "ExUndefinedFunction",
-      "start": 2011,
-      "end": 2030,
+      "start": 2006,
+      "end": 2025,
       "loc": {
         "start": {
           "line": 55,
@@ -5501,8 +5389,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2030,
-      "end": 2031,
+      "start": 2025,
+      "end": 2026,
       "loc": {
         "start": {
           "line": 55,
@@ -5528,8 +5416,8 @@
         "updateContext": null
       },
       "value": "streamed",
-      "start": 2031,
-      "end": 2041,
+      "start": 2026,
+      "end": 2036,
       "loc": {
         "start": {
           "line": 55,
@@ -5553,8 +5441,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2041,
-      "end": 2042,
+      "start": 2036,
+      "end": 2037,
       "loc": {
         "start": {
           "line": 55,
@@ -5579,8 +5467,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2042,
-      "end": 2043,
+      "start": 2037,
+      "end": 2038,
       "loc": {
         "start": {
           "line": 55,
@@ -5604,8 +5492,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2044,
-      "end": 2045,
+      "start": 2039,
+      "end": 2040,
       "loc": {
         "start": {
           "line": 55,
@@ -5630,8 +5518,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2045,
-      "end": 2046,
+      "start": 2040,
+      "end": 2041,
       "loc": {
         "start": {
           "line": 55,
@@ -5655,8 +5543,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2048,
-      "end": 2049,
+      "start": 2043,
+      "end": 2044,
       "loc": {
         "start": {
           "line": 57,
@@ -5681,8 +5569,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2049,
-      "end": 2050,
+      "start": 2044,
+      "end": 2045,
       "loc": {
         "start": {
           "line": 57,
@@ -5709,8 +5597,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 2053,
-      "end": 2059,
+      "start": 2048,
+      "end": 2054,
       "loc": {
         "start": {
           "line": 60,
@@ -5737,8 +5625,8 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 2060,
-      "end": 2067,
+      "start": 2055,
+      "end": 2062,
       "loc": {
         "start": {
           "line": 60,
@@ -5763,8 +5651,8 @@
         "binop": null
       },
       "value": "IProtocol",
-      "start": 2068,
-      "end": 2077,
+      "start": 2063,
+      "end": 2072,
       "loc": {
         "start": {
           "line": 60,
@@ -5789,8 +5677,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2077,
-      "end": 2078,
+      "start": 2072,
+      "end": 2073,
       "loc": {
         "start": {
           "line": 60,
@@ -5815,8 +5703,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2079,
-      "end": 2079,
+      "start": 2074,
+      "end": 2074,
       "loc": {
         "start": {
           "line": 61,
