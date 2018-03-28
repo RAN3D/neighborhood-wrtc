@@ -9616,13 +9616,14 @@ var ExIncompleteMessage = require('./exceptions/exincompletemessage.js');
 
 var Neighborhood = function () {
     /**
-     * @param {object} [options] the options available to the connections, e.g. 
+     * @param {object} [options] the options available to the connections, e.g.
      * timeout before
+     * @param {object} [options.socketClass] simple-peer default socket class (usefull if you need to change the type of socket) 
      * @param {object} [options.config] simple-peer options
      * @param {number} [options.timeout = 60000] Time to wait (in milliseconds)
      * before neighborhood-wrtc assumes that a connection establishment failed,
      * or before an unused connection is removed.
-     * @param {function} [options.encoding] Method to customize message sent, 
+     * @param {function} [options.encoding] Method to customize message sent,
      * default: return JSON.stringify(data);
      * @param {function} [options.decoding] Method to decode a received message,
      * default: return JSON.parse(data);
@@ -9632,6 +9633,7 @@ var Neighborhood = function () {
 
         // #1 save options
         this.options = {
+            socketClass: Socket,
             peer: uuid(),
             config: { iceServers: [], trickle: true, initiator: false },
             timeout: 1 * 60 * 1000,
@@ -9715,7 +9717,7 @@ var Neighborhood = function () {
          * @private
          * Initiate the creation of a WebRTC connection. At this point, the identity
          * of the remote peer is unknown.
-         * @param {string} protocolId The identifier of the protocol that creates a 
+         * @param {string} protocolId The identifier of the protocol that creates a
          * connection.
          * @param {function} sender A function called at each offer
          */
@@ -9724,7 +9726,7 @@ var Neighborhood = function () {
 
             // #1 create an initiator
             this.options.config.initiator = true;
-            var socket = new Socket(this.options.config);
+            var socket = new this.options.socketClass(this.options.config);
             // #2 insert the new entry in the pending table
             var entry = new EPending(uuid(), null, protocolId, socket);
             this.pending.set(entry.tid, entry);
@@ -9903,7 +9905,7 @@ var Neighborhood = function () {
                 if (firstCall && !entry.socket) {
                     // #A create a socket
                     this.options.config.initiator = false;
-                    var socket = new Socket(this.options.config);
+                    var socket = new this.options.socketClass(this.options.config);
                     // #B update the entry
                     entry.socket = socket;
                     // #C define events
@@ -10005,7 +10007,7 @@ var Neighborhood = function () {
                     };
                 });
             } else {
-                // #2 remove one arc 
+                // #2 remove one arc
                 var entry = this.living.remove(peerId, protocolId);
                 if (entry) {
                     var dying = new EDying(entry.peer, entry.socket, setTimeout(function () {
@@ -10024,7 +10026,7 @@ var Neighborhood = function () {
 
 
         /**
-         * @private 
+         * @private
          * Send a message to a remote peer. It encapsulates the message
          * from protocolId to help the remote peer to route the message to the
          * proper protocol.
