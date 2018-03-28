@@ -43,7 +43,9 @@ connection is destroyed only if the 3 applications remove it.
 
 ## Installation
 
-```$ npm install neighborhood-wrtc```
+```
+$ npm install neighborhood-wrtc
+```
 
 ## API
 
@@ -60,3 +62,41 @@ run the example, make sure your web browser is
 Module [n2n-overlay-wrtc](https://github.com/ran3d/n2n-overlay-wrtc) uses this
 module to establish WebRTC connections from neighbor-to-neighbor, i.e., at most
 1 hop distance.
+
+## Socket
+
+By default we used [simple-peer](https://github.com/feross/simple-peer) as Socket but if you want to change the type of Socket you want to use you'll need to follow this API:
+
+```js
+// ### events
+
+// emit when the connection is established
+socket.on('connect', () => {})
+
+// emit when the socket is closed
+socket.on('close', () => {})
+
+// emit when data is received
+socket.on('data', (data) => {})
+
+// emit when a stream is received
+socket.on('stream', (stream) => {})
+
+// emit when an error occured
+socket.on('error', (error) => {})
+
+// emit when an offer is created
+socket.on('signal', (offer) => {})
+
+//### functions
+
+// destroy the socket and emite the event close
+// `Destroy and cleanup this peer connection.`
+socket.destroy()
+
+// pass an offer to the peer
+socket.signal(offer)
+
+// send data to the socket
+socket.send(data)
+```
