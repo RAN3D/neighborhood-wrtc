@@ -924,6 +924,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/neighborhood.js~neighborhood#_checkpendingentry",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_checkPendingEntry",
+    "lib/neighborhood.js~Neighborhood#_checkPendingEntry",
+    "method"
+  ],
+  [
     "lib/neighborhood.js~neighborhood#_connect",
     "class/lib/neighborhood.js~Neighborhood.html#instance-method-_connect",
     "lib/neighborhood.js~Neighborhood#_connect",

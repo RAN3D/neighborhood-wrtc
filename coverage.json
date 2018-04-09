@@ -1,6 +1,6 @@
 {
-  "coverage": "49.53%",
-  "expectCount": 107,
+  "coverage": "49.07%",
+  "expectCount": 108,
   "actualCount": 53,
   "files": {
     "lib/arcstore.js": {
@@ -133,18 +133,19 @@
       ]
     },
     "lib/neighborhood.js": {
-      "expectCount": 18,
+      "expectCount": 19,
       "actualCount": 9,
       "undocumentLines": [
         3,
-        43,
-        52,
-        53,
-        56,
-        60,
-        61,
+        44,
+        54,
+        55,
+        58,
         62,
-        65
+        63,
+        64,
+        67,
+        488
       ]
     }
   }
