@@ -49,25 +49,25 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/exceptions/exlatemessage.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;
 
 /**
  * Exception that fires when a message arrives too late and the entry in the
  * table has already been purged.
  */
 class ExLateMessage {
-    /**
+  /**
      * @param {string} source The function name that throw the exception.
      * @param {object} message The late message
      */
-    constructor (source, msg) {
-        this.source = source;
-        this.msg = msg;
-        this.message = &apos;The message arrives too late&apos;;
-    };
+  constructor (source, msg) {
+    this.source = source
+    this.msg = msg
+    this.message = &apos;The message arrives too late&apos;
+  };
 };
 
-module.exports = ExLateMessage;
+module.exports = ExLateMessage
 </code></pre>
 
 </div>

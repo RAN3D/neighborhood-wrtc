@@ -780,12 +780,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/interfaces/iprotocol.js~iprotocol#constructor",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-constructor-constructor",
-    "lib/interfaces/iprotocol.js~IProtocol#constructor",
-    "method"
-  ],
-  [
     "lib/messages/mrequest.js",
     "file/lib/messages/mrequest.js.html",
     "lib/messages/mrequest.js",
@@ -801,6 +795,12 @@ window.esdocSearchIndex = [
     "lib/messages/mrequest.js~mrequest#offer",
     "class/lib/messages/mrequest.js~MRequest.html#instance-member-offer",
     "lib/messages/mrequest.js~MRequest#offer",
+    "member"
+  ],
+  [
+    "lib/messages/mrequest.js~mrequest#offertype",
+    "class/lib/messages/mrequest.js~MRequest.html#instance-member-offerType",
+    "lib/messages/mrequest.js~MRequest#offerType",
     "member"
   ],
   [
@@ -843,6 +843,12 @@ window.esdocSearchIndex = [
     "lib/messages/mresponse.js~mresponse#offer",
     "class/lib/messages/mresponse.js~MResponse.html#instance-member-offer",
     "lib/messages/mresponse.js~MResponse#offer",
+    "member"
+  ],
+  [
+    "lib/messages/mresponse.js~mresponse#offertype",
+    "class/lib/messages/mresponse.js~MResponse.html#instance-member-offerType",
+    "lib/messages/mresponse.js~MResponse#offerType",
     "member"
   ],
   [

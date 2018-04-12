@@ -1,6 +1,6 @@
 {
-  "coverage": "49.07%",
-  "expectCount": 108,
+  "coverage": "48.62%",
+  "expectCount": 109,
   "actualCount": 53,
   "files": {
     "lib/arcstore.js": {
@@ -94,32 +94,32 @@
       ]
     },
     "lib/interfaces/iprotocol.js": {
-      "expectCount": 8,
+      "expectCount": 7,
       "actualCount": 7,
-      "undocumentLines": [
-        10
-      ]
+      "undocumentLines": []
     },
     "lib/messages/mrequest.js": {
-      "expectCount": 7,
+      "expectCount": 8,
       "actualCount": 2,
       "undocumentLines": [
         19,
         20,
         21,
         22,
-        23
+        23,
+        24
       ]
     },
     "lib/messages/mresponse.js": {
-      "expectCount": 7,
+      "expectCount": 8,
       "actualCount": 2,
       "undocumentLines": [
         18,
         19,
         20,
         21,
-        22
+        22,
+        23
       ]
     },
     "lib/messages/msend.js": {
@@ -145,7 +145,7 @@
         63,
         64,
         67,
-        488
+        514
       ]
     }
   }

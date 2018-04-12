@@ -49,24 +49,24 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/exceptions/exprotocolexists.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;
 
 /**
  * Exception that rise when a protocol registers and its identifier already
  * exists in registered protocols of neighborhood-wrtc.
  */
 class ExProtocolExists {
-    /**
+  /**
      * @param {string} protocolId The identifier of the protocol that already
      * exists
      */
-    constructor (protocolId) {
-        this.pid = protocolId;
-        this.message = &apos;The idenfifier of the registering protocol already exists.&apos;;
-    };
+  constructor (protocolId) {
+    this.pid = protocolId
+    this.message = &apos;The idenfifier of the registering protocol already exists.&apos;
+  };
 };
 
-module.exports = ExProtocolExists;
+module.exports = ExProtocolExists
 </code></pre>
 
 </div>

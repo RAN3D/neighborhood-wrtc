@@ -49,28 +49,28 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/messages/msend.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;
 
 /**
  * Message sent when protocolId wishes to send payload. It is a basic
  * encapsualtion of protocolId.
  */
 class MSend {
-    /**
+  /**
      * @param {string} peerId The identifier of the peer that sent the message
      * @param {string} protocolId The identifier of the protocol that sent the
      * message
      * @param {object} payload The payload of the message.
      */
-    constructor (peerId, protocolId, payload){
-        this.peer = peerId;
-        this.pid = protocolId;
-        this.payload = payload;
-        this.type = &apos;MSend&apos;;
-    };
+  constructor (peerId, protocolId, payload) {
+    this.peer = peerId
+    this.pid = protocolId
+    this.payload = payload
+    this.type = &apos;MSend&apos;
+  };
 };
 
-module.exports = MSend;
+module.exports = MSend
 </code></pre>
 
 </div>

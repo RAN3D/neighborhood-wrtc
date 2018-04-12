@@ -49,28 +49,28 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/exceptions/exsocketnotfound.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;
 
 /**
  * Exception that fires when trying to access or use a socket that does not
  * exist.
  */
 class ExSocketNotFound {
-    /**
+  /**
      * @param {string} source The source of the exception.
      * @param {string} peerId The identifier of the peer that has been tried.
      * @param {string} protocolId The identifier of the protocol that failed.
      * @param {string} message A error message.
      */
-    constructor (source, peerId, protocolId, message) {
-        this.source = source;
-        this.peer = peerId;
-        this.protocolId = protocolId;
-        this.message = message;
-    };
+  constructor (source, peerId, protocolId, message) {
+    this.source = source
+    this.peer = peerId
+    this.protocolId = protocolId
+    this.message = message
+  };
 };
 
-module.exports = ExSocketNotFound;
+module.exports = ExSocketNotFound
 </code></pre>
 
 </div>
