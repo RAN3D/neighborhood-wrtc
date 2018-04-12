@@ -1,6 +1,6 @@
 {
     "name": "neighborhood-wrtc",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "neighborhood (or partial view) containing peers to communicate with",
     "main": "lib/neighborhood.js",
     "repository": {
@@ -17,7 +17,7 @@
     "dependencies": {
         "debug": "^3.1.0",
         "lodash": "^4.17.5",
-        "simple-peer": "^9.0.0",
+        "simple-peer": "^9.x.x",
         "uuid": "^3.2.1"
     },
     "bundledDependencies": [
@@ -35,13 +35,17 @@
         "esdoc-ecmascript-proposal-plugin": "^1.0.0",
         "esdoc-node": "^1.0.3",
         "esdoc-standard-plugin": "^1.0.0",
+        "snazzy": "^7.1.1",
+        "standard": "^11.0.1",
         "uglify-js": "^3.3.20"
     },
     "scripts": {
+        "lint":"standard ./lib/**/*.js | snazzy",
+        "fix": "standard --fix ./lib/**/*.js | snazzy ",
         "esdoc": "esdoc && npm run esdoc:example",
         "esdoc:example": "cp -R ./build ./examples ./img ./docs",
         "test": "npm run all",
-        "all": "npm run debug && npm run build && npm run min && npm run esdoc",
+        "all": "npm run fix && npm run debug && npm run build && npm run min && npm run esdoc",
         "debug": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ env ] ] --debug > build/neighborhood-wrtc.bundle.debug.js",
         "build": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ env ] ] > build/neighborhood-wrtc.bundle.js",
         "min": "browserify -r ./lib/neighborhood.js:neighborhood-wrtc -t [ babelify --presets [ env ] ] | uglifyjs > build/neighborhood-wrtc.bundle.min.js"
