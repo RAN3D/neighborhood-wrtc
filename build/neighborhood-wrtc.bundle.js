@@ -621,65 +621,97 @@ for (var i = 0, len = code.length; i < len; ++i) {
 revLookup['-'.charCodeAt(0)] = 62
 revLookup['_'.charCodeAt(0)] = 63
 
-function placeHoldersCount (b64) {
+function getLens (b64) {
   var len = b64.length
+
   if (len % 4 > 0) {
     throw new Error('Invalid string. Length must be a multiple of 4')
   }
 
-  // the number of equal signs (place holders)
-  // if there are two placeholders, than the two characters before it
-  // represent one byte
-  // if there is only one, then the three characters before it represent 2 bytes
-  // this is just a cheap hack to not do indexOf twice
-  return b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
+  // Trim off extra bytes after placeholder bytes are found
+  // See: https://github.com/beatgammit/base64-js/issues/42
+  var validLen = b64.indexOf('=')
+  if (validLen === -1) validLen = len
+
+  var placeHoldersLen = validLen === len
+    ? 0
+    : 4 - (validLen % 4)
+
+  return [validLen, placeHoldersLen]
 }
 
+// base64 is 4/3 + up to two characters of the original data
 function byteLength (b64) {
-  // base64 is 4/3 + up to two characters of the original data
-  return (b64.length * 3 / 4) - placeHoldersCount(b64)
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function _byteLength (b64, validLen, placeHoldersLen) {
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
 }
 
 function toByteArray (b64) {
-  var i, l, tmp, placeHolders, arr
-  var len = b64.length
-  placeHolders = placeHoldersCount(b64)
+  var tmp
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
 
-  arr = new Arr((len * 3 / 4) - placeHolders)
+  var arr = new Arr(_byteLength(b64, validLen, placeHoldersLen))
+
+  var curByte = 0
 
   // if there are placeholders, only get up to the last complete 4 chars
-  l = placeHolders > 0 ? len - 4 : len
+  var len = placeHoldersLen > 0
+    ? validLen - 4
+    : validLen
 
-  var L = 0
-
-  for (i = 0; i < l; i += 4) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 18) | (revLookup[b64.charCodeAt(i + 1)] << 12) | (revLookup[b64.charCodeAt(i + 2)] << 6) | revLookup[b64.charCodeAt(i + 3)]
-    arr[L++] = (tmp >> 16) & 0xFF
-    arr[L++] = (tmp >> 8) & 0xFF
-    arr[L++] = tmp & 0xFF
+  for (var i = 0; i < len; i += 4) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 18) |
+      (revLookup[b64.charCodeAt(i + 1)] << 12) |
+      (revLookup[b64.charCodeAt(i + 2)] << 6) |
+      revLookup[b64.charCodeAt(i + 3)]
+    arr[curByte++] = (tmp >> 16) & 0xFF
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
   }
 
-  if (placeHolders === 2) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 2) | (revLookup[b64.charCodeAt(i + 1)] >> 4)
-    arr[L++] = tmp & 0xFF
-  } else if (placeHolders === 1) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 10) | (revLookup[b64.charCodeAt(i + 1)] << 4) | (revLookup[b64.charCodeAt(i + 2)] >> 2)
-    arr[L++] = (tmp >> 8) & 0xFF
-    arr[L++] = tmp & 0xFF
+  if (placeHoldersLen === 2) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 2) |
+      (revLookup[b64.charCodeAt(i + 1)] >> 4)
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 1) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 10) |
+      (revLookup[b64.charCodeAt(i + 1)] << 4) |
+      (revLookup[b64.charCodeAt(i + 2)] >> 2)
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
   }
 
   return arr
 }
 
 function tripletToBase64 (num) {
-  return lookup[num >> 18 & 0x3F] + lookup[num >> 12 & 0x3F] + lookup[num >> 6 & 0x3F] + lookup[num & 0x3F]
+  return lookup[num >> 18 & 0x3F] +
+    lookup[num >> 12 & 0x3F] +
+    lookup[num >> 6 & 0x3F] +
+    lookup[num & 0x3F]
 }
 
 function encodeChunk (uint8, start, end) {
   var tmp
   var output = []
   for (var i = start; i < end; i += 3) {
-    tmp = ((uint8[i] << 16) & 0xFF0000) + ((uint8[i + 1] << 8) & 0xFF00) + (uint8[i + 2] & 0xFF)
+    tmp =
+      ((uint8[i] << 16) & 0xFF0000) +
+      ((uint8[i + 1] << 8) & 0xFF00) +
+      (uint8[i + 2] & 0xFF)
     output.push(tripletToBase64(tmp))
   }
   return output.join('')
@@ -689,30 +721,33 @@ function fromByteArray (uint8) {
   var tmp
   var len = uint8.length
   var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
-  var output = ''
   var parts = []
   var maxChunkLength = 16383 // must be multiple of 3
 
   // go through the array every three bytes, we'll deal with trailing stuff later
   for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
-    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
+    parts.push(encodeChunk(
+      uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)
+    ))
   }
 
   // pad the end with zeros, but make sure to not forget the extra bytes
   if (extraBytes === 1) {
     tmp = uint8[len - 1]
-    output += lookup[tmp >> 2]
-    output += lookup[(tmp << 4) & 0x3F]
-    output += '=='
+    parts.push(
+      lookup[tmp >> 2] +
+      lookup[(tmp << 4) & 0x3F] +
+      '=='
+    )
   } else if (extraBytes === 2) {
-    tmp = (uint8[len - 2] << 8) + (uint8[len - 1])
-    output += lookup[tmp >> 10]
-    output += lookup[(tmp >> 4) & 0x3F]
-    output += lookup[(tmp << 2) & 0x3F]
-    output += '='
+    tmp = (uint8[len - 2] << 8) + uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 10] +
+      lookup[(tmp >> 4) & 0x3F] +
+      lookup[(tmp << 2) & 0x3F] +
+      '='
+    )
   }
-
-  parts.push(output)
 
   return parts.join('')
 }
@@ -8455,7 +8490,7 @@ function Peer (opts) {
   self.answerConstraints = self._transformConstraints(opts.answerConstraints || {})
   self.reconnectTimer = opts.reconnectTimer || false
   self.sdpTransform = opts.sdpTransform || function (sdp) { return sdp }
-  self.stream = opts.stream || false
+  self.streams = opts.streams || (opts.stream ? [opts.stream] : []) // support old "stream" option
   self.trickle = opts.trickle !== undefined ? opts.trickle : true
 
   self.destroyed = false
@@ -8473,9 +8508,9 @@ function Peer (opts) {
 
   if (!self._wrtc) {
     if (typeof window === 'undefined') {
-      throw new Error('No WebRTC support: Specify `opts.wrtc` option in this environment')
+      throw makeError('No WebRTC support: Specify `opts.wrtc` option in this environment', 'ERR_WEBRTC_SUPPORT')
     } else {
-      throw new Error('No WebRTC support: Not a supported browser')
+      throw makeError('No WebRTC support: Not a supported browser', 'ERR_WEBRTC_SUPPORT')
     }
   }
 
@@ -8484,7 +8519,15 @@ function Peer (opts) {
   self._iceComplete = false // ice candidate trickle done (got null candidate)
   self._channel = null
   self._pendingCandidates = []
-  self._previousStreams = []
+
+  self._isNegotiating = false // is this peer waiting for negotiation to complete?
+  self._batchedNegotiation = false // batch synchronous negotiations
+  self._queuedNegotiation = false // is there a queued negotiation request?
+  self._sendersAwaitingStable = []
+  self._senderMap = new WeakMap()
+
+  self._remoteTracks = []
+  self._remoteStreams = []
 
   self._chunk = null
   self._cb = null
@@ -8495,7 +8538,6 @@ function Peer (opts) {
 
   // We prefer feature detection whenever possible, but sometimes that's not
   // possible for certain implementations.
-  self._isWrtc = Array.isArray(self._pc.RTCIceConnectionStates)
   self._isReactNativeWebrtc = typeof self._pc._peerConnectionId === 'number'
 
   self._pc.oniceconnectionstatechange = function () {
@@ -8515,14 +8557,9 @@ function Peer (opts) {
   // - onconnectionstatechange
   // - onicecandidateerror
   // - onfingerprintfailure
+  // - onnegotiationneeded
 
   if (self.initiator) {
-    var createdOffer = false
-    self._pc.onnegotiationneeded = function () {
-      if (!createdOffer) self._createOffer()
-      createdOffer = true
-    }
-
     self._setupData({
       channel: self._pc.createDataChannel(self.channelName, self.channelConfig)
     })
@@ -8533,26 +8570,18 @@ function Peer (opts) {
   }
 
   if ('addTrack' in self._pc) {
-    // WebRTC Spec, Firefox
-    if (self.stream) {
-      self.stream.getTracks().forEach(function (track) {
-        self._pc.addTrack(track, self.stream)
+    if (self.streams) {
+      self.streams.forEach(function (stream) {
+        self.addStream(stream)
       })
     }
     self._pc.ontrack = function (event) {
       self._onTrack(event)
     }
-  } else {
-    // Chrome, etc. This can be removed once all browsers support `ontrack`
-    if (self.stream) self._pc.addStream(self.stream)
-    self._pc.onaddstream = function (event) {
-      self._onAddStream(event)
-    }
   }
 
-  // HACK: wrtc doesn't fire the 'negotionneeded' event
-  if (self.initiator && self._isWrtc) {
-    self._pc.onnegotiationneeded()
+  if (self.initiator) {
+    self._needsNegotiation()
   }
 
   self._onFinishBound = function () {
@@ -8595,7 +8624,7 @@ Peer.prototype.address = function () {
 
 Peer.prototype.signal = function (data) {
   var self = this
-  if (self.destroyed) throw new Error('cannot signal after peer is destroyed')
+  if (self.destroyed) throw makeError('cannot signal after peer is destroyed', 'ERR_SIGNALING')
   if (typeof data === 'string') {
     try {
       data = JSON.parse(data)
@@ -8605,6 +8634,10 @@ Peer.prototype.signal = function (data) {
   }
   self._debug('signal()')
 
+  if (data.renegotiate) {
+    self._debug('got request to renegotiate')
+    self._needsNegotiation()
+  }
   if (data.candidate) {
     if (self._pc.remoteDescription && self._pc.remoteDescription.type) self._addIceCandidate(data.candidate)
     else self._pendingCandidates.push(data.candidate)
@@ -8619,10 +8652,10 @@ Peer.prototype.signal = function (data) {
       self._pendingCandidates = []
 
       if (self._pc.remoteDescription.type === 'offer') self._createAnswer()
-    }, function (err) { self.destroy(err) })
+    }, function (err) { self.destroy(makeError(err, 'ERR_SET_REMOTE_DESCRIPTION')) })
   }
-  if (!data.sdp && !data.candidate) {
-    self.destroy(new Error('signal() called with invalid signal data'))
+  if (!data.sdp && !data.candidate && !data.renegotiate) {
+    self.destroy(makeError('signal() called with invalid signal data', 'ERR_SIGNALING'))
   }
 }
 
@@ -8632,20 +8665,124 @@ Peer.prototype._addIceCandidate = function (candidate) {
     self._pc.addIceCandidate(
       new self._wrtc.RTCIceCandidate(candidate),
       noop,
-      function (err) { self.destroy(err) }
+      function (err) { self.destroy(makeError(err, 'ERR_ADD_ICE_CANDIDATE')) }
     )
   } catch (err) {
-    self.destroy(new Error('error adding candidate: ' + err.message))
+    self.destroy(makeError('error adding candidate: ' + err.message, 'ERR_ADD_ICE_CANDIDATE'))
   }
 }
 
 /**
  * Send text/binary data to the remote peer.
- * @param {TypedArrayView|ArrayBuffer|Buffer|string|Blob|Object} chunk
+ * @param {ArrayBufferView|ArrayBuffer|Buffer|string|Blob} chunk
  */
 Peer.prototype.send = function (chunk) {
   var self = this
   self._channel.send(chunk)
+}
+
+/**
+ * Add a MediaStream to the connection.
+ * @param {MediaStream} stream
+ */
+Peer.prototype.addStream = function (stream) {
+  var self = this
+
+  self._debug('addStream()')
+
+  stream.getTracks().forEach(function (track) {
+    self.addTrack(track, stream)
+  })
+}
+
+/**
+ * Add a MediaStreamTrack to the connection.
+ * @param {MediaStreamTrack} track
+ * @param {MediaStream} stream
+ */
+Peer.prototype.addTrack = function (track, stream) {
+  var self = this
+
+  self._debug('addTrack()')
+
+  var sender = self._pc.addTrack(track, stream)
+  var submap = self._senderMap.get(track) || new WeakMap() // nested WeakMaps map [track, stream] to sender
+  submap.set(stream, sender)
+  self._senderMap.set(track, submap)
+  self._needsNegotiation()
+}
+
+/**
+ * Remove a MediaStreamTrack from the connection.
+ * @param {MediaStreamTrack} track
+ * @param {MediaStream} stream
+ */
+Peer.prototype.removeTrack = function (track, stream) {
+  var self = this
+
+  self._debug('removeSender()')
+
+  var submap = self._senderMap.get(track)
+  var sender = submap ? submap.get(stream) : null
+  if (!sender) {
+    self.destroy(new Error('Cannot remove track that was never added.'))
+  }
+  try {
+    self._pc.removeTrack(sender)
+  } catch (err) {
+    if (err.name === 'NS_ERROR_UNEXPECTED') {
+      self._sendersAwaitingStable.push(sender) // HACK: Firefox must wait until (signalingState === stable) https://bugzilla.mozilla.org/show_bug.cgi?id=1133874
+    } else {
+      self.destroy(err)
+    }
+  }
+}
+
+/**
+ * Remove a MediaStream from the connection.
+ * @param {MediaStream} stream
+ */
+Peer.prototype.removeStream = function (stream) {
+  var self = this
+
+  self._debug('removeSenders()')
+
+  stream.getTracks().forEach(function (track) {
+    self.removeTrack(track, stream)
+  })
+}
+
+Peer.prototype._needsNegotiation = function () {
+  var self = this
+
+  self._debug('_needsNegotiation')
+  if (self._batchedNegotiation) return // batch synchronous renegotiations
+  self._batchedNegotiation = true
+  setTimeout(function () {
+    self._batchedNegotiation = false
+    self._debug('starting batched negotiation')
+    self.negotiate()
+  }, 0)
+}
+
+Peer.prototype.negotiate = function () {
+  var self = this
+
+  if (self.initiator) {
+    if (self._isNegotiating) {
+      self._queuedNegotiation = true
+      self._debug('already negotiating, queueing')
+    } else {
+      self._debug('start negotiation')
+      self._createOffer()
+    }
+  } else {
+    self._debug('requesting negotiation from initiator')
+    self.emit('signal', { // request initiator to renegotiate
+      renegotiate: true
+    })
+  }
+  self._isNegotiating = true
 }
 
 // TODO: Delete this method once readable-stream is updated to contain a default
@@ -8671,7 +8808,9 @@ Peer.prototype._destroy = function (err, cb) {
   self.connected = false
   self._pcReady = false
   self._channelReady = false
-  self._previousStreams = null
+  self._remoteTracks = null
+  self._remoteStreams = null
+  self._senderMap = null
 
   clearInterval(self._interval)
   clearTimeout(self._reconnectTimeout)
@@ -8683,6 +8822,16 @@ Peer.prototype._destroy = function (err, cb) {
   if (self._onFinishBound) self.removeListener('finish', self._onFinishBound)
   self._onFinishBound = null
 
+  if (self._channel) {
+    try {
+      self._channel.close()
+    } catch (err) {}
+
+    self._channel.onmessage = null
+    self._channel.onopen = null
+    self._channel.onclose = null
+    self._channel.onerror = null
+  }
   if (self._pc) {
     try {
       self._pc.close()
@@ -8694,22 +8843,8 @@ Peer.prototype._destroy = function (err, cb) {
     self._pc.onicecandidate = null
     if ('addTrack' in self._pc) {
       self._pc.ontrack = null
-    } else {
-      self._pc.onaddstream = null
     }
-    self._pc.onnegotiationneeded = null
     self._pc.ondatachannel = null
-  }
-
-  if (self._channel) {
-    try {
-      self._channel.close()
-    } catch (err) {}
-
-    self._channel.onmessage = null
-    self._channel.onopen = null
-    self._channel.onclose = null
-    self._channel.onerror = null
   }
   self._pc = null
   self._channel = null
@@ -8725,7 +8860,7 @@ Peer.prototype._setupData = function (event) {
     // In some situations `pc.createDataChannel()` returns `undefined` (in wrtc),
     // which is invalid behavior. Handle it gracefully.
     // See: https://github.com/feross/simple-peer/issues/163
-    return self.destroy(new Error('Data channel event is missing `channel` property'))
+    return self.destroy(makeError('Data channel event is missing `channel` property', 'ERR_DATA_CHANNEL'))
   }
 
   self._channel = event.channel
@@ -8750,7 +8885,7 @@ Peer.prototype._setupData = function (event) {
     self._onChannelClose()
   }
   self._channel.onerror = function (err) {
-    self.destroy(err)
+    self.destroy(makeError(err, 'ERR_DATA_CHANNEL'))
   }
 }
 
@@ -8758,13 +8893,13 @@ Peer.prototype._read = function () {}
 
 Peer.prototype._write = function (chunk, encoding, cb) {
   var self = this
-  if (self.destroyed) return cb(new Error('cannot write after peer is destroyed'))
+  if (self.destroyed) return cb(makeError('cannot write after peer is destroyed', 'ERR_DATA_CHANNEL'))
 
   if (self.connected) {
     try {
       self.send(chunk)
     } catch (err) {
-      return self.destroy(err)
+      return self.destroy(makeError(err, 'ERR_DATA_CHANNEL'))
     }
     if (self._channel.bufferedAmount > MAX_BUFFERED_AMOUNT) {
       self._debug('start backpressure: bufferedAmount %d', self._channel.bufferedAmount)
@@ -8810,13 +8945,14 @@ Peer.prototype._createOffer = function () {
     self._pc.setLocalDescription(offer, onSuccess, onError)
 
     function onSuccess () {
+      self._debug('createOffer success')
       if (self.destroyed) return
       if (self.trickle || self._iceComplete) sendOffer()
       else self.once('_iceComplete', sendOffer) // wait for candidates
     }
 
     function onError (err) {
-      self.destroy(err)
+      self.destroy(makeError(err, 'ERR_SET_LOCAL_DESCRIPTION'))
     }
 
     function sendOffer () {
@@ -8827,7 +8963,7 @@ Peer.prototype._createOffer = function () {
         sdp: signal.sdp
       })
     }
-  }, function (err) { self.destroy(err) }, self.offerConstraints)
+  }, function (err) { self.destroy(makeError(err, 'ERR_CREATE_OFFER')) }, self.offerConstraints)
 }
 
 Peer.prototype._createAnswer = function () {
@@ -8846,7 +8982,7 @@ Peer.prototype._createAnswer = function () {
     }
 
     function onError (err) {
-      self.destroy(err)
+      self.destroy(makeError(err, 'ERR_SET_LOCAL_DESCRIPTION'))
     }
 
     function sendAnswer () {
@@ -8857,7 +8993,7 @@ Peer.prototype._createAnswer = function () {
         sdp: signal.sdp
       })
     }
-  }, function (err) { self.destroy(err) }, self.answerConstraints)
+  }, function (err) { self.destroy(makeError(err, 'ERR_CREATE_ANSWER')) }, self.answerConstraints)
 }
 
 Peer.prototype._onIceStateChange = function () {
@@ -8878,22 +9014,11 @@ Peer.prototype._onIceStateChange = function () {
     self._pcReady = true
     self._maybeReady()
   }
-  if (iceConnectionState === 'disconnected') {
-    if (self.reconnectTimer) {
-      // If user has set `opt.reconnectTimer`, allow time for ICE to attempt a reconnect
-      clearTimeout(self._reconnectTimeout)
-      self._reconnectTimeout = setTimeout(function () {
-        self.destroy()
-      }, self.reconnectTimer)
-    } else {
-      self.destroy()
-    }
-  }
   if (iceConnectionState === 'failed') {
-    self.destroy(new Error('Ice connection failed.'))
+    self.destroy(makeError('Ice connection failed.', 'ERR_ICE_CONNECTION_FAILURE'))
   }
   if (iceConnectionState === 'closed') {
-    self.destroy()
+    self.destroy(new Error('Ice connection closed.'))
   }
 }
 
@@ -8985,7 +9110,7 @@ Peer.prototype._maybeReady = function () {
 
       items.forEach(function (item) {
         // Spec-compliant
-        if (item.type === 'transport') {
+        if (item.type === 'transport' && item.selectedCandidatePairId) {
           setSelectedCandidatePair(candidatePairs[item.selectedCandidatePairId])
         }
 
@@ -9056,7 +9181,7 @@ Peer.prototype._maybeReady = function () {
         try {
           self.send(self._chunk)
         } catch (err) {
-          return self.destroy(err)
+          return self.destroy(makeError(err, 'ERR_DATA_CHANNEL'))
         }
         self._chunk = null
         self._debug('sent chunk from "write before connect"')
@@ -9091,6 +9216,28 @@ Peer.prototype._onInterval = function () {
 Peer.prototype._onSignalingStateChange = function () {
   var self = this
   if (self.destroyed) return
+
+  if (self._pc.signalingState === 'stable') {
+    self._isNegotiating = false
+
+    // HACK: Firefox doesn't yet support removing tracks when signalingState !== 'stable'
+    self._debug('flushing sender queue', self._sendersAwaitingStable)
+    self._sendersAwaitingStable.forEach(function (sender) {
+      self.removeTrack(sender)
+      self._queuedNegotiation = true
+    })
+    self._sendersAwaitingStable = []
+
+    if (self._queuedNegotiation) {
+      self._debug('flushing negotiation queue')
+      self._queuedNegotiation = false
+      self._needsNegotiation() // negotiate again
+    }
+
+    self._debug('negotiate')
+    self.emit('negotiate')
+  }
+
   self._debug('signalingStateChange %s', self._pc.signalingState)
   self.emit('signalingStateChange', self._pc.signalingState)
 }
@@ -9144,21 +9291,28 @@ Peer.prototype._onChannelClose = function () {
   self.destroy()
 }
 
-Peer.prototype._onAddStream = function (event) {
-  var self = this
-  if (self.destroyed) return
-  self._debug('on add stream')
-  self.emit('stream', event.stream)
-}
-
 Peer.prototype._onTrack = function (event) {
   var self = this
   if (self.destroyed) return
-  self._debug('on track')
-  var id = event.streams[0].id
-  if (self._previousStreams.indexOf(id) !== -1) return // Only fire one 'stream' event, even though there may be multiple tracks per stream
-  self._previousStreams.push(id)
-  self.emit('stream', event.streams[0])
+
+  event.streams.forEach(function (eventStream) {
+    self._debug('on track')
+    self.emit('track', event.track, eventStream)
+
+    self._remoteTracks.push({
+      track: event.track,
+      stream: eventStream
+    })
+
+    if (self._remoteStreams.some(function (remoteStream) {
+      return remoteStream.id === eventStream.id
+    })) return // Only fire one 'stream' event, even though there may be multiple tracks per stream
+
+    self._remoteStreams.push(eventStream)
+    setTimeout(function () {
+      self.emit('stream', eventStream) // ensure all tracks have been added
+    }, 0)
+  })
 }
 
 Peer.prototype._debug = function () {
@@ -9215,6 +9369,12 @@ Peer.prototype._transformConstraints = function (constraints) {
   }
 
   return constraints
+}
+
+function makeError (message, code) {
+  var err = new Error(message)
+  err.code = code
+  return err
 }
 
 function noop () {}
@@ -9799,7 +9959,6 @@ var Neighborhood = function () {
   }, {
     key: '_connect',
     value: function _connect(protocolId, arg1, arg2) {
-      console.log(this.PEER, protocolId, arg1, arg2);
       if (typeof arg1 === 'function' && typeof arg2 === 'undefined') {
         this._initiate(protocolId, arg1); // arg1: callback for offers
       } else if (typeof arg1 === 'function' && typeof arg2 !== 'undefined') {
@@ -10157,8 +10316,14 @@ var Neighborhood = function () {
           };
         });
       } else {
+        var entry = null;
         // #2 remove one arc
-        var entry = this.living.remove(peerId, protocolId);
+        try {
+          entry = this.living.remove(peerId, protocolId);
+        } catch (e) {
+          console.log(e); // dangerous
+          // noop
+        }
         if (entry) {
           var dying = new EDying(entry.peer, entry.socket, setTimeout(function () {
             entry.socket && entry.socket.destroy();
@@ -10202,7 +10367,10 @@ var Neighborhood = function () {
         } else if (_this4.dying.has(peerId)) {
           entry = _this4.dying.get(peerId); // (TODO) warn: not safe
         };
-
+        if (entry === null) {
+          // console.log(protocolId, peerId, message, retry, this.living.store.size, this.dying.size)
+          reject(new Error('peer not found: ' + peerId));
+        }
         // #2 define the recursive sending function
         var __send = function __send(r) {
           try {

@@ -157,7 +157,6 @@ class Neighborhood {
      * WebRTC connection.
      */
   _connect (protocolId, arg1, arg2) {
-    console.log(this.PEER, protocolId, arg1, arg2)
     if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 === &apos;undefined&apos;) {
       this._initiate(protocolId, arg1) // arg1: callback for offers
     } else if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 !== &apos;undefined&apos;) {
@@ -499,8 +498,14 @@ class Neighborhood {
         };
       })
     } else {
+      var entry = null
       // #2 remove one arc
-      var entry = this.living.remove(peerId, protocolId)
+      try {
+        entry = this.living.remove(peerId, protocolId)
+      } catch (e) {
+        console.log(e) // dangerous
+        // noop
+      }
       if (entry) {
         var dying = new EDying(entry.peer, entry.socket, setTimeout(() =&gt; {
           entry.socket &amp;&amp; entry.socket.destroy()
@@ -537,7 +542,10 @@ class Neighborhood {
       } else if (this.dying.has(peerId)) {
         entry = this.dying.get(peerId) // (TODO) warn: not safe
       };
-
+      if (entry === null) {
+        // console.log(protocolId, peerId, message, retry, this.living.store.size, this.dying.size)
+        reject(new Error(&apos;peer not found: &apos; + peerId))
+      }
       // #2 define the recursive sending function
       let __send = (r) =&gt; {
         try {
