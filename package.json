@@ -1,6 +1,6 @@
 {
     "name": "neighborhood-wrtc",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "neighborhood (or partial view) containing peers to communicate with",
     "main": "lib/neighborhood.js",
     "repository": {
@@ -40,7 +40,7 @@
         "uglify-js": "^3.3.20"
     },
     "scripts": {
-        "lint":"standard ./lib/**/*.js | snazzy",
+        "lint": "standard ./lib/**/*.js | snazzy",
         "fix": "standard --fix ./lib/**/*.js | snazzy ",
         "esdoc": "esdoc && npm run esdoc:example",
         "esdoc:example": "cp -R ./build ./examples ./img ./docs",
