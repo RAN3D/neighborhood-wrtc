@@ -51,11 +51,86 @@ $ npm install neighborhood-wrtc
 
 You can find the API [here](https://ran3d.github.io/neighborhood-wrtc/).
 
+Want to create your protocol?
+```javascript
+// import the lib
+import Neighborhood from 'neighborhood-wrtc'
+// create a class that fullfilled the [following API](https://ran3d.github.io/neighborhood-wrtc/class/lib/interfaces/iprotocol.js~IProtocol.html)
+class P { // check IProtocol to see the interface
+  constructor (pid, peer) {
+    this.id = pid
+    this.peer = peer
+  };
+
+  _pid () { return this.id };
+
+  _connected (peerId) {
+    console.log('@%s-P%s: an arc has been created.', this.peer, this.id)
+  };
+
+  _disconnected (peerId) {
+    console.log('@%s-P%s: an arc has been removed.', this.peer, this.id)
+  };
+
+  _received (peerId, message) {
+    console.log('@%s-P%s: message received from @%s: %s',
+      this.peer, this.id, peerId, message)
+  };
+
+  _streamed (peerId, stream) {
+    console.log('Receive a stream from: %s', peerId, stream)
+  }
+
+  _failed (peerId) {
+    console.log('%s-P%s: failed to establish a connection with %s.',
+      this.peer, this.id, peerId)
+  };
+};
+
+// create the Peer
+const neigh = new Neighborhood({
+  peer: 'myid1',
+  config: {
+    config: {iceServers: [...]},
+    trickle: true
+  }
+})
+// create the protocol
+const p1 = neigh.register(new P('mywonderfullprotocol', 'myid1'))
+
+// create the Peer
+const neigh = new Neighborhood({
+  peer: 'myid2',
+  config: {
+    config: {iceServers: [...]},
+    trickle: true
+  }
+})
+// create the protocol
+const p2 = neigh.register(new P('mywonderfullprotocol', 'myid2'))
+
+// now connec them
+// #3 callback functions ensuring the peers exchanges messages
+// from -> to -> from
+const callback = (from, to) => {
+  return (offer) => {
+    to.connect((answer) => { from.connect(answer) }, offer)
+  }
+}
+
+// #4 establishing a connection from p1 to p2
+p1.connect(callback(p1, p2))
+// now p1 can send message to p2 and p2 can send message to p1
+//
+// call any function of [the following API](https://ran3d.github.io/neighborhood-wrtc/class/lib/interfaces/ineighborhood.js~INeighborhood.html)
+
+```
+
 ## Examples
 
 Usage examples of this module can be found
-[here](https://ran3d.github.io/neighborhood-wrtc/examples/simple.html) and
-[here](https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html).  To
+[simple](https://ran3d.github.io/neighborhood-wrtc/examples/simple.html),
+[multiple](https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html) and [media](https://ran3d.github.io/neighborhood-wrtc/examples/media.html).  To
 run the example, make sure your web browser is
 [WebRTC-compatible](https://webrtc.org) and switch to console mode.
 

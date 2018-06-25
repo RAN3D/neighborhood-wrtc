@@ -1,0 +1,103 @@
+<html>
+  <head> <meta charset='utf-8'></meta> <title>neighborhood-wrtc</title> </head>
+  <style>p {border: 1px solid black;}</style>
+  <body>
+    Please, switch to console. <br/>
+    <p>p1 send => <video id='1' height="200" width="200"></video>  p2 receive => <video id='2r' height="200" width="200"></video></p>
+    <p>p2 send => <video id='2' height="200" width="200"></video> p1 receive => <video id='1r' height="200" width="200"></video> </p><br />
+    <script src='../build/neighborhood-wrtc.bundle.debug.js'></script>
+    <script type="text/javascript">
+      const Neighborhood = require('neighborhood-wrtc')
+      localStorage.debug = '*'
+      // #1 create a protocol that will run on top of this module. It must implement
+      // the 4 properties : pid, opened, closed, failed.
+      class P { // check IProtocol to see the interface
+        constructor (pid, peer) {
+          this.id = pid
+          this.peer = peer
+        };
+
+        _pid () { return this.id };
+
+        _connected (peerId) {
+          console.log('@%s-P%s: an arc has been created.', this.peer, this.id)
+        };
+
+        _disconnected (peerId) {
+          console.log('@%s-P%s: an arc has been removed.', this.peer, this.id)
+        };
+
+        _received (peerId, message) {
+          console.log('@%s-P%s: message received from @%s: %s',
+            this.peer, this.id, peerId, message)
+        };
+
+        _streamed (peerId, stream) {
+          console.log('Receive a stream from: %s', peerId, stream)
+          const video = document.getElementById(this.peer+'r');
+          console.log(video)
+          try {
+            video.srcObject = stream;
+          } catch (error) {
+            video.src = URL.createObjectURL(stream);
+          }
+          video.play() // show the receiver
+        }
+
+        _failed (peerId) {
+          console.log('%s-P%s: failed to establish a connection with %s.',
+            this.peer, this.id, peerId)
+        };
+      };
+      // #2 create the neighborhood tables and, for each, register a protocol
+      const opts1 = { peer: '1', config: { trickle: true } }
+      const n1 = new Neighborhood(opts1)
+      const p1 = n1.register(new P(1, '1'))
+
+      const opts2 = { peer: '2', config: { trickle: true } }
+      const n2 = new Neighborhood(opts2)
+      const p2 = n2.register(new P(1, '2'))
+
+
+      // #3 callback functions ensuring the peers exchanges messages
+      // from -> to -> from
+      const callback = (from, to) => {
+        return (offer) => {
+          to.connect((answer) => { from.connect(answer) }, offer)
+        }
+      }
+
+      // #4 establishing a connection from p1 to p2, twice but one socket is kept
+      p1.connect(callback(p1, p2))
+      p2.connect(callback(p2, p1))
+
+      setTimeout(() => {
+        p1.send(p2.peer, "hello world")
+        console.log('%s neighbours: ', p1.peer, ...p1.neighbours())
+        console.log('%s neighbours: ', p2.peer, ...p2.neighbours())
+        sendMedia(p1, "2")
+        sendMedia(p2, "1")
+      }, 1000)
+
+      function sendMedia (fromProtocol, toId) {
+        console.log('SEND MEDIA FROM %s TO %s', fromProtocol.peer, toId)
+        navigator.mediaDevices.getUserMedia({
+          video:true
+        }).then((mediaStream) => {
+          const video = document.getElementById(fromProtocol.peer);
+          try {
+            video.srcObject = mediaStream;
+          } catch (error) {
+            video.src = URL.createObjectURL(mediaStream);
+          }
+          video.play() // show the receiver
+          fromProtocol.stream(toId, mediaStream)
+        }).catch(e => {
+          console.error(e)
+        })
+      }
+
+      // // > console: should see 6 'P-1: an arc has been created' messages
+    </script>
+  </body>
+</html>
