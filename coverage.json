@@ -1,7 +1,7 @@
 {
-  "coverage": "48.62%",
-  "expectCount": 109,
-  "actualCount": 53,
+  "coverage": "46.72%",
+  "expectCount": 122,
+  "actualCount": 57,
   "files": {
     "lib/arcstore.js": {
       "expectCount": 9,
@@ -87,8 +87,8 @@
       ]
     },
     "lib/interfaces/ineighborhood.js": {
-      "expectCount": 6,
-      "actualCount": 5,
+      "expectCount": 8,
+      "actualCount": 7,
       "undocumentLines": [
         18
       ]
@@ -97,6 +97,16 @@
       "expectCount": 7,
       "actualCount": 7,
       "undocumentLines": []
+    },
+    "lib/messages/minternalsend.js": {
+      "expectCount": 6,
+      "actualCount": 2,
+      "undocumentLines": [
+        15,
+        16,
+        17,
+        18
+      ]
     },
     "lib/messages/mrequest.js": {
       "expectCount": 8,
@@ -133,19 +143,24 @@
       ]
     },
     "lib/neighborhood.js": {
-      "expectCount": 19,
+      "expectCount": 24,
       "actualCount": 9,
       "undocumentLines": [
         3,
-        44,
-        54,
+        45,
         55,
-        58,
-        62,
+        56,
+        59,
         63,
         64,
-        67,
-        522
+        65,
+        68,
+        532,
+        569,
+        606,
+        643,
+        647,
+        655
       ]
     }
   }

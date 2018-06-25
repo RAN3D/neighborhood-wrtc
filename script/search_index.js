@@ -66,6 +66,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "neighborhood-wrtc/lib/messages/minternalsend.js~minternalsend",
+    "class/lib/messages/minternalsend.js~MInternalSend.html",
+    "<span>MInternalSend</span> <span class=\"search-result-import-path\">neighborhood-wrtc/lib/messages/minternalsend.js</span>",
+    "class"
+  ],
+  [
     "neighborhood-wrtc/lib/messages/mrequest.js~mrequest",
     "class/lib/messages/mrequest.js~MRequest.html",
     "<span>MRequest</span> <span class=\"search-result-import-path\">neighborhood-wrtc/lib/messages/mrequest.js</span>",
@@ -726,6 +732,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/interfaces/ineighborhood.js~ineighborhood#neighbours",
+    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-neighbours",
+    "lib/interfaces/ineighborhood.js~INeighborhood#neighbours",
+    "method"
+  ],
+  [
     "lib/interfaces/ineighborhood.js~ineighborhood#peer",
     "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-member-peer",
     "lib/interfaces/ineighborhood.js~INeighborhood#peer",
@@ -735,6 +747,12 @@ window.esdocSearchIndex = [
     "lib/interfaces/ineighborhood.js~ineighborhood#send",
     "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-send",
     "lib/interfaces/ineighborhood.js~INeighborhood#send",
+    "method"
+  ],
+  [
+    "lib/interfaces/ineighborhood.js~ineighborhood#stream",
+    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-stream",
+    "lib/interfaces/ineighborhood.js~INeighborhood#stream",
     "method"
   ],
   [
@@ -778,6 +796,42 @@ window.esdocSearchIndex = [
     "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_streamed",
     "lib/interfaces/iprotocol.js~IProtocol#_streamed",
     "method"
+  ],
+  [
+    "lib/messages/minternalsend.js",
+    "file/lib/messages/minternalsend.js.html",
+    "lib/messages/minternalsend.js",
+    "file"
+  ],
+  [
+    "lib/messages/minternalsend.js~minternalsend#constructor",
+    "class/lib/messages/minternalsend.js~MInternalSend.html#instance-constructor-constructor",
+    "lib/messages/minternalsend.js~MInternalSend#constructor",
+    "method"
+  ],
+  [
+    "lib/messages/minternalsend.js~minternalsend#payload",
+    "class/lib/messages/minternalsend.js~MInternalSend.html#instance-member-payload",
+    "lib/messages/minternalsend.js~MInternalSend#payload",
+    "member"
+  ],
+  [
+    "lib/messages/minternalsend.js~minternalsend#peer",
+    "class/lib/messages/minternalsend.js~MInternalSend.html#instance-member-peer",
+    "lib/messages/minternalsend.js~MInternalSend#peer",
+    "member"
+  ],
+  [
+    "lib/messages/minternalsend.js~minternalsend#pid",
+    "class/lib/messages/minternalsend.js~MInternalSend.html#instance-member-pid",
+    "lib/messages/minternalsend.js~MInternalSend#pid",
+    "member"
+  ],
+  [
+    "lib/messages/minternalsend.js~minternalsend#type",
+    "class/lib/messages/minternalsend.js~MInternalSend.html#instance-member-type",
+    "lib/messages/minternalsend.js~MInternalSend#type",
+    "member"
   ],
   [
     "lib/messages/mrequest.js",
@@ -960,9 +1014,39 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/neighborhood.js~neighborhood#_neighbours",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_neighbours",
+    "lib/neighborhood.js~Neighborhood#_neighbours",
+    "method"
+  ],
+  [
+    "lib/neighborhood.js~neighborhood#_receiveinternalmessage",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_receiveInternalMessage",
+    "lib/neighborhood.js~Neighborhood#_receiveInternalMessage",
+    "method"
+  ],
+  [
     "lib/neighborhood.js~neighborhood#_send",
     "class/lib/neighborhood.js~Neighborhood.html#instance-method-_send",
     "lib/neighborhood.js~Neighborhood#_send",
+    "method"
+  ],
+  [
+    "lib/neighborhood.js~neighborhood#_sendrenegociaterequest",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_sendRenegociateRequest",
+    "lib/neighborhood.js~Neighborhood#_sendRenegociateRequest",
+    "method"
+  ],
+  [
+    "lib/neighborhood.js~neighborhood#_sendrenegociateresponse",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_sendRenegociateResponse",
+    "lib/neighborhood.js~Neighborhood#_sendRenegociateResponse",
+    "method"
+  ],
+  [
+    "lib/neighborhood.js~neighborhood#_stream",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_stream",
+    "lib/neighborhood.js~Neighborhood#_stream",
     "method"
   ],
   [

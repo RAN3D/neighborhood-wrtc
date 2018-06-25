@@ -434,13 +434,15 @@ var INeighborhood = function () {
      * module.
      * @param {function} send The send function provided by this module.
      */
-  function INeighborhood(peerId, connect, disconnect, send) {
+  function INeighborhood(peerId, connect, disconnect, send, stream, neighbours) {
     _classCallCheck(this, INeighborhood);
 
     this.peer = peerId;
     this.connect = connect;
     this.disconnect = disconnect;
     this.send = send;
+    this.stream = stream;
+    this.neighbours = neighbours;
   }
 
   _createClass(INeighborhood, [{
@@ -487,6 +489,31 @@ var INeighborhood = function () {
     value: function send(peerId, message, retry) {
       return this.send(peerId, message);
     }
+  }, {
+    key: 'stream',
+
+
+    /**
+     * Send a MediaStream (see MediaStream API) to a peerId neighbour
+     * @param  {[type]} peerId The identifier of the remote peer.
+     * @param  {[type]} media  MediaStream
+     * @param  {[type]} [retry=0]  Retry few times to send the message before
+     * @return {promise}        Resolved when the stream has been well sent.
+     */
+    value: function stream(peerId, media, retry) {
+      return this.stream(peerId, media);
+    }
+
+    /**
+     * Return an array of neighbours including peerName and sockets and protocols with occurences
+     * @return {Array<ELiving>} {peer: String, socket: SimplePeer, protocols: Map}
+     */
+
+  }, {
+    key: 'neighbours',
+    value: function neighbours() {
+      return this.neighbours();
+    }
   }]);
 
   return INeighborhood;
@@ -497,6 +524,36 @@ var INeighborhood = function () {
 module.exports = INeighborhood;
 
 },{}],9:[function(require,module,exports){
+'use strict';
+
+/**
+ * Message sent when protocolId wishes to send payload. It is a basic
+ * encapsualtion of protocolId.
+ */
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MInternalSend =
+/**
+   * @param {string} peerId The identifier of the peer that sent the message
+   * @param {string} protocolId The identifier of the protocol that sent the
+   * message
+   * @param {object} payload The payload of the message.
+   */
+function MInternalSend(peerId, protocolId, payload) {
+  _classCallCheck(this, MInternalSend);
+
+  this.peer = peerId;
+  this.pid = protocolId;
+  this.payload = payload;
+  this.type = 'MInternalSend';
+};
+
+;
+
+module.exports = MInternalSend;
+
+},{}],10:[function(require,module,exports){
 'use strict';
 
 /**
@@ -532,7 +589,7 @@ function MRequest(temporaryId, peerId, protocolId, offer) {
 
 module.exports = MRequest;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 /**
@@ -569,7 +626,7 @@ function MResponse(temporaryId, peerId, protocolId, offer) {
 
 module.exports = MResponse;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 /**
@@ -599,7 +656,7 @@ function MSend(peerId, protocolId, payload) {
 
 module.exports = MSend;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -752,9 +809,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],13:[function(require,module,exports){
-
 },{}],14:[function(require,module,exports){
+
+},{}],15:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -2492,7 +2549,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":12,"ieee754":20}],15:[function(require,module,exports){
+},{"base64-js":13,"ieee754":21}],16:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2603,7 +2660,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../is-buffer/index.js")})
-},{"../../is-buffer/index.js":22}],16:[function(require,module,exports){
+},{"../../is-buffer/index.js":23}],17:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -2802,7 +2859,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":17,"_process":27}],17:[function(require,module,exports){
+},{"./debug":18,"_process":28}],18:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -3029,7 +3086,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":25}],18:[function(require,module,exports){
+},{"ms":26}],19:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3460,24 +3517,28 @@ EventEmitter.prototype.removeAllListeners =
       return this;
     };
 
-EventEmitter.prototype.listeners = function listeners(type) {
-  var evlistener;
-  var ret;
-  var events = this._events;
+function _listeners(target, type, unwrap) {
+  var events = target._events;
 
   if (!events)
-    ret = [];
-  else {
-    evlistener = events[type];
-    if (!evlistener)
-      ret = [];
-    else if (typeof evlistener === 'function')
-      ret = [evlistener.listener || evlistener];
-    else
-      ret = unwrapListeners(evlistener);
-  }
+    return [];
 
-  return ret;
+  var evlistener = events[type];
+  if (!evlistener)
+    return [];
+
+  if (typeof evlistener === 'function')
+    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+
+  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+}
+
+EventEmitter.prototype.listeners = function listeners(type) {
+  return _listeners(this, type, true);
+};
+
+EventEmitter.prototype.rawListeners = function rawListeners(type) {
+  return _listeners(this, type, false);
 };
 
 EventEmitter.listenerCount = function(emitter, type) {
@@ -3550,7 +3611,7 @@ function functionBindPolyfill(context) {
   };
 }
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 // originally pulled out of simple-peer
 
 module.exports = function getBrowserRTC () {
@@ -3567,7 +3628,7 @@ module.exports = function getBrowserRTC () {
   return wrtc
 }
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -3653,7 +3714,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3678,7 +3739,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -3701,14 +3762,14 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function (global){
 /**
  * Lodash (Custom Build) <https://lodash.com/>
@@ -5675,7 +5736,7 @@ function stubFalse() {
 module.exports = merge;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -5829,7 +5890,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -5877,7 +5938,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 
 }).call(this,require('_process'))
-},{"_process":27}],27:[function(require,module,exports){
+},{"_process":28}],28:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -6063,7 +6124,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -6105,7 +6166,7 @@ function randomBytes (size, cb) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":27,"safe-buffer":38}],29:[function(require,module,exports){
+},{"_process":28,"safe-buffer":39}],30:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6237,7 +6298,7 @@ Duplex.prototype._destroy = function (err, cb) {
 
   pna.nextTick(cb, err);
 };
-},{"./_stream_readable":31,"./_stream_writable":33,"core-util-is":15,"inherits":21,"process-nextick-args":26}],30:[function(require,module,exports){
+},{"./_stream_readable":32,"./_stream_writable":34,"core-util-is":16,"inherits":22,"process-nextick-args":27}],31:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6285,7 +6346,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":32,"core-util-is":15,"inherits":21}],31:[function(require,module,exports){
+},{"./_stream_transform":33,"core-util-is":16,"inherits":22}],32:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -7307,7 +7368,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":29,"./internal/streams/BufferList":34,"./internal/streams/destroy":35,"./internal/streams/stream":36,"_process":27,"core-util-is":15,"events":18,"inherits":21,"isarray":23,"process-nextick-args":26,"safe-buffer":38,"string_decoder/":40,"util":13}],32:[function(require,module,exports){
+},{"./_stream_duplex":30,"./internal/streams/BufferList":35,"./internal/streams/destroy":36,"./internal/streams/stream":37,"_process":28,"core-util-is":16,"events":19,"inherits":22,"isarray":24,"process-nextick-args":27,"safe-buffer":39,"string_decoder/":41,"util":14}],33:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7522,8 +7583,8 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":29,"core-util-is":15,"inherits":21}],33:[function(require,module,exports){
-(function (process,global){
+},{"./_stream_duplex":30,"core-util-is":16,"inherits":22}],34:[function(require,module,exports){
+(function (process,global,setImmediate){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -8211,8 +8272,8 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":29,"./internal/streams/destroy":35,"./internal/streams/stream":36,"_process":27,"core-util-is":15,"inherits":21,"process-nextick-args":26,"safe-buffer":38,"util-deprecate":41}],34:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("timers").setImmediate)
+},{"./_stream_duplex":30,"./internal/streams/destroy":36,"./internal/streams/stream":37,"_process":28,"core-util-is":16,"inherits":22,"process-nextick-args":27,"safe-buffer":39,"timers":42,"util-deprecate":43}],35:[function(require,module,exports){
 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8292,7 +8353,7 @@ if (util && util.inspect && util.inspect.custom) {
     return this.constructor.name + ' ' + obj;
   };
 }
-},{"safe-buffer":38,"util":13}],35:[function(require,module,exports){
+},{"safe-buffer":39,"util":14}],36:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -8367,10 +8428,10 @@ module.exports = {
   destroy: destroy,
   undestroy: undestroy
 };
-},{"process-nextick-args":26}],36:[function(require,module,exports){
+},{"process-nextick-args":27}],37:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":18}],37:[function(require,module,exports){
+},{"events":19}],38:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -8379,7 +8440,7 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":29,"./lib/_stream_passthrough.js":30,"./lib/_stream_readable.js":31,"./lib/_stream_transform.js":32,"./lib/_stream_writable.js":33}],38:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":30,"./lib/_stream_passthrough.js":31,"./lib/_stream_readable.js":32,"./lib/_stream_transform.js":33,"./lib/_stream_writable.js":34}],39:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -8443,7 +8504,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":14}],39:[function(require,module,exports){
+},{"buffer":15}],40:[function(require,module,exports){
 (function (Buffer){
 module.exports = Peer
 
@@ -8488,7 +8549,6 @@ function Peer (opts) {
   self.constraints = self._transformConstraints(opts.constraints || Peer.constraints)
   self.offerConstraints = self._transformConstraints(opts.offerConstraints || {})
   self.answerConstraints = self._transformConstraints(opts.answerConstraints || {})
-  self.reconnectTimer = opts.reconnectTimer || false
   self.sdpTransform = opts.sdpTransform || function (sdp) { return sdp }
   self.streams = opts.streams || (opts.stream ? [opts.stream] : []) // support old "stream" option
   self.trickle = opts.trickle !== undefined ? opts.trickle : true
@@ -8532,7 +8592,6 @@ function Peer (opts) {
   self._chunk = null
   self._cb = null
   self._interval = null
-  self._reconnectTimeout = null
 
   self._pc = new (self._wrtc.RTCPeerConnection)(self.config, self.constraints)
 
@@ -8813,9 +8872,7 @@ Peer.prototype._destroy = function (err, cb) {
   self._senderMap = null
 
   clearInterval(self._interval)
-  clearTimeout(self._reconnectTimeout)
   self._interval = null
-  self._reconnectTimeout = null
   self._chunk = null
   self._cb = null
 
@@ -9010,7 +9067,6 @@ Peer.prototype._onIceStateChange = function () {
   self.emit('iceStateChange', iceConnectionState, iceGatheringState)
 
   if (iceConnectionState === 'connected' || iceConnectionState === 'completed') {
-    clearTimeout(self._reconnectTimeout)
     self._pcReady = true
     self._maybeReady()
   }
@@ -9380,7 +9436,7 @@ function makeError (message, code) {
 function noop () {}
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":14,"debug":16,"get-browser-rtc":19,"inherits":21,"randombytes":28,"readable-stream":37}],40:[function(require,module,exports){
+},{"buffer":15,"debug":17,"get-browser-rtc":20,"inherits":22,"randombytes":29,"readable-stream":38}],41:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -9677,7 +9733,86 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":38}],41:[function(require,module,exports){
+},{"safe-buffer":39}],42:[function(require,module,exports){
+(function (setImmediate,clearImmediate){
+var nextTick = require('process/browser.js').nextTick;
+var apply = Function.prototype.apply;
+var slice = Array.prototype.slice;
+var immediateIds = {};
+var nextImmediateId = 0;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) { timeout.close(); };
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(window, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// That's not how node.js implements it but the exposed api is the same.
+exports.setImmediate = typeof setImmediate === "function" ? setImmediate : function(fn) {
+  var id = nextImmediateId++;
+  var args = arguments.length < 2 ? false : slice.call(arguments, 1);
+
+  immediateIds[id] = true;
+
+  nextTick(function onNextTick() {
+    if (immediateIds[id]) {
+      // fn.call() is faster so we optimize for the common use-case
+      // @see http://jsperf.com/call-apply-segu
+      if (args) {
+        fn.apply(null, args);
+      } else {
+        fn.call(null);
+      }
+      // Prevent ids from leaking
+      exports.clearImmediate(id);
+    }
+  });
+
+  return id;
+};
+
+exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
+  delete immediateIds[id];
+};
+}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
+},{"process/browser.js":28,"timers":42}],43:[function(require,module,exports){
 (function (global){
 
 /**
@@ -9748,7 +9883,7 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],42:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -9773,7 +9908,7 @@ function bytesToUuid(buf, offset) {
 
 module.exports = bytesToUuid;
 
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 // Unique ID creation requires a high quality random # generator.  In the
 // browser this is a little complicated due to unknown quality of Math.random()
 // and inconsistent support for the `crypto` API.  We do the best we can via
@@ -9807,7 +9942,7 @@ if (getRandomValues) {
   };
 }
 
-},{}],44:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -9838,7 +9973,7 @@ function v4(options, buf, offset) {
 
 module.exports = v4;
 
-},{"./lib/bytesToUuid":42,"./lib/rng":43}],"neighborhood-wrtc":[function(require,module,exports){
+},{"./lib/bytesToUuid":44,"./lib/rng":45}],"neighborhood-wrtc":[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9860,6 +9995,7 @@ var INeighborhood = require('./interfaces/ineighborhood.js');
 var MResponse = require('./messages/mresponse.js');
 var MRequest = require('./messages/mrequest.js');
 var MSend = require('./messages/msend.js');
+var MInternalSend = require('./messages/minternalsend.js');
 
 // const ExLateMessage = require('./exceptions/exlatemessage.js')
 var ExProtocolExists = require('./exceptions/exprotocolexists.js');
@@ -9892,7 +10028,7 @@ var Neighborhood = function () {
     this.options = {
       socketClass: Socket,
       peer: uuid(),
-      config: { iceServers: [], trickle: true, initiator: false },
+      config: { trickle: true, initiator: false },
       timeout: 1 * 60 * 1000,
       pendingTimeout: 10 * 1000,
       encoding: function encoding(d) {
@@ -9935,7 +10071,7 @@ var Neighborhood = function () {
       if (!this.protocols.has(protocol._pid())) {
         debug('[%s] protocol %s just registered.', this.PEER, protocol._pid());
         this.protocols.set(protocol._pid(), protocol);
-        return new INeighborhood(this.PEER, this._connect.bind(this, protocol._pid()), this._disconnect.bind(this, protocol._pid()), this._send.bind(this, protocol._pid()));
+        return new INeighborhood(this.PEER, this._connect.bind(this, protocol._pid()), this._disconnect.bind(this, protocol._pid()), this._send.bind(this, protocol._pid()), this._stream.bind(this, protocol._pid()), this._neighbours.bind(this));
       } else {
         throw new ExProtocolExists(protocol._pid());
       }
@@ -10035,7 +10171,11 @@ var Neighborhood = function () {
 
       socket.on('data', function (d) {
         var msg = _this.decode(d);
-        _this.protocols.get(msg.pid)._received(msg.peer, msg.payload);
+        if (msg.type === 'MInternalSend') {
+          _this._receiveInternalMessage(msg);
+        } else {
+          _this.protocols.get(msg.pid)._received(msg.peer, msg.payload);
+        }
       });
       socket.on('stream', function (s) {
         _this.protocols.get(entry.pid)._streamed(entry.peer, s);
@@ -10048,8 +10188,8 @@ var Neighborhood = function () {
       });
       // #4 send offer message using sender
       socket.on('signal', function (offer) {
-        if (socket.connected && socket._isNegotiating) {
-          sender(new MRequest(entry.tid, _this.PEER, protocolId, offer, 'renegociate'));
+        if (socket.connected && !socket._isNegociating) {
+          _this._sendRenegociateRequest(new MRequest(entry.tid, _this.PEER, protocolId, offer, 'renegociate'), entry.peer);
         } else {
           sender(new MRequest(entry.tid, _this.PEER, protocolId, offer));
         }
@@ -10255,7 +10395,11 @@ var Neighborhood = function () {
 
           socket.on('data', function (d) {
             var msg = _this2.decode(d);
-            _this2.protocols.get(msg.pid)._received(msg.peer, msg.payload);
+            if (msg.type === 'MInternalSend') {
+              _this2._receiveInternalMessage(msg);
+            } else {
+              _this2.protocols.get(msg.pid)._received(msg.peer, msg.payload);
+            }
           });
           socket.on('stream', function (s) {
             _this2.protocols.get(entry.pid)._streamed(entry.peer, s);
@@ -10269,7 +10413,7 @@ var Neighborhood = function () {
           // #4 send offer message using sender
           socket.on('signal', function (offer) {
             if (socket.connected && !socket._isNegotiating) {
-              sender(new MResponse(entry.tid, _this2.PEER, protocolId, offer, 'renegociate'));
+              _this2._sendRenegociateResponse(new MResponse(entry.tid, _this2.PEER, protocolId, offer, 'renegociate'), entry.peer);
             } else {
               sender(new MResponse(entry.tid, _this2.PEER, protocolId, offer));
             }
@@ -10368,7 +10512,6 @@ var Neighborhood = function () {
           entry = _this4.dying.get(peerId); // (TODO) warn: not safe
         };
         if (entry === null) {
-          // console.log(protocolId, peerId, message, retry, this.living.store.size, this.dying.size)
           reject(new Error('peer not found: ' + peerId));
         }
         // #2 define the recursive sending function
@@ -10393,6 +10536,146 @@ var Neighborhood = function () {
       });
     }
   }, {
+    key: '_stream',
+    value: function _stream(protocolId, peerId, media) {
+      var _this5 = this;
+
+      var retry = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+      return new Promise(function (resolve, reject) {
+        // #1 get the proper entry in the tables
+        var entry = null;
+        if (_this5.living.contains(peerId)) {
+          entry = _this5.living.get(peerId);
+        } else if (_this5.dying.has(peerId)) {
+          entry = _this5.dying.get(peerId); // (TODO) warn: not safe
+        };
+        if (entry === null) {
+          _this5.living.store.forEach(function (elem) {
+            debug(elem.peer);
+          });
+          reject(new Error('peer not found: ' + peerId));
+        }
+        // #2 define the recursive sending function
+        var __send = function __send(r) {
+          try {
+            entry.socket.addStream(media);
+            debug('[%s] --- MEDIA msg --> %s:%s', _this5.PEER, peerId, protocolId);
+            resolve();
+          } catch (e) {
+            debug('[%s] -X- MEDIA msg -X> %s:%s', _this5.PEER, peerId, protocolId);
+            if (r < retry) {
+              setTimeout(function () {
+                __send(r + 1);
+              }, 1000);
+            } else {
+              reject(e);
+            };
+          };
+        };
+        // #3 start to send
+        __send(0);
+      });
+    }
+  }, {
+    key: '_sendRenegociateRequest',
+    value: function _sendRenegociateRequest(request, to) {
+      var _this6 = this;
+
+      var retry = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+      return new Promise(function (resolve, reject) {
+        // #1 get the proper entry in the tables
+        var entry = null;
+        if (_this6.living.contains(to)) {
+          entry = _this6.living.get(to);
+        } else if (_this6.dying.has(to)) {
+          entry = _this6.dying.get(to); // (TODO) warn: not safe
+        };
+        if (entry === null) {
+          _this6.living.store.forEach(function (elem) {
+            debug(elem.peer);
+          });
+          reject(new Error('peer not found: ' + to));
+        }
+        // #2 define the recursive sending function
+        var __send = function __send(r) {
+          try {
+            entry.socket.send(_this6.encode(new MInternalSend(_this6.PEER, null, request)));
+            debug('[%s] --- MEDIA Internal Renegociate msg --> %s:%s', _this6.PEER, to);
+            resolve();
+          } catch (e) {
+            debug('[%s] -X- MEDIA Internal Renegociate msg -X> %s:%s', _this6.PEER, to);
+            if (r < retry) {
+              setTimeout(function () {
+                __send(r + 1);
+              }, 1000);
+            } else {
+              reject(e);
+            };
+          };
+        };
+        // #3 start to send
+        __send(0);
+      });
+    }
+  }, {
+    key: '_sendRenegociateResponse',
+    value: function _sendRenegociateResponse(response, to) {
+      var _this7 = this;
+
+      var retry = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+      return new Promise(function (resolve, reject) {
+        // #1 get the proper entry in the tables
+        var entry = null;
+        if (_this7.living.contains(to)) {
+          entry = _this7.living.get(to);
+        } else if (_this7.dying.has(to)) {
+          entry = _this7.dying.get(to); // (TODO) warn: not safe
+        };
+        if (entry === null) {
+          _this7.living.store.forEach(function (elem) {
+            debug(elem.peer);
+          });
+          reject(new Error('peer not found: ' + to));
+        }
+        // #2 define the recursive sending function
+        var __send = function __send(r) {
+          try {
+            entry.socket.send(_this7.encode(new MInternalSend(_this7.PEER, null, response)));
+            debug('[%s] --- MEDIA Internal Renegociate msg --> %s:%s', _this7.PEER, to);
+            resolve();
+          } catch (e) {
+            debug('[%s] -X- MEDIA Internal Renegociate msg -X> %s:%s', _this7.PEER, to);
+            if (r < retry) {
+              setTimeout(function () {
+                __send(r + 1);
+              }, 1000);
+            } else {
+              reject(e);
+            };
+          };
+        };
+        // #3 start to send
+        __send(0);
+      });
+    }
+  }, {
+    key: '_receiveInternalMessage',
+    value: function _receiveInternalMessage(msg) {
+      this.living.get(msg.peer).socket.signal(msg.payload.offer);
+    }
+  }, {
+    key: '_neighbours',
+    value: function _neighbours() {
+      var neigh = [];
+      this.living.store.forEach(function (elem) {
+        neigh.push(elem);
+      });
+      return neigh;
+    }
+  }, {
     key: '_checkPendingEntry',
     value: function _checkPendingEntry(entry) {
       if (this.pending.has(entry.tid)) {
@@ -10414,4 +10697,4 @@ var Neighborhood = function () {
 
 module.exports = Neighborhood;
 
-},{"./arcstore.js":1,"./entries/edying.js":2,"./entries/epending.js":4,"./exceptions/exincompletemessage.js":5,"./exceptions/exprotocolexists.js":6,"./interfaces/ineighborhood.js":8,"./messages/mrequest.js":9,"./messages/mresponse.js":10,"./messages/msend.js":11,"debug":16,"lodash.merge":24,"simple-peer":39,"uuid/v4":44}]},{},[]);
+},{"./arcstore.js":1,"./entries/edying.js":2,"./entries/epending.js":4,"./exceptions/exincompletemessage.js":5,"./exceptions/exprotocolexists.js":6,"./interfaces/ineighborhood.js":8,"./messages/minternalsend.js":9,"./messages/mrequest.js":10,"./messages/mresponse.js":11,"./messages/msend.js":12,"debug":17,"lodash.merge":25,"simple-peer":40,"uuid/v4":46}]},{},[]);

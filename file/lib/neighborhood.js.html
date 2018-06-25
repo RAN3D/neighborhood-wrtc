@@ -41,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/msend.js~MSend.html">MSend</a></span></span></li>
 </ul>
@@ -66,6 +67,7 @@ const INeighborhood = require(&apos;./interfaces/ineighborhood.js&apos;)
 const MResponse = require(&apos;./messages/mresponse.js&apos;)
 const MRequest = require(&apos;./messages/mrequest.js&apos;)
 const MSend = require(&apos;./messages/msend.js&apos;)
+const MInternalSend = require(&apos;./messages/minternalsend.js&apos;)
 
 // const ExLateMessage = require(&apos;./exceptions/exlatemessage.js&apos;)
 const ExProtocolExists = require(&apos;./exceptions/exprotocolexists.js&apos;)
@@ -95,7 +97,7 @@ class Neighborhood {
     this.options = {
       socketClass: Socket,
       peer: uuid(),
-      config: { iceServers: [], trickle: true, initiator: false },
+      config: { trickle: true, initiator: false },
       timeout: 1 * 60 * 1000,
       pendingTimeout: 10 * 1000,
       encoding: (d) =&gt; { return JSON.stringify(d) },
@@ -135,7 +137,9 @@ class Neighborhood {
         this.PEER,
         this._connect.bind(this, protocol._pid()),
         this._disconnect.bind(this, protocol._pid()),
-        this._send.bind(this, protocol._pid())
+        this._send.bind(this, protocol._pid()),
+        this._stream.bind(this, protocol._pid()),
+        this._neighbours.bind(this)
       )
     } else {
       throw new ExProtocolExists(protocol._pid())
@@ -227,7 +231,11 @@ class Neighborhood {
 
     socket.on(&apos;data&apos;, (d) =&gt; {
       let msg = this.decode(d)
-      this.protocols.get(msg.pid)._received(msg.peer, msg.payload)
+      if (msg.type === &apos;MInternalSend&apos;) {
+        this._receiveInternalMessage(msg)
+      } else {
+        this.protocols.get(msg.pid)._received(msg.peer, msg.payload)
+      }
     })
     socket.on(&apos;stream&apos;, (s) =&gt; {
       this.protocols.get(entry.pid)._streamed(entry.peer, s)
@@ -240,8 +248,8 @@ class Neighborhood {
     })
     // #4 send offer message using sender
     socket.on(&apos;signal&apos;, (offer) =&gt; {
-      if (socket.connected &amp;&amp; socket._isNegotiating) {
-        sender(new MRequest(entry.tid, this.PEER, protocolId, offer, &apos;renegociate&apos;))
+      if (socket.connected &amp;&amp; !socket._isNegociating) {
+        this._sendRenegociateRequest(new MRequest(entry.tid, this.PEER, protocolId, offer, &apos;renegociate&apos;), entry.peer)
       } else {
         sender(new MRequest(entry.tid, this.PEER, protocolId, offer))
       }
@@ -439,7 +447,11 @@ class Neighborhood {
 
         socket.on(&apos;data&apos;, (d) =&gt; {
           let msg = this.decode(d)
-          this.protocols.get(msg.pid)._received(msg.peer, msg.payload)
+          if (msg.type === &apos;MInternalSend&apos;) {
+            this._receiveInternalMessage(msg)
+          } else {
+            this.protocols.get(msg.pid)._received(msg.peer, msg.payload)
+          }
         })
         socket.on(&apos;stream&apos;, (s) =&gt; {
           this.protocols.get(entry.pid)._streamed(entry.peer, s)
@@ -453,7 +465,7 @@ class Neighborhood {
         // #4 send offer message using sender
         socket.on(&apos;signal&apos;, (offer) =&gt; {
           if (socket.connected &amp;&amp; !socket._isNegotiating) {
-            sender(new MResponse(entry.tid, this.PEER, protocolId, offer, &apos;renegociate&apos;))
+            this._sendRenegociateResponse(new MResponse(entry.tid, this.PEER, protocolId, offer, &apos;renegociate&apos;), entry.peer)
           } else {
             sender(new MResponse(entry.tid, this.PEER, protocolId, offer))
           }
@@ -543,7 +555,6 @@ class Neighborhood {
         entry = this.dying.get(peerId) // (TODO) warn: not safe
       };
       if (entry === null) {
-        // console.log(protocolId, peerId, message, retry, this.living.store.size, this.dying.size)
         reject(new Error(&apos;peer not found: &apos; + peerId))
       }
       // #2 define the recursive sending function
@@ -570,6 +581,129 @@ class Neighborhood {
     })
   };
 
+  _stream (protocolId, peerId, media, retry = 0) {
+    return new Promise((resolve, reject) =&gt; {
+      // #1 get the proper entry in the tables
+      let entry = null
+      if (this.living.contains(peerId)) {
+        entry = this.living.get(peerId)
+      } else if (this.dying.has(peerId)) {
+        entry = this.dying.get(peerId) // (TODO) warn: not safe
+      };
+      if (entry === null) {
+        this.living.store.forEach(elem =&gt; {
+          debug(elem.peer)
+        })
+        reject(new Error(&apos;peer not found: &apos; + peerId))
+      }
+      // #2 define the recursive sending function
+      let __send = (r) =&gt; {
+        try {
+          entry.socket.addStream(media)
+          debug(&apos;[%s] --- MEDIA msg --&gt; %s:%s&apos;,
+            this.PEER, peerId, protocolId)
+          resolve()
+        } catch (e) {
+          debug(&apos;[%s] -X- MEDIA msg -X&gt; %s:%s&apos;,
+            this.PEER, peerId, protocolId)
+          if (r &lt; retry) {
+            setTimeout(() =&gt; { __send(r + 1) }, 1000)
+          } else {
+            reject(e)
+          };
+        };
+      }
+      // #3 start to send
+      __send(0)
+    })
+  }
+
+  _sendRenegociateRequest (request, to, retry = 0) {
+    return new Promise((resolve, reject) =&gt; {
+      // #1 get the proper entry in the tables
+      let entry = null
+      if (this.living.contains(to)) {
+        entry = this.living.get(to)
+      } else if (this.dying.has(to)) {
+        entry = this.dying.get(to) // (TODO) warn: not safe
+      };
+      if (entry === null) {
+        this.living.store.forEach(elem =&gt; {
+          debug(elem.peer)
+        })
+        reject(new Error(&apos;peer not found: &apos; + to))
+      }
+      // #2 define the recursive sending function
+      let __send = (r) =&gt; {
+        try {
+          entry.socket.send(this.encode(new MInternalSend(this.PEER, null, request)))
+          debug(&apos;[%s] --- MEDIA Internal Renegociate msg --&gt; %s:%s&apos;,
+            this.PEER, to)
+          resolve()
+        } catch (e) {
+          debug(&apos;[%s] -X- MEDIA Internal Renegociate msg -X&gt; %s:%s&apos;,
+            this.PEER, to)
+          if (r &lt; retry) {
+            setTimeout(() =&gt; { __send(r + 1) }, 1000)
+          } else {
+            reject(e)
+          };
+        };
+      }
+      // #3 start to send
+      __send(0)
+    })
+  }
+
+  _sendRenegociateResponse (response, to, retry = 0) {
+    return new Promise((resolve, reject) =&gt; {
+      // #1 get the proper entry in the tables
+      let entry = null
+      if (this.living.contains(to)) {
+        entry = this.living.get(to)
+      } else if (this.dying.has(to)) {
+        entry = this.dying.get(to) // (TODO) warn: not safe
+      };
+      if (entry === null) {
+        this.living.store.forEach(elem =&gt; {
+          debug(elem.peer)
+        })
+        reject(new Error(&apos;peer not found: &apos; + to))
+      }
+      // #2 define the recursive sending function
+      let __send = (r) =&gt; {
+        try {
+          entry.socket.send(this.encode(new MInternalSend(this.PEER, null, response)))
+          debug(&apos;[%s] --- MEDIA Internal Renegociate msg --&gt; %s:%s&apos;,
+            this.PEER, to)
+          resolve()
+        } catch (e) {
+          debug(&apos;[%s] -X- MEDIA Internal Renegociate msg -X&gt; %s:%s&apos;,
+            this.PEER, to)
+          if (r &lt; retry) {
+            setTimeout(() =&gt; { __send(r + 1) }, 1000)
+          } else {
+            reject(e)
+          };
+        };
+      }
+      // #3 start to send
+      __send(0)
+    })
+  }
+
+  _receiveInternalMessage (msg) {
+    this.living.get(msg.peer).socket.signal(msg.payload.offer)
+  }
+
+  _neighbours () {
+    const neigh = []
+    this.living.store.forEach(elem =&gt; {
+      neigh.push(elem)
+    })
+    return neigh
+  }
+
   _checkPendingEntry (entry) {
     if (this.pending.has(entry.tid)) {
       if (entry.peer === null) {
@@ -589,7 +723,7 @@ module.exports = Neighborhood
 </div>
 
 <footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
 </footer>
 
 <script src="script/search_index.js"></script>

@@ -41,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/msend.js~MSend.html">MSend</a></span></span></li>
 </ul>
@@ -84,9 +85,82 @@ costly in terms of time and bandwidth -- neighborhood-wrtc only establish 1. The
 connection is destroyed only if the 3 applications remove it.</p>
 <h2 id="installation">Installation</h2><pre><code><code class="source-code prettyprint">$ npm install neighborhood-wrtc</code>
 </code></pre><h2 id="api">API</h2><p>You can find the API <a href="https://ran3d.github.io/neighborhood-wrtc/">here</a>.</p>
+<p>Want to create your protocol?</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">// import the lib
+import Neighborhood from &apos;neighborhood-wrtc&apos;
+// create a class that fullfilled the [following API](https://ran3d.github.io/neighborhood-wrtc/class/lib/interfaces/iprotocol.js~IProtocol.html)
+class P { // check IProtocol to see the interface
+  constructor (pid, peer) {
+    this.id = pid
+    this.peer = peer
+  };
+
+  _pid () { return this.id };
+
+  _connected (peerId) {
+    console.log(&apos;@%s-P%s: an arc has been created.&apos;, this.peer, this.id)
+  };
+
+  _disconnected (peerId) {
+    console.log(&apos;@%s-P%s: an arc has been removed.&apos;, this.peer, this.id)
+  };
+
+  _received (peerId, message) {
+    console.log(&apos;@%s-P%s: message received from @%s: %s&apos;,
+      this.peer, this.id, peerId, message)
+  };
+
+  _streamed (peerId, stream) {
+    console.log(&apos;Receive a stream from: %s&apos;, peerId, stream)
+  }
+
+  _failed (peerId) {
+    console.log(&apos;%s-P%s: failed to establish a connection with %s.&apos;,
+      this.peer, this.id, peerId)
+  };
+};
+
+// create the Peer
+const neigh = new Neighborhood({
+  peer: &apos;myid1&apos;,
+  config: {
+    config: {iceServers: [...]},
+    trickle: true
+  }
+})
+// create the protocol
+const p1 = neigh.register(new P(&apos;mywonderfullprotocol&apos;, &apos;myid1&apos;))
+
+// create the Peer
+const neigh = new Neighborhood({
+  peer: &apos;myid2&apos;,
+  config: {
+    config: {iceServers: [...]},
+    trickle: true
+  }
+})
+// create the protocol
+const p2 = neigh.register(new P(&apos;mywonderfullprotocol&apos;, &apos;myid2&apos;))
+
+// now connec them
+// #3 callback functions ensuring the peers exchanges messages
+// from -&gt; to -&gt; from
+const callback = (from, to) =&gt; {
+  return (offer) =&gt; {
+    to.connect((answer) =&gt; { from.connect(answer) }, offer)
+  }
+}
+
+// #4 establishing a connection from p1 to p2
+p1.connect(callback(p1, p2))
+// now p1 can send message to p2 and p2 can send message to p1
+//
+// call any function of [the following API](https://ran3d.github.io/neighborhood-wrtc/class/lib/interfaces/ineighborhood.js~INeighborhood.html)
+</code>
+</code></pre>
 <h2 id="examples">Examples</h2><p>Usage examples of this module can be found
-<a href="https://ran3d.github.io/neighborhood-wrtc/examples/simple.html">here</a> and
-<a href="https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html">here</a>.  To
+<a href="https://ran3d.github.io/neighborhood-wrtc/examples/simple.html">simple</a>,
+<a href="https://ran3d.github.io/neighborhood-wrtc/examples/multiple.html">multiple</a> and <a href="https://ran3d.github.io/neighborhood-wrtc/examples/media.html">media</a>.  To
 run the example, make sure your web browser is
 <a href="https://webrtc.org">WebRTC-compatible</a> and switch to console mode.</p>
 <p>Module <a href="https://github.com/ran3d/n2n-overlay-wrtc">n2n-overlay-wrtc</a> uses this
@@ -132,7 +206,7 @@ socket.send(data)</code>
 </div>
 
 <footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
 </footer>
 
 <script src="script/search_index.js"></script>

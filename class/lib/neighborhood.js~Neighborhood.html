@@ -41,7 +41,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/msend.js~MSend.html">MSend</a></span></span></li>
 </ul>
@@ -49,13 +50,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Neighborhood from &apos;<span><a href="file/lib/neighborhood.js.html#lineNumber27">neighborhood-wrtc</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Neighborhood from &apos;<span><a href="file/lib/neighborhood.js.html#lineNumber28">neighborhood-wrtc</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/neighborhood.js.html#lineNumber27">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/neighborhood.js.html#lineNumber28">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -578,7 +579,147 @@ SimplePeer (npm: simple-peer)</p>
           
           
           
+          <span class="code" data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_neighbours">_neighbours</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_receiveInternalMessage">_receiveInternalMessage</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_send">_send</a></span></span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, message: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>promise</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_sendRenegociateRequest">_sendRenegociateRequest</a></span></span><span class="code" data-ice="signature">(request: <span>*</span>, to: <span>*</span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_sendRenegociateResponse">_sendRenegociateResponse</a></span></span><span class="code" data-ice="signature">(response: <span>*</span>, to: <span>*</span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html#instance-method-_stream">_stream</a></span></span><span class="code" data-ice="signature">(protocolId: <span>*</span>, peerId: <span>*</span>, media: <span>*</span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -614,7 +755,7 @@ SimplePeer (npm: simple-peer)</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber43">source</a></span></span>
     </span>
   </h3>
 
@@ -726,7 +867,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber58">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber59">source</a></span></span>
     </span>
   </h3>
 
@@ -769,7 +910,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber55">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 
@@ -812,7 +953,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber64">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber65">source</a></span></span>
     </span>
   </h3>
 
@@ -855,7 +996,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber55">source</a></span></span>
     </span>
   </h3>
 
@@ -898,7 +1039,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber64">source</a></span></span>
     </span>
   </h3>
 
@@ -941,7 +1082,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber44">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber45">source</a></span></span>
     </span>
   </h3>
 
@@ -984,7 +1125,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber63">source</a></span></span>
     </span>
   </h3>
 
@@ -1027,7 +1168,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber67">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
@@ -1073,7 +1214,7 @@ default: return JSON.parse(data);</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber78">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber79">source</a></span></span>
     </span>
   </h3>
 
@@ -1152,7 +1293,7 @@ pid.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber281">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber288">source</a></span></span>
     </span>
   </h3>
 
@@ -1228,7 +1369,7 @@ initiating peer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber522">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber655">source</a></span></span>
     </span>
   </h3>
 
@@ -1287,7 +1428,7 @@ initiating peer.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber108">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber111">source</a></span></span>
     </span>
   </h3>
 
@@ -1366,7 +1507,7 @@ WebRTC connection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber425">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber436">source</a></span></span>
     </span>
   </h3>
 
@@ -1435,7 +1576,7 @@ remove all arcs of protocolId.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber217">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber224">source</a></span></span>
     </span>
   </h3>
 
@@ -1503,7 +1644,7 @@ open a connection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber126">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber129">source</a></span></span>
     </span>
   </h3>
 
@@ -1560,6 +1701,120 @@ connection.</p>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_neighbours">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_neighbours</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber647">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_receiveInternalMessage">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_receiveInternalMessage</span><span class="code" data-ice="signature">(msg: <span>*</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber643">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">msg</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-_send">
     <span class="access" data-ice="access">private</span>
     
@@ -1571,7 +1826,7 @@ connection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber485">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber496">source</a></span></span>
     </span>
   </h3>
 
@@ -1657,11 +1912,269 @@ otherwise. Note that loss of messages is not handled by default.</p>
   
   
 </div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_sendRenegociateRequest">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_sendRenegociateRequest</span><span class="code" data-ice="signature">(request: <span>*</span>, to: <span>*</span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber569">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">request</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">to</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">retry</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: 0</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_sendRenegociateResponse">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_sendRenegociateResponse</span><span class="code" data-ice="signature">(response: <span>*</span>, to: <span>*</span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber606">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">response</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">to</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">retry</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: 0</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_stream">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_stream</span><span class="code" data-ice="signature">(protocolId: <span>*</span>, peerId: <span>*</span>, media: <span>*</span>, retry: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/neighborhood.js.html#lineNumber532">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">protocolId</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">peerId</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">media</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">retry</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: 0</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
 </div>
 </div>
 
 <footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
 </footer>
 
 <script src="script/search_index.js"></script>
