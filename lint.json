@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "name": "Neighborhood#_initiate",
+    "filePath": "lib/neighborhood.js",
+    "lines": [
+      {
+        "lineNumber": 129,
+        "line": "  /**"
+      },
+      {
+        "lineNumber": 130,
+        "line": "     * @private"
+      },
+      {
+        "lineNumber": 131,
+        "line": "     * Initiate the creation of a WebRTC connection. At this point, the identity"
+      },
+      {
+        "lineNumber": 132,
+        "line": "     * of the remote peer is unknown."
+      },
+      {
+        "lineNumber": 133,
+        "line": "     * @param {string} protocolId The identifier of the protocol that creates a"
+      },
+      {
+        "lineNumber": 134,
+        "line": "     * connection."
+      },
+      {
+        "lineNumber": 135,
+        "line": "     * @param {function} sender A function called at each offer"
+      },
+      {
+        "lineNumber": 136,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 137,
+        "line": "  _initiate (protocolId, sender, jobId) {"
+      }
+    ],
+    "codeParams": [
+      "protocolId",
+      "sender",
+      "jobId"
+    ],
+    "docParams": [
+      "protocolId",
+      "sender"
+    ]
+  }
+]

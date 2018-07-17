@@ -8,7 +8,7 @@
     <script src='../build/neighborhood-wrtc.bundle.debug.js'></script>
     <script type="text/javascript">
       const Neighborhood = require('neighborhood-wrtc')
-      localStorage.debug = '*'
+      localStorage.debug = 'neighborhood-wrtc'
       // #1 create a protocol that will run on top of this module. It must implement
       // the 4 properties : pid, opened, closed, failed.
       class P { // check IProtocol to see the interface
@@ -68,16 +68,21 @@
       }
 
       // #4 establishing a connection from p1 to p2, twice but one socket is kept
-      p1.connect(callback(p1, p2))
-      p2.connect(callback(p2, p1))
-
-      setTimeout(() => {
-        p1.send(p2.peer, "hello world")
-        console.log('%s neighbours: ', p1.peer, ...p1.neighbours())
-        console.log('%s neighbours: ', p2.peer, ...p2.neighbours())
-        sendMedia(p1, "2")
-        sendMedia(p2, "1")
-      }, 1000)
+      p1.connect(callback(p1, p2)).then(peer => {
+        console.log('%s is connected to %s', p1.peer, peer)
+        p2.connect(callback(p2, p1)).then((peer) => {
+          console.log('%s is connected to %s', p2.peer, peer)
+          p1.send(p2.peer, "hello world")
+          console.log('%s neighbours: ', p1.peer, ...p1.neighbours())
+          console.log('%s neighbours: ', p2.peer, ...p2.neighbours())
+          sendMedia(p1, "2")
+          sendMedia(p2, "1")
+        }).catch(e => {
+          console.error('connecting p2 to p1: ', e)
+        })
+      }).catch(e => {
+        console.error('connecting p1 to p2: ', e)
+      })
 
       function sendMedia (fromProtocol, toId) {
         console.log('SEND MEDIA FROM %s TO %s', fromProtocol.peer, toId)

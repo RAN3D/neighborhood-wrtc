@@ -57,6 +57,7 @@ const debug = (require(&apos;debug&apos;))(&apos;neighborhood-wrtc&apos;)
 const merge = require(&apos;lodash.merge&apos;)
 const uuid = require(&apos;uuid/v4&apos;)
 const Socket = require(&apos;simple-peer&apos;)
+const Events = require(&apos;events&apos;)
 
 const ArcStore = require(&apos;./arcstore.js&apos;)
 const EPending = require(&apos;./entries/epending.js&apos;)
@@ -77,7 +78,7 @@ const ExIncompleteMessage = require(&apos;./exceptions/exincompletemessage.js&ap
  * Easy-to-use interface to establish multiple WebRTC connections using
  * SimplePeer (npm: simple-peer)
  */
-class Neighborhood {
+class Neighborhood extends Events {
   /**
      * @param {object} [options] the options available to the connections, e.g.
      * timeout before
@@ -93,6 +94,7 @@ class Neighborhood {
      * default: return JSON.parse(data);
      */
   constructor (options) {
+    super()
     // #1 save options
     this.options = {
       socketClass: Socket,
@@ -161,13 +163,20 @@ class Neighborhood {
      * WebRTC connection.
      */
   _connect (protocolId, arg1, arg2) {
-    if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 === &apos;undefined&apos;) {
-      this._initiate(protocolId, arg1) // arg1: callback for offers
-    } else if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 !== &apos;undefined&apos;) {
-      this._accept(protocolId, arg1, arg2) // arg1:callback, arg2:request
-    } else {
-      this._finalize(protocolId, arg1) // arg1: response
-    }
+    return new Promise((resolve, reject) =&gt; {
+      const id = uuid()
+      if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 === &apos;undefined&apos;) {
+        this._initiate(protocolId, arg1, id) // arg1: callback for offers
+      } else if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 !== &apos;undefined&apos;) {
+        this._accept(protocolId, arg1, arg2, id) // arg1:callback, arg2:request
+      } else {
+        this._finalize(protocolId, arg1, id) // arg1: response
+      }
+      this.once(id, (connectedWith, timeout = false) =&gt; {
+        if (timeout) reject(new Error(&apos;timeout exceeded.&apos;))
+        resolve(connectedWith)
+      })
+    })
   }
 
   /**
@@ -178,13 +187,14 @@ class Neighborhood {
      * connection.
      * @param {function} sender A function called at each offer
      */
-  _initiate (protocolId, sender) {
+  _initiate (protocolId, sender, jobId) {
     // #1 create an initiator
     this.options.config.initiator = true
     let SocketClass = this.options.socketClass
     let socket = new SocketClass(this.options.config)
     // #2 insert the new entry in the pending table
     let entry = new EPending(uuid(), null, protocolId, socket)
+    entry.jobId = jobId
     // entry.tid = peerIdToConnectWith || entry.tid
     this.pending.set(entry.tid, entry)
 
@@ -196,13 +206,20 @@ class Neighborhood {
         entry.successful = true
         this.living.insert(entry.peer, protocolId)
         debug(&apos;[%s] --- arc --&gt; %s&apos;, this.PEER, entry.peer)
+
+        debug(&apos;[init] emit connect event: &apos;, entry.jobId, entry.peer, false, entry)
+        this.emit(entry.jobId, entry.peer, false)
         this.protocols.get(protocolId)._connected(entry.peer, true)
+
         entry.peer = null // becomes the unknown soldier
       } else {
         this.living.insert(entry.peer, protocolId, socket)
         debug(&apos;[%s] --- WebRTC --&gt; %s&apos;, this.PEER, entry.peer)
+
+        debug(&apos;[init] emit connect event: &apos;, entry.jobId, entry.peer, false, entry)
+        this.emit(entry.jobId, entry.peer, false)
         this.protocols.get(protocolId)._connected(entry.peer, true)
-      };
+      }
 
       this._checkPendingEntry(entry)
     })
@@ -215,18 +232,20 @@ class Neighborhood {
           toNotify.forEach((occ, pid) =&gt; {
             for (let i = 0; i &lt; occ; ++i) {
               this.protocols.get(pid)._disconnected(entry.peer)
-            };
+            }
           })
         } else if (this.dying.has(entry.peer)) {
           let d = this.dying.get(entry.peer)
           clearTimeout(d.timeout)
           this.dying.delete(entry.peer)
-        };
+        }
         debug(&apos;[%s] -&#x2021;- WebRTC -&#x2021;&gt; %s&apos;, this.PEER, entry.peer)
+        debug(&apos;[init] emit close event: &apos;, entry.jobId, entry.peer, true)
+        this._checkPendingEntry(entry)
+        this.emit(entry.jobId, entry.peer, true)
       } else {
         debug(&apos;[%s] -&#x2021;- WebRTC -&#x2021;&gt; %s&apos;, this.PEER, &apos;unknown&apos;)
-      };
-      this._checkPendingEntry(entry)
+      }
     })
 
     socket.on(&apos;data&apos;, (d) =&gt; {
@@ -245,6 +264,8 @@ class Neighborhood {
       // this.options.timeout milliseconds.
       debug(e)
       socket.destroy()
+      debug(&apos;[init] emit error event: &apos;, entry.jobId, entry.peer, true)
+      this.emit(entry.jobId, entry.peer, true)
     })
     // #4 send offer message using sender
     socket.on(&apos;signal&apos;, (offer) =&gt; {
@@ -260,11 +281,17 @@ class Neighborhood {
       // (TODO) on destroy notify protocols that still use the socket
       // (TODO) send MDisconnect messages to notify remote peer of the
       // removal of an arc
-      (!entry.successful || entry.alreadyExists) &amp;&amp; (entry.socket !== null) &amp;&amp; entry.socket.destroy()
-      !entry.successful &amp;&amp; this.protocols.get(protocolId)._failed(entry.peer, true)
+      if ((!entry.successful || entry.alreadyExists) &amp;&amp; (entry.socket !== null)) {
+        entry.socket.destroy()
+      }
+      if (!entry.successful) {
+        this.protocols.get(protocolId)._failed(entry.peer, true)
+        debug(&apos;[init] emit timeout event: &apos;, entry.jobId, entry.peer, true)
+        this.emit(entry.jobId, entry.peer, true)
+      }
       this.pending.delete(entry.tid)
     }, this.options.pendingTimeout)
-  };
+  }
 
   /**
      * @private
@@ -285,7 +312,7 @@ class Neighborhood {
     if (!this.pending.has(msg.tid)) {
       // debug(new ExLateMessage(&apos;_finalize&apos;, msg))
       return
-    };
+    }
 
     let entry = this.pending.get(msg.tid)
     if (entry) {
@@ -295,14 +322,16 @@ class Neighborhood {
         return
       }
     }
-
+    debug(&apos;[finalize]&apos;, entry)
     // #A check if the connection already exists
     if (this.living.contains(msg.peer)) {
       entry.alreadyExists = true
       entry.successful = true
       this.living.insert(msg.peer, protocolId)
-      debug(&apos;[%s] --- arc --&gt; %s&apos;, this.PEER, msg.peer)
+
+      debug(&apos;[%s]finalize --- arc --&gt; %s&apos;, this.PEER, msg.peer)
       this.protocols.get(protocolId)._connected(msg.peer, true)
+      this.emit(entry.jobId, msg.peer, false)
 
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
@@ -313,8 +342,10 @@ class Neighborhood {
       clearTimeout(rise.timeout)
       this.dying.delete(msg.peer)
       this.living.insert(msg.peer, protocolId, rise.socket)
-      debug(&apos;[%s] -&#xA1;- arc -&#xA1;&gt; %s&apos;, this.PEER, msg.peer)
+
+      debug(&apos;[%s]finalize -&#xA1;- arc -&#xA1;&gt; %s&apos;, this.PEER, msg.peer)
       this.protocols.get(protocolId)._connected(msg.peer, true)
+      this.emit(entry.jobId, msg.peer, false)
 
       this._checkPendingEntry(entry)
     } else {
@@ -323,10 +354,11 @@ class Neighborhood {
       if (!msg.offer) {
         throw new ExIncompleteMessage(&apos;_finalize&apos;, entry, msg)
       } else {
+        debug(&apos;[finalize] signaling: &apos;, msg)
         entry.socket.signal(msg.offer)
-      };
-    };
-  };
+      }
+    }
+  }
 
   /**
      * @private
@@ -363,8 +395,8 @@ class Neighborhood {
 
     // #2 check if a WebRTC connection to peerId already exists
     let entry = this.pending.get(msg.tid)
-    // let entry = this.pending.get(peer);
-    if (entry.alreadyExists || entry.successful) { return };
+    // let entry = this.pending.get(peer)
+    if (entry.alreadyExists || entry.successful) { return }
 
     // #A check if the connection already exists
     if (this.living.contains(msg.peer)) {
@@ -415,7 +447,7 @@ class Neighborhood {
             debug(&apos;[%s] &lt;-- WebRTC --- %s&apos;, this.PEER, entry.peer)
             this.protocols.get(protocolId)._connected(entry.peer,
               false)
-          };
+          }
 
           this._checkPendingEntry(entry)
         })
@@ -431,17 +463,17 @@ class Neighborhood {
                 for (let i = 0; i &lt; occ; ++i) {
                   this.protocols.get(pid)
                     ._disconnected(entry.peer)
-                };
+                }
               })
             } else if (this.dying.has(entry.peer)) {
               let d = this.dying.get(entry.peer)
               clearTimeout(d.timeout)
               this.dying.delete(entry.peer)
-            };
+            }
             debug(&apos;[%s] &lt;&#x2021;- WebRTC -&#x2021;- %s&apos;, this.PEER, entry.peer)
           } else {
             debug(&apos;[%s] &lt;&#x2021;- WebRTC -&#x2021;- %s&apos;, this.PEER, &apos;unknown&apos;)
-          };
+          }
           this._checkPendingEntry(entry)
         })
 
@@ -470,10 +502,10 @@ class Neighborhood {
             sender(new MResponse(entry.tid, this.PEER, protocolId, offer))
           }
         })
-      };
+      }
       entry.socket.signal(msg.offer)
-    };
-  };
+    }
+  }
 
   /**
      * @private
@@ -486,50 +518,58 @@ class Neighborhood {
      * remove all arcs of protocolId.
      */
   _disconnect (protocolId, peerId) {
-    if (typeof peerId === &apos;undefined&apos;) {
-      // #1 remove all arcs
-      var entries = this.living.removeAll(protocolId)
-      entries.forEach((entry) =&gt; {
-        if (entry.socket !== null) {
-          var dying = new EDying(entry.peer,
-            entry.socket,
-            setTimeout(() =&gt; {
-              entry.socket &amp;&amp; entry.socket.destroy()
-            }, this.options.timeout))
-          this.dying.set(dying.peer, dying)
-        };
+    return new Promise((resolve, reject) =&gt; {
+      if (typeof peerId === &apos;undefined&apos;) {
+        // #1 remove all arcs
+        let entries
+        try {
+          entries = this.living.removeAll(protocolId)
+        } catch (e) {
+          reject(e)
+        }
+        entries.forEach((entry) =&gt; {
+          if (entry.socket !== null) {
+            let dying = new EDying(entry.peer,
+              entry.socket,
+              setTimeout(() =&gt; {
+                entry.socket &amp;&amp; entry.socket.destroy()
+              }, this.options.timeout))
+            this.dying.set(dying.peer, dying)
+          }
 
-        for (let i = 0; i &lt; entry.occ; ++i) {
-          if (entry.socket === null ||
-                        (entry.socket !== null &amp;&amp; i &lt; entry.occ - 1)) {
-            debug(&apos;[%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
-          } else {
-            debug(&apos;[%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
-          };
-          this.protocols.get(protocolId)._disconnected(entry.peer)
-        };
-      })
-    } else {
-      var entry = null
-      // #2 remove one arc
-      try {
-        entry = this.living.remove(peerId, protocolId)
-      } catch (e) {
-        console.log(e) // dangerous
-        // noop
-      }
-      if (entry) {
-        var dying = new EDying(entry.peer, entry.socket, setTimeout(() =&gt; {
-          entry.socket &amp;&amp; entry.socket.destroy()
-        }, this.options.timeout))
-        this.dying.set(dying.peer, dying)
-        debug(&apos;[%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+          for (let i = 0; i &lt; entry.occ; ++i) {
+            if (entry.socket === null ||
+                          (entry.socket !== null &amp;&amp; i &lt; entry.occ - 1)) {
+              debug(&apos;[%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+            } else {
+              debug(&apos;[%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+            }
+            this.protocols.get(protocolId)._disconnected(entry.peer)
+          }
+          resolve()
+        })
       } else {
-        debug(&apos;[%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
-      };
-      this.protocols.get(protocolId)._disconnected(peerId)
-    };
-  };
+        let entry = null
+        // #2 remove one arc
+        try {
+          entry = this.living.remove(peerId, protocolId)
+        } catch (e) {
+          reject(e)
+        }
+        if (entry) {
+          let dying = new EDying(entry.peer, entry.socket, setTimeout(() =&gt; {
+            entry.socket &amp;&amp; entry.socket.destroy()
+          }, this.options.timeout))
+          this.dying.set(dying.peer, dying)
+          debug(&apos;[%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+        } else {
+          debug(&apos;[%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+        }
+        this.protocols.get(protocolId)._disconnected(peerId)
+        resolve()
+      }
+    })
+  }
 
   /**
      * @private
@@ -553,7 +593,7 @@ class Neighborhood {
         entry = this.living.get(peerId)
       } else if (this.dying.has(peerId)) {
         entry = this.dying.get(peerId) // (TODO) warn: not safe
-      };
+      }
       if (entry === null) {
         reject(new Error(&apos;peer not found: &apos; + peerId))
       }
@@ -573,13 +613,13 @@ class Neighborhood {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
             reject(e)
-          };
-        };
+          }
+        }
       }
       // #3 start to send
       __send(0)
     })
-  };
+  }
 
   _stream (protocolId, peerId, media, retry = 0) {
     return new Promise((resolve, reject) =&gt; {
@@ -589,7 +629,7 @@ class Neighborhood {
         entry = this.living.get(peerId)
       } else if (this.dying.has(peerId)) {
         entry = this.dying.get(peerId) // (TODO) warn: not safe
-      };
+      }
       if (entry === null) {
         this.living.store.forEach(elem =&gt; {
           debug(elem.peer)
@@ -610,8 +650,8 @@ class Neighborhood {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
             reject(e)
-          };
-        };
+          }
+        }
       }
       // #3 start to send
       __send(0)
@@ -626,7 +666,7 @@ class Neighborhood {
         entry = this.living.get(to)
       } else if (this.dying.has(to)) {
         entry = this.dying.get(to) // (TODO) warn: not safe
-      };
+      }
       if (entry === null) {
         this.living.store.forEach(elem =&gt; {
           debug(elem.peer)
@@ -647,8 +687,8 @@ class Neighborhood {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
             reject(e)
-          };
-        };
+          }
+        }
       }
       // #3 start to send
       __send(0)
@@ -663,7 +703,7 @@ class Neighborhood {
         entry = this.living.get(to)
       } else if (this.dying.has(to)) {
         entry = this.dying.get(to) // (TODO) warn: not safe
-      };
+      }
       if (entry === null) {
         this.living.store.forEach(elem =&gt; {
           debug(elem.peer)
@@ -684,8 +724,8 @@ class Neighborhood {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
             reject(e)
-          };
-        };
+          }
+        }
       }
       // #3 start to send
       __send(0)
@@ -715,7 +755,7 @@ class Neighborhood {
       this.pending.delete(entry.tid)
     }
   }
-};
+}
 
 module.exports = Neighborhood
 </code></pre>
