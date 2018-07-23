@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#entries">entries</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
@@ -39,8 +40,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
@@ -63,15 +62,11 @@ const ArcStore = require(&apos;./arcstore.js&apos;)
 const EPending = require(&apos;./entries/epending.js&apos;)
 const EDying = require(&apos;./entries/edying.js&apos;)
 
-const INeighborhood = require(&apos;./interfaces/ineighborhood.js&apos;)
-
 const MResponse = require(&apos;./messages/mresponse.js&apos;)
 const MRequest = require(&apos;./messages/mrequest.js&apos;)
 const MSend = require(&apos;./messages/msend.js&apos;)
 const MInternalSend = require(&apos;./messages/minternalsend.js&apos;)
 
-// const ExLateMessage = require(&apos;./exceptions/exlatemessage.js&apos;)
-const ExProtocolExists = require(&apos;./exceptions/exprotocolexists.js&apos;)
 const ExIncompleteMessage = require(&apos;./exceptions/exincompletemessage.js&apos;)
 
 /**
@@ -117,60 +112,26 @@ class Neighborhood extends Events {
     this.pending = new Map() // not finalized yet
     this.living = new ArcStore() // live and usable
     this.dying = new Map() // being removed
-
-    // #4 table of all registered protocols
-    this.protocols = new Map()
   }
 
   /**
-     * The protocolId asks this module to get an interface. The interface
-     * comprises functions such as connect, disconnect, or send. ProtocolId
-     * should provide some functions as well such as failed, opened, received,
-     * pid.
-     * @param {IProtocol} protocol The protocol that requires the interface.
-     * @returns {INeighborhood} The interface to use this module easily.
-     */
-  register (protocol) {
-    if (!this.protocols.has(protocol._pid())) {
-      debug(&apos;[%s] protocol %s just registered.&apos;,
-        this.PEER, protocol._pid())
-      this.protocols.set(protocol._pid(), protocol)
-      return new INeighborhood(
-        this.PEER,
-        this._connect.bind(this, protocol._pid()),
-        this._disconnect.bind(this, protocol._pid()),
-        this._send.bind(this, protocol._pid()),
-        this._stream.bind(this, protocol._pid()),
-        this._neighbours.bind(this)
-      )
-    } else {
-      throw new ExProtocolExists(protocol._pid())
-    }
-  }
-
-  // (TODO) unregister ?
-
-  /**
-     * @private
-     * Create a WebRTC connection.
-     * @param {string} protocolId The identifier of the protocol that wishes to
-     * establish an new connection.
-     * @param {function|object} arg1 Either a callback function to send the
-     * message to the remote peer (for instance, it can use a signaling server
-     * or the already created WebRTC connexions), or a message received from the
-     * remote peer.
-     * @param {object} arg2 The message received from a peer that initialized a
-     * WebRTC connection.
-     */
-  _connect (protocolId, arg1, arg2) {
+   * Create a WebRTC connection.
+   * @param {function|object} arg1 Either a callback function to send the
+   * message to the remote peer (for instance, it can use a signaling server
+   * or the already created WebRTC connexions), or a message received from the
+   * remote peer.
+   * @param {object} arg2 The message received from a peer that initialized a
+   * WebRTC connection.
+   */
+  connect (arg1, arg2) {
     return new Promise((resolve, reject) =&gt; {
       const id = uuid()
       if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 === &apos;undefined&apos;) {
-        this._initiate(protocolId, arg1, id) // arg1: callback for offers
+        this._initiate(arg1, id) // arg1: callback for offers
       } else if (typeof arg1 === &apos;function&apos; &amp;&amp; typeof arg2 !== &apos;undefined&apos;) {
-        this._accept(protocolId, arg1, arg2, id) // arg1:callback, arg2:request
+        this._accept(arg1, arg2, id) // arg1:callback, arg2:request
       } else {
-        this._finalize(protocolId, arg1, id) // arg1: response
+        this._finalize(arg1, id) // arg1: response
       }
       this.once(id, (connectedWith, timeout = false) =&gt; {
         if (timeout) reject(new Error(&apos;timeout exceeded.&apos;))
@@ -180,20 +141,19 @@ class Neighborhood extends Events {
   }
 
   /**
-     * @private
-     * Initiate the creation of a WebRTC connection. At this point, the identity
-     * of the remote peer is unknown.
-     * @param {string} protocolId The identifier of the protocol that creates a
-     * connection.
-     * @param {function} sender A function called at each offer
-     */
-  _initiate (protocolId, sender, jobId) {
+   * @private
+   * Initiate the creation of a WebRTC connection. At this point, the identity
+   * of the remote peer is unknown.
+   * @param {function} sender A function called at each offer
+   * @param {String} jobId The jobId that initiate the connection
+   */
+  _initiate (sender, jobId) {
     // #1 create an initiator
     this.options.config.initiator = true
     let SocketClass = this.options.socketClass
     let socket = new SocketClass(this.options.config)
     // #2 insert the new entry in the pending table
-    let entry = new EPending(uuid(), null, protocolId, socket)
+    let entry = new EPending(uuid(), null, socket)
     entry.jobId = jobId
     // entry.tid = peerIdToConnectWith || entry.tid
     this.pending.set(entry.tid, entry)
@@ -204,21 +164,20 @@ class Neighborhood extends Events {
       if (this.living.contains(entry.peer)) {
         entry.alreadyExists = true
         entry.successful = true
-        this.living.insert(entry.peer, protocolId)
+        this.living.insert(entry.peer)
         debug(&apos;[%s] --- arc --&gt; %s&apos;, this.PEER, entry.peer)
-
         debug(&apos;[init] emit connect event: &apos;, entry.jobId, entry.peer, false, entry)
         this.emit(entry.jobId, entry.peer, false)
-        this.protocols.get(protocolId)._connected(entry.peer, true)
-
+        // notify
+        this._connected(entry.peer, true)
         entry.peer = null // becomes the unknown soldier
       } else {
-        this.living.insert(entry.peer, protocolId, socket)
+        this.living.insert(entry.peer, socket)
         debug(&apos;[%s] --- WebRTC --&gt; %s&apos;, this.PEER, entry.peer)
-
         debug(&apos;[init] emit connect event: &apos;, entry.jobId, entry.peer, false, entry)
         this.emit(entry.jobId, entry.peer, false)
-        this.protocols.get(protocolId)._connected(entry.peer, true)
+        // notify
+        this._connected(entry.peer, true)
       }
 
       this._checkPendingEntry(entry)
@@ -227,13 +186,9 @@ class Neighborhood extends Events {
       if (entry.peer !== null) { // if not the unknown soldier
         if (this.living.contains(entry.peer)) {
           // #A remove the socket from the table of living connections
-          let toNotify = this.living.removePeer(entry.peer)
-          // #B notify all protocols that were using this socket
-          toNotify.forEach((occ, pid) =&gt; {
-            for (let i = 0; i &lt; occ; ++i) {
-              this.protocols.get(pid)._disconnected(entry.peer)
-            }
-          })
+          this.living.removePeer(entry.peer)
+          // #B notify
+          this._disconnected(entry.peer)
         } else if (this.dying.has(entry.peer)) {
           let d = this.dying.get(entry.peer)
           clearTimeout(d.timeout)
@@ -253,11 +208,11 @@ class Neighborhood extends Events {
       if (msg.type === &apos;MInternalSend&apos;) {
         this._receiveInternalMessage(msg)
       } else {
-        this.protocols.get(msg.pid)._received(msg.peer, msg.payload)
+        this._received(msg.peer, msg.payload)
       }
     })
     socket.on(&apos;stream&apos;, (s) =&gt; {
-      this.protocols.get(entry.pid)._streamed(entry.peer, s)
+      this._streamed(entry.peer, s)
     })
     socket.on(&apos;error&apos;, (e) =&gt; {
       // Nothing here, for the failure are detected and handled after
@@ -270,22 +225,19 @@ class Neighborhood extends Events {
     // #4 send offer message using sender
     socket.on(&apos;signal&apos;, (offer) =&gt; {
       if (socket.connected &amp;&amp; !socket._isNegociating) {
-        this._sendRenegociateRequest(new MRequest(entry.tid, this.PEER, protocolId, offer, &apos;renegociate&apos;), entry.peer)
+        this._sendRenegociateRequest(new MRequest(entry.tid, this.PEER, offer, &apos;renegociate&apos;), entry.peer)
       } else {
-        sender(new MRequest(entry.tid, this.PEER, protocolId, offer))
+        sender(new MRequest(entry.tid, this.PEER, offer))
       }
     })
 
     // #5 check if the socket has been established correctly
     setTimeout(() =&gt; {
-      // (TODO) on destroy notify protocols that still use the socket
-      // (TODO) send MDisconnect messages to notify remote peer of the
-      // removal of an arc
       if ((!entry.successful || entry.alreadyExists) &amp;&amp; (entry.socket !== null)) {
         entry.socket.destroy()
       }
       if (!entry.successful) {
-        this.protocols.get(protocolId)._failed(entry.peer, true)
+        this._failed(entry.peer, true)
         debug(&apos;[init] emit timeout event: &apos;, entry.jobId, entry.peer, true)
         this.emit(entry.jobId, entry.peer, true)
       }
@@ -296,11 +248,9 @@ class Neighborhood extends Events {
   /**
      * @private
      * Try to finalize the WebRTC connection using the remote offers.
-     * @param {string} protocolId The identifier of the protocol that wishes to
-     * open a connection.
      * @param {MResponse} msg The message containing an offer, a peerId etc.
      */
-  _finalize (protocolId, msg) {
+  _finalize (msg) {
     if (msg.offerType === &apos;renegociate&apos;) {
       debug(`[%s] _finalize regenociation:`, msg)
       if (this.living.store.has(msg.peer)) {
@@ -327,10 +277,10 @@ class Neighborhood extends Events {
     if (this.living.contains(msg.peer)) {
       entry.alreadyExists = true
       entry.successful = true
-      this.living.insert(msg.peer, protocolId)
+      this.living.insert(msg.peer)
 
       debug(&apos;[%s]finalize --- arc --&gt; %s&apos;, this.PEER, msg.peer)
-      this.protocols.get(protocolId)._connected(msg.peer, true)
+      this._connected(msg.peer, true)
       this.emit(entry.jobId, msg.peer, false)
 
       this._checkPendingEntry(entry)
@@ -341,10 +291,10 @@ class Neighborhood extends Events {
       let rise = this.dying.get(msg.peer)
       clearTimeout(rise.timeout)
       this.dying.delete(msg.peer)
-      this.living.insert(msg.peer, protocolId, rise.socket)
+      this.living.insert(msg.peer, rise.socket)
 
       debug(&apos;[%s]finalize -&#xA1;- arc -&#xA1;&gt; %s&apos;, this.PEER, msg.peer)
-      this.protocols.get(protocolId)._connected(msg.peer, true)
+      this._connected(msg.peer, true)
       this.emit(entry.jobId, msg.peer, false)
 
       this._checkPendingEntry(entry)
@@ -363,13 +313,11 @@ class Neighborhood extends Events {
   /**
      * @private
      * Establish a connection in response to the request of remote peer.
-     * @param {string} protocolId The identifier of the protocol that wishes to
-     * create a connection.
      * @param {function} sender The function that send the offer to the remote
      * initiating peer.
      * @param {MRequest} msg The request message containing offers, peerId, etc.
      **/
-  _accept (protocolId, sender, msg) {
+  _accept (sender, msg) {
     if (msg.offerType === &apos;renegociate&apos;) {
       debug(`[%s] _accept regenociation:`, msg)
       if (this.living.store.has(msg.peer)) {
@@ -383,12 +331,12 @@ class Neighborhood extends Events {
     const peer = msg.peer
     if (!this.pending.has(tid)) {
       firstCall = true
-      let entry = new EPending(tid, peer, protocolId)
+      let entry = new EPending(tid, peer)
       this.pending.set(tid, entry)
 
       setTimeout(() =&gt; {
         (!entry.successful || entry.alreadyExists) &amp;&amp; entry.socket &amp;&amp; entry.socket.destroy()
-        !entry.successful &amp;&amp; this.protocols.get(protocolId)._failed(peer, false)
+        !entry.successful &amp;&amp; this._failed(peer, false)
         this.pending.delete(tid)
       }, this.options.pendingTimeout)
     }
@@ -402,10 +350,10 @@ class Neighborhood extends Events {
     if (this.living.contains(msg.peer)) {
       entry.alreadyExists = true
       entry.successful = true
-      this.living.insert(msg.peer, protocolId)
+      this.living.insert(msg.peer)
       debug(&apos;[%s] &lt;-- arc --- %s&apos;, this.PEER, entry.peer)
-      this.protocols.get(protocolId)._connected(msg.peer, false)
-      firstCall &amp;&amp; sender(new MResponse(entry.tid, this.PEER, protocolId, null))
+      this._connected(msg.peer, false)
+      firstCall &amp;&amp; sender(new MResponse(entry.tid, this.PEER, null))
 
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
@@ -415,10 +363,10 @@ class Neighborhood extends Events {
       let rise = this.dying.get(msg.peer)
       clearTimeout(rise.timeout)
       this.dying.delete(msg.peer)
-      this.living.insert(msg.peer, protocolId, rise.socket)
+      this.living.insert(msg.peer, rise.socket)
       debug(&apos;[%s] &lt;&#xA1;- arc -&#xA1;- %s&apos;, this.PEER, msg.peer)
-      this.protocols.get(protocolId)._connected(msg.peer, false)
-      firstCall &amp;&amp; sender(new MResponse(entry.tid, this.PEER, protocolId, null))
+      this._connected(msg.peer, false)
+      firstCall &amp;&amp; sender(new MResponse(entry.tid, this.PEER, null))
 
       // delete the pending entry cause we do not use the created one if exists
       this._checkPendingEntry(entry)
@@ -437,15 +385,15 @@ class Neighborhood extends Events {
           if (this.living.contains(entry.peer)) {
             entry.alreadyExists = true
             entry.successful = true
-            this.living.insert(entry.peer, protocolId)
+            this.living.insert(entry.peer)
             debug(&apos;[%s] &lt;-- arc --- %s&apos;, this.PEER, entry.peer)
-            this.protocols.get(protocolId)._connected(entry.peer,
+            this._connected(entry.peer,
               false)
             entry.peer = null // becomes the unknown soldier
           } else {
-            this.living.insert(entry.peer, protocolId, socket)
+            this.living.insert(entry.peer, socket)
             debug(&apos;[%s] &lt;-- WebRTC --- %s&apos;, this.PEER, entry.peer)
-            this.protocols.get(protocolId)._connected(entry.peer,
+            this._connected(entry.peer,
               false)
           }
 
@@ -456,15 +404,8 @@ class Neighborhood extends Events {
             if (this.living.contains(entry.peer)) {
               // #A remove the socket from the table of
               // living connections
-              let toNotify = this.living.removePeer(entry.peer)
-              // #B notify all protocols that were using
-              // this socket
-              toNotify.forEach((occ, pid) =&gt; {
-                for (let i = 0; i &lt; occ; ++i) {
-                  this.protocols.get(pid)
-                    ._disconnected(entry.peer)
-                }
-              })
+              this.living.removePeer(entry.peer)
+              this._disconnected(entry.peer)
             } else if (this.dying.has(entry.peer)) {
               let d = this.dying.get(entry.peer)
               clearTimeout(d.timeout)
@@ -482,11 +423,11 @@ class Neighborhood extends Events {
           if (msg.type === &apos;MInternalSend&apos;) {
             this._receiveInternalMessage(msg)
           } else {
-            this.protocols.get(msg.pid)._received(msg.peer, msg.payload)
+            this._received(msg.peer, msg.payload)
           }
         })
         socket.on(&apos;stream&apos;, (s) =&gt; {
-          this.protocols.get(entry.pid)._streamed(entry.peer, s)
+          this._streamed(entry.peer, s)
         })
         socket.on(&apos;error&apos;, (e) =&gt; {
           // Nothing here, for the failure are detected and handled
@@ -497,9 +438,9 @@ class Neighborhood extends Events {
         // #4 send offer message using sender
         socket.on(&apos;signal&apos;, (offer) =&gt; {
           if (socket.connected &amp;&amp; !socket._isNegotiating) {
-            this._sendRenegociateResponse(new MResponse(entry.tid, this.PEER, protocolId, offer, &apos;renegociate&apos;), entry.peer)
+            this._sendRenegociateResponse(new MResponse(entry.tid, this.PEER, offer, &apos;renegociate&apos;), entry.peer)
           } else {
-            sender(new MResponse(entry.tid, this.PEER, protocolId, offer))
+            sender(new MResponse(entry.tid, this.PEER, offer))
           }
         })
       }
@@ -508,29 +449,25 @@ class Neighborhood extends Events {
   }
 
   /**
-     * @private
-     * Remove an arc from protocolId leading to peerId. If it was the last arc,
+     * Remove an arc. If it was the last arc,
      * the WebRTC connexion is downgraded to the dying table. In this table, the
      * connexion will be closed if none create it.
-     * @param {string} protocolId The identifier of the protocol that removes an
-     * arc
      * @param {string|undefined} peerId The identifier of the peer. If no arg,
-     * remove all arcs of protocolId.
+     * remove all arcs.
      */
-  _disconnect (protocolId, peerId) {
+  disconnect (peerId) {
     return new Promise((resolve, reject) =&gt; {
       if (typeof peerId === &apos;undefined&apos;) {
         // #1 remove all arcs
         let entries
         try {
-          entries = this.living.removeAll(protocolId)
+          entries = this.living.removeAll()
         } catch (e) {
-          reject(e)
+          return reject(e)
         }
         entries.forEach((entry) =&gt; {
           if (entry.socket !== null) {
-            let dying = new EDying(entry.peer,
-              entry.socket,
+            let dying = new EDying(entry.peer, entry.socket,
               setTimeout(() =&gt; {
                 entry.socket &amp;&amp; entry.socket.destroy()
               }, this.options.timeout))
@@ -538,13 +475,12 @@ class Neighborhood extends Events {
           }
 
           for (let i = 0; i &lt; entry.occ; ++i) {
-            if (entry.socket === null ||
-                          (entry.socket !== null &amp;&amp; i &lt; entry.occ - 1)) {
-              debug(&apos;[%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+            if (entry.socket === null || (entry.socket !== null &amp;&amp; i &lt; entry.occ - 1)) {
+              debug(&apos;DISCONNECT-ALL [%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
             } else {
-              debug(&apos;[%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+              debug(&apos;DISCONNECT-ALL [%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
             }
-            this.protocols.get(protocolId)._disconnected(entry.peer)
+            this._disconnected(entry.peer)
           }
           resolve()
         })
@@ -552,32 +488,27 @@ class Neighborhood extends Events {
         let entry = null
         // #2 remove one arc
         try {
-          entry = this.living.remove(peerId, protocolId)
+          entry = this.living.remove(peerId)
         } catch (e) {
-          reject(e)
+          return reject(e)
         }
         if (entry) {
           let dying = new EDying(entry.peer, entry.socket, setTimeout(() =&gt; {
             entry.socket &amp;&amp; entry.socket.destroy()
           }, this.options.timeout))
           this.dying.set(dying.peer, dying)
-          debug(&apos;[%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+          debug(&apos;DISCONNECT-ONE [%s] &#x2020;&#x2020;&#x2020; WebRTC &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
         } else {
-          debug(&apos;[%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
+          debug(&apos;DISCONNECT-ONE [%s] &#x2020;&#x2020;&#x2020; arc &#x2020;&#x2020;&#x2020; %s&apos;, this.PEER, peerId)
         }
-        this.protocols.get(protocolId)._disconnected(peerId)
+        this._disconnected(peerId)
         resolve()
       }
     })
   }
 
   /**
-     * @private
-     * Send a message to a remote peer. It encapsulates the message
-     * from protocolId to help the remote peer to route the message to the
-     * proper protocol.
-     * @param {string} protocolId The identifier of the protocol sending the
-     * message
+     * Send a message to a remote peer.
      * @param {string} peerId The remote peer to send the message to.
      * @param {object} message The message to send.
      * @param {number} [retry=0] Retry few times to send the message before
@@ -585,7 +516,7 @@ class Neighborhood extends Events {
      * @returns {promise} Resolved when the message is sent, reject
      * otherwise. Note that loss of messages is not handled by default.
      */
-  _send (protocolId, peerId, message, retry = 0) {
+  send (peerId, message, retry = 0) {
     return new Promise((resolve, reject) =&gt; {
       // #1 get the proper entry in the tables
       let entry = null
@@ -595,24 +526,20 @@ class Neighborhood extends Events {
         entry = this.dying.get(peerId) // (TODO) warn: not safe
       }
       if (entry === null) {
-        reject(new Error(&apos;peer not found: &apos; + peerId))
+        return reject(new Error(&apos;peer not found: &apos; + peerId))
       }
       // #2 define the recursive sending function
       let __send = (r) =&gt; {
         try {
-          entry.socket.send(this.encode(new MSend(this.PEER,
-            protocolId,
-            message)))
-          debug(&apos;[%s] --- msg --&gt; %s:%s&apos;,
-            this.PEER, peerId, protocolId)
+          entry.socket.send(this.encode(new MSend(this.PEER, message)))
+          debug(&apos;[%s] --- msg --&gt; %s:%s&apos;, this.PEER, peerId)
           resolve()
         } catch (e) {
-          debug(&apos;[%s] -X- msg -X&gt; %s:%s&apos;,
-            this.PEER, peerId, protocolId)
+          debug(&apos;[%s] -X- msg -X&gt; %s:%s&apos;, this.PEER, peerId)
           if (r &lt; retry) {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
-            reject(e)
+            return reject(e)
           }
         }
       }
@@ -621,7 +548,7 @@ class Neighborhood extends Events {
     })
   }
 
-  _stream (protocolId, peerId, media, retry = 0) {
+  stream (peerId, media, retry = 0) {
     return new Promise((resolve, reject) =&gt; {
       // #1 get the proper entry in the tables
       let entry = null
@@ -640,12 +567,10 @@ class Neighborhood extends Events {
       let __send = (r) =&gt; {
         try {
           entry.socket.addStream(media)
-          debug(&apos;[%s] --- MEDIA msg --&gt; %s:%s&apos;,
-            this.PEER, peerId, protocolId)
+          debug(&apos;[%s] --- MEDIA msg --&gt; %s:%s&apos;, this.PEER, peerId)
           resolve()
         } catch (e) {
-          debug(&apos;[%s] -X- MEDIA msg -X&gt; %s:%s&apos;,
-            this.PEER, peerId, protocolId)
+          debug(&apos;[%s] -X- MEDIA msg -X&gt; %s:%s&apos;, this.PEER, peerId)
           if (r &lt; retry) {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
@@ -671,12 +596,12 @@ class Neighborhood extends Events {
         this.living.store.forEach(elem =&gt; {
           debug(elem.peer)
         })
-        reject(new Error(&apos;peer not found: &apos; + to))
+        return reject(new Error(&apos;peer not found: &apos; + to))
       }
       // #2 define the recursive sending function
       let __send = (r) =&gt; {
         try {
-          entry.socket.send(this.encode(new MInternalSend(this.PEER, null, request)))
+          entry.socket.send(this.encode(new MInternalSend(this.PEER, request)))
           debug(&apos;[%s] --- MEDIA Internal Renegociate msg --&gt; %s:%s&apos;,
             this.PEER, to)
           resolve()
@@ -686,7 +611,7 @@ class Neighborhood extends Events {
           if (r &lt; retry) {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
-            reject(e)
+            return reject(e)
           }
         }
       }
@@ -708,12 +633,12 @@ class Neighborhood extends Events {
         this.living.store.forEach(elem =&gt; {
           debug(elem.peer)
         })
-        reject(new Error(&apos;peer not found: &apos; + to))
+        return reject(new Error(&apos;peer not found: &apos; + to))
       }
       // #2 define the recursive sending function
       let __send = (r) =&gt; {
         try {
-          entry.socket.send(this.encode(new MInternalSend(this.PEER, null, response)))
+          entry.socket.send(this.encode(new MInternalSend(this.PEER, response)))
           debug(&apos;[%s] --- MEDIA Internal Renegociate msg --&gt; %s:%s&apos;,
             this.PEER, to)
           resolve()
@@ -723,7 +648,7 @@ class Neighborhood extends Events {
           if (r &lt; retry) {
             setTimeout(() =&gt; { __send(r + 1) }, 1000)
           } else {
-            reject(e)
+            return reject(e)
           }
         }
       }
@@ -733,10 +658,15 @@ class Neighborhood extends Events {
   }
 
   _receiveInternalMessage (msg) {
+    debug(&apos;Receive internal message: &apos;, msg)
     this.living.get(msg.peer).socket.signal(msg.payload.offer)
   }
 
-  _neighbours () {
+  /**
+   * return an array of living sockets
+   * @return {[ELiving]} a living entry with socket, peer id and number of occurences (arcs)
+   */
+  neighbours () {
     const neigh = []
     this.living.store.forEach(elem =&gt; {
       neigh.push(elem)

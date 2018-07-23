@@ -1,147 +1,58 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2017,
+  "end": 1810,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 57,
+      "line": 47,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2017,
+    "end": 1810,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 57,
+        "line": 47,
         "column": 0
       }
     },
     "sourceType": "module",
     "body": [
       {
-        "type": "ImportDeclaration",
-        "start": 14,
-        "end": 84,
-        "loc": {
-          "start": {
-            "line": 3,
-            "column": 0
-          },
-          "end": {
-            "line": 3,
-            "column": 70
-          }
-        },
-        "specifiers": [
-          {
-            "type": "ImportDefaultSpecifier",
-            "start": 21,
-            "end": 40,
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 7
-              },
-              "end": {
-                "line": 3,
-                "column": 26
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 21,
-              "end": 40,
-              "loc": {
-                "start": {
-                  "line": 3,
-                  "column": 7
-                },
-                "end": {
-                  "line": 3,
-                  "column": 26
-                },
-                "identifierName": "ExUndefinedFunction"
-              },
-              "name": "ExUndefinedFunction"
-            }
-          }
-        ],
-        "source": {
-          "type": "StringLiteral",
-          "start": 46,
-          "end": 84,
-          "loc": {
-            "start": {
-              "line": 3,
-              "column": 32
-            },
-            "end": {
-              "line": 3,
-              "column": 70
-            }
-          },
-          "extra": {
-            "rawValue": "../exceptions/exundefinedfunction.js",
-            "raw": "'../exceptions/exundefinedfunction.js'"
-          },
-          "value": "../exceptions/exundefinedfunction.js",
-          "leadingComments": null,
-          "trailingComments": null
-        },
-        "trailingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-            "start": 86,
-            "end": 244,
-            "loc": {
-              "start": {
-                "line": 5,
-                "column": 0
-              },
-              "end": {
-                "line": 8,
-                "column": 3
-              }
-            }
-          }
-        ]
-      },
-      {
         "type": "Identifier",
-        "start": 245,
-        "end": 1989,
+        "start": 159,
+        "end": 1783,
         "loc": {
           "start": {
-            "line": 9,
+            "line": 5,
             "column": 0
           },
           "end": {
-            "line": 54,
+            "line": 44,
             "column": 1
           }
         },
         "id": {
           "type": "Identifier",
-          "start": 251,
-          "end": 260,
+          "start": 165,
+          "end": 174,
           "loc": {
             "start": {
-              "line": 9,
+              "line": 5,
               "column": 6
             },
             "end": {
-              "line": 9,
+              "line": 5,
               "column": 15
             },
             "identifierName": "IProtocol"
@@ -152,192 +63,46 @@
         "superClass": null,
         "body": {
           "type": "ClassBody",
-          "start": 261,
-          "end": 1989,
+          "start": 175,
+          "end": 1783,
           "loc": {
             "start": {
-              "line": 9,
+              "line": 5,
               "column": 16
             },
             "end": {
-              "line": 54,
+              "line": 44,
               "column": 1
             }
           },
           "body": [
             {
               "type": "ClassMethod",
-              "start": 377,
-              "end": 425,
+              "start": 451,
+              "end": 539,
               "loc": {
                 "start": {
-                  "line": 14,
+                  "line": 13,
                   "column": 2
                 },
                 "end": {
-                  "line": 14,
-                  "column": 50
+                  "line": 13,
+                  "column": 90
                 }
               },
               "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 377,
-                "end": 381,
+                "start": 451,
+                "end": 461,
                 "loc": {
                   "start": {
-                    "line": 14,
+                    "line": 13,
                     "column": 2
                   },
                   "end": {
-                    "line": 14,
-                    "column": 6
-                  },
-                  "identifierName": "_pid"
-                },
-                "name": "_pid",
-                "leadingComments": null
-              },
-              "kind": "method",
-              "id": null,
-              "generator": false,
-              "expression": false,
-              "async": false,
-              "params": [],
-              "body": {
-                "type": "BlockStatement",
-                "start": 385,
-                "end": 425,
-                "loc": {
-                  "start": {
-                    "line": 14,
-                    "column": 10
-                  },
-                  "end": {
-                    "line": 14,
-                    "column": 50
-                  }
-                },
-                "body": [
-                  {
-                    "type": "ThrowStatement",
-                    "start": 387,
-                    "end": 423,
-                    "loc": {
-                      "start": {
-                        "line": 14,
-                        "column": 12
-                      },
-                      "end": {
-                        "line": 14,
-                        "column": 48
-                      }
-                    },
-                    "argument": {
-                      "type": "NewExpression",
-                      "start": 393,
-                      "end": 423,
-                      "loc": {
-                        "start": {
-                          "line": 14,
-                          "column": 18
-                        },
-                        "end": {
-                          "line": 14,
-                          "column": 48
-                        }
-                      },
-                      "callee": {
-                        "type": "Identifier",
-                        "start": 397,
-                        "end": 416,
-                        "loc": {
-                          "start": {
-                            "line": 14,
-                            "column": 22
-                          },
-                          "end": {
-                            "line": 14,
-                            "column": 41
-                          },
-                          "identifierName": "ExUndefinedFunction"
-                        },
-                        "name": "ExUndefinedFunction"
-                      },
-                      "arguments": [
-                        {
-                          "type": "StringLiteral",
-                          "start": 417,
-                          "end": 422,
-                          "loc": {
-                            "start": {
-                              "line": 14,
-                              "column": 42
-                            },
-                            "end": {
-                              "line": 14,
-                              "column": 47
-                            }
-                          },
-                          "extra": {
-                            "rawValue": "pid",
-                            "raw": "'pid'"
-                          },
-                          "value": "pid"
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "directives": []
-              },
-              "leadingComments": [
-                {
-                  "type": "CommentBlock",
-                  "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-                  "start": 265,
-                  "end": 374,
-                  "loc": {
-                    "start": {
-                      "line": 10,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 13,
-                      "column": 7
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "ClassMethod",
-              "start": 702,
-              "end": 780,
-              "loc": {
-                "start": {
-                  "line": 23,
-                  "column": 2
-                },
-                "end": {
-                  "line": 23,
-                  "column": 80
-                }
-              },
-              "static": false,
-              "computed": false,
-              "key": {
-                "type": "Identifier",
-                "start": 702,
-                "end": 712,
-                "loc": {
-                  "start": {
-                    "line": 23,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 23,
+                    "line": 13,
                     "column": 12
                   },
                   "identifierName": "_connected"
@@ -353,15 +118,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 714,
-                  "end": 720,
+                  "start": 463,
+                  "end": 469,
                   "loc": {
                     "start": {
-                      "line": 23,
+                      "line": 13,
                       "column": 14
                     },
                     "end": {
-                      "line": 23,
+                      "line": 13,
                       "column": 20
                     },
                     "identifierName": "peerId"
@@ -370,15 +135,15 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 722,
-                  "end": 732,
+                  "start": 471,
+                  "end": 481,
                   "loc": {
                     "start": {
-                      "line": 23,
+                      "line": 13,
                       "column": 22
                     },
                     "end": {
-                      "line": 23,
+                      "line": 13,
                       "column": 32
                     },
                     "identifierName": "isOutgoing"
@@ -388,104 +153,123 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 734,
-                "end": 780,
+                "start": 483,
+                "end": 539,
                 "loc": {
                   "start": {
-                    "line": 23,
+                    "line": 13,
                     "column": 34
                   },
                   "end": {
-                    "line": 23,
-                    "column": 80
+                    "line": 13,
+                    "column": 90
                   }
                 },
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 736,
-                    "end": 778,
+                    "start": 485,
+                    "end": 537,
                     "loc": {
                       "start": {
-                        "line": 23,
+                        "line": 13,
                         "column": 36
                       },
                       "end": {
-                        "line": 23,
-                        "column": 78
+                        "line": 13,
+                        "column": 88
                       }
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 742,
-                      "end": 778,
+                      "start": 491,
+                      "end": 537,
                       "loc": {
                         "start": {
-                          "line": 23,
+                          "line": 13,
                           "column": 42
                         },
                         "end": {
-                          "line": 23,
-                          "column": 78
+                          "line": 13,
+                          "column": 88
                         }
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 746,
-                        "end": 765,
+                        "start": 495,
+                        "end": 500,
                         "loc": {
                           "start": {
-                            "line": 23,
+                            "line": 13,
                             "column": 46
                           },
                           "end": {
-                            "line": 23,
-                            "column": 65
+                            "line": 13,
+                            "column": 51
                           },
-                          "identifierName": "ExUndefinedFunction"
+                          "identifierName": "Error"
                         },
-                        "name": "ExUndefinedFunction"
+                        "name": "Error"
                       },
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 766,
-                          "end": 777,
+                          "start": 501,
+                          "end": 536,
                           "loc": {
                             "start": {
-                              "line": 23,
-                              "column": 66
+                              "line": 13,
+                              "column": 52
                             },
                             "end": {
-                              "line": 23,
-                              "column": 77
+                              "line": 13,
+                              "column": 87
                             }
                           },
                           "extra": {
-                            "rawValue": "connected",
-                            "raw": "'connected'"
+                            "rawValue": "[_connected] not yet implemented.",
+                            "raw": "'[_connected] not yet implemented.'"
                           },
-                          "value": "connected"
+                          "value": "[_connected] not yet implemented."
                         }
                       ]
                     }
                   }
                 ],
-                "directives": []
+                "directives": [],
+                "trailingComments": null
               },
               "leadingComments": [
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     ",
-                  "start": 430,
-                  "end": 699,
+                  "start": 179,
+                  "end": 448,
                   "loc": {
                     "start": {
-                      "line": 16,
+                      "line": 6,
                       "column": 2
                     },
                     "end": {
-                      "line": 22,
+                      "line": 12,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "CommentBlock",
+                  "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
+                  "start": 543,
+                  "end": 714,
+                  "loc": {
+                    "start": {
+                      "line": 15,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 19,
                       "column": 7
                     }
                   }
@@ -494,31 +278,31 @@
             },
             {
               "type": "ClassMethod",
-              "start": 959,
-              "end": 1031,
+              "start": 717,
+              "end": 799,
               "loc": {
                 "start": {
-                  "line": 30,
+                  "line": 20,
                   "column": 2
                 },
                 "end": {
-                  "line": 30,
-                  "column": 74
+                  "line": 20,
+                  "column": 84
                 }
               },
               "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 959,
-                "end": 972,
+                "start": 717,
+                "end": 730,
                 "loc": {
                   "start": {
-                    "line": 30,
+                    "line": 20,
                     "column": 2
                   },
                   "end": {
-                    "line": 30,
+                    "line": 20,
                     "column": 15
                   },
                   "identifierName": "_disconnected"
@@ -534,15 +318,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 974,
-                  "end": 980,
+                  "start": 732,
+                  "end": 738,
                   "loc": {
                     "start": {
-                      "line": 30,
+                      "line": 20,
                       "column": 17
                     },
                     "end": {
-                      "line": 30,
+                      "line": 20,
                       "column": 23
                     },
                     "identifierName": "peerId"
@@ -552,104 +336,123 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 982,
-                "end": 1031,
+                "start": 740,
+                "end": 799,
                 "loc": {
                   "start": {
-                    "line": 30,
+                    "line": 20,
                     "column": 25
                   },
                   "end": {
-                    "line": 30,
-                    "column": 74
+                    "line": 20,
+                    "column": 84
                   }
                 },
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 984,
-                    "end": 1029,
+                    "start": 742,
+                    "end": 797,
                     "loc": {
                       "start": {
-                        "line": 30,
+                        "line": 20,
                         "column": 27
                       },
                       "end": {
-                        "line": 30,
-                        "column": 72
+                        "line": 20,
+                        "column": 82
                       }
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 990,
-                      "end": 1029,
+                      "start": 748,
+                      "end": 797,
                       "loc": {
                         "start": {
-                          "line": 30,
+                          "line": 20,
                           "column": 33
                         },
                         "end": {
-                          "line": 30,
-                          "column": 72
+                          "line": 20,
+                          "column": 82
                         }
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 994,
-                        "end": 1013,
+                        "start": 752,
+                        "end": 757,
                         "loc": {
                           "start": {
-                            "line": 30,
+                            "line": 20,
                             "column": 37
                           },
                           "end": {
-                            "line": 30,
-                            "column": 56
+                            "line": 20,
+                            "column": 42
                           },
-                          "identifierName": "ExUndefinedFunction"
+                          "identifierName": "Error"
                         },
-                        "name": "ExUndefinedFunction"
+                        "name": "Error"
                       },
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1014,
-                          "end": 1028,
+                          "start": 758,
+                          "end": 796,
                           "loc": {
                             "start": {
-                              "line": 30,
-                              "column": 57
+                              "line": 20,
+                              "column": 43
                             },
                             "end": {
-                              "line": 30,
-                              "column": 71
+                              "line": 20,
+                              "column": 81
                             }
                           },
                           "extra": {
-                            "rawValue": "disconnected",
-                            "raw": "'disconnected'"
+                            "rawValue": "[_disconnected] not yet implemented.",
+                            "raw": "'[_disconnected] not yet implemented.'"
                           },
-                          "value": "disconnected"
+                          "value": "[_disconnected] not yet implemented."
                         }
                       ]
                     }
                   }
                 ],
-                "directives": []
+                "directives": [],
+                "trailingComments": null
               },
               "leadingComments": [
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-                  "start": 785,
-                  "end": 956,
+                  "start": 543,
+                  "end": 714,
                   "loc": {
                     "start": {
-                      "line": 25,
+                      "line": 15,
                       "column": 2
                     },
                     "end": {
-                      "line": 29,
+                      "line": 19,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "CommentBlock",
+                  "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     ",
+                  "start": 803,
+                  "end": 1100,
+                  "loc": {
+                    "start": {
+                      "line": 22,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 28,
                       "column": 7
                     }
                   }
@@ -658,31 +461,31 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1336,
-              "end": 1408,
+              "start": 1103,
+              "end": 1185,
               "loc": {
                 "start": {
-                  "line": 39,
+                  "line": 29,
                   "column": 2
                 },
                 "end": {
-                  "line": 39,
-                  "column": 74
+                  "line": 29,
+                  "column": 84
                 }
               },
               "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1336,
-                "end": 1343,
+                "start": 1103,
+                "end": 1110,
                 "loc": {
                   "start": {
-                    "line": 39,
+                    "line": 29,
                     "column": 2
                   },
                   "end": {
-                    "line": 39,
+                    "line": 29,
                     "column": 9
                   },
                   "identifierName": "_failed"
@@ -698,15 +501,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1345,
-                  "end": 1351,
+                  "start": 1112,
+                  "end": 1118,
                   "loc": {
                     "start": {
-                      "line": 39,
+                      "line": 29,
                       "column": 11
                     },
                     "end": {
-                      "line": 39,
+                      "line": 29,
                       "column": 17
                     },
                     "identifierName": "peerId"
@@ -715,15 +518,15 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 1353,
-                  "end": 1363,
+                  "start": 1120,
+                  "end": 1130,
                   "loc": {
                     "start": {
-                      "line": 39,
+                      "line": 29,
                       "column": 19
                     },
                     "end": {
-                      "line": 39,
+                      "line": 29,
                       "column": 29
                     },
                     "identifierName": "isOutgoing"
@@ -733,104 +536,123 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1365,
-                "end": 1408,
+                "start": 1132,
+                "end": 1185,
                 "loc": {
                   "start": {
-                    "line": 39,
+                    "line": 29,
                     "column": 31
                   },
                   "end": {
-                    "line": 39,
-                    "column": 74
+                    "line": 29,
+                    "column": 84
                   }
                 },
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 1367,
-                    "end": 1406,
+                    "start": 1134,
+                    "end": 1183,
                     "loc": {
                       "start": {
-                        "line": 39,
+                        "line": 29,
                         "column": 33
                       },
                       "end": {
-                        "line": 39,
-                        "column": 72
+                        "line": 29,
+                        "column": 82
                       }
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 1373,
-                      "end": 1406,
+                      "start": 1140,
+                      "end": 1183,
                       "loc": {
                         "start": {
-                          "line": 39,
+                          "line": 29,
                           "column": 39
                         },
                         "end": {
-                          "line": 39,
-                          "column": 72
+                          "line": 29,
+                          "column": 82
                         }
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 1377,
-                        "end": 1396,
+                        "start": 1144,
+                        "end": 1149,
                         "loc": {
                           "start": {
-                            "line": 39,
+                            "line": 29,
                             "column": 43
                           },
                           "end": {
-                            "line": 39,
-                            "column": 62
+                            "line": 29,
+                            "column": 48
                           },
-                          "identifierName": "ExUndefinedFunction"
+                          "identifierName": "Error"
                         },
-                        "name": "ExUndefinedFunction"
+                        "name": "Error"
                       },
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1397,
-                          "end": 1405,
+                          "start": 1150,
+                          "end": 1182,
                           "loc": {
                             "start": {
-                              "line": 39,
-                              "column": 63
+                              "line": 29,
+                              "column": 49
                             },
                             "end": {
-                              "line": 39,
-                              "column": 71
+                              "line": 29,
+                              "column": 81
                             }
                           },
                           "extra": {
-                            "rawValue": "failed",
-                            "raw": "'failed'"
+                            "rawValue": "[_failed] not yet implemented.",
+                            "raw": "'[_failed] not yet implemented.'"
                           },
-                          "value": "failed"
+                          "value": "[_failed] not yet implemented."
                         }
                       ]
                     }
                   }
                 ],
-                "directives": []
+                "directives": [],
+                "trailingComments": null
               },
               "leadingComments": [
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     ",
-                  "start": 1036,
-                  "end": 1333,
+                  "start": 803,
+                  "end": 1100,
                   "loc": {
                     "start": {
-                      "line": 32,
+                      "line": 22,
                       "column": 2
                     },
                     "end": {
-                      "line": 38,
+                      "line": 28,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "CommentBlock",
+                  "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     ",
+                  "start": 1189,
+                  "end": 1399,
+                  "loc": {
+                    "start": {
+                      "line": 31,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 35,
                       "column": 7
                     }
                   }
@@ -839,31 +661,31 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1626,
-              "end": 1699,
+              "start": 1402,
+              "end": 1485,
               "loc": {
                 "start": {
-                  "line": 46,
+                  "line": 36,
                   "column": 2
                 },
                 "end": {
-                  "line": 46,
-                  "column": 75
+                  "line": 36,
+                  "column": 85
                 }
               },
               "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1626,
-                "end": 1635,
+                "start": 1402,
+                "end": 1411,
                 "loc": {
                   "start": {
-                    "line": 46,
+                    "line": 36,
                     "column": 2
                   },
                   "end": {
-                    "line": 46,
+                    "line": 36,
                     "column": 11
                   },
                   "identifierName": "_received"
@@ -879,15 +701,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1637,
-                  "end": 1643,
+                  "start": 1413,
+                  "end": 1419,
                   "loc": {
                     "start": {
-                      "line": 46,
+                      "line": 36,
                       "column": 13
                     },
                     "end": {
-                      "line": 46,
+                      "line": 36,
                       "column": 19
                     },
                     "identifierName": "peerId"
@@ -896,15 +718,15 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 1645,
-                  "end": 1652,
+                  "start": 1421,
+                  "end": 1428,
                   "loc": {
                     "start": {
-                      "line": 46,
+                      "line": 36,
                       "column": 21
                     },
                     "end": {
-                      "line": 46,
+                      "line": 36,
                       "column": 28
                     },
                     "identifierName": "message"
@@ -914,104 +736,123 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1654,
-                "end": 1699,
+                "start": 1430,
+                "end": 1485,
                 "loc": {
                   "start": {
-                    "line": 46,
+                    "line": 36,
                     "column": 30
                   },
                   "end": {
-                    "line": 46,
-                    "column": 75
+                    "line": 36,
+                    "column": 85
                   }
                 },
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 1656,
-                    "end": 1697,
+                    "start": 1432,
+                    "end": 1483,
                     "loc": {
                       "start": {
-                        "line": 46,
+                        "line": 36,
                         "column": 32
                       },
                       "end": {
-                        "line": 46,
-                        "column": 73
+                        "line": 36,
+                        "column": 83
                       }
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 1662,
-                      "end": 1697,
+                      "start": 1438,
+                      "end": 1483,
                       "loc": {
                         "start": {
-                          "line": 46,
+                          "line": 36,
                           "column": 38
                         },
                         "end": {
-                          "line": 46,
-                          "column": 73
+                          "line": 36,
+                          "column": 83
                         }
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 1666,
-                        "end": 1685,
+                        "start": 1442,
+                        "end": 1447,
                         "loc": {
                           "start": {
-                            "line": 46,
+                            "line": 36,
                             "column": 42
                           },
                           "end": {
-                            "line": 46,
-                            "column": 61
+                            "line": 36,
+                            "column": 47
                           },
-                          "identifierName": "ExUndefinedFunction"
+                          "identifierName": "Error"
                         },
-                        "name": "ExUndefinedFunction"
+                        "name": "Error"
                       },
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1686,
-                          "end": 1696,
+                          "start": 1448,
+                          "end": 1482,
                           "loc": {
                             "start": {
-                              "line": 46,
-                              "column": 62
+                              "line": 36,
+                              "column": 48
                             },
                             "end": {
-                              "line": 46,
-                              "column": 72
+                              "line": 36,
+                              "column": 82
                             }
                           },
                           "extra": {
-                            "rawValue": "received",
-                            "raw": "'received'"
+                            "rawValue": "[_received] not yet implemented.",
+                            "raw": "'[_received] not yet implemented.'"
                           },
-                          "value": "received"
+                          "value": "[_received] not yet implemented."
                         }
                       ]
                     }
                   }
                 ],
-                "directives": []
+                "directives": [],
+                "trailingComments": null
               },
               "leadingComments": [
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     ",
-                  "start": 1413,
-                  "end": 1623,
+                  "start": 1189,
+                  "end": 1399,
                   "loc": {
                     "start": {
-                      "line": 41,
+                      "line": 31,
                       "column": 2
                     },
                     "end": {
-                      "line": 45,
+                      "line": 35,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "CommentBlock",
+                  "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     ",
+                  "start": 1489,
+                  "end": 1696,
+                  "loc": {
+                    "start": {
+                      "line": 38,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 42,
                       "column": 7
                     }
                   }
@@ -1020,31 +861,31 @@
             },
             {
               "type": "ClassMethod",
-              "start": 1914,
-              "end": 1986,
+              "start": 1699,
+              "end": 1781,
               "loc": {
                 "start": {
-                  "line": 53,
+                  "line": 43,
                   "column": 2
                 },
                 "end": {
-                  "line": 53,
-                  "column": 74
+                  "line": 43,
+                  "column": 84
                 }
               },
               "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 1914,
-                "end": 1923,
+                "start": 1699,
+                "end": 1708,
                 "loc": {
                   "start": {
-                    "line": 53,
+                    "line": 43,
                     "column": 2
                   },
                   "end": {
-                    "line": 53,
+                    "line": 43,
                     "column": 11
                   },
                   "identifierName": "_streamed"
@@ -1060,15 +901,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 1925,
-                  "end": 1931,
+                  "start": 1710,
+                  "end": 1716,
                   "loc": {
                     "start": {
-                      "line": 53,
+                      "line": 43,
                       "column": 13
                     },
                     "end": {
-                      "line": 53,
+                      "line": 43,
                       "column": 19
                     },
                     "identifierName": "peerId"
@@ -1077,15 +918,15 @@
                 },
                 {
                   "type": "Identifier",
-                  "start": 1933,
-                  "end": 1939,
+                  "start": 1718,
+                  "end": 1724,
                   "loc": {
                     "start": {
-                      "line": 53,
+                      "line": 43,
                       "column": 21
                     },
                     "end": {
-                      "line": 53,
+                      "line": 43,
                       "column": 27
                     },
                     "identifierName": "stream"
@@ -1095,84 +936,84 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 1941,
-                "end": 1986,
+                "start": 1726,
+                "end": 1781,
                 "loc": {
                   "start": {
-                    "line": 53,
+                    "line": 43,
                     "column": 29
                   },
                   "end": {
-                    "line": 53,
-                    "column": 74
+                    "line": 43,
+                    "column": 84
                   }
                 },
                 "body": [
                   {
                     "type": "ThrowStatement",
-                    "start": 1943,
-                    "end": 1984,
+                    "start": 1728,
+                    "end": 1779,
                     "loc": {
                       "start": {
-                        "line": 53,
+                        "line": 43,
                         "column": 31
                       },
                       "end": {
-                        "line": 53,
-                        "column": 72
+                        "line": 43,
+                        "column": 82
                       }
                     },
                     "argument": {
                       "type": "NewExpression",
-                      "start": 1949,
-                      "end": 1984,
+                      "start": 1734,
+                      "end": 1779,
                       "loc": {
                         "start": {
-                          "line": 53,
+                          "line": 43,
                           "column": 37
                         },
                         "end": {
-                          "line": 53,
-                          "column": 72
+                          "line": 43,
+                          "column": 82
                         }
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 1953,
-                        "end": 1972,
+                        "start": 1738,
+                        "end": 1743,
                         "loc": {
                           "start": {
-                            "line": 53,
+                            "line": 43,
                             "column": 41
                           },
                           "end": {
-                            "line": 53,
-                            "column": 60
+                            "line": 43,
+                            "column": 46
                           },
-                          "identifierName": "ExUndefinedFunction"
+                          "identifierName": "Error"
                         },
-                        "name": "ExUndefinedFunction"
+                        "name": "Error"
                       },
                       "arguments": [
                         {
                           "type": "StringLiteral",
-                          "start": 1973,
-                          "end": 1983,
+                          "start": 1744,
+                          "end": 1778,
                           "loc": {
                             "start": {
-                              "line": 53,
-                              "column": 61
+                              "line": 43,
+                              "column": 47
                             },
                             "end": {
-                              "line": 53,
-                              "column": 71
+                              "line": 43,
+                              "column": 81
                             }
                           },
                           "extra": {
-                            "rawValue": "streamed",
-                            "raw": "'streamed'"
+                            "rawValue": "[_streamed] not yet implemented.",
+                            "raw": "'[_streamed] not yet implemented.'"
                           },
-                          "value": "streamed"
+                          "value": "[_streamed] not yet implemented."
                         }
                       ]
                     }
@@ -1184,15 +1025,15 @@
                 {
                   "type": "CommentBlock",
                   "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     ",
-                  "start": 1704,
-                  "end": 1911,
+                  "start": 1489,
+                  "end": 1696,
                   "loc": {
                     "start": {
-                      "line": 48,
+                      "line": 38,
                       "column": 2
                     },
                     "end": {
-                      "line": 52,
+                      "line": 42,
                       "column": 7
                     }
                   }
@@ -1206,45 +1047,30 @@
         "trailingComments": []
       },
       {
-        "type": "EmptyStatement",
-        "start": 1989,
-        "end": 1990,
-        "loc": {
-          "start": {
-            "line": 54,
-            "column": 1
-          },
-          "end": {
-            "line": 54,
-            "column": 2
-          }
-        }
-      },
-      {
         "type": "Identifier",
-        "start": 1992,
-        "end": 2016,
+        "start": 1785,
+        "end": 1809,
         "loc": {
           "start": {
-            "line": 56,
+            "line": 46,
             "column": 0
           },
           "end": {
-            "line": 56,
+            "line": 46,
             "column": 24
           }
         },
         "declaration": {
           "type": "Identifier",
-          "start": 2007,
-          "end": 2016,
+          "start": 1800,
+          "end": 1809,
           "loc": {
             "start": {
-              "line": 56,
+              "line": 46,
               "column": 15
             },
             "end": {
-              "line": 56,
+              "line": 46,
               "column": 24
             },
             "identifierName": "IProtocol"
@@ -1257,43 +1083,43 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 1992,
-        "end": 2016,
+        "start": 1785,
+        "end": 1809,
         "loc": {
           "start": {
-            "line": 56,
+            "line": 46,
             "column": 0
           },
           "end": {
-            "line": 56,
+            "line": 46,
             "column": 24
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 245,
-          "end": 1989,
+          "start": 159,
+          "end": 1783,
           "loc": {
             "start": {
-              "line": 9,
+              "line": 5,
               "column": 0
             },
             "end": {
-              "line": 54,
+              "line": 44,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 251,
-            "end": 260,
+            "start": 165,
+            "end": 174,
             "loc": {
               "start": {
-                "line": 9,
+                "line": 5,
                 "column": 6
               },
               "end": {
-                "line": 9,
+                "line": 5,
                 "column": 15
               },
               "identifierName": "IProtocol"
@@ -1304,192 +1130,46 @@
           "superClass": null,
           "body": {
             "type": "ClassBody",
-            "start": 261,
-            "end": 1989,
+            "start": 175,
+            "end": 1783,
             "loc": {
               "start": {
-                "line": 9,
+                "line": 5,
                 "column": 16
               },
               "end": {
-                "line": 54,
+                "line": 44,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ClassMethod",
-                "start": 377,
-                "end": 425,
+                "start": 451,
+                "end": 539,
                 "loc": {
                   "start": {
-                    "line": 14,
+                    "line": 13,
                     "column": 2
                   },
                   "end": {
-                    "line": 14,
-                    "column": 50
+                    "line": 13,
+                    "column": 90
                   }
                 },
                 "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 377,
-                  "end": 381,
+                  "start": 451,
+                  "end": 461,
                   "loc": {
                     "start": {
-                      "line": 14,
+                      "line": 13,
                       "column": 2
                     },
                     "end": {
-                      "line": 14,
-                      "column": 6
-                    },
-                    "identifierName": "_pid"
-                  },
-                  "name": "_pid",
-                  "leadingComments": null
-                },
-                "kind": "method",
-                "id": null,
-                "generator": false,
-                "expression": false,
-                "async": false,
-                "params": [],
-                "body": {
-                  "type": "BlockStatement",
-                  "start": 385,
-                  "end": 425,
-                  "loc": {
-                    "start": {
-                      "line": 14,
-                      "column": 10
-                    },
-                    "end": {
-                      "line": 14,
-                      "column": 50
-                    }
-                  },
-                  "body": [
-                    {
-                      "type": "ThrowStatement",
-                      "start": 387,
-                      "end": 423,
-                      "loc": {
-                        "start": {
-                          "line": 14,
-                          "column": 12
-                        },
-                        "end": {
-                          "line": 14,
-                          "column": 48
-                        }
-                      },
-                      "argument": {
-                        "type": "NewExpression",
-                        "start": 393,
-                        "end": 423,
-                        "loc": {
-                          "start": {
-                            "line": 14,
-                            "column": 18
-                          },
-                          "end": {
-                            "line": 14,
-                            "column": 48
-                          }
-                        },
-                        "callee": {
-                          "type": "Identifier",
-                          "start": 397,
-                          "end": 416,
-                          "loc": {
-                            "start": {
-                              "line": 14,
-                              "column": 22
-                            },
-                            "end": {
-                              "line": 14,
-                              "column": 41
-                            },
-                            "identifierName": "ExUndefinedFunction"
-                          },
-                          "name": "ExUndefinedFunction"
-                        },
-                        "arguments": [
-                          {
-                            "type": "StringLiteral",
-                            "start": 417,
-                            "end": 422,
-                            "loc": {
-                              "start": {
-                                "line": 14,
-                                "column": 42
-                              },
-                              "end": {
-                                "line": 14,
-                                "column": 47
-                              }
-                            },
-                            "extra": {
-                              "rawValue": "pid",
-                              "raw": "'pid'"
-                            },
-                            "value": "pid"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "directives": []
-                },
-                "leadingComments": [
-                  {
-                    "type": "CommentBlock",
-                    "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-                    "start": 265,
-                    "end": 374,
-                    "loc": {
-                      "start": {
-                        "line": 10,
-                        "column": 2
-                      },
-                      "end": {
-                        "line": 13,
-                        "column": 7
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "ClassMethod",
-                "start": 702,
-                "end": 780,
-                "loc": {
-                  "start": {
-                    "line": 23,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 23,
-                    "column": 80
-                  }
-                },
-                "static": false,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 702,
-                  "end": 712,
-                  "loc": {
-                    "start": {
-                      "line": 23,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 23,
+                      "line": 13,
                       "column": 12
                     },
                     "identifierName": "_connected"
@@ -1505,15 +1185,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 714,
-                    "end": 720,
+                    "start": 463,
+                    "end": 469,
                     "loc": {
                       "start": {
-                        "line": 23,
+                        "line": 13,
                         "column": 14
                       },
                       "end": {
-                        "line": 23,
+                        "line": 13,
                         "column": 20
                       },
                       "identifierName": "peerId"
@@ -1522,15 +1202,15 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 722,
-                    "end": 732,
+                    "start": 471,
+                    "end": 481,
                     "loc": {
                       "start": {
-                        "line": 23,
+                        "line": 13,
                         "column": 22
                       },
                       "end": {
-                        "line": 23,
+                        "line": 13,
                         "column": 32
                       },
                       "identifierName": "isOutgoing"
@@ -1540,104 +1220,123 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 734,
-                  "end": 780,
+                  "start": 483,
+                  "end": 539,
                   "loc": {
                     "start": {
-                      "line": 23,
+                      "line": 13,
                       "column": 34
                     },
                     "end": {
-                      "line": 23,
-                      "column": 80
+                      "line": 13,
+                      "column": 90
                     }
                   },
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 736,
-                      "end": 778,
+                      "start": 485,
+                      "end": 537,
                       "loc": {
                         "start": {
-                          "line": 23,
+                          "line": 13,
                           "column": 36
                         },
                         "end": {
-                          "line": 23,
-                          "column": 78
+                          "line": 13,
+                          "column": 88
                         }
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 742,
-                        "end": 778,
+                        "start": 491,
+                        "end": 537,
                         "loc": {
                           "start": {
-                            "line": 23,
+                            "line": 13,
                             "column": 42
                           },
                           "end": {
-                            "line": 23,
-                            "column": 78
+                            "line": 13,
+                            "column": 88
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 746,
-                          "end": 765,
+                          "start": 495,
+                          "end": 500,
                           "loc": {
                             "start": {
-                              "line": 23,
+                              "line": 13,
                               "column": 46
                             },
                             "end": {
-                              "line": 23,
-                              "column": 65
+                              "line": 13,
+                              "column": 51
                             },
-                            "identifierName": "ExUndefinedFunction"
+                            "identifierName": "Error"
                           },
-                          "name": "ExUndefinedFunction"
+                          "name": "Error"
                         },
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 766,
-                            "end": 777,
+                            "start": 501,
+                            "end": 536,
                             "loc": {
                               "start": {
-                                "line": 23,
-                                "column": 66
+                                "line": 13,
+                                "column": 52
                               },
                               "end": {
-                                "line": 23,
-                                "column": 77
+                                "line": 13,
+                                "column": 87
                               }
                             },
                             "extra": {
-                              "rawValue": "connected",
-                              "raw": "'connected'"
+                              "rawValue": "[_connected] not yet implemented.",
+                              "raw": "'[_connected] not yet implemented.'"
                             },
-                            "value": "connected"
+                            "value": "[_connected] not yet implemented."
                           }
                         ]
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     ",
-                    "start": 430,
-                    "end": 699,
+                    "start": 179,
+                    "end": 448,
                     "loc": {
                       "start": {
-                        "line": 16,
+                        "line": 6,
                         "column": 2
                       },
                       "end": {
-                        "line": 22,
+                        "line": 12,
+                        "column": 7
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
+                    "start": 543,
+                    "end": 714,
+                    "loc": {
+                      "start": {
+                        "line": 15,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 19,
                         "column": 7
                       }
                     }
@@ -1646,31 +1345,31 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 959,
-                "end": 1031,
+                "start": 717,
+                "end": 799,
                 "loc": {
                   "start": {
-                    "line": 30,
+                    "line": 20,
                     "column": 2
                   },
                   "end": {
-                    "line": 30,
-                    "column": 74
+                    "line": 20,
+                    "column": 84
                   }
                 },
                 "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 959,
-                  "end": 972,
+                  "start": 717,
+                  "end": 730,
                   "loc": {
                     "start": {
-                      "line": 30,
+                      "line": 20,
                       "column": 2
                     },
                     "end": {
-                      "line": 30,
+                      "line": 20,
                       "column": 15
                     },
                     "identifierName": "_disconnected"
@@ -1686,15 +1385,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 974,
-                    "end": 980,
+                    "start": 732,
+                    "end": 738,
                     "loc": {
                       "start": {
-                        "line": 30,
+                        "line": 20,
                         "column": 17
                       },
                       "end": {
-                        "line": 30,
+                        "line": 20,
                         "column": 23
                       },
                       "identifierName": "peerId"
@@ -1704,104 +1403,123 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 982,
-                  "end": 1031,
+                  "start": 740,
+                  "end": 799,
                   "loc": {
                     "start": {
-                      "line": 30,
+                      "line": 20,
                       "column": 25
                     },
                     "end": {
-                      "line": 30,
-                      "column": 74
+                      "line": 20,
+                      "column": 84
                     }
                   },
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 984,
-                      "end": 1029,
+                      "start": 742,
+                      "end": 797,
                       "loc": {
                         "start": {
-                          "line": 30,
+                          "line": 20,
                           "column": 27
                         },
                         "end": {
-                          "line": 30,
-                          "column": 72
+                          "line": 20,
+                          "column": 82
                         }
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 990,
-                        "end": 1029,
+                        "start": 748,
+                        "end": 797,
                         "loc": {
                           "start": {
-                            "line": 30,
+                            "line": 20,
                             "column": 33
                           },
                           "end": {
-                            "line": 30,
-                            "column": 72
+                            "line": 20,
+                            "column": 82
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 994,
-                          "end": 1013,
+                          "start": 752,
+                          "end": 757,
                           "loc": {
                             "start": {
-                              "line": 30,
+                              "line": 20,
                               "column": 37
                             },
                             "end": {
-                              "line": 30,
-                              "column": 56
+                              "line": 20,
+                              "column": 42
                             },
-                            "identifierName": "ExUndefinedFunction"
+                            "identifierName": "Error"
                           },
-                          "name": "ExUndefinedFunction"
+                          "name": "Error"
                         },
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1014,
-                            "end": 1028,
+                            "start": 758,
+                            "end": 796,
                             "loc": {
                               "start": {
-                                "line": 30,
-                                "column": 57
+                                "line": 20,
+                                "column": 43
                               },
                               "end": {
-                                "line": 30,
-                                "column": 71
+                                "line": 20,
+                                "column": 81
                               }
                             },
                             "extra": {
-                              "rawValue": "disconnected",
-                              "raw": "'disconnected'"
+                              "rawValue": "[_disconnected] not yet implemented.",
+                              "raw": "'[_disconnected] not yet implemented.'"
                             },
-                            "value": "disconnected"
+                            "value": "[_disconnected] not yet implemented."
                           }
                         ]
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-                    "start": 785,
-                    "end": 956,
+                    "start": 543,
+                    "end": 714,
                     "loc": {
                       "start": {
-                        "line": 25,
+                        "line": 15,
                         "column": 2
                       },
                       "end": {
-                        "line": 29,
+                        "line": 19,
+                        "column": 7
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     ",
+                    "start": 803,
+                    "end": 1100,
+                    "loc": {
+                      "start": {
+                        "line": 22,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 28,
                         "column": 7
                       }
                     }
@@ -1810,31 +1528,31 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1336,
-                "end": 1408,
+                "start": 1103,
+                "end": 1185,
                 "loc": {
                   "start": {
-                    "line": 39,
+                    "line": 29,
                     "column": 2
                   },
                   "end": {
-                    "line": 39,
-                    "column": 74
+                    "line": 29,
+                    "column": 84
                   }
                 },
                 "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1336,
-                  "end": 1343,
+                  "start": 1103,
+                  "end": 1110,
                   "loc": {
                     "start": {
-                      "line": 39,
+                      "line": 29,
                       "column": 2
                     },
                     "end": {
-                      "line": 39,
+                      "line": 29,
                       "column": 9
                     },
                     "identifierName": "_failed"
@@ -1850,15 +1568,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1345,
-                    "end": 1351,
+                    "start": 1112,
+                    "end": 1118,
                     "loc": {
                       "start": {
-                        "line": 39,
+                        "line": 29,
                         "column": 11
                       },
                       "end": {
-                        "line": 39,
+                        "line": 29,
                         "column": 17
                       },
                       "identifierName": "peerId"
@@ -1867,15 +1585,15 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1353,
-                    "end": 1363,
+                    "start": 1120,
+                    "end": 1130,
                     "loc": {
                       "start": {
-                        "line": 39,
+                        "line": 29,
                         "column": 19
                       },
                       "end": {
-                        "line": 39,
+                        "line": 29,
                         "column": 29
                       },
                       "identifierName": "isOutgoing"
@@ -1885,104 +1603,123 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1365,
-                  "end": 1408,
+                  "start": 1132,
+                  "end": 1185,
                   "loc": {
                     "start": {
-                      "line": 39,
+                      "line": 29,
                       "column": 31
                     },
                     "end": {
-                      "line": 39,
-                      "column": 74
+                      "line": 29,
+                      "column": 84
                     }
                   },
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 1367,
-                      "end": 1406,
+                      "start": 1134,
+                      "end": 1183,
                       "loc": {
                         "start": {
-                          "line": 39,
+                          "line": 29,
                           "column": 33
                         },
                         "end": {
-                          "line": 39,
-                          "column": 72
+                          "line": 29,
+                          "column": 82
                         }
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 1373,
-                        "end": 1406,
+                        "start": 1140,
+                        "end": 1183,
                         "loc": {
                           "start": {
-                            "line": 39,
+                            "line": 29,
                             "column": 39
                           },
                           "end": {
-                            "line": 39,
-                            "column": 72
+                            "line": 29,
+                            "column": 82
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 1377,
-                          "end": 1396,
+                          "start": 1144,
+                          "end": 1149,
                           "loc": {
                             "start": {
-                              "line": 39,
+                              "line": 29,
                               "column": 43
                             },
                             "end": {
-                              "line": 39,
-                              "column": 62
+                              "line": 29,
+                              "column": 48
                             },
-                            "identifierName": "ExUndefinedFunction"
+                            "identifierName": "Error"
                           },
-                          "name": "ExUndefinedFunction"
+                          "name": "Error"
                         },
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1397,
-                            "end": 1405,
+                            "start": 1150,
+                            "end": 1182,
                             "loc": {
                               "start": {
-                                "line": 39,
-                                "column": 63
+                                "line": 29,
+                                "column": 49
                               },
                               "end": {
-                                "line": 39,
-                                "column": 71
+                                "line": 29,
+                                "column": 81
                               }
                             },
                             "extra": {
-                              "rawValue": "failed",
-                              "raw": "'failed'"
+                              "rawValue": "[_failed] not yet implemented.",
+                              "raw": "'[_failed] not yet implemented.'"
                             },
-                            "value": "failed"
+                            "value": "[_failed] not yet implemented."
                           }
                         ]
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     ",
-                    "start": 1036,
-                    "end": 1333,
+                    "start": 803,
+                    "end": 1100,
                     "loc": {
                       "start": {
-                        "line": 32,
+                        "line": 22,
                         "column": 2
                       },
                       "end": {
-                        "line": 38,
+                        "line": 28,
+                        "column": 7
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     ",
+                    "start": 1189,
+                    "end": 1399,
+                    "loc": {
+                      "start": {
+                        "line": 31,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 35,
                         "column": 7
                       }
                     }
@@ -1991,31 +1728,31 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1626,
-                "end": 1699,
+                "start": 1402,
+                "end": 1485,
                 "loc": {
                   "start": {
-                    "line": 46,
+                    "line": 36,
                     "column": 2
                   },
                   "end": {
-                    "line": 46,
-                    "column": 75
+                    "line": 36,
+                    "column": 85
                   }
                 },
                 "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1626,
-                  "end": 1635,
+                  "start": 1402,
+                  "end": 1411,
                   "loc": {
                     "start": {
-                      "line": 46,
+                      "line": 36,
                       "column": 2
                     },
                     "end": {
-                      "line": 46,
+                      "line": 36,
                       "column": 11
                     },
                     "identifierName": "_received"
@@ -2031,15 +1768,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1637,
-                    "end": 1643,
+                    "start": 1413,
+                    "end": 1419,
                     "loc": {
                       "start": {
-                        "line": 46,
+                        "line": 36,
                         "column": 13
                       },
                       "end": {
-                        "line": 46,
+                        "line": 36,
                         "column": 19
                       },
                       "identifierName": "peerId"
@@ -2048,15 +1785,15 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1645,
-                    "end": 1652,
+                    "start": 1421,
+                    "end": 1428,
                     "loc": {
                       "start": {
-                        "line": 46,
+                        "line": 36,
                         "column": 21
                       },
                       "end": {
-                        "line": 46,
+                        "line": 36,
                         "column": 28
                       },
                       "identifierName": "message"
@@ -2066,104 +1803,123 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1654,
-                  "end": 1699,
+                  "start": 1430,
+                  "end": 1485,
                   "loc": {
                     "start": {
-                      "line": 46,
+                      "line": 36,
                       "column": 30
                     },
                     "end": {
-                      "line": 46,
-                      "column": 75
+                      "line": 36,
+                      "column": 85
                     }
                   },
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 1656,
-                      "end": 1697,
+                      "start": 1432,
+                      "end": 1483,
                       "loc": {
                         "start": {
-                          "line": 46,
+                          "line": 36,
                           "column": 32
                         },
                         "end": {
-                          "line": 46,
-                          "column": 73
+                          "line": 36,
+                          "column": 83
                         }
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 1662,
-                        "end": 1697,
+                        "start": 1438,
+                        "end": 1483,
                         "loc": {
                           "start": {
-                            "line": 46,
+                            "line": 36,
                             "column": 38
                           },
                           "end": {
-                            "line": 46,
-                            "column": 73
+                            "line": 36,
+                            "column": 83
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 1666,
-                          "end": 1685,
+                          "start": 1442,
+                          "end": 1447,
                           "loc": {
                             "start": {
-                              "line": 46,
+                              "line": 36,
                               "column": 42
                             },
                             "end": {
-                              "line": 46,
-                              "column": 61
+                              "line": 36,
+                              "column": 47
                             },
-                            "identifierName": "ExUndefinedFunction"
+                            "identifierName": "Error"
                           },
-                          "name": "ExUndefinedFunction"
+                          "name": "Error"
                         },
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1686,
-                            "end": 1696,
+                            "start": 1448,
+                            "end": 1482,
                             "loc": {
                               "start": {
-                                "line": 46,
-                                "column": 62
+                                "line": 36,
+                                "column": 48
                               },
                               "end": {
-                                "line": 46,
-                                "column": 72
+                                "line": 36,
+                                "column": 82
                               }
                             },
                             "extra": {
-                              "rawValue": "received",
-                              "raw": "'received'"
+                              "rawValue": "[_received] not yet implemented.",
+                              "raw": "'[_received] not yet implemented.'"
                             },
-                            "value": "received"
+                            "value": "[_received] not yet implemented."
                           }
                         ]
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     ",
-                    "start": 1413,
-                    "end": 1623,
+                    "start": 1189,
+                    "end": 1399,
                     "loc": {
                       "start": {
-                        "line": 41,
+                        "line": 31,
                         "column": 2
                       },
                       "end": {
-                        "line": 45,
+                        "line": 35,
+                        "column": 7
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     ",
+                    "start": 1489,
+                    "end": 1696,
+                    "loc": {
+                      "start": {
+                        "line": 38,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 42,
                         "column": 7
                       }
                     }
@@ -2172,31 +1928,31 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1914,
-                "end": 1986,
+                "start": 1699,
+                "end": 1781,
                 "loc": {
                   "start": {
-                    "line": 53,
+                    "line": 43,
                     "column": 2
                   },
                   "end": {
-                    "line": 53,
-                    "column": 74
+                    "line": 43,
+                    "column": 84
                   }
                 },
                 "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1914,
-                  "end": 1923,
+                  "start": 1699,
+                  "end": 1708,
                   "loc": {
                     "start": {
-                      "line": 53,
+                      "line": 43,
                       "column": 2
                     },
                     "end": {
-                      "line": 53,
+                      "line": 43,
                       "column": 11
                     },
                     "identifierName": "_streamed"
@@ -2212,15 +1968,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 1925,
-                    "end": 1931,
+                    "start": 1710,
+                    "end": 1716,
                     "loc": {
                       "start": {
-                        "line": 53,
+                        "line": 43,
                         "column": 13
                       },
                       "end": {
-                        "line": 53,
+                        "line": 43,
                         "column": 19
                       },
                       "identifierName": "peerId"
@@ -2229,15 +1985,15 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1933,
-                    "end": 1939,
+                    "start": 1718,
+                    "end": 1724,
                     "loc": {
                       "start": {
-                        "line": 53,
+                        "line": 43,
                         "column": 21
                       },
                       "end": {
-                        "line": 53,
+                        "line": 43,
                         "column": 27
                       },
                       "identifierName": "stream"
@@ -2247,84 +2003,84 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1941,
-                  "end": 1986,
+                  "start": 1726,
+                  "end": 1781,
                   "loc": {
                     "start": {
-                      "line": 53,
+                      "line": 43,
                       "column": 29
                     },
                     "end": {
-                      "line": 53,
-                      "column": 74
+                      "line": 43,
+                      "column": 84
                     }
                   },
                   "body": [
                     {
                       "type": "ThrowStatement",
-                      "start": 1943,
-                      "end": 1984,
+                      "start": 1728,
+                      "end": 1779,
                       "loc": {
                         "start": {
-                          "line": 53,
+                          "line": 43,
                           "column": 31
                         },
                         "end": {
-                          "line": 53,
-                          "column": 72
+                          "line": 43,
+                          "column": 82
                         }
                       },
                       "argument": {
                         "type": "NewExpression",
-                        "start": 1949,
-                        "end": 1984,
+                        "start": 1734,
+                        "end": 1779,
                         "loc": {
                           "start": {
-                            "line": 53,
+                            "line": 43,
                             "column": 37
                           },
                           "end": {
-                            "line": 53,
-                            "column": 72
+                            "line": 43,
+                            "column": 82
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 1953,
-                          "end": 1972,
+                          "start": 1738,
+                          "end": 1743,
                           "loc": {
                             "start": {
-                              "line": 53,
+                              "line": 43,
                               "column": 41
                             },
                             "end": {
-                              "line": 53,
-                              "column": 60
+                              "line": 43,
+                              "column": 46
                             },
-                            "identifierName": "ExUndefinedFunction"
+                            "identifierName": "Error"
                           },
-                          "name": "ExUndefinedFunction"
+                          "name": "Error"
                         },
                         "arguments": [
                           {
                             "type": "StringLiteral",
-                            "start": 1973,
-                            "end": 1983,
+                            "start": 1744,
+                            "end": 1778,
                             "loc": {
                               "start": {
-                                "line": 53,
-                                "column": 61
+                                "line": 43,
+                                "column": 47
                               },
                               "end": {
-                                "line": 53,
-                                "column": 71
+                                "line": 43,
+                                "column": 81
                               }
                             },
                             "extra": {
-                              "rawValue": "streamed",
-                              "raw": "'streamed'"
+                              "rawValue": "[_streamed] not yet implemented.",
+                              "raw": "'[_streamed] not yet implemented.'"
                             },
-                            "value": "streamed"
+                            "value": "[_streamed] not yet implemented."
                           }
                         ]
                       }
@@ -2336,15 +2092,15 @@
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     ",
-                    "start": 1704,
-                    "end": 1911,
+                    "start": 1489,
+                    "end": 1696,
                     "loc": {
                       "start": {
-                        "line": 48,
+                        "line": 38,
                         "column": 2
                       },
                       "end": {
-                        "line": 52,
+                        "line": 42,
                         "column": 7
                       }
                     }
@@ -2357,15 +2113,15 @@
             {
               "type": "CommentBlock",
               "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-              "start": 86,
-              "end": 244,
+              "start": 0,
+              "end": 158,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 1,
                   "column": 0
                 },
                 "end": {
-                  "line": 8,
+                  "line": 4,
                   "column": 3
                 }
               }
@@ -2377,89 +2133,37 @@
         "leadingComments": null
       }
     ],
-    "directives": [
-      {
-        "type": "Directive",
-        "start": 0,
-        "end": 12,
-        "loc": {
-          "start": {
-            "line": 1,
-            "column": 0
-          },
-          "end": {
-            "line": 1,
-            "column": 12
-          }
-        },
-        "value": {
-          "type": "DirectiveLiteral",
-          "start": 0,
-          "end": 12,
-          "loc": {
-            "start": {
-              "line": 1,
-              "column": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 12
-            }
-          },
-          "value": "use strict",
-          "extra": {
-            "raw": "'use strict'",
-            "rawValue": "use strict"
-          }
-        }
-      }
-    ]
+    "directives": []
   },
   "comments": [
     {
       "type": "CommentBlock",
       "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-      "start": 86,
-      "end": 244,
+      "start": 0,
+      "end": 158,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 1,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 4,
           "column": 3
         }
       }
     },
     {
       "type": "CommentBlock",
-      "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-      "start": 265,
-      "end": 374,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 2
-        },
-        "end": {
-          "line": 13,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     ",
-      "start": 430,
-      "end": 699,
+      "start": 179,
+      "end": 448,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 6,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 12,
           "column": 7
         }
       }
@@ -2467,15 +2171,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-      "start": 785,
-      "end": 956,
+      "start": 543,
+      "end": 714,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 15,
           "column": 2
         },
         "end": {
-          "line": 29,
+          "line": 19,
           "column": 7
         }
       }
@@ -2483,15 +2187,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     ",
-      "start": 1036,
-      "end": 1333,
+      "start": 803,
+      "end": 1100,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 22,
           "column": 2
         },
         "end": {
-          "line": 38,
+          "line": 28,
           "column": 7
         }
       }
@@ -2499,15 +2203,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     ",
-      "start": 1413,
-      "end": 1623,
+      "start": 1189,
+      "end": 1399,
       "loc": {
         "start": {
-          "line": 41,
+          "line": 31,
           "column": 2
         },
         "end": {
-          "line": 45,
+          "line": 35,
           "column": 7
         }
       }
@@ -2515,15 +2219,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     ",
-      "start": 1704,
-      "end": 1911,
+      "start": 1489,
+      "end": 1696,
       "loc": {
         "start": {
-          "line": 48,
+          "line": 38,
           "column": 2
         },
         "end": {
-          "line": 52,
+          "line": 42,
           "column": 7
         }
       }
@@ -2531,151 +2235,17 @@
   ],
   "tokens": [
     {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "use strict",
-      "start": 0,
-      "end": 12,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "import",
-        "keyword": "import",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "import",
-      "start": 14,
-      "end": 20,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "ExUndefinedFunction",
-      "start": 21,
-      "end": 40,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 7
-        },
-        "end": {
-          "line": 3,
-          "column": 26
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "from",
-      "start": 41,
-      "end": 45,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 27
-        },
-        "end": {
-          "line": 3,
-          "column": 31
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "../exceptions/exundefinedfunction.js",
-      "start": 46,
-      "end": 84,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 32
-        },
-        "end": {
-          "line": 3,
-          "column": 70
-        }
-      }
-    },
-    {
       "type": "CommentBlock",
       "value": "*\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n ",
-      "start": 86,
-      "end": 244,
+      "start": 0,
+      "end": 158,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 1,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 4,
           "column": 3
         }
       }
@@ -2695,15 +2265,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 245,
-      "end": 250,
+      "start": 159,
+      "end": 164,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 5,
           "column": 5
         }
       }
@@ -2721,15 +2291,15 @@
         "binop": null
       },
       "value": "IProtocol",
-      "start": 251,
-      "end": 260,
+      "start": 165,
+      "end": 174,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 5,
           "column": 6
         },
         "end": {
-          "line": 9,
+          "line": 5,
           "column": 15
         }
       }
@@ -2746,358 +2316,31 @@
         "postfix": false,
         "binop": null
       },
-      "start": 261,
-      "end": 262,
+      "start": 175,
+      "end": 176,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 5,
           "column": 16
         },
         "end": {
-          "line": 9,
+          "line": 5,
           "column": 17
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n     * Get the identifier of the protocol\n     * @Returns {string} The identifier of the protocol\n     ",
-      "start": 265,
-      "end": 374,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 2
-        },
-        "end": {
-          "line": 13,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "_pid",
-      "start": 377,
-      "end": 381,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 2
-        },
-        "end": {
-          "line": 14,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 382,
-      "end": 383,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 7
-        },
-        "end": {
-          "line": 14,
-          "column": 8
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 383,
-      "end": 384,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 8
-        },
-        "end": {
-          "line": 14,
-          "column": 9
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "{",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 385,
-      "end": 386,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 10
-        },
-        "end": {
-          "line": 14,
-          "column": 11
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "throw",
-        "keyword": "throw",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "throw",
-      "start": 387,
-      "end": 392,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 12
-        },
-        "end": {
-          "line": 14,
-          "column": 17
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "new",
-        "keyword": "new",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "new",
-      "start": 393,
-      "end": 396,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 18
-        },
-        "end": {
-          "line": 14,
-          "column": 21
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "ExUndefinedFunction",
-      "start": 397,
-      "end": 416,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 22
-        },
-        "end": {
-          "line": 14,
-          "column": 41
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 416,
-      "end": 417,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 41
-        },
-        "end": {
-          "line": 14,
-          "column": 42
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "pid",
-      "start": 417,
-      "end": 422,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 42
-        },
-        "end": {
-          "line": 14,
-          "column": 47
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 422,
-      "end": 423,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 47
-        },
-        "end": {
-          "line": 14,
-          "column": 48
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "}",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 424,
-      "end": 425,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 49
-        },
-        "end": {
-          "line": 14,
-          "column": 50
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 425,
-      "end": 426,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 50
-        },
-        "end": {
-          "line": 14,
-          "column": 51
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     ",
-      "start": 430,
-      "end": 699,
+      "start": 179,
+      "end": 448,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 6,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 12,
           "column": 7
         }
       }
@@ -3115,15 +2358,15 @@
         "binop": null
       },
       "value": "_connected",
-      "start": 702,
-      "end": 712,
+      "start": 451,
+      "end": 461,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 2
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 12
         }
       }
@@ -3140,15 +2383,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 713,
-      "end": 714,
+      "start": 462,
+      "end": 463,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 13
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 14
         }
       }
@@ -3166,15 +2409,15 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 714,
-      "end": 720,
+      "start": 463,
+      "end": 469,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 14
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 20
         }
       }
@@ -3192,15 +2435,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 720,
-      "end": 721,
+      "start": 469,
+      "end": 470,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 20
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 21
         }
       }
@@ -3218,15 +2461,15 @@
         "binop": null
       },
       "value": "isOutgoing",
-      "start": 722,
-      "end": 732,
+      "start": 471,
+      "end": 481,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 22
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 32
         }
       }
@@ -3243,15 +2486,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 732,
-      "end": 733,
+      "start": 481,
+      "end": 482,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 32
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 33
         }
       }
@@ -3268,15 +2511,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 734,
-      "end": 735,
+      "start": 483,
+      "end": 484,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 34
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 35
         }
       }
@@ -3296,15 +2539,15 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 736,
-      "end": 741,
+      "start": 485,
+      "end": 490,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 36
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 41
         }
       }
@@ -3324,15 +2567,15 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 742,
-      "end": 745,
+      "start": 491,
+      "end": 494,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 42
         },
         "end": {
-          "line": 23,
+          "line": 13,
           "column": 45
         }
       }
@@ -3349,17 +2592,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "ExUndefinedFunction",
-      "start": 746,
-      "end": 765,
+      "value": "Error",
+      "start": 495,
+      "end": 500,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 13,
           "column": 46
         },
         "end": {
-          "line": 23,
-          "column": 65
+          "line": 13,
+          "column": 51
         }
       }
     },
@@ -3375,16 +2618,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 765,
-      "end": 766,
+      "start": 500,
+      "end": 501,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 65
+          "line": 13,
+          "column": 51
         },
         "end": {
-          "line": 23,
-          "column": 66
+          "line": 13,
+          "column": 52
         }
       }
     },
@@ -3401,17 +2644,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "connected",
-      "start": 766,
-      "end": 777,
+      "value": "[_connected] not yet implemented.",
+      "start": 501,
+      "end": 536,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 66
+          "line": 13,
+          "column": 52
         },
         "end": {
-          "line": 23,
-          "column": 77
+          "line": 13,
+          "column": 87
         }
       }
     },
@@ -3427,16 +2670,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 777,
-      "end": 778,
+      "start": 536,
+      "end": 537,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 77
+          "line": 13,
+          "column": 87
         },
         "end": {
-          "line": 23,
-          "column": 78
+          "line": 13,
+          "column": 88
         }
       }
     },
@@ -3452,57 +2695,31 @@
         "postfix": false,
         "binop": null
       },
-      "start": 779,
-      "end": 780,
+      "start": 538,
+      "end": 539,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 79
+          "line": 13,
+          "column": 89
         },
         "end": {
-          "line": 23,
-          "column": 80
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 780,
-      "end": 781,
-      "loc": {
-        "start": {
-          "line": 23,
-          "column": 80
-        },
-        "end": {
-          "line": 23,
-          "column": 81
+          "line": 13,
+          "column": 90
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     ",
-      "start": 785,
-      "end": 956,
+      "start": 543,
+      "end": 714,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 15,
           "column": 2
         },
         "end": {
-          "line": 29,
+          "line": 19,
           "column": 7
         }
       }
@@ -3520,15 +2737,15 @@
         "binop": null
       },
       "value": "_disconnected",
-      "start": 959,
-      "end": 972,
+      "start": 717,
+      "end": 730,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 2
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 15
         }
       }
@@ -3545,15 +2762,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 973,
-      "end": 974,
+      "start": 731,
+      "end": 732,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 16
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 17
         }
       }
@@ -3571,15 +2788,15 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 974,
-      "end": 980,
+      "start": 732,
+      "end": 738,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 17
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 23
         }
       }
@@ -3596,15 +2813,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 980,
-      "end": 981,
+      "start": 738,
+      "end": 739,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 23
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 24
         }
       }
@@ -3621,15 +2838,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 982,
-      "end": 983,
+      "start": 740,
+      "end": 741,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 25
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 26
         }
       }
@@ -3649,15 +2866,15 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 984,
-      "end": 989,
+      "start": 742,
+      "end": 747,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 27
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 32
         }
       }
@@ -3677,15 +2894,15 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 990,
-      "end": 993,
+      "start": 748,
+      "end": 751,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 33
         },
         "end": {
-          "line": 30,
+          "line": 20,
           "column": 36
         }
       }
@@ -3702,17 +2919,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "ExUndefinedFunction",
-      "start": 994,
-      "end": 1013,
+      "value": "Error",
+      "start": 752,
+      "end": 757,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 20,
           "column": 37
         },
         "end": {
-          "line": 30,
-          "column": 56
+          "line": 20,
+          "column": 42
         }
       }
     },
@@ -3728,16 +2945,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1013,
-      "end": 1014,
+      "start": 757,
+      "end": 758,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 56
+          "line": 20,
+          "column": 42
         },
         "end": {
-          "line": 30,
-          "column": 57
+          "line": 20,
+          "column": 43
         }
       }
     },
@@ -3754,17 +2971,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "disconnected",
-      "start": 1014,
-      "end": 1028,
+      "value": "[_disconnected] not yet implemented.",
+      "start": 758,
+      "end": 796,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 57
+          "line": 20,
+          "column": 43
         },
         "end": {
-          "line": 30,
-          "column": 71
+          "line": 20,
+          "column": 81
         }
       }
     },
@@ -3780,16 +2997,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1028,
-      "end": 1029,
+      "start": 796,
+      "end": 797,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 71
+          "line": 20,
+          "column": 81
         },
         "end": {
-          "line": 30,
-          "column": 72
+          "line": 20,
+          "column": 82
         }
       }
     },
@@ -3805,57 +3022,31 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1030,
-      "end": 1031,
+      "start": 798,
+      "end": 799,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 73
+          "line": 20,
+          "column": 83
         },
         "end": {
-          "line": 30,
-          "column": 74
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1031,
-      "end": 1032,
-      "loc": {
-        "start": {
-          "line": 30,
-          "column": 74
-        },
-        "end": {
-          "line": 30,
-          "column": 75
+          "line": 20,
+          "column": 84
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     ",
-      "start": 1036,
-      "end": 1333,
+      "start": 803,
+      "end": 1100,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 22,
           "column": 2
         },
         "end": {
-          "line": 38,
+          "line": 28,
           "column": 7
         }
       }
@@ -3873,15 +3064,15 @@
         "binop": null
       },
       "value": "_failed",
-      "start": 1336,
-      "end": 1343,
+      "start": 1103,
+      "end": 1110,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 2
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 9
         }
       }
@@ -3898,15 +3089,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1344,
-      "end": 1345,
+      "start": 1111,
+      "end": 1112,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 10
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 11
         }
       }
@@ -3924,15 +3115,15 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1345,
-      "end": 1351,
+      "start": 1112,
+      "end": 1118,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 11
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 17
         }
       }
@@ -3950,15 +3141,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1351,
-      "end": 1352,
+      "start": 1118,
+      "end": 1119,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 17
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 18
         }
       }
@@ -3976,15 +3167,15 @@
         "binop": null
       },
       "value": "isOutgoing",
-      "start": 1353,
-      "end": 1363,
+      "start": 1120,
+      "end": 1130,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 19
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 29
         }
       }
@@ -4001,15 +3192,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1363,
-      "end": 1364,
+      "start": 1130,
+      "end": 1131,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 29
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 30
         }
       }
@@ -4026,15 +3217,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1365,
-      "end": 1366,
+      "start": 1132,
+      "end": 1133,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 31
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 32
         }
       }
@@ -4054,15 +3245,15 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 1367,
-      "end": 1372,
+      "start": 1134,
+      "end": 1139,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 33
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 38
         }
       }
@@ -4082,15 +3273,15 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 1373,
-      "end": 1376,
+      "start": 1140,
+      "end": 1143,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 39
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 42
         }
       }
@@ -4107,17 +3298,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "ExUndefinedFunction",
-      "start": 1377,
-      "end": 1396,
+      "value": "Error",
+      "start": 1144,
+      "end": 1149,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 43
         },
         "end": {
-          "line": 39,
-          "column": 62
+          "line": 29,
+          "column": 48
         }
       }
     },
@@ -4133,16 +3324,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1396,
-      "end": 1397,
+      "start": 1149,
+      "end": 1150,
       "loc": {
         "start": {
-          "line": 39,
-          "column": 62
+          "line": 29,
+          "column": 48
         },
         "end": {
-          "line": 39,
-          "column": 63
+          "line": 29,
+          "column": 49
         }
       }
     },
@@ -4159,17 +3350,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "failed",
-      "start": 1397,
-      "end": 1405,
+      "value": "[_failed] not yet implemented.",
+      "start": 1150,
+      "end": 1182,
       "loc": {
         "start": {
-          "line": 39,
-          "column": 63
+          "line": 29,
+          "column": 49
         },
         "end": {
-          "line": 39,
-          "column": 71
+          "line": 29,
+          "column": 81
         }
       }
     },
@@ -4185,16 +3376,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1405,
-      "end": 1406,
+      "start": 1182,
+      "end": 1183,
       "loc": {
         "start": {
-          "line": 39,
-          "column": 71
+          "line": 29,
+          "column": 81
         },
         "end": {
-          "line": 39,
-          "column": 72
+          "line": 29,
+          "column": 82
         }
       }
     },
@@ -4210,57 +3401,31 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1407,
-      "end": 1408,
+      "start": 1184,
+      "end": 1185,
       "loc": {
         "start": {
-          "line": 39,
-          "column": 73
+          "line": 29,
+          "column": 83
         },
         "end": {
-          "line": 39,
-          "column": 74
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1408,
-      "end": 1409,
-      "loc": {
-        "start": {
-          "line": 39,
-          "column": 74
-        },
-        "end": {
-          "line": 39,
-          "column": 75
+          "line": 29,
+          "column": 84
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     ",
-      "start": 1413,
-      "end": 1623,
+      "start": 1189,
+      "end": 1399,
       "loc": {
         "start": {
-          "line": 41,
+          "line": 31,
           "column": 2
         },
         "end": {
-          "line": 45,
+          "line": 35,
           "column": 7
         }
       }
@@ -4278,15 +3443,15 @@
         "binop": null
       },
       "value": "_received",
-      "start": 1626,
-      "end": 1635,
+      "start": 1402,
+      "end": 1411,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 2
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 11
         }
       }
@@ -4303,15 +3468,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1636,
-      "end": 1637,
+      "start": 1412,
+      "end": 1413,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 12
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 13
         }
       }
@@ -4329,15 +3494,15 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1637,
-      "end": 1643,
+      "start": 1413,
+      "end": 1419,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 13
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 19
         }
       }
@@ -4355,15 +3520,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1643,
-      "end": 1644,
+      "start": 1419,
+      "end": 1420,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 19
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 20
         }
       }
@@ -4381,15 +3546,15 @@
         "binop": null
       },
       "value": "message",
-      "start": 1645,
-      "end": 1652,
+      "start": 1421,
+      "end": 1428,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 21
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 28
         }
       }
@@ -4406,15 +3571,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1652,
-      "end": 1653,
+      "start": 1428,
+      "end": 1429,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 28
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 29
         }
       }
@@ -4431,15 +3596,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1654,
-      "end": 1655,
+      "start": 1430,
+      "end": 1431,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 30
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 31
         }
       }
@@ -4459,15 +3624,15 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 1656,
-      "end": 1661,
+      "start": 1432,
+      "end": 1437,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 32
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 37
         }
       }
@@ -4487,15 +3652,15 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 1662,
-      "end": 1665,
+      "start": 1438,
+      "end": 1441,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 38
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 41
         }
       }
@@ -4512,17 +3677,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "ExUndefinedFunction",
-      "start": 1666,
-      "end": 1685,
+      "value": "Error",
+      "start": 1442,
+      "end": 1447,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 42
         },
         "end": {
-          "line": 46,
-          "column": 61
+          "line": 36,
+          "column": 47
         }
       }
     },
@@ -4538,16 +3703,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1685,
-      "end": 1686,
+      "start": 1447,
+      "end": 1448,
       "loc": {
         "start": {
-          "line": 46,
-          "column": 61
+          "line": 36,
+          "column": 47
         },
         "end": {
-          "line": 46,
-          "column": 62
+          "line": 36,
+          "column": 48
         }
       }
     },
@@ -4564,17 +3729,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "received",
-      "start": 1686,
-      "end": 1696,
+      "value": "[_received] not yet implemented.",
+      "start": 1448,
+      "end": 1482,
       "loc": {
         "start": {
-          "line": 46,
-          "column": 62
+          "line": 36,
+          "column": 48
         },
         "end": {
-          "line": 46,
-          "column": 72
+          "line": 36,
+          "column": 82
         }
       }
     },
@@ -4590,16 +3755,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1696,
-      "end": 1697,
+      "start": 1482,
+      "end": 1483,
       "loc": {
         "start": {
-          "line": 46,
-          "column": 72
+          "line": 36,
+          "column": 82
         },
         "end": {
-          "line": 46,
-          "column": 73
+          "line": 36,
+          "column": 83
         }
       }
     },
@@ -4615,57 +3780,31 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1698,
-      "end": 1699,
+      "start": 1484,
+      "end": 1485,
       "loc": {
         "start": {
-          "line": 46,
-          "column": 74
+          "line": 36,
+          "column": 84
         },
         "end": {
-          "line": 46,
-          "column": 75
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1699,
-      "end": 1700,
-      "loc": {
-        "start": {
-          "line": 46,
-          "column": 75
-        },
-        "end": {
-          "line": 46,
-          "column": 76
+          "line": 36,
+          "column": 85
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     ",
-      "start": 1704,
-      "end": 1911,
+      "start": 1489,
+      "end": 1696,
       "loc": {
         "start": {
-          "line": 48,
+          "line": 38,
           "column": 2
         },
         "end": {
-          "line": 52,
+          "line": 42,
           "column": 7
         }
       }
@@ -4683,15 +3822,15 @@
         "binop": null
       },
       "value": "_streamed",
-      "start": 1914,
-      "end": 1923,
+      "start": 1699,
+      "end": 1708,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 2
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 11
         }
       }
@@ -4708,15 +3847,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1924,
-      "end": 1925,
+      "start": 1709,
+      "end": 1710,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 12
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 13
         }
       }
@@ -4734,15 +3873,15 @@
         "binop": null
       },
       "value": "peerId",
-      "start": 1925,
-      "end": 1931,
+      "start": 1710,
+      "end": 1716,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 13
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 19
         }
       }
@@ -4760,15 +3899,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1931,
-      "end": 1932,
+      "start": 1716,
+      "end": 1717,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 19
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 20
         }
       }
@@ -4786,15 +3925,15 @@
         "binop": null
       },
       "value": "stream",
-      "start": 1933,
-      "end": 1939,
+      "start": 1718,
+      "end": 1724,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 21
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 27
         }
       }
@@ -4811,15 +3950,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1939,
-      "end": 1940,
+      "start": 1724,
+      "end": 1725,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 27
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 28
         }
       }
@@ -4836,15 +3975,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1941,
-      "end": 1942,
+      "start": 1726,
+      "end": 1727,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 29
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 30
         }
       }
@@ -4864,15 +4003,15 @@
         "updateContext": null
       },
       "value": "throw",
-      "start": 1943,
-      "end": 1948,
+      "start": 1728,
+      "end": 1733,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 31
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 36
         }
       }
@@ -4892,15 +4031,15 @@
         "updateContext": null
       },
       "value": "new",
-      "start": 1949,
-      "end": 1952,
+      "start": 1734,
+      "end": 1737,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 37
         },
         "end": {
-          "line": 53,
+          "line": 43,
           "column": 40
         }
       }
@@ -4917,17 +4056,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "ExUndefinedFunction",
-      "start": 1953,
-      "end": 1972,
+      "value": "Error",
+      "start": 1738,
+      "end": 1743,
       "loc": {
         "start": {
-          "line": 53,
+          "line": 43,
           "column": 41
         },
         "end": {
-          "line": 53,
-          "column": 60
+          "line": 43,
+          "column": 46
         }
       }
     },
@@ -4943,16 +4082,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1972,
-      "end": 1973,
+      "start": 1743,
+      "end": 1744,
       "loc": {
         "start": {
-          "line": 53,
-          "column": 60
+          "line": 43,
+          "column": 46
         },
         "end": {
-          "line": 53,
-          "column": 61
+          "line": 43,
+          "column": 47
         }
       }
     },
@@ -4969,17 +4108,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "streamed",
-      "start": 1973,
-      "end": 1983,
+      "value": "[_streamed] not yet implemented.",
+      "start": 1744,
+      "end": 1778,
       "loc": {
         "start": {
-          "line": 53,
-          "column": 61
+          "line": 43,
+          "column": 47
         },
         "end": {
-          "line": 53,
-          "column": 71
+          "line": 43,
+          "column": 81
         }
       }
     },
@@ -4995,16 +4134,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1983,
-      "end": 1984,
+      "start": 1778,
+      "end": 1779,
       "loc": {
         "start": {
-          "line": 53,
-          "column": 71
+          "line": 43,
+          "column": 81
         },
         "end": {
-          "line": 53,
-          "column": 72
+          "line": 43,
+          "column": 82
         }
       }
     },
@@ -5020,42 +4159,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1985,
-      "end": 1986,
+      "start": 1780,
+      "end": 1781,
       "loc": {
         "start": {
-          "line": 53,
-          "column": 73
+          "line": 43,
+          "column": 83
         },
         "end": {
-          "line": 53,
-          "column": 74
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1986,
-      "end": 1987,
-      "loc": {
-        "start": {
-          "line": 53,
-          "column": 74
-        },
-        "end": {
-          "line": 53,
-          "column": 75
+          "line": 43,
+          "column": 84
         }
       }
     },
@@ -5071,42 +4184,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1988,
-      "end": 1989,
+      "start": 1782,
+      "end": 1783,
       "loc": {
         "start": {
-          "line": 54,
+          "line": 44,
           "column": 0
         },
         "end": {
-          "line": 54,
+          "line": 44,
           "column": 1
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1989,
-      "end": 1990,
-      "loc": {
-        "start": {
-          "line": 54,
-          "column": 1
-        },
-        "end": {
-          "line": 54,
-          "column": 2
         }
       }
     },
@@ -5125,15 +4212,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 1992,
-      "end": 1998,
+      "start": 1785,
+      "end": 1791,
       "loc": {
         "start": {
-          "line": 56,
+          "line": 46,
           "column": 0
         },
         "end": {
-          "line": 56,
+          "line": 46,
           "column": 6
         }
       }
@@ -5153,15 +4240,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 1999,
-      "end": 2006,
+      "start": 1792,
+      "end": 1799,
       "loc": {
         "start": {
-          "line": 56,
+          "line": 46,
           "column": 7
         },
         "end": {
-          "line": 56,
+          "line": 46,
           "column": 14
         }
       }
@@ -5179,15 +4266,15 @@
         "binop": null
       },
       "value": "IProtocol",
-      "start": 2007,
-      "end": 2016,
+      "start": 1800,
+      "end": 1809,
       "loc": {
         "start": {
-          "line": 56,
+          "line": 46,
           "column": 15
         },
         "end": {
-          "line": 56,
+          "line": 46,
           "column": 24
         }
       }
@@ -5205,15 +4292,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2017,
-      "end": 2017,
+      "start": 1810,
+      "end": 1810,
       "loc": {
         "start": {
-          "line": 57,
+          "line": 47,
           "column": 0
         },
         "end": {
-          "line": 57,
+          "line": 47,
           "column": 0
         }
       }

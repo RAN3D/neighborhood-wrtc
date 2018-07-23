@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#entries">entries</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
@@ -39,8 +40,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
@@ -109,7 +108,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
@@ -144,7 +143,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-member-peer">peer</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-member-counter">counter</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
@@ -172,7 +171,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-member-protocols">protocols</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-member-peer">peer</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -235,7 +234,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-method-decrement">decrement</a></span></span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-method-decrement">decrement</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
       <div>
@@ -264,42 +263,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-method-increment">increment</a></span></span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-method-increment">increment</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
       <div>
         
         
         <div data-ice="description"><p>Add an occurrence of the arc to the protocol</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html#instance-method-sum">sum</a></span></span><span class="code" data-ice="signature">(): <span>integer</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Count the number of arcs leading to this peer</p>
 </div>
       </div>
     </td>
@@ -326,11 +296,11 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber15">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber12">source</a></span></span>
     </span>
   </h3>
 
@@ -355,15 +325,6 @@
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The identifier of the peer reachable through the
 socket.</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">protocolId</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol that creates an
-arc to this peer using this socket. Protocols can have multiple arcs
-leading to a same peer. Multiple protocols can share a same socket.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
@@ -399,18 +360,18 @@ leading to a same peer. Multiple protocols can share a same socket.</p>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-peer">
+  <h3 data-ice="anchor" id="instance-member-counter">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">peer</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">counter</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber15">source</a></span></span>
     </span>
   </h3>
 
@@ -442,18 +403,18 @@ leading to a same peer. Multiple protocols can share a same socket.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-protocols">
+  <h3 data-ice="anchor" id="instance-member-peer">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">protocols</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">peer</span><span class="code" data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber13">source</a></span></span>
     </span>
   </h3>
 
@@ -496,7 +457,7 @@ leading to a same peer. Multiple protocols can share a same socket.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber17">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
@@ -538,11 +499,11 @@ leading to a same peer. Multiple protocols can share a same socket.</p>
     
     
     
-    <span class="code" data-ice="name">decrement</span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="code" data-ice="name">decrement</span><span class="code" data-ice="signature">()</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber40">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber29">source</a></span></span>
     </span>
   </h3>
 
@@ -554,41 +515,10 @@ leading to a same peer. Multiple protocols can share a same socket.</p>
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">protocolId</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol.</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
+  <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>True if an arc has been remove, false if the protocol
-do not have such arc.</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -613,11 +543,11 @@ do not have such arc.</p>
     
     
     
-    <span class="code" data-ice="name">increment</span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+    <span class="code" data-ice="name">increment</span><span class="code" data-ice="signature">()</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber27">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber22">source</a></span></span>
     </span>
   </h3>
 
@@ -629,85 +559,10 @@ do not have such arc.</p>
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">protocolId</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol.</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-sum">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">sum</span><span class="code" data-ice="signature">(): <span>integer</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/lib/entries/eliving.js.html#lineNumber57">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Count the number of arcs leading to this peer</p>
-</div>
-
-  
-
   <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>integer</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>The sum of occurrences of protocols using this
-socket.</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 

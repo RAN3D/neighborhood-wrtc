@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#entries">entries</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
@@ -39,8 +40,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
@@ -89,58 +88,43 @@ connection is destroyed only if the 3 applications remove it.</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">// import the lib
 import Neighborhood from &apos;neighborhood-wrtc&apos;
 // create a class that fullfilled the [following API](https://ran3d.github.io/neighborhood-wrtc/class/lib/interfaces/iprotocol.js~IProtocol.html)
-class P { // check IProtocol to see the interface
-  constructor (pid, peer) {
-    this.id = pid
-    this.peer = peer
-  };
-
-  _pid () { return this.id };
-
+class P extends Neighborhood { // check IProtocol to see the interface
   _connected (peerId) {
-    console.log(&apos;@%s-P%s: an arc has been created.&apos;, this.peer, this.id)
+    console.log(&apos;@%s: an arc has been created.&apos;, this.PEER)
   };
 
   _disconnected (peerId) {
-    console.log(&apos;@%s-P%s: an arc has been removed.&apos;, this.peer, this.id)
+    console.log(&apos;@%s: an arc has been removed.&apos;, this.PEER, peerId)
   };
 
   _received (peerId, message) {
-    console.log(&apos;@%s-P%s: message received from @%s: %s&apos;,
-      this.peer, this.id, peerId, message)
+    console.log(&apos;@%s: message received from @%s: %s&apos;,
+      this.PEER, peerId, message)
   };
 
-  _streamed (peerId, stream) {
-    console.log(&apos;Receive a stream from: %s&apos;, peerId, stream)
-  }
-
   _failed (peerId) {
-    console.log(&apos;%s-P%s: failed to establish a connection with %s.&apos;,
-      this.peer, this.id, peerId)
+    console.log(&apos;%s: failed to establish a connection with %s.&apos;,
+      this.PEER, peerId)
   };
 };
 
 // create the Peer
-const neigh = new Neighborhood({
-  peer: &apos;myid1&apos;,
+const p1 = new Neighborhood({
+  peer: &apos;peer1&apos;,
   config: {
     config: {iceServers: [...]},
     trickle: true
   }
 })
-// create the protocol
-const p1 = neigh.register(new P(&apos;mywonderfullprotocol&apos;, &apos;myid1&apos;))
 
 // create the Peer
-const neigh = new Neighborhood({
-  peer: &apos;myid2&apos;,
+const p2 = new Neighborhood({
+  peer: &apos;peer2&apos;,
   config: {
     config: {iceServers: [...]},
     trickle: true
   }
 })
-// create the protocol
-const p2 = neigh.register(new P(&apos;mywonderfullprotocol&apos;, &apos;myid2&apos;))
 
 // now connec them
 // #3 callback functions ensuring the peers exchanges messages

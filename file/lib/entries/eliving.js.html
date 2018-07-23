@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#entries">entries</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
@@ -39,8 +40,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
@@ -59,61 +58,29 @@ class ELiving {
   /**
      * @param {string} peerId The identifier of the peer reachable through the
      * socket.
-     * @param {string} protocolId The identifier of the protocol that creates an
-     * arc to this peer using this socket. Protocols can have multiple arcs
-     * leading to a same peer. Multiple protocols can share a same socket.
      * @param {object} socket The WebRTC socket.
      */
-  constructor (peerId, protocolId, socket) {
+  constructor (peerId, socket) {
     this.peer = peerId // key
     this.socket = socket
-
-    this.protocols = new Map()
-    this.increment(protocolId)
-  };
+    this.counter = 0
+    this.increment()
+  }
 
   /**
      * Add an occurrence of the arc to the protocol
-     * @param {string} protocolId The identifier of the protocol.
      */
-  increment (protocolId) {
-    if (!this.protocols.has(protocolId)) {
-      this.protocols.set(protocolId, 0)
-    };
-    this.protocols.set(protocolId, this.protocols.get(protocolId) + 1)
-  };
+  increment () {
+    this.counter++
+  }
 
   /**
      * Remove an occurrence of the arc to the protocol
-     * @param {string} protocolId The identifier of the protocol.
-     * @returns {boolean} True if an arc has been remove, false if the protocol
-     * do not have such arc.
      */
-  decrement (protocolId) {
-    let found = false
-    if (this.protocols.has(protocolId)) {
-      this.protocols.set(protocolId, this.protocols.get(protocolId) - 1)
-      if (this.protocols.get(protocolId) &lt;= 0) {
-        this.protocols.delete(protocolId)
-      };
-      found = true
-    };
-    return found
-  };
-
-  /**
-     * Count the number of arcs leading to this peer
-     * @returns {integer} The sum of occurrences of protocols using this
-     * socket.
-     */
-  sum () {
-    let result = 0
-    this.protocols.forEach((v, k) =&gt; {
-      result += v
-    })
-    return result
-  };
-};
+  decrement () {
+    this.counter--
+  }
+}
 
 module.exports = ELiving
 </code></pre>

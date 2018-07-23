@@ -1,7 +1,7 @@
 {
-  "coverage": "46.72%",
-  "expectCount": 122,
-  "actualCount": 57,
+  "coverage": "45.63%",
+  "expectCount": 103,
+  "actualCount": 47,
   "files": {
     "lib/arcstore.js": {
       "expectCount": 9,
@@ -21,16 +21,16 @@
       ]
     },
     "lib/entries/eliving.js": {
-      "expectCount": 8,
-      "actualCount": 5,
+      "expectCount": 7,
+      "actualCount": 4,
       "undocumentLines": [
-        16,
-        17,
-        19
+        13,
+        14,
+        15
       ]
     },
     "lib/entries/epending.js": {
-      "expectCount": 9,
+      "expectCount": 8,
       "actualCount": 2,
       "undocumentLines": [
         17,
@@ -38,8 +38,7 @@
         19,
         20,
         21,
-        22,
-        23
+        22
       ]
     },
     "lib/exceptions/exincompletemessage.js": {
@@ -61,21 +60,20 @@
       ]
     },
     "lib/exceptions/exprotocolexists.js": {
-      "expectCount": 4,
-      "actualCount": 2,
+      "expectCount": 3,
+      "actualCount": 1,
       "undocumentLines": [
-        13,
-        14
+        8,
+        9
       ]
     },
     "lib/exceptions/exsocketnotfound.js": {
-      "expectCount": 6,
+      "expectCount": 5,
       "actualCount": 2,
       "undocumentLines": [
+        14,
         15,
-        16,
-        17,
-        18
+        16
       ]
     },
     "lib/exceptions/exundefinedfunction.js": {
@@ -86,81 +84,68 @@
         13
       ]
     },
-    "lib/interfaces/ineighborhood.js": {
-      "expectCount": 8,
-      "actualCount": 7,
-      "undocumentLines": [
-        18
-      ]
-    },
-    "lib/interfaces/iprotocol.js": {
-      "expectCount": 7,
-      "actualCount": 7,
+    "lib/iprotocol.js": {
+      "expectCount": 6,
+      "actualCount": 6,
       "undocumentLines": []
     },
     "lib/messages/minternalsend.js": {
-      "expectCount": 6,
+      "expectCount": 5,
       "actualCount": 2,
       "undocumentLines": [
-        15,
-        16,
-        17,
-        18
+        12,
+        13,
+        14
       ]
     },
     "lib/messages/mrequest.js": {
-      "expectCount": 8,
+      "expectCount": 7,
       "actualCount": 2,
       "undocumentLines": [
-        19,
-        20,
-        21,
-        22,
-        23,
-        24
-      ]
-    },
-    "lib/messages/mresponse.js": {
-      "expectCount": 8,
-      "actualCount": 2,
-      "undocumentLines": [
+        17,
         18,
         19,
         20,
-        21,
-        22,
-        23
+        21
+      ]
+    },
+    "lib/messages/mresponse.js": {
+      "expectCount": 7,
+      "actualCount": 2,
+      "undocumentLines": [
+        17,
+        18,
+        19,
+        20,
+        21
       ]
     },
     "lib/messages/msend.js": {
-      "expectCount": 6,
+      "expectCount": 5,
       "actualCount": 2,
       "undocumentLines": [
         15,
         16,
-        17,
-        18
+        17
       ]
     },
     "lib/neighborhood.js": {
-      "expectCount": 24,
+      "expectCount": 22,
       "actualCount": 9,
       "undocumentLines": [
         3,
-        47,
+        43,
+        53,
+        54,
         57,
-        58,
         61,
-        65,
-        66,
-        67,
-        70,
+        62,
+        63,
+        500,
+        535,
         572,
         609,
-        646,
-        683,
-        687,
-        695
+        626
       ]
     }
   }

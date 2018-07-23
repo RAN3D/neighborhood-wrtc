@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html">ArcStore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/neighborhood.js~Neighborhood.html">Neighborhood</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#entries">entries</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/edying.js~EDying.html">EDying</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span></li>
@@ -39,8 +40,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html">ExProtocolExists</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html">ExSocketNotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/exceptions/exundefinedfunction.js~ExUndefinedFunction.html">ExUndefinedFunction</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#interfaces">interfaces</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/ineighborhood.js~INeighborhood.html">INeighborhood</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/interfaces/iprotocol.js~IProtocol.html">IProtocol</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#messages">messages</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/minternalsend.js~MInternalSend.html">MInternalSend</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mrequest.js~MRequest.html">MRequest</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/messages/mresponse.js~MResponse.html">MResponse</a></span></span></li>
@@ -238,13 +237,13 @@ comprise multiples protocols that may use multiple times an arc.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>ProtocolId adds another arc leading to peerId in the store</p>
+        <div data-ice="description"><p>add another arc leading to peerId in the store</p>
 </div>
       </div>
     </td>
@@ -267,7 +266,7 @@ comprise multiples protocols that may use multiple times an arc.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-remove">remove</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-remove">remove</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span>
         </p>
       </div>
       <div>
@@ -296,13 +295,13 @@ comprise multiples protocols that may use multiple times an arc.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-removeAll">removeAll</a></span></span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></span>
+          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-removeAll">removeAll</a></span></span><span class="code" data-ice="signature">(): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>ProtocolId removes all its arcs.</p>
+        <div data-ice="description"><p>removes all arcs.</p>
 </div>
       </div>
     </td>
@@ -454,7 +453,7 @@ comprise multiples protocols that may use multiple times an arc.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber134">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber115">source</a></span></span>
     </span>
   </h3>
 
@@ -528,7 +527,7 @@ comprise multiples protocols that may use multiple times an arc.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber144">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber125">source</a></span></span>
     </span>
   </h3>
 
@@ -599,18 +598,18 @@ exists.</p>
     
     
     
-    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber25">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber23">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>ProtocolId adds another arc leading to peerId in the store</p>
+  <div data-ice="description"><p>add another arc leading to peerId in the store</p>
 </div>
 
   
@@ -629,14 +628,6 @@ exists.</p>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The identifier of the peer reachable through the
 socket.</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">protocolId</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol that adds the
-arc.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
@@ -677,11 +668,11 @@ peerId is known to be in the store.</p>
     
     
     
-    <span class="code" data-ice="name">remove</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span>
+    <span class="code" data-ice="name">remove</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/entries/eliving.js~ELiving.html">ELiving</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
@@ -707,14 +698,6 @@ peerId is known to be in the store.</p>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The identifier of the peer accessible through the
 arc to delete.</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">protocolId</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol that wishes to
-remove the arc.</p>
 </td>
     </tr>
 </tbody>
@@ -761,41 +744,23 @@ otherwise.</p>
     
     
     
-    <span class="code" data-ice="name">removeAll</span><span class="code" data-ice="signature">(protocolId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></span>
+    <span class="code" data-ice="name">removeAll</span><span class="code" data-ice="signature">(): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span><span>[]</span></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber89">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber74">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>ProtocolId removes all its arcs.</p>
+  <div data-ice="description"><p>removes all arcs.</p>
 </div>
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">protocolId</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The identifier of the protocol that wishes to
-remove all its arcs.</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
+  <div data-ice="properties">
 </div>
 
   <div class="return-params" data-ice="returnParams">
@@ -843,7 +808,7 @@ still use it, occ being the number of arcs removed by protocolId.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber118">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber100">source</a></span></span>
     </span>
   </h3>
 

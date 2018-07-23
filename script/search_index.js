@@ -54,15 +54,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "neighborhood-wrtc/lib/interfaces/ineighborhood.js~ineighborhood",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html",
-    "<span>INeighborhood</span> <span class=\"search-result-import-path\">neighborhood-wrtc/lib/interfaces/ineighborhood.js</span>",
-    "class"
-  ],
-  [
-    "neighborhood-wrtc/lib/interfaces/iprotocol.js~iprotocol",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html",
-    "<span>IProtocol</span> <span class=\"search-result-import-path\">neighborhood-wrtc/lib/interfaces/iprotocol.js</span>",
+    "neighborhood-wrtc~iprotocol",
+    "class/lib/iprotocol.js~IProtocol.html",
+    "<span>IProtocol</span> <span class=\"search-result-import-path\">neighborhood-wrtc</span>",
     "class"
   ],
   [
@@ -90,9 +84,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "neighborhood-wrtc~neighborhood",
+    "neighborhood-wrtc/lib/neighborhood.js~neighborhood",
     "class/lib/neighborhood.js~Neighborhood.html",
-    "<span>Neighborhood</span> <span class=\"search-result-import-path\">neighborhood-wrtc</span>",
+    "<span>Neighborhood</span> <span class=\"search-result-import-path\">neighborhood-wrtc/lib/neighborhood.js</span>",
     "class"
   ],
   [
@@ -474,6 +468,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/entries/eliving.js~eliving#counter",
+    "class/lib/entries/eliving.js~ELiving.html#instance-member-counter",
+    "lib/entries/eliving.js~ELiving#counter",
+    "member"
+  ],
+  [
     "lib/entries/eliving.js~eliving#decrement",
     "class/lib/entries/eliving.js~ELiving.html#instance-method-decrement",
     "lib/entries/eliving.js~ELiving#decrement",
@@ -492,22 +492,10 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/entries/eliving.js~eliving#protocols",
-    "class/lib/entries/eliving.js~ELiving.html#instance-member-protocols",
-    "lib/entries/eliving.js~ELiving#protocols",
-    "member"
-  ],
-  [
     "lib/entries/eliving.js~eliving#socket",
     "class/lib/entries/eliving.js~ELiving.html#instance-member-socket",
     "lib/entries/eliving.js~ELiving#socket",
     "member"
-  ],
-  [
-    "lib/entries/eliving.js~eliving#sum",
-    "class/lib/entries/eliving.js~ELiving.html#instance-method-sum",
-    "lib/entries/eliving.js~ELiving#sum",
-    "method"
   ],
   [
     "lib/entries/epending.js",
@@ -531,12 +519,6 @@ window.esdocSearchIndex = [
     "lib/entries/epending.js~epending#peer",
     "class/lib/entries/epending.js~EPending.html#instance-member-peer",
     "lib/entries/epending.js~EPending#peer",
-    "member"
-  ],
-  [
-    "lib/entries/epending.js~epending#pid",
-    "class/lib/entries/epending.js~EPending.html#instance-member-pid",
-    "lib/entries/epending.js~EPending#pid",
     "member"
   ],
   [
@@ -642,12 +624,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/exceptions/exprotocolexists.js~exprotocolexists#pid",
-    "class/lib/exceptions/exprotocolexists.js~ExProtocolExists.html#instance-member-pid",
-    "lib/exceptions/exprotocolexists.js~ExProtocolExists#pid",
-    "member"
-  ],
-  [
     "lib/exceptions/exsocketnotfound.js",
     "file/lib/exceptions/exsocketnotfound.js.html",
     "lib/exceptions/exsocketnotfound.js",
@@ -669,12 +645,6 @@ window.esdocSearchIndex = [
     "lib/exceptions/exsocketnotfound.js~exsocketnotfound#peer",
     "class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html#instance-member-peer",
     "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#peer",
-    "member"
-  ],
-  [
-    "lib/exceptions/exsocketnotfound.js~exsocketnotfound#protocolid",
-    "class/lib/exceptions/exsocketnotfound.js~ExSocketNotFound.html#instance-member-protocolId",
-    "lib/exceptions/exsocketnotfound.js~ExSocketNotFound#protocolId",
     "member"
   ],
   [
@@ -708,93 +678,39 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/interfaces/ineighborhood.js",
-    "file/lib/interfaces/ineighborhood.js.html",
-    "lib/interfaces/ineighborhood.js",
+    "lib/iprotocol.js",
+    "file/lib/iprotocol.js.html",
+    "lib/iprotocol.js",
     "file"
   ],
   [
-    "lib/interfaces/ineighborhood.js~ineighborhood#connect",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-connect",
-    "lib/interfaces/ineighborhood.js~INeighborhood#connect",
+    "lib/iprotocol.js~iprotocol#_connected",
+    "class/lib/iprotocol.js~IProtocol.html#instance-method-_connected",
+    "lib/iprotocol.js~IProtocol#_connected",
     "method"
   ],
   [
-    "lib/interfaces/ineighborhood.js~ineighborhood#constructor",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-constructor-constructor",
-    "lib/interfaces/ineighborhood.js~INeighborhood#constructor",
+    "lib/iprotocol.js~iprotocol#_disconnected",
+    "class/lib/iprotocol.js~IProtocol.html#instance-method-_disconnected",
+    "lib/iprotocol.js~IProtocol#_disconnected",
     "method"
   ],
   [
-    "lib/interfaces/ineighborhood.js~ineighborhood#disconnect",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-disconnect",
-    "lib/interfaces/ineighborhood.js~INeighborhood#disconnect",
+    "lib/iprotocol.js~iprotocol#_failed",
+    "class/lib/iprotocol.js~IProtocol.html#instance-method-_failed",
+    "lib/iprotocol.js~IProtocol#_failed",
     "method"
   ],
   [
-    "lib/interfaces/ineighborhood.js~ineighborhood#neighbours",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-neighbours",
-    "lib/interfaces/ineighborhood.js~INeighborhood#neighbours",
+    "lib/iprotocol.js~iprotocol#_received",
+    "class/lib/iprotocol.js~IProtocol.html#instance-method-_received",
+    "lib/iprotocol.js~IProtocol#_received",
     "method"
   ],
   [
-    "lib/interfaces/ineighborhood.js~ineighborhood#peer",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-member-peer",
-    "lib/interfaces/ineighborhood.js~INeighborhood#peer",
-    "member"
-  ],
-  [
-    "lib/interfaces/ineighborhood.js~ineighborhood#send",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-send",
-    "lib/interfaces/ineighborhood.js~INeighborhood#send",
-    "method"
-  ],
-  [
-    "lib/interfaces/ineighborhood.js~ineighborhood#stream",
-    "class/lib/interfaces/ineighborhood.js~INeighborhood.html#instance-method-stream",
-    "lib/interfaces/ineighborhood.js~INeighborhood#stream",
-    "method"
-  ],
-  [
-    "lib/interfaces/iprotocol.js",
-    "file/lib/interfaces/iprotocol.js.html",
-    "lib/interfaces/iprotocol.js",
-    "file"
-  ],
-  [
-    "lib/interfaces/iprotocol.js~iprotocol#_connected",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_connected",
-    "lib/interfaces/iprotocol.js~IProtocol#_connected",
-    "method"
-  ],
-  [
-    "lib/interfaces/iprotocol.js~iprotocol#_disconnected",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_disconnected",
-    "lib/interfaces/iprotocol.js~IProtocol#_disconnected",
-    "method"
-  ],
-  [
-    "lib/interfaces/iprotocol.js~iprotocol#_failed",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_failed",
-    "lib/interfaces/iprotocol.js~IProtocol#_failed",
-    "method"
-  ],
-  [
-    "lib/interfaces/iprotocol.js~iprotocol#_pid",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_pid",
-    "lib/interfaces/iprotocol.js~IProtocol#_pid",
-    "method"
-  ],
-  [
-    "lib/interfaces/iprotocol.js~iprotocol#_received",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_received",
-    "lib/interfaces/iprotocol.js~IProtocol#_received",
-    "method"
-  ],
-  [
-    "lib/interfaces/iprotocol.js~iprotocol#_streamed",
-    "class/lib/interfaces/iprotocol.js~IProtocol.html#instance-method-_streamed",
-    "lib/interfaces/iprotocol.js~IProtocol#_streamed",
+    "lib/iprotocol.js~iprotocol#_streamed",
+    "class/lib/iprotocol.js~IProtocol.html#instance-method-_streamed",
+    "lib/iprotocol.js~IProtocol#_streamed",
     "method"
   ],
   [
@@ -819,12 +735,6 @@ window.esdocSearchIndex = [
     "lib/messages/minternalsend.js~minternalsend#peer",
     "class/lib/messages/minternalsend.js~MInternalSend.html#instance-member-peer",
     "lib/messages/minternalsend.js~MInternalSend#peer",
-    "member"
-  ],
-  [
-    "lib/messages/minternalsend.js~minternalsend#pid",
-    "class/lib/messages/minternalsend.js~MInternalSend.html#instance-member-pid",
-    "lib/messages/minternalsend.js~MInternalSend#pid",
     "member"
   ],
   [
@@ -861,12 +771,6 @@ window.esdocSearchIndex = [
     "lib/messages/mrequest.js~mrequest#peer",
     "class/lib/messages/mrequest.js~MRequest.html#instance-member-peer",
     "lib/messages/mrequest.js~MRequest#peer",
-    "member"
-  ],
-  [
-    "lib/messages/mrequest.js~mrequest#pid",
-    "class/lib/messages/mrequest.js~MRequest.html#instance-member-pid",
-    "lib/messages/mrequest.js~MRequest#pid",
     "member"
   ],
   [
@@ -912,12 +816,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/messages/mresponse.js~mresponse#pid",
-    "class/lib/messages/mresponse.js~MResponse.html#instance-member-pid",
-    "lib/messages/mresponse.js~MResponse#pid",
-    "member"
-  ],
-  [
     "lib/messages/mresponse.js~mresponse#tid",
     "class/lib/messages/mresponse.js~MResponse.html#instance-member-tid",
     "lib/messages/mresponse.js~MResponse#tid",
@@ -954,12 +852,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/messages/msend.js~msend#pid",
-    "class/lib/messages/msend.js~MSend.html#instance-member-pid",
-    "lib/messages/msend.js~MSend#pid",
-    "member"
-  ],
-  [
     "lib/messages/msend.js~msend#type",
     "class/lib/messages/msend.js~MSend.html#instance-member-type",
     "lib/messages/msend.js~MSend#type",
@@ -990,18 +882,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/neighborhood.js~neighborhood#_connect",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_connect",
-    "lib/neighborhood.js~Neighborhood#_connect",
-    "method"
-  ],
-  [
-    "lib/neighborhood.js~neighborhood#_disconnect",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_disconnect",
-    "lib/neighborhood.js~Neighborhood#_disconnect",
-    "method"
-  ],
-  [
     "lib/neighborhood.js~neighborhood#_finalize",
     "class/lib/neighborhood.js~Neighborhood.html#instance-method-_finalize",
     "lib/neighborhood.js~Neighborhood#_finalize",
@@ -1014,21 +894,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/neighborhood.js~neighborhood#_neighbours",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_neighbours",
-    "lib/neighborhood.js~Neighborhood#_neighbours",
-    "method"
-  ],
-  [
     "lib/neighborhood.js~neighborhood#_receiveinternalmessage",
     "class/lib/neighborhood.js~Neighborhood.html#instance-method-_receiveInternalMessage",
     "lib/neighborhood.js~Neighborhood#_receiveInternalMessage",
-    "method"
-  ],
-  [
-    "lib/neighborhood.js~neighborhood#_send",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_send",
-    "lib/neighborhood.js~Neighborhood#_send",
     "method"
   ],
   [
@@ -1044,9 +912,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/neighborhood.js~neighborhood#_stream",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-method-_stream",
-    "lib/neighborhood.js~Neighborhood#_stream",
+    "lib/neighborhood.js~neighborhood#connect",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-connect",
+    "lib/neighborhood.js~Neighborhood#connect",
     "method"
   ],
   [
@@ -1060,6 +928,12 @@ window.esdocSearchIndex = [
     "class/lib/neighborhood.js~Neighborhood.html#instance-member-decode",
     "lib/neighborhood.js~Neighborhood#decode",
     "member"
+  ],
+  [
+    "lib/neighborhood.js~neighborhood#disconnect",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-disconnect",
+    "lib/neighborhood.js~Neighborhood#disconnect",
+    "method"
   ],
   [
     "lib/neighborhood.js~neighborhood#dying",
@@ -1080,6 +954,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "lib/neighborhood.js~neighborhood#neighbours",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-neighbours",
+    "lib/neighborhood.js~Neighborhood#neighbours",
+    "method"
+  ],
+  [
     "lib/neighborhood.js~neighborhood#options",
     "class/lib/neighborhood.js~Neighborhood.html#instance-member-options",
     "lib/neighborhood.js~Neighborhood#options",
@@ -1092,15 +972,15 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/neighborhood.js~neighborhood#protocols",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-member-protocols",
-    "lib/neighborhood.js~Neighborhood#protocols",
-    "member"
+    "lib/neighborhood.js~neighborhood#send",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-send",
+    "lib/neighborhood.js~Neighborhood#send",
+    "method"
   ],
   [
-    "lib/neighborhood.js~neighborhood#register",
-    "class/lib/neighborhood.js~Neighborhood.html#instance-method-register",
-    "lib/neighborhood.js~Neighborhood#register",
+    "lib/neighborhood.js~neighborhood#stream",
+    "class/lib/neighborhood.js~Neighborhood.html#instance-method-stream",
+    "lib/neighborhood.js~Neighborhood#stream",
     "method"
   ]
 ]
