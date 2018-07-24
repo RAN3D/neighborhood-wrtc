@@ -1801,7 +1801,7 @@
     "__docId__": 108,
     "kind": "file",
     "name": "lib/iprotocol.js",
-    "content": "/**\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n */\nclass IProtocol {\n  /**\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     */\n  _connected (peerId, isOutgoing) { throw new Error('[_connected] not yet implemented.') }\n\n  /**\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     */\n  _disconnected (peerId) { throw new Error('[_disconnected] not yet implemented.') }\n\n  /**\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     */\n  _failed (peerId, isOutgoing) { throw new Error('[_failed] not yet implemented.') }\n\n  /**\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     */\n  _received (peerId, message) { throw new Error('[_received] not yet implemented.') }\n\n  /**\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     */\n  _streamed (peerId, stream) { throw new Error('[_streamed] not yet implemented.') }\n}\n\nmodule.exports = IProtocol\n",
+    "content": "'use strict'\n\nconst N = require('./neighborhood')\n/**\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n */\nclass IProtocol extends N {\n  /**\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     */\n  _connected (peerId, isOutgoing) { throw new Error('[_connected] not yet implemented.') }\n\n  /**\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     */\n  _disconnected (peerId) { throw new Error('[_disconnected] not yet implemented.') }\n\n  /**\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     */\n  _failed (peerId, isOutgoing) { throw new Error('[_failed] not yet implemented.') }\n\n  /**\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     */\n  _received (peerId, message) { throw new Error('[_received] not yet implemented.') }\n\n  /**\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     */\n  _streamed (peerId, stream) { throw new Error('[_streamed] not yet implemented.') }\n}\n\nmodule.exports = IProtocol\n",
     "static": true,
     "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/iprotocol.js",
     "access": "public",
@@ -1820,8 +1820,11 @@
     "importPath": "neighborhood-wrtc",
     "importStyle": "IProtocol",
     "description": "An interface for protocols that checks if all functions have been provided.\nNot fully necessary since it will only be checked at runtime anyway.",
-    "lineNumber": 5,
-    "interface": false
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "lib/neighborhood.js~N"
+    ]
   },
   {
     "__docId__": 110,
@@ -1834,7 +1837,7 @@
     "longname": "lib/iprotocol.js~IProtocol#_connected",
     "access": "private",
     "description": "Behavior when an arc leading to peer has been established.",
-    "lineNumber": 13,
+    "lineNumber": 16,
     "params": [
       {
         "nullable": null,
@@ -1870,7 +1873,7 @@
     "longname": "lib/iprotocol.js~IProtocol#_disconnected",
     "access": "private",
     "description": "Behavior when an arc leading to peer has been disconnected.",
-    "lineNumber": 20,
+    "lineNumber": 23,
     "params": [
       {
         "nullable": null,
@@ -1896,7 +1899,7 @@
     "longname": "lib/iprotocol.js~IProtocol#_failed",
     "access": "private",
     "description": "Behavior when an arc failed to establish properly.",
-    "lineNumber": 29,
+    "lineNumber": 32,
     "params": [
       {
         "nullable": null,
@@ -1932,7 +1935,7 @@
     "longname": "lib/iprotocol.js~IProtocol#_received",
     "access": "private",
     "description": "Behavior when a message from peerId has been received.",
-    "lineNumber": 36,
+    "lineNumber": 39,
     "params": [
       {
         "nullable": null,
@@ -1968,7 +1971,7 @@
     "longname": "lib/iprotocol.js~IProtocol#_streamed",
     "access": "private",
     "description": "Behavior when a stream from peerId is being received.",
-    "lineNumber": 43,
+    "lineNumber": 46,
     "params": [
       {
         "nullable": null,
