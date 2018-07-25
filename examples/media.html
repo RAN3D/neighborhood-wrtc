@@ -7,7 +7,7 @@
     <p>p2 send => <video id='2' height="200" width="200"></video> p1 receive => <video id='1r' height="200" width="200"></video> </p><br />
     <script src='../build/neighborhood-wrtc.bundle.debug.js'></script>
     <script type="text/javascript">
-      const Neighborhood = require('neighborhood-wrtc')
+      const Neighborhood = neighborhood // eslint-disable-line
       localStorage.debug = 'neighborhood-wrtc'
       // #1 create a protocol that will run on top of this module. It must implement
       // the 4 properties : pid, opened, closed, failed.

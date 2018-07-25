@@ -1,6 +1,6 @@
 'use strict'
 
-const Neighborhood = require('neighborhood-wrtc')
+const Neighborhood = neighborhood // eslint-disable-line
 
 localStorage.debug = 'neighborhood-wrtc' // eslint-disable-line
 
