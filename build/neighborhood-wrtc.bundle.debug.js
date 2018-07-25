@@ -749,7 +749,7 @@ class Neighborhood extends Events {
         entry.successful = true
         debug('[_initiate(connect/living)] insert/increment')
         this.living.insert(entry.peer)
-        debug('[init] emit connect event: ', entry.jobId, entry.peer, false, entry)
+        debug('[init] emit connect event: ', entry.jobId, entry.peer, false)
         this.emit(entry.jobId, entry.peer, false)
         // notify
         this._connected(entry.peer, true)
@@ -757,7 +757,7 @@ class Neighborhood extends Events {
       } else {
         debug('[_initiate(connect)] insert/increment')
         this.living.insert(entry.peer, socket)
-        debug('[init] emit connect event: ', entry.jobId, entry.peer, false, entry)
+        debug('[init] emit connect event: ', entry.jobId, entry.peer, false)
         this.emit(entry.jobId, entry.peer, false)
         // notify
         this._connected(entry.peer, true)
@@ -941,7 +941,7 @@ class Neighborhood extends Events {
 
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
-      debug('[_accept(living exists)] insert/increment')
+      debug('[_accept(dying exists)] insert/increment')
       // #B rise from the dead
       entry.alreadyExists = true
       entry.successful = true
