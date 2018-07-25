@@ -933,7 +933,7 @@ class Neighborhood extends Events {
     if (this.living.contains(msg.peer)) {
       entry.alreadyExists = true
       entry.successful = true
-      debug('[_accept(living exists)] insert/increment')
+      debug('[_accept(living exists)] insert/increment', msg)
       this.living.insert(msg.peer)
       debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
       this._connected(msg.peer, false)
@@ -941,7 +941,7 @@ class Neighborhood extends Events {
 
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
-      debug('[_accept(dying exists)] insert/increment')
+      debug('[_accept(dying exists)] insert/increment', msg)
       // #B rise from the dead
       entry.alreadyExists = true
       entry.successful = true
