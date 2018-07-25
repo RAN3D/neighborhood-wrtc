@@ -1062,8 +1062,8 @@ class Neighborhood extends Events {
             }
             this._disconnected(entry.peer)
           }
-          resolve()
         })
+        resolve()
       } else {
         let entry = null
         // #2 remove one arc
