@@ -747,16 +747,16 @@ class Neighborhood extends Events {
       if (this.living.contains(entry.peer)) {
         entry.alreadyExists = true
         entry.successful = true
+        debug('[_initiate(connect/living)] insert/increment')
         this.living.insert(entry.peer)
-        debug('[%s] --- arc --> %s', this.PEER, entry.peer)
         debug('[init] emit connect event: ', entry.jobId, entry.peer, false, entry)
         this.emit(entry.jobId, entry.peer, false)
         // notify
         this._connected(entry.peer, true)
         entry.peer = null // becomes the unknown soldier
       } else {
+        debug('[_initiate(connect)] insert/increment')
         this.living.insert(entry.peer, socket)
-        debug('[%s] --- WebRTC --> %s', this.PEER, entry.peer)
         debug('[init] emit connect event: ', entry.jobId, entry.peer, false, entry)
         this.emit(entry.jobId, entry.peer, false)
         // notify
@@ -777,7 +777,6 @@ class Neighborhood extends Events {
           clearTimeout(d.timeout)
           this.dying.delete(entry.peer)
         }
-        debug('[%s] -‡- WebRTC -‡> %s', this.PEER, entry.peer)
         debug('[init] emit close event: ', entry.jobId, entry.peer, true)
         this._checkPendingEntry(entry)
         this.emit(entry.jobId, entry.peer, true)
@@ -855,11 +854,11 @@ class Neighborhood extends Events {
         return
       }
     }
-    debug('[finalize]', entry)
     // #A check if the connection already exists
     if (this.living.contains(msg.peer)) {
       entry.alreadyExists = true
       entry.successful = true
+      debug('[_finalize(living exists)] insert/increment')
       this.living.insert(msg.peer)
 
       debug('[%s]finalize --- arc --> %s', this.PEER, msg.peer)
@@ -868,6 +867,7 @@ class Neighborhood extends Events {
 
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
+      debug('[_finalize(dying exists)] insert/increment')
       // #B rise from the dead
       entry.alreadyExists = true
       entry.successful = true
@@ -933,6 +933,7 @@ class Neighborhood extends Events {
     if (this.living.contains(msg.peer)) {
       entry.alreadyExists = true
       entry.successful = true
+      debug('[_accept(living exists)] insert/increment')
       this.living.insert(msg.peer)
       debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
       this._connected(msg.peer, false)
@@ -940,6 +941,7 @@ class Neighborhood extends Events {
 
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
+      debug('[_accept(living exists)] insert/increment')
       // #B rise from the dead
       entry.alreadyExists = true
       entry.successful = true
@@ -968,12 +970,14 @@ class Neighborhood extends Events {
           if (this.living.contains(entry.peer)) {
             entry.alreadyExists = true
             entry.successful = true
+            debug('[_accept(connect/living)] insert/increment')
             this.living.insert(entry.peer)
             debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
             this._connected(entry.peer,
               false)
             entry.peer = null // becomes the unknown soldier
           } else {
+            debug('[_accept(connect/dying)] insert/increment')
             this.living.insert(entry.peer, socket)
             debug('[%s] <-- WebRTC --- %s', this.PEER, entry.peer)
             this._connected(entry.peer,
