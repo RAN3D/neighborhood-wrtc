@@ -284,7 +284,7 @@ module.exports = EDying
 
 "use strict";
 
-
+const debug = (__webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js"))('neighborhood-wrtc')
 /**
  * Entry of the living table containing sockets still in use.
  */
@@ -299,6 +299,7 @@ class ELiving {
     this.socket = socket
     this.counter = 0
     this.increment()
+    debug('[eliving:%s] initialized: %f', this.peer, this.counter)
   }
 
   /**
@@ -306,6 +307,7 @@ class ELiving {
      */
   increment () {
     this.counter++
+    debug('[eliving:%s] increment: %f', this.peer, this.counter)
   }
 
   /**
@@ -313,6 +315,7 @@ class ELiving {
      */
   decrement () {
     this.counter--
+    debug('[eliving:%s] decrement: %f', this.peer, this.counter)
   }
 }
 

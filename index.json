@@ -966,7 +966,7 @@
     "__docId__": 64,
     "kind": "file",
     "name": "lib/entries/eliving.js",
-    "content": "'use strict'\n\n/**\n * Entry of the living table containing sockets still in use.\n */\nclass ELiving {\n  /**\n     * @param {string} peerId The identifier of the peer reachable through the\n     * socket.\n     * @param {object} socket The WebRTC socket.\n     */\n  constructor (peerId, socket) {\n    this.peer = peerId // key\n    this.socket = socket\n    this.counter = 0\n    this.increment()\n  }\n\n  /**\n     * Add an occurrence of the arc to the protocol\n     */\n  increment () {\n    this.counter++\n  }\n\n  /**\n     * Remove an occurrence of the arc to the protocol\n     */\n  decrement () {\n    this.counter--\n  }\n}\n\nmodule.exports = ELiving\n",
+    "content": "'use strict'\nconst debug = (require('debug'))('neighborhood-wrtc')\n/**\n * Entry of the living table containing sockets still in use.\n */\nclass ELiving {\n  /**\n     * @param {string} peerId The identifier of the peer reachable through the\n     * socket.\n     * @param {object} socket The WebRTC socket.\n     */\n  constructor (peerId, socket) {\n    this.peer = peerId // key\n    this.socket = socket\n    this.counter = 0\n    this.increment()\n    debug('[eliving:%s] initialized: %f', this.peer, this.counter)\n  }\n\n  /**\n     * Add an occurrence of the arc to the protocol\n     */\n  increment () {\n    this.counter++\n    debug('[eliving:%s] increment: %f', this.peer, this.counter)\n  }\n\n  /**\n     * Remove an occurrence of the arc to the protocol\n     */\n  decrement () {\n    this.counter--\n    debug('[eliving:%s] decrement: %f', this.peer, this.counter)\n  }\n}\n\nmodule.exports = ELiving\n",
     "static": true,
     "longname": "/home/travis/build/RAN3D/neighborhood-wrtc/lib/entries/eliving.js",
     "access": "public",
@@ -975,6 +975,27 @@
   },
   {
     "__docId__": 65,
+    "kind": "variable",
+    "name": "debug",
+    "memberof": "lib/entries/eliving.js",
+    "static": true,
+    "longname": "lib/entries/eliving.js~debug",
+    "access": "public",
+    "export": false,
+    "importPath": "neighborhood-wrtc/lib/entries/eliving.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
     "kind": "class",
     "name": "ELiving",
     "memberof": "lib/entries/eliving.js",
@@ -989,7 +1010,7 @@
     "interface": false
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/entries/eliving.js~ELiving",
@@ -1024,7 +1045,7 @@
     ]
   },
   {
-    "__docId__": 67,
+    "__docId__": 68,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/entries/eliving.js~ELiving",
@@ -1041,7 +1062,7 @@
     }
   },
   {
-    "__docId__": 68,
+    "__docId__": 69,
     "kind": "member",
     "name": "socket",
     "memberof": "lib/entries/eliving.js~ELiving",
@@ -1058,7 +1079,7 @@
     }
   },
   {
-    "__docId__": 69,
+    "__docId__": 70,
     "kind": "member",
     "name": "counter",
     "memberof": "lib/entries/eliving.js~ELiving",
@@ -1075,7 +1096,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 71,
     "kind": "method",
     "name": "increment",
     "memberof": "lib/entries/eliving.js~ELiving",
@@ -1085,12 +1106,12 @@
     "longname": "lib/entries/eliving.js~ELiving#increment",
     "access": "public",
     "description": "Add an occurrence of the arc to the protocol",
-    "lineNumber": 22,
+    "lineNumber": 23,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "method",
     "name": "decrement",
     "memberof": "lib/entries/eliving.js~ELiving",
@@ -1100,12 +1121,12 @@
     "longname": "lib/entries/eliving.js~ELiving#decrement",
     "access": "public",
     "description": "Remove an occurrence of the arc to the protocol",
-    "lineNumber": 29,
+    "lineNumber": 31,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "file",
     "name": "lib/entries/epending.js",
     "content": "'use strict'\n\n/**\n * Entry of the pending table containing sockets being created.\n */\nclass EPending {\n  /**\n     * @param {string} temporaryId A temporary id used to retrieve the entry.\n     * @param {string} peerId The identifier of the peer reachable through the\n     * socket. Null if the peerId is yet to be known.\n     * @param {string} protocolId The identifier of the protocol that wishes to\n     * establish the connexion.\n     * @param {object} socket The WebRTC socket.\n     * @param {number} timeout Maximum time for a connexion to establish.\n     */\n  constructor (temporaryId, peerId, socket, timeout) {\n    this.tid = temporaryId // key\n    this.peer = peerId\n    this.socket = socket\n    this.successful = false\n    this.alreadyExists = false\n    this.timeout = timeout\n  };\n};\n\nmodule.exports = EPending\n",
@@ -1116,7 +1137,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "class",
     "name": "EPending",
     "memberof": "lib/entries/epending.js",
@@ -1131,7 +1152,7 @@
     "interface": false
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1196,7 +1217,7 @@
     ]
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "member",
     "name": "tid",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1213,7 +1234,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 77,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1230,7 +1251,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 78,
     "kind": "member",
     "name": "socket",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1247,7 +1268,7 @@
     }
   },
   {
-    "__docId__": 78,
+    "__docId__": 79,
     "kind": "member",
     "name": "successful",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1264,7 +1285,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 80,
     "kind": "member",
     "name": "alreadyExists",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1281,7 +1302,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 81,
     "kind": "member",
     "name": "timeout",
     "memberof": "lib/entries/epending.js~EPending",
@@ -1298,7 +1319,7 @@
     }
   },
   {
-    "__docId__": 81,
+    "__docId__": 82,
     "kind": "file",
     "name": "lib/exceptions/exincompletemessage.js",
     "content": "'use strict'\n\n/**\n * Exception thrown when the message does not have the required data.\n */\nclass ExIncompleteMessage {\n  /**\n     * @param {string} source The name of the function that threw the exception.\n     * @param {EPending|ELiving|EDying} entry The entry that requested more\n     * information.\n     * @param {MResponse} message The message lacking data.\n     */\n  constructor (source, entry, message) {\n    this.source = source\n    this.entry = entry\n    this.message = message\n  }\n};\n\nmodule.exports = ExIncompleteMessage\n",
@@ -1309,7 +1330,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "class",
     "name": "ExIncompleteMessage",
     "memberof": "lib/exceptions/exincompletemessage.js",
@@ -1324,7 +1345,7 @@
     "interface": false
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
@@ -1371,7 +1392,7 @@
     ]
   },
   {
-    "__docId__": 84,
+    "__docId__": 85,
     "kind": "member",
     "name": "source",
     "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
@@ -1388,7 +1409,7 @@
     }
   },
   {
-    "__docId__": 85,
+    "__docId__": 86,
     "kind": "member",
     "name": "entry",
     "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
@@ -1405,7 +1426,7 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 87,
     "kind": "member",
     "name": "message",
     "memberof": "lib/exceptions/exincompletemessage.js~ExIncompleteMessage",
@@ -1422,7 +1443,7 @@
     }
   },
   {
-    "__docId__": 87,
+    "__docId__": 88,
     "kind": "file",
     "name": "lib/exceptions/exlatemessage.js",
     "content": "'use strict'\n\n/**\n * Exception that fires when a message arrives too late and the entry in the\n * table has already been purged.\n */\nclass ExLateMessage {\n  /**\n     * @param {string} source The function name that throw the exception.\n     * @param {object} message The late message\n     */\n  constructor (source, msg) {\n    this.source = source\n    this.msg = msg\n    this.message = 'The message arrives too late'\n  };\n};\n\nmodule.exports = ExLateMessage\n",
@@ -1433,7 +1454,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 88,
+    "__docId__": 89,
     "kind": "class",
     "name": "ExLateMessage",
     "memberof": "lib/exceptions/exlatemessage.js",
@@ -1448,7 +1469,7 @@
     "interface": false
   },
   {
-    "__docId__": 89,
+    "__docId__": 90,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
@@ -1483,7 +1504,7 @@
     ]
   },
   {
-    "__docId__": 90,
+    "__docId__": 91,
     "kind": "member",
     "name": "source",
     "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
@@ -1500,7 +1521,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 92,
     "kind": "member",
     "name": "msg",
     "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
@@ -1517,7 +1538,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 93,
     "kind": "member",
     "name": "message",
     "memberof": "lib/exceptions/exlatemessage.js~ExLateMessage",
@@ -1534,7 +1555,7 @@
     }
   },
   {
-    "__docId__": 93,
+    "__docId__": 94,
     "kind": "file",
     "name": "lib/exceptions/exprotocolexists.js",
     "content": "'use strict'\n\n/**\n * Exception that rise when a protocol registers and its identifier already\n * exists in registered protocols of neighborhood-wrtc.\n */\nclass ExProtocolExists {\n  constructor () {\n    this.message = 'The idenfifier of the registering protocol already exists.'\n  };\n};\n\nmodule.exports = ExProtocolExists\n",
@@ -1545,7 +1566,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 94,
+    "__docId__": 95,
     "kind": "class",
     "name": "ExProtocolExists",
     "memberof": "lib/exceptions/exprotocolexists.js",
@@ -1560,7 +1581,7 @@
     "interface": false
   },
   {
-    "__docId__": 95,
+    "__docId__": 96,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/exceptions/exprotocolexists.js~ExProtocolExists",
@@ -1574,7 +1595,7 @@
     "undocument": true
   },
   {
-    "__docId__": 96,
+    "__docId__": 97,
     "kind": "member",
     "name": "message",
     "memberof": "lib/exceptions/exprotocolexists.js~ExProtocolExists",
@@ -1591,7 +1612,7 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 98,
     "kind": "file",
     "name": "lib/exceptions/exsocketnotfound.js",
     "content": "'use strict'\n\n/**\n * Exception that fires when trying to access or use a socket that does not\n * exist.\n */\nclass ExSocketNotFound {\n  /**\n     * @param {string} source The source of the exception.\n     * @param {string} peerId The identifier of the peer that has been tried.\n     * @param {string} message A error message.\n     */\n  constructor (source, peerId, message) {\n    this.source = source\n    this.peer = peerId\n    this.message = message\n  };\n};\n\nmodule.exports = ExSocketNotFound\n",
@@ -1602,7 +1623,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 98,
+    "__docId__": 99,
     "kind": "class",
     "name": "ExSocketNotFound",
     "memberof": "lib/exceptions/exsocketnotfound.js",
@@ -1617,7 +1638,7 @@
     "interface": false
   },
   {
-    "__docId__": 99,
+    "__docId__": 100,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
@@ -1662,7 +1683,7 @@
     ]
   },
   {
-    "__docId__": 100,
+    "__docId__": 101,
     "kind": "member",
     "name": "source",
     "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
@@ -1679,7 +1700,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 102,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
@@ -1696,7 +1717,7 @@
     }
   },
   {
-    "__docId__": 102,
+    "__docId__": 103,
     "kind": "member",
     "name": "message",
     "memberof": "lib/exceptions/exsocketnotfound.js~ExSocketNotFound",
@@ -1713,7 +1734,7 @@
     }
   },
   {
-    "__docId__": 103,
+    "__docId__": 104,
     "kind": "file",
     "name": "lib/exceptions/exundefinedfunction.js",
     "content": "'use strict'\n\n/**\n * Exception that fires when the interface of the protocol using neighborhood is\n * not complete.\n */\nclass ExUndefinedFunction {\n  /**\n     * @param {string} source The function name that is not provided.\n     */\n  constructor (source) {\n    this.source = source\n    this.message = 'The function was not provided.'\n  };\n}\n\nmodule.exports = ExUndefinedFunction\n",
@@ -1724,7 +1745,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 104,
+    "__docId__": 105,
     "kind": "class",
     "name": "ExUndefinedFunction",
     "memberof": "lib/exceptions/exundefinedfunction.js",
@@ -1739,7 +1760,7 @@
     "interface": false
   },
   {
-    "__docId__": 105,
+    "__docId__": 106,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
@@ -1764,7 +1785,7 @@
     ]
   },
   {
-    "__docId__": 106,
+    "__docId__": 107,
     "kind": "member",
     "name": "source",
     "memberof": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
@@ -1781,7 +1802,7 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 108,
     "kind": "member",
     "name": "message",
     "memberof": "lib/exceptions/exundefinedfunction.js~ExUndefinedFunction",
@@ -1798,7 +1819,7 @@
     }
   },
   {
-    "__docId__": 108,
+    "__docId__": 109,
     "kind": "file",
     "name": "lib/iprotocol.js",
     "content": "'use strict'\n\nconst N = require('./neighborhood')\n/**\n * An interface for protocols that checks if all functions have been provided.\n * Not fully necessary since it will only be checked at runtime anyway.\n */\nclass IProtocol extends N {\n  /**\n     * Behavior when an arc leading to peer has been established.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     * @param {boolean} [isOutgoing] State whether or not the added arc is an\n     * outgoing arc.\n     */\n  _connected (peerId, isOutgoing) { throw new Error('[_connected] not yet implemented.') }\n\n  /**\n     * Behavior when an arc leading to peer has been disconnected.\n     * @param {string} [peerId] The identifier of the peer reachable through the\n     * arc.\n     */\n  _disconnected (peerId) { throw new Error('[_disconnected] not yet implemented.') }\n\n  /**\n     * Behavior when an arc failed to establish properly.\n     * @param {string} [peerId] The identifier of the peer that we tried to\n     * establish a connection with.\n     * @param {boolean} [isOutgoing] State whether or not the failed arc was\n     * supposed to be an outgoing arc.\n     */\n  _failed (peerId, isOutgoing) { throw new Error('[_failed] not yet implemented.') }\n\n  /**\n     * Behavior when a message from peerId has been received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [message] The received message.\n     */\n  _received (peerId, message) { throw new Error('[_received] not yet implemented.') }\n\n  /**\n     * Behavior when a stream from peerId is being received.\n     * @param {string} [peerId] The identifier of the peer that sent the message.\n     * @param {object} [stream] The received stream.\n     */\n  _streamed (peerId, stream) { throw new Error('[_streamed] not yet implemented.') }\n}\n\nmodule.exports = IProtocol\n",
@@ -1809,7 +1830,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 109,
+    "__docId__": 110,
     "kind": "class",
     "name": "IProtocol",
     "memberof": "lib/iprotocol.js",
@@ -1827,7 +1848,7 @@
     ]
   },
   {
-    "__docId__": 110,
+    "__docId__": 111,
     "kind": "method",
     "name": "_connected",
     "memberof": "lib/iprotocol.js~IProtocol",
@@ -1863,7 +1884,7 @@
     "return": null
   },
   {
-    "__docId__": 111,
+    "__docId__": 112,
     "kind": "method",
     "name": "_disconnected",
     "memberof": "lib/iprotocol.js~IProtocol",
@@ -1889,7 +1910,7 @@
     "return": null
   },
   {
-    "__docId__": 112,
+    "__docId__": 113,
     "kind": "method",
     "name": "_failed",
     "memberof": "lib/iprotocol.js~IProtocol",
@@ -1925,7 +1946,7 @@
     "return": null
   },
   {
-    "__docId__": 113,
+    "__docId__": 114,
     "kind": "method",
     "name": "_received",
     "memberof": "lib/iprotocol.js~IProtocol",
@@ -1961,7 +1982,7 @@
     "return": null
   },
   {
-    "__docId__": 114,
+    "__docId__": 115,
     "kind": "method",
     "name": "_streamed",
     "memberof": "lib/iprotocol.js~IProtocol",
@@ -1997,7 +2018,7 @@
     "return": null
   },
   {
-    "__docId__": 115,
+    "__docId__": 116,
     "kind": "file",
     "name": "lib/messages/minternalsend.js",
     "content": "'use strict'\n\n/**\n * Message sent.\n */\nclass MInternalSend {\n  /**\n     * @param {string} peerId The identifier of the peer that sent the message\n     * @param {object} payload The payload of the message.\n     */\n  constructor (peerId, payload) {\n    this.peer = peerId\n    this.payload = payload\n    this.type = 'MInternalSend'\n  }\n}\n\nmodule.exports = MInternalSend\n",
@@ -2008,7 +2029,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 116,
+    "__docId__": 117,
     "kind": "class",
     "name": "MInternalSend",
     "memberof": "lib/messages/minternalsend.js",
@@ -2023,7 +2044,7 @@
     "interface": false
   },
   {
-    "__docId__": 117,
+    "__docId__": 118,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/messages/minternalsend.js~MInternalSend",
@@ -2058,7 +2079,7 @@
     ]
   },
   {
-    "__docId__": 118,
+    "__docId__": 119,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/messages/minternalsend.js~MInternalSend",
@@ -2075,7 +2096,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 120,
     "kind": "member",
     "name": "payload",
     "memberof": "lib/messages/minternalsend.js~MInternalSend",
@@ -2092,7 +2113,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 121,
     "kind": "member",
     "name": "type",
     "memberof": "lib/messages/minternalsend.js~MInternalSend",
@@ -2109,7 +2130,7 @@
     }
   },
   {
-    "__docId__": 121,
+    "__docId__": 122,
     "kind": "file",
     "name": "lib/messages/mrequest.js",
     "content": "'use strict'\n\n/**\n * The message containing the request to create a WebRTC connexion\n */\nclass MRequest {\n  /**\n     * @param {string} temporaryId A temporary identifier during the socket\n     * creation. The key will be changed to peerId when the connexion is\n     * established successfully.\n     * @param {string} peerId The identifier of the peer that will be reachable\n     * through the socket being created. Null if it is yet to be known.\n     * @param {object} offer The WebRTC offer containing ways to establish a\n     * direct peer-to-peer connexions. See WebRTC for more information.\n     */\n  constructor (temporaryId, peerId, offer, offerType = 'init') {\n    this.tid = temporaryId\n    this.peer = peerId\n    this.offer = offer\n    this.type = 'MRequest'\n    this.offerType = offerType\n  }\n}\n\nmodule.exports = MRequest\n",
@@ -2120,7 +2141,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 122,
+    "__docId__": 123,
     "kind": "class",
     "name": "MRequest",
     "memberof": "lib/messages/mrequest.js",
@@ -2135,7 +2156,7 @@
     "interface": false
   },
   {
-    "__docId__": 123,
+    "__docId__": 124,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/messages/mrequest.js~MRequest",
@@ -2180,7 +2201,7 @@
     ]
   },
   {
-    "__docId__": 124,
+    "__docId__": 125,
     "kind": "member",
     "name": "tid",
     "memberof": "lib/messages/mrequest.js~MRequest",
@@ -2197,7 +2218,7 @@
     }
   },
   {
-    "__docId__": 125,
+    "__docId__": 126,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/messages/mrequest.js~MRequest",
@@ -2214,7 +2235,7 @@
     }
   },
   {
-    "__docId__": 126,
+    "__docId__": 127,
     "kind": "member",
     "name": "offer",
     "memberof": "lib/messages/mrequest.js~MRequest",
@@ -2231,7 +2252,7 @@
     }
   },
   {
-    "__docId__": 127,
+    "__docId__": 128,
     "kind": "member",
     "name": "type",
     "memberof": "lib/messages/mrequest.js~MRequest",
@@ -2248,7 +2269,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 129,
     "kind": "member",
     "name": "offerType",
     "memberof": "lib/messages/mrequest.js~MRequest",
@@ -2265,7 +2286,7 @@
     }
   },
   {
-    "__docId__": 129,
+    "__docId__": 130,
     "kind": "file",
     "name": "lib/messages/mresponse.js",
     "content": "'use strict'\n\n/**\n * The message containing the response to create a WebRTC connexion\n */\nclass MResponse {\n  /**\n     * @param {string} temporaryId A temporary identifier during the socket\n     * creation. The key will be changed to peerId when the connexion is established\n     * successfully.\n     * @param {string} peerId The identifier of the peer that will be reachable\n     * through the socket being created. Null if it is yet to be known.\n     * @param {object} offer The WebRTC offer containing ways to establish a direct\n     * peer-to-peer connexions. See WebRTC for more information.\n     */\n  constructor (temporaryId, peerId, offer, offerType = 'init') {\n    this.tid = temporaryId\n    this.peer = peerId\n    this.offer = offer\n    this.type = 'MResponse'\n    this.offerType = offerType\n  }\n}\n\nmodule.exports = MResponse\n",
@@ -2276,7 +2297,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 130,
+    "__docId__": 131,
     "kind": "class",
     "name": "MResponse",
     "memberof": "lib/messages/mresponse.js",
@@ -2291,7 +2312,7 @@
     "interface": false
   },
   {
-    "__docId__": 131,
+    "__docId__": 132,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/messages/mresponse.js~MResponse",
@@ -2336,7 +2357,7 @@
     ]
   },
   {
-    "__docId__": 132,
+    "__docId__": 133,
     "kind": "member",
     "name": "tid",
     "memberof": "lib/messages/mresponse.js~MResponse",
@@ -2353,7 +2374,7 @@
     }
   },
   {
-    "__docId__": 133,
+    "__docId__": 134,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/messages/mresponse.js~MResponse",
@@ -2370,7 +2391,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 135,
     "kind": "member",
     "name": "offer",
     "memberof": "lib/messages/mresponse.js~MResponse",
@@ -2387,7 +2408,7 @@
     }
   },
   {
-    "__docId__": 135,
+    "__docId__": 136,
     "kind": "member",
     "name": "type",
     "memberof": "lib/messages/mresponse.js~MResponse",
@@ -2404,7 +2425,7 @@
     }
   },
   {
-    "__docId__": 136,
+    "__docId__": 137,
     "kind": "member",
     "name": "offerType",
     "memberof": "lib/messages/mresponse.js~MResponse",
@@ -2421,7 +2442,7 @@
     }
   },
   {
-    "__docId__": 137,
+    "__docId__": 138,
     "kind": "file",
     "name": "lib/messages/msend.js",
     "content": "'use strict'\n\n/**\n * Message sent when protocolId wishes to send payload. It is a basic\n * encapsualtion of protocolId.\n */\nclass MSend {\n  /**\n     * @param {string} peerId The identifier of the peer that sent the message\n     * @param {string} protocolId The identifier of the protocol that sent the\n     * message\n     * @param {object} payload The payload of the message.\n     */\n  constructor (peerId, payload) {\n    this.peer = peerId\n    this.payload = payload\n    this.type = 'MSend'\n  };\n};\n\nmodule.exports = MSend\n",
@@ -2432,7 +2453,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 138,
+    "__docId__": 139,
     "kind": "class",
     "name": "MSend",
     "memberof": "lib/messages/msend.js",
@@ -2447,7 +2468,7 @@
     "interface": false
   },
   {
-    "__docId__": 139,
+    "__docId__": 140,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/messages/msend.js~MSend",
@@ -2492,7 +2513,7 @@
     ]
   },
   {
-    "__docId__": 140,
+    "__docId__": 141,
     "kind": "member",
     "name": "peer",
     "memberof": "lib/messages/msend.js~MSend",
@@ -2509,7 +2530,7 @@
     }
   },
   {
-    "__docId__": 141,
+    "__docId__": 142,
     "kind": "member",
     "name": "payload",
     "memberof": "lib/messages/msend.js~MSend",
@@ -2526,7 +2547,7 @@
     }
   },
   {
-    "__docId__": 142,
+    "__docId__": 143,
     "kind": "member",
     "name": "type",
     "memberof": "lib/messages/msend.js~MSend",
@@ -2543,7 +2564,7 @@
     }
   },
   {
-    "__docId__": 143,
+    "__docId__": 144,
     "kind": "file",
     "name": "lib/neighborhood.js",
     "content": "'use strict'\n\nconst debug = (require('debug'))('neighborhood-wrtc')\n\nconst merge = require('lodash.merge')\nconst uuid = require('uuid/v4')\nconst Socket = require('simple-peer')\nconst Events = require('events')\n\nconst ArcStore = require('./arcstore.js')\nconst EPending = require('./entries/epending.js')\nconst EDying = require('./entries/edying.js')\n\nconst MResponse = require('./messages/mresponse.js')\nconst MRequest = require('./messages/mrequest.js')\nconst MSend = require('./messages/msend.js')\nconst MInternalSend = require('./messages/minternalsend.js')\n\nconst ExIncompleteMessage = require('./exceptions/exincompletemessage.js')\n\n/**\n * Easy-to-use interface to establish multiple WebRTC connections using\n * SimplePeer (npm: simple-peer)\n */\nclass Neighborhood extends Events {\n  /**\n     * @param {object} [options] the options available to the connections, e.g.\n     * timeout before\n     * @param {object} [options.socketClass] simple-peer default socket class (usefull if you need to change the type of socket)\n     * @param {object} [options.config] simple-peer options\n     * @param {number} [options.timeout = 60000] Time to wait (in milliseconds) for dying socket\n     * @param {number} [options.pendingTimeout = 10000] Time to wait (in milliseconds) for pending socket\n     * before neighborhood-wrtc assumes that a connection establishment failed,\n     * or before an unused connection is removed.\n     * @param {function} [options.encoding] Method to customize message sent,\n     * default: return JSON.stringify(data);\n     * @param {function} [options.decoding] Method to decode a received message,\n     * default: return JSON.parse(data);\n     */\n  constructor (options) {\n    super()\n    // #1 save options\n    this.options = {\n      socketClass: Socket,\n      peer: uuid(),\n      config: { trickle: true, initiator: false },\n      timeout: 1 * 60 * 1000,\n      pendingTimeout: 10 * 1000,\n      encoding: (d) => { return JSON.stringify(d) },\n      decoding: (d) => { return JSON.parse(d) }\n    }\n    this.options = merge(this.options, options)\n    this.encode = this.options.encoding // not sure it should stay that\n    this.decode = this.options.decoding // way\n\n    // #2 unmutable values\n    this.PEER = this.options.peer\n    debug('[%s] initialized.', this.PEER)\n\n    // #3 initialize tables\n    this.pending = new Map() // not finalized yet\n    this.living = new ArcStore() // live and usable\n    this.dying = new Map() // being removed\n  }\n\n  /**\n   * Create a WebRTC connection.\n   * @param {function|object} arg1 Either a callback function to send the\n   * message to the remote peer (for instance, it can use a signaling server\n   * or the already created WebRTC connexions), or a message received from the\n   * remote peer.\n   * @param {object} arg2 The message received from a peer that initialized a\n   * WebRTC connection.\n   */\n  connect (arg1, arg2) {\n    return new Promise((resolve, reject) => {\n      const id = uuid()\n      if (typeof arg1 === 'function' && typeof arg2 === 'undefined') {\n        this._initiate(arg1, id) // arg1: callback for offers\n      } else if (typeof arg1 === 'function' && typeof arg2 !== 'undefined') {\n        this._accept(arg1, arg2, id) // arg1:callback, arg2:request\n      } else {\n        this._finalize(arg1, id) // arg1: response\n      }\n      this.once(id, (connectedWith, timeout = false) => {\n        if (timeout) reject(new Error('timeout exceeded.'))\n        resolve(connectedWith)\n      })\n    })\n  }\n\n  /**\n   * @private\n   * Initiate the creation of a WebRTC connection. At this point, the identity\n   * of the remote peer is unknown.\n   * @param {function} sender A function called at each offer\n   * @param {String} jobId The jobId that initiate the connection\n   */\n  _initiate (sender, jobId) {\n    // #1 create an initiator\n    this.options.config.initiator = true\n    let SocketClass = this.options.socketClass\n    let socket = new SocketClass(this.options.config)\n    // #2 insert the new entry in the pending table\n    let entry = new EPending(uuid(), null, socket)\n    entry.jobId = jobId\n    // entry.tid = peerIdToConnectWith || entry.tid\n    this.pending.set(entry.tid, entry)\n\n    // #3 define events\n    socket.once('connect', () => {\n      entry.successful = true\n      if (this.living.contains(entry.peer)) {\n        entry.alreadyExists = true\n        entry.successful = true\n        this.living.insert(entry.peer)\n        debug('[%s] --- arc --> %s', this.PEER, entry.peer)\n        debug('[init] emit connect event: ', entry.jobId, entry.peer, false, entry)\n        this.emit(entry.jobId, entry.peer, false)\n        // notify\n        this._connected(entry.peer, true)\n        entry.peer = null // becomes the unknown soldier\n      } else {\n        this.living.insert(entry.peer, socket)\n        debug('[%s] --- WebRTC --> %s', this.PEER, entry.peer)\n        debug('[init] emit connect event: ', entry.jobId, entry.peer, false, entry)\n        this.emit(entry.jobId, entry.peer, false)\n        // notify\n        this._connected(entry.peer, true)\n      }\n\n      this._checkPendingEntry(entry)\n    })\n    socket.once('close', () => {\n      if (entry.peer !== null) { // if not the unknown soldier\n        if (this.living.contains(entry.peer)) {\n          // #A remove the socket from the table of living connections\n          this.living.removePeer(entry.peer)\n          // #B notify\n          this._disconnected(entry.peer)\n        } else if (this.dying.has(entry.peer)) {\n          let d = this.dying.get(entry.peer)\n          clearTimeout(d.timeout)\n          this.dying.delete(entry.peer)\n        }\n        debug('[%s] -‡- WebRTC -‡> %s', this.PEER, entry.peer)\n        debug('[init] emit close event: ', entry.jobId, entry.peer, true)\n        this._checkPendingEntry(entry)\n        this.emit(entry.jobId, entry.peer, true)\n      } else {\n        debug('[%s] -‡- WebRTC -‡> %s', this.PEER, 'unknown')\n      }\n    })\n\n    socket.on('data', (d) => {\n      let msg = this.decode(d)\n      if (msg.type === 'MInternalSend') {\n        this._receiveInternalMessage(msg)\n      } else {\n        this._received(msg.peer, msg.payload)\n      }\n    })\n    socket.on('stream', (s) => {\n      this._streamed(entry.peer, s)\n    })\n    socket.on('error', (e) => {\n      // Nothing here, for the failure are detected and handled after\n      // this.options.timeout milliseconds.\n      debug(e)\n      socket.destroy()\n      debug('[init] emit error event: ', entry.jobId, entry.peer, true)\n      this.emit(entry.jobId, entry.peer, true)\n    })\n    // #4 send offer message using sender\n    socket.on('signal', (offer) => {\n      if (socket.connected && !socket._isNegociating) {\n        this._sendRenegociateRequest(new MRequest(entry.tid, this.PEER, offer, 'renegociate'), entry.peer)\n      } else {\n        sender(new MRequest(entry.tid, this.PEER, offer))\n      }\n    })\n\n    // #5 check if the socket has been established correctly\n    setTimeout(() => {\n      if ((!entry.successful || entry.alreadyExists) && (entry.socket !== null)) {\n        entry.socket.destroy()\n      }\n      if (!entry.successful) {\n        this._failed(entry.peer, true)\n        debug('[init] emit timeout event: ', entry.jobId, entry.peer, true)\n        this.emit(entry.jobId, entry.peer, true)\n      }\n      this.pending.delete(entry.tid)\n    }, this.options.pendingTimeout)\n  }\n\n  /**\n     * @private\n     * Try to finalize the WebRTC connection using the remote offers.\n     * @param {MResponse} msg The message containing an offer, a peerId etc.\n     */\n  _finalize (msg) {\n    if (msg.offerType === 'renegociate') {\n      debug(`[%s] _finalize regenociation:`, msg)\n      if (this.living.store.has(msg.peer)) {\n        const socket = this.living.get(msg.peer).socket\n        socket.connected && !socket._isNegociating && socket.signal(msg.offer)\n      }\n      return\n    }\n    if (!this.pending.has(msg.tid)) {\n      // debug(new ExLateMessage('_finalize', msg))\n      return\n    }\n\n    let entry = this.pending.get(msg.tid)\n    if (entry) {\n      if (entry.alreadyExists || entry.successful) {\n        this._checkPendingEntry(entry)\n        debug('The socket already exists: ', entry.peer)\n        return\n      }\n    }\n    debug('[finalize]', entry)\n    // #A check if the connection already exists\n    if (this.living.contains(msg.peer)) {\n      entry.alreadyExists = true\n      entry.successful = true\n      this.living.insert(msg.peer)\n\n      debug('[%s]finalize --- arc --> %s', this.PEER, msg.peer)\n      this._connected(msg.peer, true)\n      this.emit(entry.jobId, msg.peer, false)\n\n      this._checkPendingEntry(entry)\n    } else if (this.dying.has(msg.peer)) {\n      // #B rise from the dead\n      entry.alreadyExists = true\n      entry.successful = true\n      let rise = this.dying.get(msg.peer)\n      clearTimeout(rise.timeout)\n      this.dying.delete(msg.peer)\n      this.living.insert(msg.peer, rise.socket)\n\n      debug('[%s]finalize -¡- arc -¡> %s', this.PEER, msg.peer)\n      this._connected(msg.peer, true)\n      this.emit(entry.jobId, msg.peer, false)\n\n      this._checkPendingEntry(entry)\n    } else {\n      // #C just signal the offer\n      entry.peer = msg.peer\n      if (!msg.offer) {\n        throw new ExIncompleteMessage('_finalize', entry, msg)\n      } else {\n        debug('[finalize] signaling: ', msg)\n        entry.socket.signal(msg.offer)\n      }\n    }\n  }\n\n  /**\n     * @private\n     * Establish a connection in response to the request of remote peer.\n     * @param {function} sender The function that send the offer to the remote\n     * initiating peer.\n     * @param {MRequest} msg The request message containing offers, peerId, etc.\n     **/\n  _accept (sender, msg) {\n    if (msg.offerType === 'renegociate') {\n      debug(`[%s] _accept regenociation:`, msg)\n      if (this.living.store.has(msg.peer)) {\n        this.living.get(msg.peer).socket.signal(msg.offer)\n      }\n      return\n    }\n    // #1 initialize the entry if it does not exist\n    let firstCall = false\n    const tid = msg.tid\n    const peer = msg.peer\n    if (!this.pending.has(tid)) {\n      firstCall = true\n      let entry = new EPending(tid, peer)\n      this.pending.set(tid, entry)\n\n      setTimeout(() => {\n        (!entry.successful || entry.alreadyExists) && entry.socket && entry.socket.destroy()\n        !entry.successful && this._failed(peer, false)\n        this.pending.delete(tid)\n      }, this.options.pendingTimeout)\n    }\n\n    // #2 check if a WebRTC connection to peerId already exists\n    let entry = this.pending.get(msg.tid)\n    // let entry = this.pending.get(peer)\n    if (entry.alreadyExists || entry.successful) { return }\n\n    // #A check if the connection already exists\n    if (this.living.contains(msg.peer)) {\n      entry.alreadyExists = true\n      entry.successful = true\n      this.living.insert(msg.peer)\n      debug('[%s] <-- arc --- %s', this.PEER, entry.peer)\n      this._connected(msg.peer, false)\n      firstCall && sender(new MResponse(entry.tid, this.PEER, null))\n\n      this._checkPendingEntry(entry)\n    } else if (this.dying.has(msg.peer)) {\n      // #B rise from the dead\n      entry.alreadyExists = true\n      entry.successful = true\n      let rise = this.dying.get(msg.peer)\n      clearTimeout(rise.timeout)\n      this.dying.delete(msg.peer)\n      this.living.insert(msg.peer, rise.socket)\n      debug('[%s] <¡- arc -¡- %s', this.PEER, msg.peer)\n      this._connected(msg.peer, false)\n      firstCall && sender(new MResponse(entry.tid, this.PEER, null))\n\n      // delete the pending entry cause we do not use the created one if exists\n      this._checkPendingEntry(entry)\n    } else {\n      // #3 create the events and signal the offer\n      if (firstCall && !entry.socket) {\n        // #A create a socket\n        this.options.config.initiator = false\n        let SocketClass = this.options.socketClass\n        let socket = new SocketClass(this.options.config)\n        // #B update the entry\n        entry.socket = socket\n        // #C define events\n        socket.once('connect', () => {\n          entry.successful = true\n          if (this.living.contains(entry.peer)) {\n            entry.alreadyExists = true\n            entry.successful = true\n            this.living.insert(entry.peer)\n            debug('[%s] <-- arc --- %s', this.PEER, entry.peer)\n            this._connected(entry.peer,\n              false)\n            entry.peer = null // becomes the unknown soldier\n          } else {\n            this.living.insert(entry.peer, socket)\n            debug('[%s] <-- WebRTC --- %s', this.PEER, entry.peer)\n            this._connected(entry.peer,\n              false)\n          }\n\n          this._checkPendingEntry(entry)\n        })\n        socket.once('close', () => {\n          if (entry.peer !== null) { // if not the unknown soldier\n            if (this.living.contains(entry.peer)) {\n              // #A remove the socket from the table of\n              // living connections\n              this.living.removePeer(entry.peer)\n              this._disconnected(entry.peer)\n            } else if (this.dying.has(entry.peer)) {\n              let d = this.dying.get(entry.peer)\n              clearTimeout(d.timeout)\n              this.dying.delete(entry.peer)\n            }\n            debug('[%s] <‡- WebRTC -‡- %s', this.PEER, entry.peer)\n          } else {\n            debug('[%s] <‡- WebRTC -‡- %s', this.PEER, 'unknown')\n          }\n          this._checkPendingEntry(entry)\n        })\n\n        socket.on('data', (d) => {\n          let msg = this.decode(d)\n          if (msg.type === 'MInternalSend') {\n            this._receiveInternalMessage(msg)\n          } else {\n            this._received(msg.peer, msg.payload)\n          }\n        })\n        socket.on('stream', (s) => {\n          this._streamed(entry.peer, s)\n        })\n        socket.on('error', (e) => {\n          // Nothing here, for the failure are detected and handled\n          // after this.options.timeout milliseconds.\n          debug(e)\n          socket.destroy()\n        })\n        // #4 send offer message using sender\n        socket.on('signal', (offer) => {\n          if (socket.connected && !socket._isNegotiating) {\n            this._sendRenegociateResponse(new MResponse(entry.tid, this.PEER, offer, 'renegociate'), entry.peer)\n          } else {\n            sender(new MResponse(entry.tid, this.PEER, offer))\n          }\n        })\n      }\n      entry.socket.signal(msg.offer)\n    }\n  }\n\n  /**\n     * Remove an arc. If it was the last arc,\n     * the WebRTC connexion is downgraded to the dying table. In this table, the\n     * connexion will be closed if none create it.\n     * @param {string|undefined} peerId The identifier of the peer. If no arg,\n     * remove all arcs.\n     */\n  disconnect (peerId) {\n    return new Promise((resolve, reject) => {\n      if (typeof peerId === 'undefined') {\n        // #1 remove all arcs\n        let entries\n        try {\n          entries = this.living.removeAll()\n        } catch (e) {\n          return reject(e)\n        }\n        entries.forEach((entry) => {\n          if (entry.socket !== null) {\n            let dying = new EDying(entry.peer, entry.socket,\n              setTimeout(() => {\n                entry.socket && entry.socket.destroy()\n              }, this.options.timeout))\n            this.dying.set(dying.peer, dying)\n          }\n\n          for (let i = 0; i < entry.occ; ++i) {\n            if (entry.socket === null || (entry.socket !== null && i < entry.occ - 1)) {\n              debug('DISCONNECT-ALL [%s] ††† arc ††† %s', this.PEER, peerId)\n            } else {\n              debug('DISCONNECT-ALL [%s] ††† WebRTC ††† %s', this.PEER, peerId)\n            }\n            this._disconnected(entry.peer)\n          }\n        })\n        resolve()\n      } else {\n        let entry = null\n        // #2 remove one arc\n        try {\n          entry = this.living.remove(peerId)\n        } catch (e) {\n          return reject(e)\n        }\n        if (entry) {\n          let dying = new EDying(entry.peer, entry.socket, setTimeout(() => {\n            entry.socket && entry.socket.destroy()\n          }, this.options.timeout))\n          this.dying.set(dying.peer, dying)\n          debug('DISCONNECT-ONE [%s] ††† WebRTC ††† %s', this.PEER, peerId)\n        } else {\n          debug('DISCONNECT-ONE [%s] ††† arc ††† %s', this.PEER, peerId)\n        }\n        this._disconnected(peerId)\n        resolve()\n      }\n    })\n  }\n\n  /**\n     * Send a message to a remote peer.\n     * @param {string} peerId The remote peer to send the message to.\n     * @param {object} message The message to send.\n     * @param {number} [retry=0] Retry few times to send the message before\n     * giving up.\n     * @returns {promise} Resolved when the message is sent, reject\n     * otherwise. Note that loss of messages is not handled by default.\n     */\n  send (peerId, message, retry = 0) {\n    return new Promise((resolve, reject) => {\n      // #1 get the proper entry in the tables\n      let entry = null\n      if (this.living.contains(peerId)) {\n        entry = this.living.get(peerId)\n      } else if (this.dying.has(peerId)) {\n        entry = this.dying.get(peerId) // (TODO) warn: not safe\n      }\n      if (entry === null) {\n        return reject(new Error('peer not found: ' + peerId))\n      }\n      // #2 define the recursive sending function\n      let __send = (r) => {\n        try {\n          entry.socket.send(this.encode(new MSend(this.PEER, message)))\n          debug('[%s] --- msg --> %s:%s', this.PEER, peerId)\n          resolve()\n        } catch (e) {\n          debug('[%s] -X- msg -X> %s:%s', this.PEER, peerId)\n          if (r < retry) {\n            setTimeout(() => { __send(r + 1) }, 1000)\n          } else {\n            return reject(e)\n          }\n        }\n      }\n      // #3 start to send\n      __send(0)\n    })\n  }\n\n  stream (peerId, media, retry = 0) {\n    return new Promise((resolve, reject) => {\n      // #1 get the proper entry in the tables\n      let entry = null\n      if (this.living.contains(peerId)) {\n        entry = this.living.get(peerId)\n      } else if (this.dying.has(peerId)) {\n        entry = this.dying.get(peerId) // (TODO) warn: not safe\n      }\n      if (entry === null) {\n        this.living.store.forEach(elem => {\n          debug(elem.peer)\n        })\n        reject(new Error('peer not found: ' + peerId))\n      }\n      // #2 define the recursive sending function\n      let __send = (r) => {\n        try {\n          entry.socket.addStream(media)\n          debug('[%s] --- MEDIA msg --> %s:%s', this.PEER, peerId)\n          resolve()\n        } catch (e) {\n          debug('[%s] -X- MEDIA msg -X> %s:%s', this.PEER, peerId)\n          if (r < retry) {\n            setTimeout(() => { __send(r + 1) }, 1000)\n          } else {\n            reject(e)\n          }\n        }\n      }\n      // #3 start to send\n      __send(0)\n    })\n  }\n\n  _sendRenegociateRequest (request, to, retry = 0) {\n    return new Promise((resolve, reject) => {\n      // #1 get the proper entry in the tables\n      let entry = null\n      if (this.living.contains(to)) {\n        entry = this.living.get(to)\n      } else if (this.dying.has(to)) {\n        entry = this.dying.get(to) // (TODO) warn: not safe\n      }\n      if (entry === null) {\n        this.living.store.forEach(elem => {\n          debug(elem.peer)\n        })\n        return reject(new Error('peer not found: ' + to))\n      }\n      // #2 define the recursive sending function\n      let __send = (r) => {\n        try {\n          entry.socket.send(this.encode(new MInternalSend(this.PEER, request)))\n          debug('[%s] --- MEDIA Internal Renegociate msg --> %s:%s',\n            this.PEER, to)\n          resolve()\n        } catch (e) {\n          debug('[%s] -X- MEDIA Internal Renegociate msg -X> %s:%s',\n            this.PEER, to)\n          if (r < retry) {\n            setTimeout(() => { __send(r + 1) }, 1000)\n          } else {\n            return reject(e)\n          }\n        }\n      }\n      // #3 start to send\n      __send(0)\n    })\n  }\n\n  _sendRenegociateResponse (response, to, retry = 0) {\n    return new Promise((resolve, reject) => {\n      // #1 get the proper entry in the tables\n      let entry = null\n      if (this.living.contains(to)) {\n        entry = this.living.get(to)\n      } else if (this.dying.has(to)) {\n        entry = this.dying.get(to) // (TODO) warn: not safe\n      }\n      if (entry === null) {\n        this.living.store.forEach(elem => {\n          debug(elem.peer)\n        })\n        return reject(new Error('peer not found: ' + to))\n      }\n      // #2 define the recursive sending function\n      let __send = (r) => {\n        try {\n          entry.socket.send(this.encode(new MInternalSend(this.PEER, response)))\n          debug('[%s] --- MEDIA Internal Renegociate msg --> %s:%s',\n            this.PEER, to)\n          resolve()\n        } catch (e) {\n          debug('[%s] -X- MEDIA Internal Renegociate msg -X> %s:%s',\n            this.PEER, to)\n          if (r < retry) {\n            setTimeout(() => { __send(r + 1) }, 1000)\n          } else {\n            return reject(e)\n          }\n        }\n      }\n      // #3 start to send\n      __send(0)\n    })\n  }\n\n  _receiveInternalMessage (msg) {\n    debug('Receive internal message: ', msg)\n    this.living.get(msg.peer).socket.signal(msg.payload.offer)\n  }\n\n  /**\n   * return an array of living sockets\n   * @return {[ELiving]} a living entry with socket, peer id and number of occurences (arcs)\n   */\n  neighbours () {\n    const neigh = []\n    this.living.store.forEach(elem => {\n      neigh.push(elem)\n    })\n    return neigh\n  }\n\n  _checkPendingEntry (entry) {\n    if (this.pending.has(entry.tid)) {\n      if (entry.peer === null) {\n        if (entry.socket) {\n          entry.socket.destroy()\n          entry.socket = null\n        }\n      }\n      this.pending.delete(entry.tid)\n    }\n  }\n}\n\nmodule.exports = Neighborhood\n",
@@ -2554,7 +2575,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 144,
+    "__docId__": 145,
     "kind": "variable",
     "name": "debug",
     "memberof": "lib/neighborhood.js",
@@ -2575,7 +2596,7 @@
     "ignore": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 146,
     "kind": "class",
     "name": "Neighborhood",
     "memberof": "lib/neighborhood.js",
@@ -2593,7 +2614,7 @@
     ]
   },
   {
-    "__docId__": 146,
+    "__docId__": 147,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2682,7 +2703,7 @@
     ]
   },
   {
-    "__docId__": 147,
+    "__docId__": 148,
     "kind": "member",
     "name": "options",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2699,7 +2720,7 @@
     }
   },
   {
-    "__docId__": 149,
+    "__docId__": 150,
     "kind": "member",
     "name": "encode",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2716,7 +2737,7 @@
     }
   },
   {
-    "__docId__": 150,
+    "__docId__": 151,
     "kind": "member",
     "name": "decode",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2733,7 +2754,7 @@
     }
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "member",
     "name": "PEER",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2750,7 +2771,7 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "member",
     "name": "pending",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2767,7 +2788,7 @@
     }
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "member",
     "name": "living",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2784,7 +2805,7 @@
     }
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "member",
     "name": "dying",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2801,7 +2822,7 @@
     }
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "method",
     "name": "connect",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2842,7 +2863,7 @@
     }
   },
   {
-    "__docId__": 156,
+    "__docId__": 157,
     "kind": "method",
     "name": "_initiate",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2878,7 +2899,7 @@
     "return": null
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "method",
     "name": "_finalize",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2904,7 +2925,7 @@
     "return": null
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "method",
     "name": "_accept",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2940,7 +2961,7 @@
     "return": null
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "method",
     "name": "disconnect",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -2971,7 +2992,7 @@
     }
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "method",
     "name": "send",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -3032,7 +3053,7 @@
     }
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "method",
     "name": "stream",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -3074,7 +3095,7 @@
     }
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "method",
     "name": "_sendRenegociateRequest",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -3116,7 +3137,7 @@
     }
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
     "kind": "method",
     "name": "_sendRenegociateResponse",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -3158,7 +3179,7 @@
     }
   },
   {
-    "__docId__": 164,
+    "__docId__": 165,
     "kind": "method",
     "name": "_receiveInternalMessage",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -3181,7 +3202,7 @@
     "return": null
   },
   {
-    "__docId__": 165,
+    "__docId__": 166,
     "kind": "method",
     "name": "neighbours",
     "memberof": "lib/neighborhood.js~Neighborhood",
@@ -3203,7 +3224,7 @@
     "params": []
   },
   {
-    "__docId__": 166,
+    "__docId__": 167,
     "kind": "method",
     "name": "_checkPendingEntry",
     "memberof": "lib/neighborhood.js~Neighborhood",

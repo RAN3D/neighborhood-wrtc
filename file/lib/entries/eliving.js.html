@@ -50,7 +50,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/entries/eliving.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;
-
+const debug = (require(&apos;debug&apos;))(&apos;neighborhood-wrtc&apos;)
 /**
  * Entry of the living table containing sockets still in use.
  */
@@ -65,6 +65,7 @@ class ELiving {
     this.socket = socket
     this.counter = 0
     this.increment()
+    debug(&apos;[eliving:%s] initialized: %f&apos;, this.peer, this.counter)
   }
 
   /**
@@ -72,6 +73,7 @@ class ELiving {
      */
   increment () {
     this.counter++
+    debug(&apos;[eliving:%s] increment: %f&apos;, this.peer, this.counter)
   }
 
   /**
@@ -79,6 +81,7 @@ class ELiving {
      */
   decrement () {
     this.counter--
+    debug(&apos;[eliving:%s] decrement: %f&apos;, this.peer, this.counter)
   }
 }
 

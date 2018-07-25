@@ -1,6 +1,6 @@
 {
-  "coverage": "45.63%",
-  "expectCount": 103,
+  "coverage": "45.19%",
+  "expectCount": 104,
   "actualCount": 47,
   "files": {
     "lib/arcstore.js": {
@@ -21,9 +21,10 @@
       ]
     },
     "lib/entries/eliving.js": {
-      "expectCount": 7,
+      "expectCount": 8,
       "actualCount": 4,
       "undocumentLines": [
+        2,
         13,
         14,
         15
