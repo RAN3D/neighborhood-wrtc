@@ -1,14 +1,15 @@
 {
-  "coverage": "45.19%",
-  "expectCount": 104,
+  "coverage": "44.76%",
+  "expectCount": 105,
   "actualCount": 47,
   "files": {
     "lib/arcstore.js": {
-      "expectCount": 9,
+      "expectCount": 10,
       "actualCount": 7,
       "undocumentLines": [
         12,
-        13
+        13,
+        14
       ]
     },
     "lib/entries/edying.js": {
@@ -142,11 +143,11 @@
         61,
         62,
         63,
-        504,
-        539,
-        576,
-        613,
-        630
+        514,
+        549,
+        586,
+        623,
+        640
       ]
     }
   }

@@ -426,6 +426,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "lib/arcstore.js~arcstore#tid",
+    "class/lib/arcstore.js~ArcStore.html#instance-member-tid",
+    "lib/arcstore.js~ArcStore#tid",
+    "member"
+  ],
+  [
     "lib/entries/edying.js",
     "file/lib/entries/edying.js.html",
     "lib/entries/edying.js",

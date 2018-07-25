@@ -158,6 +158,34 @@ comprise multiples protocols that may use multiple times an arc.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-member-tid">tid</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -237,7 +265,7 @@ comprise multiples protocols that may use multiple times an arc.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/lib/arcstore.js~ArcStore.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, tid: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>
         </p>
       </div>
       <div>
@@ -438,6 +466,49 @@ comprise multiples protocols that may use multiple times an arc.</p>
   
   
 </div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-tid">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">tid</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber14">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
 </div>
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
@@ -453,7 +524,7 @@ comprise multiples protocols that may use multiple times an arc.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber115">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber126">source</a></span></span>
     </span>
   </h3>
 
@@ -527,7 +598,7 @@ comprise multiples protocols that may use multiple times an arc.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber125">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber136">source</a></span></span>
     </span>
   </h3>
 
@@ -598,11 +669,11 @@ exists.</p>
     
     
     
-    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(peerId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, socket: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>, tid: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber23">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber26">source</a></span></span>
     </span>
   </h3>
 
@@ -638,12 +709,32 @@ socket.</p>
 peerId is known to be in the store.</p>
 </td>
     </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">tid</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>TemporyId of a set of offer that we store in order to say if the already see a set of offers. (trickle true problems)</p>
+</td>
+    </tr>
 </tbody>
   </table>
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Return true if increment was done, false otherwise</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -672,7 +763,7 @@ peerId is known to be in the store.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -748,7 +839,7 @@ otherwise.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber74">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber85">source</a></span></span>
     </span>
   </h3>
 
@@ -808,7 +899,7 @@ still use it, occ being the number of arcs removed by protocolId.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber100">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/arcstore.js.html#lineNumber111">source</a></span></span>
     </span>
   </h3>
 

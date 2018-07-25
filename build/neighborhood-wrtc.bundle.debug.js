@@ -117,6 +117,7 @@ const ExSocketNotFound = __webpack_require__(/*! ./exceptions/exsocketnotfound.j
 class ArcStore {
   constructor () {
     this.store = new Map()
+    this.tid = new Map()
   }
 
   /**
@@ -125,8 +126,10 @@ class ArcStore {
      * socket.
      * @param {object} socket The WebRTC socket. Can be null if the socket to
      * peerId is known to be in the store.
+     * @param {string} tid TemporyId of a set of offer that we store in order to say if the already see a set of offers. (trickle true problems)
+     * @return {Boolean} Return true if increment was done, false otherwise
      */
-  insert (peerId, socket) {
+  insert (peerId, socket, tid) {
     // #1 make sure the peerId exists if the socket is not set.
     if (socket === null && !this.store.has(peerId)) {
       throw new ExSocketNotFound(
@@ -139,9 +142,17 @@ class ArcStore {
     if (!this.store.has(peerId)) {
       let entry = new ELiving(peerId, socket)
       this.store.set(peerId, entry)
+      return true
     } else {
-      // #3 increment the number of arcs of protocolId
-      this.store.get(peerId).increment()
+      // check if we already see the tid (fix the problem of multiple offers, trickle true!)
+      if (!this.tid.has(tid)) {
+        this.tid.set(tid, true)
+        // #3 increment the number of arcs of protocolId
+        this.store.get(peerId).increment()
+        return true
+      } else {
+        return false
+      }
     }
   }
 
@@ -748,19 +759,23 @@ class Neighborhood extends Events {
         entry.alreadyExists = true
         entry.successful = true
         debug('[_initiate(connect/living)] insert/increment')
-        this.living.insert(entry.peer)
-        debug('[init] emit connect event: ', entry.jobId, entry.peer, false)
-        this.emit(entry.jobId, entry.peer, false)
-        // notify
-        this._connected(entry.peer, true)
+        const inserting = this.living.insert(entry.peer, undefined, entry.tid)
+        if (inserting) {
+          debug('[init] emit connect event: ', entry.jobId, entry.peer, false)
+          this.emit(entry.jobId, entry.peer, false)
+          // notify
+          this._connected(entry.peer, true)
+        }
         entry.peer = null // becomes the unknown soldier
       } else {
         debug('[_initiate(connect)] insert/increment')
-        this.living.insert(entry.peer, socket)
-        debug('[init] emit connect event: ', entry.jobId, entry.peer, false)
-        this.emit(entry.jobId, entry.peer, false)
-        // notify
-        this._connected(entry.peer, true)
+        const inserting = this.living.insert(entry.peer, socket, entry.tid)
+        if (inserting) {
+          debug('[init] emit connect event: ', entry.jobId, entry.peer, false)
+          this.emit(entry.jobId, entry.peer, false)
+          // notify
+          this._connected(entry.peer, true)
+        }
       }
 
       this._checkPendingEntry(entry)
@@ -859,12 +874,12 @@ class Neighborhood extends Events {
       entry.alreadyExists = true
       entry.successful = true
       debug('[_finalize(living exists)] insert/increment')
-      this.living.insert(msg.peer)
-
-      debug('[%s]finalize --- arc --> %s', this.PEER, msg.peer)
-      this._connected(msg.peer, true)
-      this.emit(entry.jobId, msg.peer, false)
-
+      const inserting = this.living.insert(msg.peer, undefined, msg.tid)
+      if (inserting) {
+        debug('[%s]finalize --- arc --> %s', this.PEER, msg.peer)
+        this._connected(msg.peer, true)
+        this.emit(entry.jobId, msg.peer, false)
+      }
       this._checkPendingEntry(entry)
     } else if (this.dying.has(msg.peer)) {
       debug('[_finalize(dying exists)] insert/increment')
@@ -874,12 +889,12 @@ class Neighborhood extends Events {
       let rise = this.dying.get(msg.peer)
       clearTimeout(rise.timeout)
       this.dying.delete(msg.peer)
-      this.living.insert(msg.peer, rise.socket)
-
-      debug('[%s]finalize -¡- arc -¡> %s', this.PEER, msg.peer)
-      this._connected(msg.peer, true)
-      this.emit(entry.jobId, msg.peer, false)
-
+      const inserting = this.living.insert(msg.peer, rise.socket, msg.tid)
+      if (inserting) {
+        debug('[%s]finalize -¡- arc -¡> %s', this.PEER, msg.peer)
+        this._connected(msg.peer, true)
+        this.emit(entry.jobId, msg.peer, false)
+      }
       this._checkPendingEntry(entry)
     } else {
       // #C just signal the offer
@@ -934,9 +949,11 @@ class Neighborhood extends Events {
       entry.alreadyExists = true
       entry.successful = true
       debug('[_accept(living exists)] insert/increment', msg)
-      this.living.insert(msg.peer)
-      debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
-      this._connected(msg.peer, false)
+      const inserting = this.living.insert(msg.peer, undefined, msg.tid)
+      if (inserting) {
+        debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
+        this._connected(msg.peer, false)
+      }
       firstCall && sender(new MResponse(entry.tid, this.PEER, null))
 
       this._checkPendingEntry(entry)
@@ -948,9 +965,11 @@ class Neighborhood extends Events {
       let rise = this.dying.get(msg.peer)
       clearTimeout(rise.timeout)
       this.dying.delete(msg.peer)
-      this.living.insert(msg.peer, rise.socket)
-      debug('[%s] <¡- arc -¡- %s', this.PEER, msg.peer)
-      this._connected(msg.peer, false)
+      const inserting = this.living.insert(msg.peer, rise.socket, msg.tid)
+      if (inserting) {
+        debug('[%s] <¡- arc -¡- %s', this.PEER, msg.peer)
+        this._connected(msg.peer, false)
+      }
       firstCall && sender(new MResponse(entry.tid, this.PEER, null))
 
       // delete the pending entry cause we do not use the created one if exists
@@ -971,17 +990,19 @@ class Neighborhood extends Events {
             entry.alreadyExists = true
             entry.successful = true
             debug('[_accept(connect/living)] insert/increment')
-            this.living.insert(entry.peer)
-            debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
-            this._connected(entry.peer,
-              false)
+            const inserting = this.living.insert(entry.peer, undefined, msg.tid)
+            if (inserting) {
+              debug('[%s] <-- arc --- %s', this.PEER, entry.peer)
+              this._connected(entry.peer, false)
+            }
             entry.peer = null // becomes the unknown soldier
           } else {
             debug('[_accept(connect/dying)] insert/increment')
-            this.living.insert(entry.peer, socket)
-            debug('[%s] <-- WebRTC --- %s', this.PEER, entry.peer)
-            this._connected(entry.peer,
-              false)
+            const inserting = this.living.insert(entry.peer, socket, msg.tid)
+            if (inserting) {
+              debug('[%s] <-- WebRTC --- %s', this.PEER, entry.peer)
+              this._connected(entry.peer, false)
+            }
           }
 
           this._checkPendingEntry(entry)

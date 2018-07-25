@@ -62,6 +62,7 @@ const ExSocketNotFound = require(&apos;./exceptions/exsocketnotfound.js&apos;)
 class ArcStore {
   constructor () {
     this.store = new Map()
+    this.tid = new Map()
   }
 
   /**
@@ -70,8 +71,10 @@ class ArcStore {
      * socket.
      * @param {object} socket The WebRTC socket. Can be null if the socket to
      * peerId is known to be in the store.
+     * @param {string} tid TemporyId of a set of offer that we store in order to say if the already see a set of offers. (trickle true problems)
+     * @return {Boolean} Return true if increment was done, false otherwise
      */
-  insert (peerId, socket) {
+  insert (peerId, socket, tid) {
     // #1 make sure the peerId exists if the socket is not set.
     if (socket === null &amp;&amp; !this.store.has(peerId)) {
       throw new ExSocketNotFound(
@@ -84,9 +87,17 @@ class ArcStore {
     if (!this.store.has(peerId)) {
       let entry = new ELiving(peerId, socket)
       this.store.set(peerId, entry)
+      return true
     } else {
-      // #3 increment the number of arcs of protocolId
-      this.store.get(peerId).increment()
+      // check if we already see the tid (fix the problem of multiple offers, trickle true!)
+      if (!this.tid.has(tid)) {
+        this.tid.set(tid, true)
+        // #3 increment the number of arcs of protocolId
+        this.store.get(peerId).increment()
+        return true
+      } else {
+        return false
+      }
     }
   }
 
