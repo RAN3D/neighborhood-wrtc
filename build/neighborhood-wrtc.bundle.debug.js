@@ -373,38 +373,6 @@ module.exports = EPending
 
 /***/ }),
 
-/***/ "./lib/exceptions/exincompletemessage.js":
-/*!***********************************************!*\
-  !*** ./lib/exceptions/exincompletemessage.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Exception thrown when the message does not have the required data.
- */
-class ExIncompleteMessage {
-  /**
-     * @param {string} source The name of the function that threw the exception.
-     * @param {EPending|ELiving|EDying} entry The entry that requested more
-     * information.
-     * @param {MResponse} message The message lacking data.
-     */
-  constructor (source, entry, message) {
-    this.source = source
-    this.entry = entry
-    this.message = message
-  }
-};
-
-module.exports = ExIncompleteMessage
-
-
-/***/ }),
-
 /***/ "./lib/exceptions/exsocketnotfound.js":
 /*!********************************************!*\
   !*** ./lib/exceptions/exsocketnotfound.js ***!
@@ -661,7 +629,7 @@ const MRequest = __webpack_require__(/*! ./messages/mrequest.js */ "./lib/messag
 const MSend = __webpack_require__(/*! ./messages/msend.js */ "./lib/messages/msend.js")
 const MInternalSend = __webpack_require__(/*! ./messages/minternalsend.js */ "./lib/messages/minternalsend.js")
 
-const ExIncompleteMessage = __webpack_require__(/*! ./exceptions/exincompletemessage.js */ "./lib/exceptions/exincompletemessage.js")
+// const ExIncompleteMessage = require('./exceptions/exincompletemessage.js')
 
 /**
  * Easy-to-use interface to establish multiple WebRTC connections using
@@ -900,7 +868,10 @@ class Neighborhood extends Events {
       // #C just signal the offer
       entry.peer = msg.peer
       if (!msg.offer) {
-        throw new ExIncompleteMessage('_finalize', entry, msg)
+        // throw new ExIncompleteMessage('_finalize', entry, msg)
+        // do not do anything
+        // if the connection is not done, it will timeout
+        // otherwise it will open a channel
       } else {
         debug('[finalize] signaling: ', msg)
         entry.socket.signal(msg.offer)
