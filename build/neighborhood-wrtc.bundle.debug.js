@@ -719,6 +719,7 @@ class Neighborhood extends Events {
       socket = new SocketClass(this.options.config)
     } catch (e) {
       this.emit(jobId, null, true, e.message)
+      return
     }
     // #2 insert the new entry in the pending table
     let entry = new EPending(uuid(), null, socket)
@@ -963,6 +964,7 @@ class Neighborhood extends Events {
           socket = new SocketClass(this.options.config)
         } catch (e) {
           this.emit(entry.jobId, entry.peer, true, e.message)
+          return
         }
         // #B update the entry
         entry.socket = socket
