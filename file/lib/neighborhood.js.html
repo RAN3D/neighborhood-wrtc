@@ -133,8 +133,8 @@ class Neighborhood extends Events {
       } else {
         this._finalize(arg1, id) // arg1: response
       }
-      this.once(id, (connectedWith, timeout = false) =&gt; {
-        if (timeout) reject(new Error(&apos;timeout exceeded.&apos;))
+      this.once(id, (connectedWith, timeout = false, message) =&gt; {
+        if (timeout) reject(new Error(&apos;timeout exceeded.&apos;, message))
         resolve(connectedWith)
       })
     })
@@ -151,7 +151,14 @@ class Neighborhood extends Events {
     // #1 create an initiator
     this.options.config.initiator = true
     let SocketClass = this.options.socketClass
-    let socket = new SocketClass(this.options.config)
+    let socket
+    // handle DOMException: Failed to construct &apos;RTCPeerConnection&apos;: Cannot create so many PeerConnections
+    try {
+      socket = new SocketClass(this.options.config)
+    } catch (e) {
+      this.emit(jobId, null, true, e.message)
+      return
+    }
     // #2 insert the new entry in the pending table
     let entry = new EPending(uuid(), null, socket)
     entry.jobId = jobId
@@ -200,7 +207,7 @@ class Neighborhood extends Events {
         }
         debug(&apos;[init] emit close event: &apos;, entry.jobId, entry.peer, true)
         this._checkPendingEntry(entry)
-        this.emit(entry.jobId, entry.peer, true)
+        this.emit(entry.jobId, entry.peer, true, &apos;closed&apos;)
       } else {
         debug(&apos;[%s] -&#x2021;- WebRTC -&#x2021;&gt; %s&apos;, this.PEER, &apos;unknown&apos;)
       }
@@ -223,7 +230,7 @@ class Neighborhood extends Events {
       debug(e)
       socket.destroy()
       debug(&apos;[init] emit error event: &apos;, entry.jobId, entry.peer, true)
-      this.emit(entry.jobId, entry.peer, true)
+      this.emit(entry.jobId, entry.peer, true, e.message)
     })
     // #4 send offer message using sender
     socket.on(&apos;signal&apos;, (offer) =&gt; {
@@ -389,7 +396,14 @@ class Neighborhood extends Events {
         // #A create a socket
         this.options.config.initiator = false
         let SocketClass = this.options.socketClass
-        let socket = new SocketClass(this.options.config)
+        let socket
+        // handle DOMException: Failed to construct &apos;RTCPeerConnection&apos;: Cannot create so many PeerConnections
+        try {
+          socket = new SocketClass(this.options.config)
+        } catch (e) {
+          this.emit(entry.jobId, entry.peer, true, e.message)
+          return
+        }
         // #B update the entry
         entry.socket = socket
         // #C define events
