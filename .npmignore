@@ -51,5 +51,6 @@ deploy_docs.sh
 .editorconfig
 .esdoc.json
 .eslintrc.json
+webpack*
 *.yml
 deploy_doc.sh

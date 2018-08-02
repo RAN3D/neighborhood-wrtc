@@ -56,58 +56,43 @@ Want to create your protocol?
 // import the lib
 import Neighborhood from 'neighborhood-wrtc'
 // create a class that fullfilled the [following API](https://ran3d.github.io/neighborhood-wrtc/class/lib/interfaces/iprotocol.js~IProtocol.html)
-class P { // check IProtocol to see the interface
-  constructor (pid, peer) {
-    this.id = pid
-    this.peer = peer
-  };
-
-  _pid () { return this.id };
-
+class P extends Neighborhood { // check IProtocol to see the interface
   _connected (peerId) {
-    console.log('@%s-P%s: an arc has been created.', this.peer, this.id)
+    console.log('@%s: an arc has been created.', this.PEER)
   };
 
   _disconnected (peerId) {
-    console.log('@%s-P%s: an arc has been removed.', this.peer, this.id)
+    console.log('@%s: an arc has been removed.', this.PEER, peerId)
   };
 
   _received (peerId, message) {
-    console.log('@%s-P%s: message received from @%s: %s',
-      this.peer, this.id, peerId, message)
+    console.log('@%s: message received from @%s: %s',
+      this.PEER, peerId, message)
   };
 
-  _streamed (peerId, stream) {
-    console.log('Receive a stream from: %s', peerId, stream)
-  }
-
   _failed (peerId) {
-    console.log('%s-P%s: failed to establish a connection with %s.',
-      this.peer, this.id, peerId)
+    console.log('%s: failed to establish a connection with %s.',
+      this.PEER, peerId)
   };
 };
 
 // create the Peer
-const neigh = new Neighborhood({
-  peer: 'myid1',
+const p1 = new Neighborhood({
+  peer: 'peer1',
   config: {
     config: {iceServers: [...]},
     trickle: true
   }
 })
-// create the protocol
-const p1 = neigh.register(new P('mywonderfullprotocol', 'myid1'))
 
 // create the Peer
-const neigh = new Neighborhood({
-  peer: 'myid2',
+const p2 = new Neighborhood({
+  peer: 'peer2',
   config: {
     config: {iceServers: [...]},
     trickle: true
   }
 })
-// create the protocol
-const p2 = neigh.register(new P('mywonderfullprotocol', 'myid2'))
 
 // now connec them
 // #3 callback functions ensuring the peers exchanges messages

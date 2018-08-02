@@ -7,34 +7,27 @@
     <p>p2 send => <video id='2' height="200" width="200"></video> p1 receive => <video id='1r' height="200" width="200"></video> </p><br />
     <script src='../build/neighborhood-wrtc.bundle.debug.js'></script>
     <script type="text/javascript">
-      const Neighborhood = require('neighborhood-wrtc')
-      localStorage.debug = '*'
+      const Neighborhood = neighborhood // eslint-disable-line
+      localStorage.debug = 'neighborhood-wrtc'
       // #1 create a protocol that will run on top of this module. It must implement
       // the 4 properties : pid, opened, closed, failed.
-      class P { // check IProtocol to see the interface
-        constructor (pid, peer) {
-          this.id = pid
-          this.peer = peer
-        };
-
-        _pid () { return this.id };
-
+      class P extends Neighborhood { // check IProtocol to see the interface
         _connected (peerId) {
-          console.log('@%s-P%s: an arc has been created.', this.peer, this.id)
+          console.log('@%s-P%s: an arc has been created.', this.PEER, this.id)
         };
 
         _disconnected (peerId) {
-          console.log('@%s-P%s: an arc has been removed.', this.peer, this.id)
+          console.log('@%s-P%s: an arc has been removed.', this.PEER, this.id)
         };
 
         _received (peerId, message) {
           console.log('@%s-P%s: message received from @%s: %s',
-            this.peer, this.id, peerId, message)
+            this.PEER, this.id, peerId, message)
         };
 
         _streamed (peerId, stream) {
           console.log('Receive a stream from: %s', peerId, stream)
-          const video = document.getElementById(this.peer+'r');
+          const video = document.getElementById(this.PEER+'r');
           console.log(video)
           try {
             video.srcObject = stream;
@@ -46,17 +39,15 @@
 
         _failed (peerId) {
           console.log('%s-P%s: failed to establish a connection with %s.',
-            this.peer, this.id, peerId)
+            this.PEER, this.id, peerId)
         };
       };
       // #2 create the neighborhood tables and, for each, register a protocol
       const opts1 = { peer: '1', config: { trickle: true } }
-      const n1 = new Neighborhood(opts1)
-      const p1 = n1.register(new P(1, '1'))
+      const p1 = new P(opts1)
 
       const opts2 = { peer: '2', config: { trickle: true } }
-      const n2 = new Neighborhood(opts2)
-      const p2 = n2.register(new P(1, '2'))
+      const p2 = new P(opts2)
 
 
       // #3 callback functions ensuring the peers exchanges messages
@@ -68,23 +59,28 @@
       }
 
       // #4 establishing a connection from p1 to p2, twice but one socket is kept
-      p1.connect(callback(p1, p2))
-      p2.connect(callback(p2, p1))
-
-      setTimeout(() => {
-        p1.send(p2.peer, "hello world")
-        console.log('%s neighbours: ', p1.peer, ...p1.neighbours())
-        console.log('%s neighbours: ', p2.peer, ...p2.neighbours())
-        sendMedia(p1, "2")
-        sendMedia(p2, "1")
-      }, 1000)
+      p1.connect(callback(p1, p2)).then(peer => {
+        console.log('%s is connected to %s', p1.PEER, peer)
+        p2.connect(callback(p2, p1)).then((peer) => {
+          console.log('%s is connected to %s', p2.PEER, peer)
+          p1.send(p2.PEER, "hello world")
+          console.log('%s neighbours: ', p1.PEER, ...p1.neighbours())
+          console.log('%s neighbours: ', p2.PEER, ...p2.neighbours())
+          sendMedia(p1, "2")
+          sendMedia(p2, "1")
+        }).catch(e => {
+          console.error('connecting p2 to p1: ', e)
+        })
+      }).catch(e => {
+        console.error('connecting p1 to p2: ', e)
+      })
 
       function sendMedia (fromProtocol, toId) {
-        console.log('SEND MEDIA FROM %s TO %s', fromProtocol.peer, toId)
+        console.log('SEND MEDIA FROM %s TO %s', fromProtocol.PEER, toId)
         navigator.mediaDevices.getUserMedia({
           video:true
         }).then((mediaStream) => {
-          const video = document.getElementById(fromProtocol.peer);
+          const video = document.getElementById(fromProtocol.PEER);
           try {
             video.srcObject = mediaStream;
           } catch (error) {
