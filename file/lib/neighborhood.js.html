@@ -67,7 +67,7 @@ const MRequest = require(&apos;./messages/mrequest.js&apos;)
 const MSend = require(&apos;./messages/msend.js&apos;)
 const MInternalSend = require(&apos;./messages/minternalsend.js&apos;)
 
-const ExIncompleteMessage = require(&apos;./exceptions/exincompletemessage.js&apos;)
+// const ExIncompleteMessage = require(&apos;./exceptions/exincompletemessage.js&apos;)
 
 /**
  * Easy-to-use interface to establish multiple WebRTC connections using
@@ -306,7 +306,10 @@ class Neighborhood extends Events {
       // #C just signal the offer
       entry.peer = msg.peer
       if (!msg.offer) {
-        throw new ExIncompleteMessage(&apos;_finalize&apos;, entry, msg)
+        // throw new ExIncompleteMessage(&apos;_finalize&apos;, entry, msg)
+        // do not do anything
+        // if the connection is not done, it will timeout
+        // otherwise it will open a channel
       } else {
         debug(&apos;[finalize] signaling: &apos;, msg)
         entry.socket.signal(msg.offer)
